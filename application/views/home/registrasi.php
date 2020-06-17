@@ -1,33 +1,43 @@
-<div class="container-fluid">
-<div class="row" style="background-color: #00CED9 ; padding-left: 5vh; padding-right: 20vh; color: white;">
-  <small><a href="#" style="text-decoration: none; color: white;">HOME</a>/REGISTER</small>
-</div>
-<div class="row">
-  
-  <div class="col-md-4 py-3  border border-white rounded" style="margin-top: 3em; margin-bottom: 8em; background-color:#FFFFFF;" >
-  <h5 style="font-weight: bolder; color: black; padding-left: 8em;"><strong>Registrasi</strong></h5></br>
-        <?= form_open(base_url('Home/register')); ?>
-        <form method="post">
-          <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="text" class="form-control" id="email" name="email">
+ 
+   <div class="container" style="margin-top: 150px; margin-bottom: 150px;">
+    <div class="row mt-3">
+      <div class="col">
+        <div class="card">
+          <div class="text-center">
+            <h3>Daftar</h3>
           </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" name="password">
+          <?php
+            echo "<p>". $this->session->flashdata('message')."</p>"; 
+          ?>
+          <div class="card-body">
+            
+            <form action="<?php base_url('Daftar/input') ?>" method="post">
+              <!-- Name -->  
+              <div class="form-group">
+                <input type="text" class="form-control" id="nama" name="nama" placeholder="Name">
+                <small class="form-text text-danger"><?= form_error('nama') ?></small>
+              </div>
+              <!-- Email -->
+              <div class="form-group">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                <small class="form-text text-danger"><?= form_error('email') ?></small>
+              </div>
+              <!-- Username -->
+              <div class="form-group">
+                <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                <small class="form-text text-danger"><?= form_error('username') ?></small>
+              </div>
+              <!-- Password -->
+              <div class="form-group">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                <small class="form-text text-danger"><?= form_error('password') ?></small>
+              </div>
+              <center>
+              	<button type="submit" name="send" class="btn btn-success" style="background-color: black;">Submit</button>
+              </center>   
+            </form>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="checkbox_policy">
-            <label class="form-check-label" for="checkbox_policy">Privacy policy short description</label>
-          </div>
-          <div class="col-md-12" style="padding-left:9em;">
-            <button type="submit" name="login" class="btn btn-outline-dark" style="font-weight: bold; font-size: 11px; ">Daftar</button>
-          </div>
-                       
-        </form>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col" style="background-image:url('../img/img6.jpg');">
-    
-  </div>
-</div>
-</div>
