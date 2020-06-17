@@ -8,7 +8,7 @@
   </div>
   <div class="col-md-4 py-3" style=" background-color: #D7D7D7;" >
   <h5 style="font-weight: bolder; color: black; padding-left: 9em; margin-top: 6em; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Masuk</strong></h5></br></br>
-     <?php // form_open(base_url('Home/login')); ?> 
+     <?php // form_open(base_url('MainController/login')); ?> 
     <form method="post">
       <div class="form-group">
         
@@ -29,7 +29,7 @@
         
       </div>
       <div class="form-group" style="margin-bottom:9em;">
-      <p style="font-size:13px; padding-left:10.5em; font-family: Lato; padding-top:10px;">Belum punya akun? <a href="<?php echo base_url().'Home/viewRegistrasi';?>" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Daftar Disni</u></small></a></p>
+      <p style="font-size:13px; padding-left:10.5em; font-family: Lato; padding-top:10px;">Belum punya akun? <a href="<?php echo base_url().'MainController/viewRegistrasi';?>" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Daftar Disni</u></small></a></p>
         
       </div>
 
