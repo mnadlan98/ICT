@@ -63,18 +63,15 @@
         </style>
     </head>
 
-<body style="background-image: url(../images/1.jpg); ">
+<body style="background-image: url(../images/5.jpg); ">
     <div class="parallax-content baner-content" id="home">
         <div class="container">
             <div class="first-content">
                 <div style="padding-bottom:12em;">
                 <h1 style="font-size: 75px;"></h1>
         </div>
-                <span><img src="../images/logo.jpg" style="position: absolute; left: 26.15%; right: 49.22%; top: 17.22%; bottom: 50.65%; border-radius:20px; width:280px; height:140px;"></span>
-                <span><img src="../images/telkom-logo.png" style="position: absolute; left: 48.7%; right: 39.27%; top: 28%; bottom: 44.07%; width:160px; height:80px;"></span>
+                
                 <div class="primary-button">
-                    <a href="<?php echo base_url().'MainController/viewLogin';?>" style="background: #D7D7D7; border: 2px solid #FFFFFF; box-sizing: border-box; border-radius: 8px; color:black;">Masuk</a>
-                    <a href="<?php echo base_url().'MainController/viewRegistrasi';?>" style="background: #BD0306; border-radius: 8px;">Daftar</a>
                 </div>
                 
             </div>

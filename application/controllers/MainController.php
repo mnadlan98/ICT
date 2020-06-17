@@ -29,4 +29,25 @@ class MainController extends CI_Controller {
 		$this->load->view('home/login');
 		$this->load->view('templates/footer');	
 	}
+
+	public function viewProfil(){
+		$data['title'] = 'Profil';
+		$this->load->view('templates/header', $data);
+		$this->load->view('home/profil');
+		$this->load->view('templates/footer');	
+	}
+
+	public function viewPengajuan(){
+		$data['title'] = 'Pengajuan';
+		$this->load->view('templates/header', $data);
+		$this->load->view('home/pengajuan');
+		$this->load->view('templates/footer');	
+	}
+
+	public function viewFeedback(){
+		$data['title'] = 'Feedback';
+		$this->load->view('templates/header', $data);
+		$this->load->view('home/profil');
+		$this->load->view('templates/footer');	
+	}
 }
