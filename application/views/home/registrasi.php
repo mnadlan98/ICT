@@ -42,7 +42,7 @@
             <i class="fa fa-key icon  " style="position: absolute; margin-bottom: 10px; top:386px; left:28px; "></i>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" id="password" name="password" placeholder="Ulangi Kata Sandi" style="padding-left:3em;">
+            <input type="password" class="form-control" id="password" name="password" placeholder="Ulangi Kata Sandi" style="padding-left:3em;">
             <i class="fa fa-key icon  " style="position: absolute; margin-bottom: 10px; top:440px; left:28px; "></i>
           </div>
           <div class="form-check">

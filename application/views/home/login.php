@@ -28,9 +28,19 @@
         </div>
         
       </div>
-      <div class="form-group" style="margin-bottom:9em;">
+      <div class="form-group" style="margin-bottom:7em;">
       <p style="font-size:13px; padding-left:10.5em; font-family: Lato; padding-top:10px;">Belum punya akun? <a href="<?php echo base_url().'MainController/viewRegistrasi';?>" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Daftar Disni</u></small></a></p>
         
+      </div>
+      <h5 style="font-size:14px; margin-left:13em;">Masuk sebagai admin</h5>
+      <div class="row">
+          
+          <div class="col-md-2" style="background-color:#BD0306; border-radius:15px; margin-left:12em;">
+            <a href="<?php echo base_url().'Home/loginDokter';?>" style="color: white; text-decoration: none;" onmouseover="this.style.color='red'"onmouseout="this.style.color='white'">Witel</a>
+          </div>
+          <div class="col-md-4" style="background-color:#BD0306; border-radius:15px; margin-left:0.25vh">
+            <a href="<?php echo base_url().'Home/loginAdmin';?>" style="color: white; text-decoration: none; font-size:15px;" onmouseover="this.style.color='red'"onmouseout="this.style.color='white'">Telkom Regional</a>
+          </div>
       </div>
 
     </form>

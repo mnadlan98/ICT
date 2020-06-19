@@ -8,75 +8,102 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <link rel="stylesheet" href="http://localhost/siskom-gunung/css/bootstrap.min.css">
-        <link rel="stylesheet" href="http://localhost/siskom-gunung/css/fontAwesome.css">
-        <link rel="stylesheet" href="http://localhost/siskom-gunung/css/hero-slider.css">
-        <link rel="stylesheet" href="http://localhost/siskom-gunung/css/templatemo-main.css">
-        <link rel="stylesheet" href="http://localhost/siskom-gunung/css/owl-carousel.css">
+        <link rel="stylesheet" href="http://localhost/ICT-gunung/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://localhost/ICT-gunung/css/fontAwesome.css">
+        <link rel="stylesheet" href="http://localhost/ICT-gunung/css/hero-slider.css">
+        <link rel="stylesheet" href="http://localhost/ICT-gunung/css/templatemo-main.css">
+        <link rel="stylesheet" href="http://localhost/ICT-gunung/css/owl-carousel.css">
 
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
-        <script src="http://localhost/siskom-gunung/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-        <style type="text/css">
-            .baner-content {
-              padding-top: 30vh;
-              text-align: center;
-              
-            }
-
-            .baner-content h1 {
-              margin-top: 0px;
-              font-size: 128px;
-              color: #fff;
-              font-weight: 900;
-              text-transform: uppercase;
-              margin-bottom: 0px;
-              transition-delay: 2s
-            }
-
-            .baner-content em {
-              color: #ff7d27;
-              font-weight: 600;
-              font-style: normal;
-              transition-delay: 2s;
-            }
-
-            .baner-content span {
-              display: inline-block;
-              margin-top: -20px;
-              font-weight: 300;
-              font-size: 48px;
-              color: #fff;
-            }
-
-            .baner-content .primary-button {
-              margin-top: 15px;
-            }
-
-            .service-content .left-text h4 {
-              font-size: 24px;
-              font-weight: 500;
-              color: #fff;
-            }
-
-            
-        </style>
+        <script src="http://localhost/ICT-gunung/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
 
 <body style="background-image: url(../images/5.jpg); ">
-    <div class="parallax-content baner-content" id="home">
-        <div class="container">
-            <div class="first-content">
-                <div style="padding-bottom:12em;">
-                <h1 style="font-size: 75px;"></h1>
-        </div>
-                
-                <div class="primary-button">
-                </div>
-                
+<div class="col-md-4 py-3" style="margin-left:32em; margin-top: 4em;" >
+  <h5 style="font-weight: bolder; color: black; padding-left: 10em; color:white; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Pengajuan ICT Tour</strong></h5></br></br>
+     <?php // form_open(base_url('MainController/register')); ?> 
+     <form method="post">
+          <div class="row">
+            <div>
+              <label style="font-size:15px; color:white; padding-right:3.62em;">Jumlah Siswa      </label>
             </div>
-        </div>
-    </div>
+            <div class="form-group col">
+              <input type="text" class="form-control" id="jumlah_siswa" name="jumlah_siswa" style="margin-left:12em; box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25)">
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label style="font-size:15px; color:white;">Tanggal Pelaksanaan</label>
+            </div>
+            <div class="form-group col">
+              <input type="text" class="form-control" id="tanggal_pelaksanaan" name="tanggal_pelaksanaan" style="margin-left:12em; box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25)">
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label style="font-size:15px; color:white;">Nama Pembimbing 1</label>
+            </div>
+            <div class="form-group col">
+              <input type="text" class="form-control" id="pembimbing1" name="pembimbing1" style="margin-left:12em; box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25)">
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label style="font-size:15px; color:white;">Nama Pembimbing 2</label>
+            </div>
+            <div class="form-group col">
+              <input type="text" class="form-control" id="pembimbing2" name="pembimbing2" style="margin-left:12em; box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25)">
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label style="font-size:15px; color:white;">Unggah Surat Permohonan</label>
+            </div>
+            <div class="form-group col">
+              <input type="file" class="form-control-file" id="surat_permohonan" style="margin-left:5.42em; color:white;">
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label style="font-size:15px; color:white;">Unggah Daftar Peserta (.csv / .xlsx)</label>
+            </div>
+            <div class="form-group col">
+              <input type="file" class="form-control-file" id="daftar_peserta" style="margin-left:1.82em; color:white;">
+            </div>
+          </div>          
+          <div class="row" style="padding-right:1.75em;">
+            <div>
+              <label style="font-size:15px; color:white;">Kabupaten / Kota</label>
+            </div>
+            <div class="form-group col">
+              <select class="form-control" id="kota" style="margin-left:14.5em; margin-right:10em;">
+                <option>Default select</option>
+              </select>
+            </div>
+          </div>  
+          <div class="row" style="padding-right:3em;">
+            <div>
+              <label style="font-size:15px; color:white;">Kantor Cabang</label>
+            </div>
+            <div class="form-group col">
+              <select class="form-control" id="kantor" style="margin-left:16.32em;">
+                <option>Default select</option>
+              </select>
+            </div>
+          </div> </br>
 
+          <div class="form-check" style="margin-left:3em;">
+            <input class="form-check-input" type="checkbox" id="checkbox_policy">
+            <label class="form-check-label" for="checkbox_policy" style="color:white; margin-left:12px; ">Saya menyetujui <a href="#">syarat dan ketentuan</a> yang berlaku</label>
+          </div> </br>
+          <div class="col-md-12" style="padding-left:15em;">
+          <button type="submit" name="login" class="btn btn-outline-dark" style="background: #BD0306; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 7px;font-weight: bold; font-size: 20px; font-family: Lato; color:white; border-color:white; ">Kirim</button>              
+        </div>
+        <div class="form-group" style="margin-bottom:7em; margin-left:2em;">
+          <p style="font-size:15px; margin-left:6.5em; font-family: Lato; padding-top:10px; color:white;">Unduh template surat pengajuan <a href="<?php echo base_url().'MainController/viewRegistrasi';?>" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Disini</u></small></a></p>
+        </div>               
+        </form>
+  </div>
 </body>
 </html>

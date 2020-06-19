@@ -47,7 +47,7 @@ class MainController extends CI_Controller {
 	public function viewFeedback(){
 		$data['title'] = 'Feedback';
 		$this->load->view('templates/header', $data);
-		$this->load->view('home/profil');
+		$this->load->view('home/feedback');
 		$this->load->view('templates/footer');	
 	}
 }
