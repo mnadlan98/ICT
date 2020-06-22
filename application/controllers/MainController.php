@@ -50,4 +50,18 @@ class MainController extends CI_Controller {
 		$this->load->view('home/feedback');
 		$this->load->view('templates/footer');	
 	}
+
+	public function viewAdminlogin(){
+		$data['title'] = 'Admin';
+		$this->load->view('templates/header', $data);
+		$this->load->view('home/adminlogin');
+		$this->load->view('templates/footer');	
+	}
+
+	public function viewForgetpass(){
+		$data['title'] = 'Forget Password';
+		$this->load->view('templates/header', $data);
+		$this->load->view('home/forgetpassword');
+		$this->load->view('templates/footer');	
+	}
 }
