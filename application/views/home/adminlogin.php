@@ -1,18 +1,14 @@
-<div class="container-fluid">
-
-<div class="row" style="background-color: #FFFFFF ; padding-left: 5vh; padding-right: 20vh; color: black;">
-</div>
+<div class="container-fluid" style="background-image:url('../images/7.jpg');">
 <div class="row">
-  <div class="col" style="background-image:url('../images/2.jpg');">
-  <img src="../images/logo.jpg" style="width:280px; height:140px; position: absolute; left: 630px; top: 40px;">
+  <div class="col" >
   </div>
-  <div class="col-md-4 py-3" style=" background-color: #D7D7D7;" >
-  <h5 style="font-weight: bolder; color: black; padding-left: 9em; margin-top: 6em; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Masuk</strong></h5></br></br>
+  <div class="col-md-4 py-3" style=" background-color: #222222; margin-right:27em; opacity:95%;" >
+  <h5 style="font-weight: bolder; color: white; padding-left: 9em; margin-top: 6em; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Masuk</strong></h5></br></br>
      <?php // form_open(base_url('MainController/login')); ?> 
     <form method="post">
       <div class="form-group">
         
-        <input type="email" class="form-control  " id="username_or_email" name="username_or_email" placeholder="Email Sekolah" style="padding-left:3em;">
+        <input type="email" class="form-control  " id="username_or_email" name="username_or_email" placeholder="Username" style="padding-left:3em;">
         <i class="fa fa-envelope icon fa-lg" style="position: absolute; margin-bottom: 10px; top:233px; left:25px; "></i>
       </div>
       <div class="form-group">
@@ -29,13 +25,13 @@
         
       </div>
       <div class="form-group" style="margin-bottom:7em;">
-      <p style="font-size:13px; padding-left:10.5em; font-family: Lato; padding-top:10px;">Belum punya akun? <a href="<?php echo base_url().'MainController/viewRegistrasi';?>" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Daftar Disni</u></small></a></p>
+      <p style="font-size:13px; padding-left:12em; font-family: Lato; padding-top:10px; color:white;">Registrasi Admin <a href="<?php echo base_url().'MainController/viewRegistrasi';?>" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Disni</u></small></a></p>
         
       </div>
       <div class="row">
           
           <div class="col-md-4" style="background-color:#BD0306; border-radius:15px; margin-left:18.5em;">
-            <a href="<?php echo base_url().'MainController/viewAdminlogin';?>" style="color: white; text-decoration: none; font-size:10px; margin-left:10px; margin-bottom:10px;" onmouseover="this.style.color='red'"onmouseout="this.style.color='white'">Masuk Sebagai Admin</a>
+            <a href="<?php echo base_url().'MainController/viewLogin';?>" style="color: white; text-decoration: none; font-size:10px" onmouseover="this.style.color='red'"onmouseout="this.style.color='white'">Masuk Sebagai Pengguna</a>
           </div>
       </div>
 
