@@ -49,16 +49,20 @@
             <a class="nav-link" onmouseover="this.style.color='red'" onmouseout="this.style.color='black'" href="" style="color: black; ">Beranda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" onmouseover="this.style.color='red'" onmouseout="this.style.color='black'" href="" style="color: black; ">Tentang Kami</a>
+            <a class="nav-link" onmouseover="this.style.color='red'" onmouseout="this.style.color='black'" href="" style="color: black; ">Tentang ICT Tour</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" onmouseover="this.style.color='red'" onmouseout="this.style.color='black'" href="" style="color: black; ">Kontak</a>
           </li>
+          <?php if ($this->session->userdata("user")['logged']): ?>
           <li class="nav-item">
-            <a class="nav-link" onmouseover="this.style.color='red'" onmouseout="this.style.color='black'" href="" style="color: black; ">Profil</a>
+            <a class="nav-link" href=""> Selamat Datang, <?= $this->session->userdata("user")['email_user'] ?>!</a>
           </li>
+          <li class="nav-item">
+                <a class="nav-link" href="<?= base_url(); ?>Login/logout">Logout</a>
+          </li>
+          <?php endif ?>
         </div>
-        
       </ul>
     </nav>
 </body>
