@@ -1,17 +1,14 @@
 <style>
-  .form-control{
-    -webkit-box-shadow: 0 8px 6px -6px #999;
-    -moz-box-shadow: 0 8px 6px -6px #999;
-    box-shadow: 0 8px 6px -6px #999;
-  }
+  
 </style>
+<link rel="stylesheet" href="http://localhost/ICT/css/daftar.css">
 <div class="container-fluid">
 
 <div class="row" style="background-color: #FFFFFF ; padding-left: 5vh; padding-right: 20vh; color: black;">
 </div>
 <div class="row">
-  <div class="col" style="background-image:url('../images/3.jpg');">
-  <img src="../images/logo.jpg" style="width:280px; height:140px; position: absolute; left: 630px; top: 40px;">
+  <div class="side col" >
+  <img src="../images/logo.jpg" style="width:280px; height:140px; position: absolute; left: 720px; top: 40px;">
   </div>
   <div class="col-md-4 py-3" style=" background-color: #D7D7D7;" >
   <h5 style="font-weight: bolder; color: black; padding-left: 9em; margin-top: 5px; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Daftar</strong></h5></br></br>
@@ -52,7 +49,7 @@
           <div class="col-md-12" style="padding-left:11em;">
           <button type="submit" name="login" class="btn btn-outline-dark" style="background: #BD0306; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 7px;font-weight: bold; font-size: 20px; font-family: Lato; color:white; ">Daftar</button>              
         </div>
-        <div class="form-group" style="">
+        <div class="form-group" style="margin-bottom:2em;">
           <p style="font-size:13px; padding-left:10.5em; font-family: Lato; padding-top:10px;">Sudah punya akun? <a href="<?php echo base_url().'MainController/viewLogin';?>" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Masuk Disni</u></small></a></p>
         </div>               
         </form>

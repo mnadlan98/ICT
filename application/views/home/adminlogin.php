@@ -1,22 +1,25 @@
-<div class="container-fluid" style="background-image:url('../images/7.jpg');">
+<link rel="stylesheet" href="http://localhost/ICT/css/adminlogin.css">
+<script src="http://localhost/ICT/script/forgetpass.js" ></script>
+<div class="container-fluid">
 <div class="row">
-  <div class="col" >
+  <div class="side col" >
+  <img src="../images/logo.jpg" style="width:280px; height:140px; position: absolute; left:720px; top: 40px;">
   </div>
-  <div class="col-md-4 py-3" style=" background-color: #222222; margin-right:27em; opacity:95%;" >
-  <h5 style="font-weight: bolder; color: white; padding-left: 9em; margin-top: 6em; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Masuk</strong></h5></br></br>
+  <div class="col-md-4 py-3" style=" background-color: #222222;">
+  <h5 style="font-weight: bolder; color: white; padding-left: 9em; margin-top: 8em; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Masuk</strong></h5></br></br>
      <?php // form_open(base_url('MainController/login')); ?> 
     <form method="post">
       <div class="form-group">
         
         <input type="email" class="form-control  " id="username_or_email" name="username_or_email" placeholder="Username" style="padding-left:3em;">
-        <i class="fa fa-envelope icon fa-lg" style="position: absolute; margin-bottom: 10px; top:233px; left:25px; "></i>
+        <i class="fa fa-envelope icon fa-lg" style="position: absolute; margin-bottom: 10px; top:274px; left:25px; "></i>
       </div>
       <div class="form-group">
         <input type="password" class="form-control" id="password" name="password" placeholder="Kata Sandi" style="padding-left:3em;">
-        <i class="fa fa-lock icon fa-lg" style="position: absolute; margin-bottom: 10px; top:284px; left:27px; "></i>
+        <i class="fa fa-lock icon fa-lg" style="position: absolute; margin-bottom: 10px; top:325px; left:27px; "></i>
       </div>
       <div class="form-group">
-        <a href="<?php echo base_url().'MainController/viewForgetpass';?>" style="color: light-blue; text-decoration: none; padding-left:1vh; font-family: Lato;"><small><u>Lupa Password?</u></small></a>
+        <a href="#" onclick="forgetpass()" style="color: light-blue; text-decoration: none; padding-left:1vh; font-family: Lato;"><small><u>Lupa Password?</u></small></a>
       </div>
       <div class="row">
         <div class="col-md-12" style="padding-left:12em;">
@@ -24,7 +27,7 @@
         </div>
         
       </div>
-      <div class="form-group" style="margin-bottom:7em;">
+      <div class="form-group" style="margin-bottom:14em;">
       <p style="font-size:13px; padding-left:12em; font-family: Lato; padding-top:10px; color:white;">Registrasi Admin <a href="<?php echo base_url().'MainController/viewRegistrasi';?>" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Disni</u></small></a></p>
         
       </div>

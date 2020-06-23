@@ -8,18 +8,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <link rel="stylesheet" href="http://localhost/ICT-gunung/css/bootstrap.min.css">
-        <link rel="stylesheet" href="http://localhost/ICT-gunung/css/fontAwesome.css">
-        <link rel="stylesheet" href="http://localhost/ICT-gunung/css/hero-slider.css">
-        <link rel="stylesheet" href="http://localhost/ICT-gunung/css/templatemo-main.css">
-        <link rel="stylesheet" href="http://localhost/ICT-gunung/css/owl-carousel.css">
+        <link rel="stylesheet" href="http://localhost/ICT/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://localhost/ICT/css/fontAwesome.css">
+        <link rel="stylesheet" href="http://localhost/ICT/css/hero-slider.css">
+        <link rel="stylesheet" href="http://localhost/ICT/css/templatemo-main.css">
+        <link rel="stylesheet" href="http://localhost/ICT/css/owl-carousel.css">
+        <link rel="stylesheet" href="http://localhost/ICT/css/feedback.css">
 
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800" rel="stylesheet">
 
-        <script src="http://localhost/ICT-gunung/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="http://localhost/ICT/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
 
-<body style="background-image: url(../images/6.jpg); ">
+<body>
 <div class="col-md-12 py-3" style="padding-right:5em;">
   <h5 style="font-weight: bolder; color: black; margin-top: 5px; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Feedback</strong></h5></br></br>
      <?php // form_open(base_url('MainController/register')); ?> 
@@ -51,12 +52,12 @@
             
           </div>
           <div class="form-group">
-          <label>Kritik untuk ICT Tour</label>
+          <label>Saran untuk ICT Tour</label>
             <input type="text-lg" class="form-control" id="saran" name="saran" >
             
           </div>
-          <div class="col-md-12" style="padding-left:75em; margin-bottom:12em;">
-          <button type="submit" name="login" class="btn btn-outline-dark" style="background: #BD0306; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 7px;font-weight: bold; font-size: 20px; font-family: Lato; color:white; ">Daftar</button>              
+          <div class="col-md-12" style="margin-left:97em; margin-bottom:20em; margin-top:2em;">
+          <button type="submit" name="login" class="btn btn-outline-dark" style="background: #BD0306; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 7px;font-weight: bold; font-size: 20px; font-family: Lato; color:white; ">Kirim</button>              
           </div>             
         </form>
   </div>

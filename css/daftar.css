@@ -1,0 +1,16 @@
+.side {
+    min-height:100%;
+    background-attachment: local;
+    background-image:url(../images/daftar.jpg);
+    background-size:cover;
+    background-position:top; 
+    background-repeat: no-repeat;
+    max-width:100%;
+    height:auto;
+  }
+
+.form-control{
+    -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
+  }
