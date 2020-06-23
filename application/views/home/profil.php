@@ -13,8 +13,9 @@
         <link rel="stylesheet" href="http://localhost/ICT/css/hero-slider.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/templatemo-main.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/owl-carousel.css">
+        <link rel="stylesheet" href="http://localhost/ICT/css/profil.css">
 
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800" rel="stylesheet">
 
         <script src="http://localhost/ICT/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
@@ -22,4 +23,3 @@
 <body style="background-image: url(../images/4.jpg); ">
 
 </body>
-</html>
