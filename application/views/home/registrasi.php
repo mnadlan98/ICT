@@ -14,27 +14,27 @@
   <h5 style="font-weight: bolder; color: black; padding-left: 9em; margin-top: 5px; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Daftar</strong></h5></br></br>
       <?php echo form_open('register');?>
           <div class="form-group">
-            <input type="text" class="form-control" id="kode_sekolah" name="Kode_Sekolah" placeholder="Kode Sekolah" value="<?php echo set_value('kode_sekolah'); ?>" style="padding-left:3em;">
+            <input type="text" class="form-control" id="kode_sekolah" name="kode_sekolah" placeholder="Kode Sekolah" value="<?php echo set_value('kode_sekolah'); ?>" style="padding-left:3em;">
             <i class="fa fa-id-card icon  " style="position: absolute; margin-bottom: 10px; top:118px; left:28px; "></i>
-            <small class="form-text text-danger"><?php echo form_error('kode_sekolahe'); ?></small>
+            <small class="form-text text-danger"><?php echo form_error('kode_sekolah'); ?></small>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" id="nama_sekolah" name="Nama_Sekolah" placeholder="Nama Sekolah" value="<?php echo set_value('nama_sekolah'); ?>" style="padding-left:3em;">
+            <input type="text" class="form-control" id="nama_sekolah" name="nama_sekolah" placeholder="Nama Sekolah" value="<?php echo set_value('nama_sekolah'); ?>" style="padding-left:3em;">
             <i class="fa fa-school icon  " style="position: absolute; margin-bottom: 10px; top:170px; left:28px; "></i>
             <small class="form-text text-danger"><?php echo form_error('nama_sekolah'); ?></small>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" id="email_sekolah" name="Email_Sekolah"  placeholder="Email Sekolah" value="<?php echo set_value('email_sekolah'); ?>" style="padding-left:3em;">
+            <input type="text" class="form-control" id="email_sekolah" name="email_sekolah"  placeholder="Email Sekolah" value="<?php echo set_value('email_sekolah'); ?>" style="padding-left:3em;">
             <i class="fa fa-envelope icon  " style="position: absolute; margin-bottom: 10px; top:225.5px; left:29px; "></i>
             <small class="form-text text-danger"><?php echo form_error('email_sekolah'); ?></small>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" id="alamat_sekolah" name="Alamat_Sekolah" placeholder="Alamat Sekolah" value="<?php echo set_value('alamat_sekolah'); ?>" style="padding-left:3em;">
+            <input type="text" class="form-control" id="alamat_sekolah" name="alamat_sekolah" placeholder="Alamat Sekolah" value="<?php echo set_value('alamat_sekolah'); ?>" style="padding-left:3em;">
             <i class="fa fa-map-marker icon  " style="position: absolute; margin-bottom: 10px; top:278px; left:32px; "></i>
             <small class="form-text text-danger"><?php echo form_error('alamat_sekolah'); ?></small>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" id="notelp_sekolah" name="notelp_sekolah" placeholder="Nomor Telepon Sekolah" value="<?php echo set_value('notelp_sekolah'); ?>" style="padding-left:3em;">
+            <input type="number" class="form-control" id="notelp_sekolah" name="notelp_sekolah" placeholder="Nomor Telepon Sekolah" value="<?php echo set_value('notelp_sekolah'); ?>" style="padding-left:3em;">
             <i class="fa fa-phone icon  " style="position: absolute; margin-bottom: 10px; top:332px; left:28px; "></i>
             <small class="form-text text-danger"><?php echo form_error('notelp_sekolah'); ?></small>
           </div>
@@ -45,12 +45,12 @@
           </div>
           <div class="form-group">
             <input type="password" class="form-control" id="password" name="password" placeholder="Kata Sandi" value="<?php echo set_value('password'); ?>" style="padding-left:3em;">
-            <i class="fa fa-key icon  " style="position: absolute; margin-bottom: 10px; top:386px; left:28px; "></i>
+            <i class="fa fa-key icon  " style="position: absolute; margin-bottom: 10px; top:440px; left:28px; "></i>
             <small class="form-text text-danger"><?php echo form_error('password'); ?></small>
           </div>
           <div class="form-group">
             <input type="password" class="form-control" id="password" name="password_conf" placeholder="Ulangi Kata Sandi" value="<?php echo set_value('password_conf'); ?>" style="padding-left:3em;">
-            <i class="fa fa-key icon  " style="position: absolute; margin-bottom: 10px; top:440px; left:28px; "></i>
+            <i class="fa fa-key icon  " style="position: absolute; margin-bottom: 10px; top:494px; left:28px; "></i>
             <small class="form-text text-danger"><?php echo form_error('password_conf'); ?></small>
           </div>
           <div class="form-check">
@@ -58,12 +58,13 @@
             <label class="form-check-label" for="checkbox_policy">Saya menyetujui <a href="#">syarat dan ketentuan</a> yang berlaku</label>
           </div> </br>
           <div class="col-md-12" style="padding-left:11em;">
-          <button type="submit" name="login" class="btn btn-outline-dark" style="background: #BD0306; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 7px;font-weight: bold; font-size: 20px; font-family: Lato; color:white; ">Daftar</button>              
+          <button type="submit" name="btnSubmit" class="btn btn-outline-dark" style="background: #BD0306; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 7px;font-weight: bold; font-size: 20px; font-family: Lato; color:white; " value="Daftar">Daftar</button>              
         </div>
+      <?php echo form_close();?>
         <div class="form-group" style="margin-bottom:2em;">
           <p style="font-size:13px; padding-left:10.5em; font-family: Lato; padding-top:10px;">Sudah punya akun? <a href="<?php echo base_url().'MainController/viewLogin';?>" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Masuk Disni</u></small></a></p>
         </div>               
-      <?php echo form_close();?>
+      
   </div>
 </div>
 </div>
