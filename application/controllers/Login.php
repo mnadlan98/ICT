@@ -11,7 +11,7 @@ class Login extends CI_Controller {
     public function inputlogin() {
         $this->form_validation->set_rules('email_user','email_user','trim|required');
         $this->form_validation->set_rules('password','password','trim|required');
-        $data['judul'] = "Login";
+        $data['title'] = "Login";
         if ($this->form_validation->run() == true) {
             $login = $this->Login_model->checklogin($this->input->post('email_user'), $this->input->post('password'));
             if ($login == 1) {

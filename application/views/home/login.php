@@ -15,7 +15,7 @@
       <div class="form-group">
         
         <input type="email" class="form-control  " id="email_user" name="email_user" placeholder="Email" style="padding-left:3em;">
-        <i class="fa fa-envelope icon fa-lg" style="position: absolute; margin-bottom: 10px; top:233px; left:25px; "></i>
+        <i class="fa fa-envelope icon fa-lg" style="position: absolute; margin-bottom: 10px; top:273px; left:25px; "></i>
       </div>
       <div class="form-group">
         <input type="password" class="form-control" id="password" name="password" placeholder="Kata Sandi" style="padding-left:3em;">

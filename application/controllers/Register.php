@@ -20,10 +20,7 @@ class Register extends CI_Controller {
         $this->form_validation->set_rules('password','Kata Sandi','required');
         $this->form_validation->set_rules('password_conf','Konfirmasi Ulang','required|matches[password]');
         if($this->form_validation->run() == FALSE) {
-            $title['title'] = 'Registrasi';
-            $this->load->view('templates/header', $title);
-		    $this->load->view('home/registrasi');
-            $this->load->view('templates/footer');
+            site_url('register/index');
         }else{
             $data['id_user']        =  rand(0,1000);
             $data['kode_sekolah']   =  $this->input->post('kode_sekolah');
@@ -34,12 +31,12 @@ class Register extends CI_Controller {
             $data['email_user']     =  $this->input->post('email_user');
             $data['password']       =  md5($this->input->post('password'));
  
-            $this->Register_model->daftar($data);
-            echo 'Pendaftaran Berhasil';
-            $title['title'] = 'Registrasi';
-            $this->load->view('templates/header', $title);
-		    $this->load->view('home/registrasi');
-            $this->load->view('templates/footer'); 
+            $this->Register_model->daftar($data);	
+            redirect(site_url('MainController/index')); 
         }
+        $title['title'] = 'Registrasi';
+		$this->load->view('templates/header', $title);
+		$this->load->view('home/registrasi');
+		$this->load->view('templates/footer');	
     }
 }
