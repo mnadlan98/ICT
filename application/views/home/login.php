@@ -10,12 +10,11 @@
   </div>
   <div class="col-md-4 py-3" style=" background-color: #D7D7D7;" >
   <h5 style="font-weight: bolder; color: black; padding-left: 9em; margin-top: 8em; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Masuk</strong></h5></br></br>
-     <?php // form_open(base_url('MainController/login')); ?> 
     <form action="<?php base_url('login/inputlogin') ?>" method="post">
       <div class="form-group">
         
         <input type="email" class="form-control  " id="email_user" name="email_user" placeholder="Email" style="padding-left:3em;">
-        <i class="fa fa-envelope icon fa-lg" style="position: absolute; margin-bottom: 10px; top:274px; left:25px; "></i>
+        <i class="fa fa-envelope icon fa-lg" style="position: absolute; margin-bottom: 10px; top:273px; left:25px; "></i>
       </div>
       <div class="form-group">
         <input type="password" class="form-control" id="password" name="password" placeholder="Kata Sandi" style="padding-left:3em;">

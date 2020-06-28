@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="http://localhost/ICT/css/templatemo-main.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/owl-carousel.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/home.css">
+        <link rel="stylesheet" href="http://localhost/ICT/css/animate.min.css">
 
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800" rel="stylesheet">
 
@@ -27,7 +28,8 @@
         <span><img src="../images/telkom-logo.png" style="position: absolute; left: 48.7%; right: 39.27%; top: 28%; bottom: 44.07%; width:160px; height:80px;"></span>
         <div class="parallax-content baner-content" id="home">
             <div class="container">
-                <div class="first-content">             
+                <div class="first-content"> 
+                               
                     <?php if ($this->session->userdata("user")['logged']): ?>
                         <div class="primary-button">
                             <a href="<?php echo base_url().'MainController/viewPengajuan';?>" style="background: #BD0306; border-radius: 8px;">Pengajuan ICT Tour</a>
@@ -55,5 +57,39 @@
             </div>      
         </div>
     </section>
+    <section id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Services</h2>
+                <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="box wow fadeInLeft" >
+                    <h4>Hell</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="box wow fadeInRight">
+                    <h4>Hell</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="box wow fadeInLeft" data-wow-delay="0.2s" >
+                    <h4>Hell</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="box wow fadeInRight" data-wow-delay="0.2s" >
+                    <h4>Hell</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
 </body>
+
+<script src="http://localhost/ICT/script/wow.min.js"></script>
+<script src="http://localhost/ICT/script/wow.js"></script>
+<script src="http://localhost/ICT/script/main.js"></script>

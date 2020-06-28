@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="http://localhost/ICT/css/hero-slider.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/templatemo-main.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/owl-carousel.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/home.css">
+        <link rel="stylesheet" href="http://localhost/ICT/css/userpage.css">
 
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800" rel="stylesheet">
 
@@ -27,7 +27,8 @@
         <span><img src="../images/telkom-logo.png" style="position: absolute; left: 48.7%; right: 39.27%; top: 28%; bottom: 44.07%; width:160px; height:80px;"></span>
         <div class="parallax-content baner-content" id="home">
             <div class="container">
-                <div class="first-content">             
+                <div class="first-content">
+                <span>Selamat Datang</span>              
                     <?php if ($this->session->userdata("user")['logged']): ?>
                         <div class="primary-button">
                             <a href="<?php echo base_url().'MainController/viewPengajuan';?>" style="background: #BD0306; border-radius: 8px;">Pengajuan ICT Tour</a>

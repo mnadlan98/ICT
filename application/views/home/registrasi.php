@@ -12,7 +12,7 @@
   </div>
   <div class="col-md-4 py-3" style=" background-color: #D7D7D7;" >
   <h5 style="font-weight: bolder; color: black; padding-left: 9em; margin-top: 5px; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Daftar</strong></h5></br></br>
-      <?php echo form_open('register');?>
+      <?php echo form_open('Register/index');?>
           <div class="form-group">
             <input type="text" class="form-control" id="kode_sekolah" name="kode_sekolah" placeholder="Kode Sekolah" value="<?php echo set_value('kode_sekolah'); ?>" style="padding-left:3em;">
             <i class="fa fa-id-card icon  " style="position: absolute; margin-bottom: 10px; top:118px; left:28px; "></i>
