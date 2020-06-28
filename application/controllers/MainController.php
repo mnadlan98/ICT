@@ -58,10 +58,13 @@ class MainController extends CI_Controller {
 		$this->load->view('templates/footer');	
 	}
 
-	public function viewForgetpass(){
-		$data['title'] = 'Forget Password';
+	public function userpage()
+	{
+		$data['title'] = 'Selamat Datang';
 		$this->load->view('templates/header', $data);
-		$this->load->view('home/forgetpassword');
-		$this->load->view('templates/footer');	
+		$this->load->view('home/userhomepage');
+		$this->load->view('templates/footer');
 	}
+
+	
 }

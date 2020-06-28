@@ -15,7 +15,7 @@
       <div class="form-group">
         
         <input type="email" class="form-control  " id="email_user" name="email_user" placeholder="Email" style="padding-left:3em;">
-        <i class="fa fa-envelope icon fa-lg" style="position: absolute; margin-bottom: 10px; top:233px; left:25px; "></i>
+        <i class="fa fa-envelope icon fa-lg" style="position: absolute; margin-bottom: 10px; top:274px; left:25px; "></i>
       </div>
       <div class="form-group">
         <input type="password" class="form-control" id="password" name="password" placeholder="Kata Sandi" style="padding-left:3em;">
@@ -33,6 +33,12 @@
       <div class="form-group" style="margin-bottom:10em;">
       <p style="font-size:13px; padding-left:10.5em; font-family: Lato; padding-top:10px;">Belum punya akun? <a href="<?php echo base_url().'MainController/viewRegistrasi';?>" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Daftar Disni</u></small></a></p>
         
+      </div>
+      <div class="row">
+          
+          <div class="col-md-4" style="background-color:#BD0306; border-radius:15px; margin-left:18.5em;">
+            <a href="<?php echo base_url().'MainController/viewAdminlogin';?>" style="color: white; text-decoration: none; font-size:10px" onmouseover="this.style.color='red'"onmouseout="this.style.color='white'">Masuk Sebagai Admin</a>
+          </div>
       </div>
 
     </form>
