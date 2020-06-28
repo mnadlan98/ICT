@@ -22,23 +22,25 @@
 
 <body>
     <section>
-        <span><img src="../images/logo.jpg" style="position: absolute; left: 26.15%; right: 49.22%; top: 17.22%; bottom: 50.65%; border-radius:20px; width:280px; height:140px;"></span> 
-        <h5  style="position: absolute; left: 46%; right: 49.22%; top: 29%; bottom: 50.65%; border-radius:20px; width:280px; height:140px;"><strong>oleh</strong></h5>
-        <span><img src="../images/telkom-logo.png" style="position: absolute; left: 48.7%; right: 39.27%; top: 28%; bottom: 44.07%; width:160px; height:80px;"></span>
+        <span><img src="../images/logo.jpg" style="position: absolute; left: 33%; right: 30%; top: 27.5%; bottom: 50.65%; border-radius:20px; width:280px; height:140px;"></span> 
+        <h5  style="position: absolute; left: 53%; right: 49.22%; top: 37.5%; bottom: 50.65%; border-radius:20px; width:280px; height:140px;"><strong>oleh</strong></h5>
+        <span><img src="../images/telkom-logo.png" style="position: absolute; left: 58 %; right: 34%; top: 34.5%; bottom: 44.07%; width:160px; height:80px;"></span>
         <div class="parallax-content baner-content" id="home">
             <div class="container">
                 <div class="first-content">
-                <span>Selamat Datang</span>              
-                    <?php if ($this->session->userdata("user")['logged']): ?>
-                        <div class="primary-button">
-                            <a href="<?php echo base_url().'MainController/viewPengajuan';?>" style="background: #BD0306; border-radius: 8px;">Pengajuan ICT Tour</a>
-                        </div>
-                    <?php else: ?>
+                <?php $str=explode('@',$this->session->userdata('email'))?>
+                <h1 style="font-size: 75px">Selamat Datang <?php echo $str[0] ;  ?> </h1>
+                <div class="row buttons">     
                     <div class="primary-button">
-                        <a href="<?php echo base_url().'Login/inputlogin';?>" style="background: #D7D7D7; border: 2px solid #FFFFFF; box-sizing: border-box; border-radius: 8px; color:black;">Masuk</a>
-                        <a href="<?php echo base_url().'MainController/viewRegistrasi';?>" style="background: #BD0306; border-radius: 8px;">Daftar</a>
+                        <a href="<?php echo base_url().'Login/inputlogin';?>" style="background: #BD0306; border-radius: 8px;">Profil</a>
                     </div>
-                    <?php endif ?>
+                    <div class="primary-button">
+                        <a href="<?php echo base_url().'Login/inputlogin';?>" style="background: #BD0306; border-radius: 8px;">Pengajuan</a>
+                    </div>
+                    <div class="primary-button">
+                        <a href="<?php echo base_url().'Login/inputlogin';?>" style="background: #BD0306; border-radius: 8px;">Riwayat</a>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
