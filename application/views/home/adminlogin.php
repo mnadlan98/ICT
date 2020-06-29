@@ -33,8 +33,8 @@
       </div>
       <div class="row">
           
-          <div class="col-md-4" style="background-color:#BD0306; border-radius:15px; margin-left:18.5em;">
-            <a href="<?php echo base_url().'MainController/viewLogin';?>" style="color: white; text-decoration: none; font-size:10px" onmouseover="this.style.color='red'"onmouseout="this.style.color='white'">Masuk Sebagai Pengguna</a>
+          <div class="col" style=" margin-left:24em;">
+          <a class="btn btn-outline-dark" href="<?php echo base_url().'MainController/viewLogin';?>" style="background: #BD0306; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 7px;font-weight: bold; font-size: 20px; font-family: Lato; color:white; ">User</a>            
           </div>
       </div>
 

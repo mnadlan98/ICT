@@ -10,7 +10,7 @@ class Register extends CI_Controller {
     }
  
     public function index() {
- 
+        $title['title'] = "Daftar";
         $this->form_validation->set_rules('kode_sekolah', 'Kode Sekolah','required');
         $this->form_validation->set_rules('nama_sekolah', 'Nama Sekolah','required');
         $this->form_validation->set_rules('email_sekolah', 'Email Sekolah','required|valid_email');
@@ -20,7 +20,7 @@ class Register extends CI_Controller {
         $this->form_validation->set_rules('password','Kata Sandi','required');
         $this->form_validation->set_rules('password_conf','Konfirmasi Ulang','required|matches[password]');
         if($this->form_validation->run() == FALSE) {
-            site_url('register/index');
+            site_url('Register/index');
         }else{
             $data['id_user']        =  rand(0,1000);
             $data['kode_sekolah']   =  $this->input->post('kode_sekolah');
@@ -31,12 +31,22 @@ class Register extends CI_Controller {
             $data['email_user']     =  $this->input->post('email_user');
             $data['password']       =  md5($this->input->post('password'));
  
-            $this->Register_model->daftar($data);	
+            $this->Register_model->daftar($data);
             redirect(site_url('MainController/index')); 
         }
-        $title['title'] = 'Registrasi';
-		$this->load->view('templates/header', $title);
-		$this->load->view('home/registrasi');
-		$this->load->view('templates/footer');	
+        $this->load->view('templates/header',$title);
+        $this->load->view("home/registrasi");
+        $this->load->view('templates/footer');
+    }
+
+    function get_autocomplete(){
+        if (isset($_GET['term'])) {
+            $result = $this->Register_model->search_nama($_GET['term']);
+            if (count($result) > 0) {
+            foreach ($result as $row)
+                $arr_result[] = $row->Nama_Sekolah;
+                echo json_encode($arr_result);
+            }
+        }
     }
 }

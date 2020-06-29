@@ -10,15 +10,18 @@
   </div>
   <div class="col-md-4 py-3" style=" background-color: #D7D7D7;" >
   <h5 style="font-weight: bolder; color: black; padding-left: 9em; margin-top: 8em; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Masuk</strong></h5></br></br>
+     <?php // form_open(base_url('MainController/login')); ?> 
     <form action="<?php base_url('login/inputlogin') ?>" method="post">
       <div class="form-group">
         
         <input type="email" class="form-control  " id="email_user" name="email_user" placeholder="Email" style="padding-left:3em;">
         <i class="fa fa-envelope icon fa-lg" style="position: absolute; margin-bottom: 10px; top:273px; left:25px; "></i>
+        <small class="form-text text-danger"><?php echo form_error('email_user'); ?></small>
       </div>
       <div class="form-group">
         <input type="password" class="form-control" id="password" name="password" placeholder="Kata Sandi" style="padding-left:3em;">
         <i class="fa fa-lock icon fa-lg" style="position: absolute; margin-bottom: 10px; top:325px; left:27px; "></i>
+        <small class="form-text text-danger"><?php echo form_error('password'); ?></small>
       </div>
       <div class="form-group">
         <a href="#" onclick="forgetpass()" style="color: light-blue; text-decoration: none; padding-left:1vh; font-family: Lato;" ><small><u>Lupa Password?</u></small></a>
@@ -33,12 +36,9 @@
       <p style="font-size:13px; padding-left:10.5em; font-family: Lato; padding-top:10px;">Belum punya akun? <a href="<?php echo base_url().'MainController/viewRegistrasi';?>" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Daftar Disni</u></small></a></p>
         
       </div>
-      <div class="row">
-          
-          <div class="col-md-4" style="background-color:#BD0306; border-radius:15px; margin-left:18.5em;">
-            <a href="<?php echo base_url().'MainController/viewAdminlogin';?>" style="color: white; text-decoration: none; font-size:10px" onmouseover="this.style.color='red'"onmouseout="this.style.color='white'">Masuk Sebagai Admin</a>
-          </div>
-      </div>
+      <div class="col-md-12" style="padding-left:24em;">
+          <a class="btn btn-outline-dark" href="<?php echo base_url().'MainController/viewAdminlogin';?>" style="background: #BD0306; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 7px;font-weight: bold; font-size: 20px; font-family: Lato; color:white; ">Admin</a>              
+        </div>
 
     </form>
   </div>
