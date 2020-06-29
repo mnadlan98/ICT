@@ -14,17 +14,17 @@
   <h5 style="font-weight: bolder; color: black; padding-left: 9em; margin-top: 5px; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Daftar</strong></h5></br></br>
       <?php echo form_open('Register/index');?>
           <div class="form-group">
-          <select class="form-control" id="kantor" style="margin-left:0em;">
-                <option>Jenjang Sekolah</option>
-                <option>SD</option>
-                <option>SMP</option>
-                <option>SMA/SMK</option>
-              </select>
+            <input type="text" class="form-control" id="jenjang_sekolah" name="jenjang_sekolah" placeholder="Jenjang Sekolah" value="<?php echo set_value('kode_sekolah'); ?>" style="padding-left:3em;">
+            <i class="fa fa-id-card icon  " style="position: absolute; margin-bottom: 10px; top:118px; left:28px; "></i>
+            <small class="form-text text-danger"><?php echo form_error('kode_sekolah'); ?></small>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" id="nama_sekolah" name="nama_sekolah" placeholder="Nama Sekolah" value="<?php echo set_value('nama_sekolah'); ?>" style="padding-left:3em;">
-            <i class="fa fa-school icon  " style="position: absolute; margin-bottom: 10px; top:170px; left:28px; "></i>
-            <small class="form-text text-danger"><?php echo form_error('nama_sekolah'); ?></small>
+            <input type="text" class="form-control" id="kodya_sekolah" name="kodya_sekolah" placeholder="Kodya/Kabupaten" value="<?php echo set_value('kode_sekolah'); ?>" style="padding-left:3em;">
+            <i class="fa fa-id-card icon  " style="position: absolute; margin-bottom: 10px; top:118px; left:28px; "></i>
+            <small class="form-text text-danger"><?php echo form_error('kode_sekolah'); ?></small>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="nama_sekolah" name="nama_sekolah" placeholder="Nama Sekolah" value="" style="padding-left:3em;">
           </div>
           <div class="form-group">
             <input type="text" class="form-control" id="email_sekolah" name="email_sekolah"  placeholder="Email Sekolah" value="<?php echo set_value('email_sekolah'); ?>" style="padding-left:3em;">
@@ -32,19 +32,24 @@
             <small class="form-text text-danger"><?php echo form_error('email_sekolah'); ?></small>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" id="alamat_sekolah" name="alamat_sekolah" placeholder="Alamat Sekolah" value="<?php echo set_value('alamat_sekolah'); ?>" style="padding-left:3em;">
-            <i class="fa fa-map-marker icon  " style="position: absolute; margin-bottom: 10px; top:278px; left:32px; "></i>
-            <small class="form-text text-danger"><?php echo form_error('alamat_sekolah'); ?></small>
-          </div>
-          <div class="form-group">
             <input type="number" class="form-control" id="notelp_sekolah" name="notelp_sekolah" placeholder="Nomor Telepon Sekolah" value="<?php echo set_value('notelp_sekolah'); ?>" style="padding-left:3em;">
             <i class="fa fa-phone icon  " style="position: absolute; margin-bottom: 10px; top:332px; left:28px; "></i>
             <small class="form-text text-danger"><?php echo form_error('notelp_sekolah'); ?></small>
           </div>
           <div class="form-group">
+            <input type="text" class="form-control" id="nama_user" name="nama_user" placeholder="Nama Pengguna" value="<?php echo set_value('kode_sekolah'); ?>" style="padding-left:3em;">
+            <i class="fa fa-id-card icon  " style="position: absolute; margin-bottom: 10px; top:118px; left:28px; "></i>
+            <small class="form-text text-danger"><?php echo form_error('kode_sekolah'); ?></small>
+          </div>
+          <div class="form-group">
             <input type="email" class="form-control" id="email_user" name="email_user" placeholder="Email Pengguna" value="<?php echo set_value('email_user'); ?>" style="padding-left:3em;">
             <i class="fa fa-envelope icon  " style="position: absolute; margin-bottom: 10px; top:386px; left:28px; "></i>
             <small class="form-text text-danger"><?php echo form_error('email_user'); ?></small>
+          </div>
+          <div class="form-group">
+            <input type="number" class="form-control" id="notelp_user" name="notelp_user" placeholder="Nomor Telepon Pengguna" value="<?php echo set_value('notelp_sekolah'); ?>" style="padding-left:3em;">
+            <i class="fa fa-phone icon  " style="position: absolute; margin-bottom: 10px; top:332px; left:28px; "></i>
+            <small class="form-text text-danger"><?php echo form_error('notelp_sekolah'); ?></small>
           </div>
           <div class="form-group">
             <input type="password" class="form-control" id="password" name="password" placeholder="Kata Sandi" value="<?php echo set_value('password'); ?>" style="padding-left:3em;">
