@@ -23,7 +23,10 @@
 </head>
 
 <body >
-<div class="header sticky-top">
+<div class="header sticky-top" style="box-shadow: 0px 10px 5px #27272780;
+  -webkit-box-shadow: 0px 5px 5px #27272780;
+  -moz-box-shadow: 0px 5px 5px #27272780;
+  z-index: 999999; border-bottom:2px solid red;">
   <a href="<?php echo base_url().'MainController/index';?>" class="logo"><img src="../images/Indihome-Study-red.png"></a>
   <div class="header-right">
     <a class="item" href="#home">Beranda</a>
