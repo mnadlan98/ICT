@@ -66,5 +66,20 @@ class MainController extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 
+	public function review()
+	{
+		$data['title'] = 'ICT Tour';
+		$this->load->view('templates/header', $data);
+		$this->load->view('home/review');
+		$this->load->view('templates/footer');
+	}
+
+	public function history()
+	{
+		$data['title'] = 'ICT Tour';
+		$this->load->view('templates/header', $data);
+		$this->load->view('home/history');
+		$this->load->view('templates/footer');
+	}
 	
 }
