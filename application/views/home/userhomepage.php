@@ -23,7 +23,7 @@
 
 <body>
     <section>
-        <span><img src="../images/logo.jpg" style="position: absolute; left: 33%; right: 30%; top: 27.5%; bottom: 50.65%; border-radius:20px; width:280px; height:140px;"></span> 
+        <span><img src="../images/logo.jpg" style="position: absolute; left: 33%; right: 30%; top: 30%; bottom: 50.65%; border-radius:20px; width:280px; height:140px;"></span> 
         <h5  style="position: absolute; left: 53%; right: 49.22%; top: 37.5%; bottom: 50.65%; border-radius:20px; width:280px; height:140px;"><strong>oleh</strong></h5>
         <span><img src="../images/telkom-logo.png" style="position: absolute; left: 58 %; right: 34%; top: 34.5%; bottom: 44.07%; width:160px; height:80px;"></span>
         <div class="parallax-content baner-content" id="home">
@@ -33,25 +33,21 @@
                 <h1 style="font-size: 75px">Selamat Datang <?php echo $str[0] ;  ?> </h1>
                 <div class="row buttons">     
                     <div class="primary-button">
-                        <a href="<?php echo base_url().'Login/inputlogin';?>" style="background: #BD0306; border-radius: 8px;">Profil</a>
+                        <a href="<?php echo base_url().'MainController/viewProfil';?>" style="background: #BD0306; border-radius: 8px;">Profil</a>
                     </div>
                     <div class="primary-button">
-                        <a href="<?php echo base_url().'Login/inputlogin';?>" style="background: #BD0306; border-radius: 8px;">Pengajuan</a>
+                        <a href="<?php echo base_url().'MainController/viewPengajuan';?>" style="background: #BD0306; border-radius: 8px;">Pengajuan</a>
                     </div>
                     <div class="primary-button">
-                        <a href="<?php echo base_url().'Login/inputlogin';?>" style="background: #BD0306; border-radius: 8px;">Riwayat</a>
+                        <a href="<?php echo base_url().'MainController/review';?>" style="background: #BD0306; border-radius: 8px;">Riwayat</a>
                     </div>
                 </div>
                 </div>
             </div>
         </div>
     </section>
-    <section id="services">
+    <section id="optional">
         <div class="container">
-            <div class="section-header">
-                <h2>Services</h2>
-                <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>
-            </div>
             <div class="row">
                 <div class="col-lg-6">
                     <div class="box wow fadeInLeft" >
