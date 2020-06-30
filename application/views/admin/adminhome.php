@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="http://localhost/ICT/css/hero-slider.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/templatemo-main.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/owl-carousel.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/userpage.css">
+        <link rel="stylesheet" href="http://localhost/ICT/css/adminhome.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/animate.min.css">
 
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800" rel="stylesheet">
@@ -23,9 +23,6 @@
 
 <body>
     <section>
-        <span><img src="../images/logo.jpg" style="position: absolute; left: 33%; right: 30%; top: 27.5%; bottom: 50.65%; border-radius:20px; width:280px; height:140px;"></span> 
-        <h5  style="position: absolute; left: 53%; right: 49.22%; top: 37.5%; bottom: 50.65%; border-radius:20px; width:280px; height:140px;"><strong>oleh</strong></h5>
-        <span><img src="../images/telkom-logo.png" style="position: absolute; left: 58 %; right: 34%; top: 34.5%; bottom: 44.07%; width:160px; height:80px;"></span>
         <div class="parallax-content baner-content" id="home">
             <div class="container">
                 <div class="first-content">

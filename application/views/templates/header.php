@@ -32,6 +32,9 @@
     <a class="item" href="#home">Beranda</a>
     <a class="item" href="#contact">Tentang</a>
     <a class="item" href="#about">Kontak Kami</a>
+    <?php if ($this->session->userdata("user")['logged']): ?>
+    <a class="item" href="#about" style="background-color:gray;">Logout</a>
+    <?php endif ?>
   </div>
 </div>
 </body>

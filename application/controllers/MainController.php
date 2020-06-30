@@ -82,4 +82,11 @@ class MainController extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 	
+	public function adminhome()
+	{
+		$data['title'] = 'ICT Tour';
+		$this->load->view('templates/header', $data);
+		$this->load->view('admin/adminhome');
+		$this->load->view('templates/footer');
+	}
 }
