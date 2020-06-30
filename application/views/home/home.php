@@ -20,16 +20,31 @@
 
         <script src="http://localhost/ICT/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
-
-<body>
+    <?php if ($this->session->userdata("user")['logged']): ?>
+    <style type="text/css">
+      body {
+        background-image:url(../images/10.jpg);
+      }
+    </style>
+    <?php else: ?>
+      <style type="text/css">
+      body {
+        background-image:url(../images/1.jpg);
+      }
+    </style>
+    <?php endif ?>
+<body >
     <section>
-        <span><img src="../images/logo.jpg" style="position: absolute; left: 26.15%; right: 49.22%; top: 12.22%; bottom: 50.65%; border-radius:20px; width:280px; height:140px;"></span> 
-        <h5  style="position: absolute; left: 46%; right: 49.22%; top: 10%; bottom: 50.65%; border-radius:20px; width:280px; height:140px;"><strong>oleh</strong></h5>
-        <span><img src="../images/telkom-logo.png" style="position: absolute; left: 48.7%; right: 39.27%; top: 10%; bottom: 44.07%; width:160px; height:80px;"></span>
+        
         <div class="parallax-content baner-content" id="home">
             <div class="container">
+            <?php if ($this->session->userdata("user")['logged']): ?>
+              <h1 style="font-size: 75px">Selamat Datang </h1>
+            <?php endif ?>
                 <div class="first-content"> 
-                               
+                <span><img src="../images/logo.jpg" style="margin-right:6em; border-radius:20px; width:280px; height:140px;"></span> 
+                <h5  style="margin-left:3em; font-size:15px;"><strong>oleh</strong></h5>
+                <span><img src="../images/telkom-logo.png" style="margin-left:5em; width:160px; height:90px;"></span>
                     <?php if ($this->session->userdata("user")['logged']): ?>
                         <div class="primary-button">
                             <a href="<?php echo base_url().'MainController/viewPengajuan';?>" style="background: #BD0306; border-radius: 8px;">Pengajuan ICT Tour</a>
@@ -95,7 +110,7 @@
     <section id="portfolio" class="wow fadeInUp">
       <div class="container">
         <div class="section-header">
-          <h2>Galeri Kegiatan</h2>
+          <h2 ><strong style="font-size:26px; border-bottom:2px solid red">Galeri Kegiatan</strong></h2>
           <p>Berikut ini merupakan kumpulan dokumentasi foto selama ICT Tour berlangsung</p>
         </div>
       </div>
@@ -195,6 +210,38 @@
 
       </div>
     </section>
+    <?php if ($this->session->userdata("user")['logged']): ?>
+      <section id="review">
+          <div class="container">
+              <div class="section-header">
+                  <h2>Services</h2>
+                  <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>
+              </div>
+              <div class="row">
+                  <div class="col-lg-6">
+                      <div class="box wow fadeInLeft" >
+                      <h4>Page</h4>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="box wow fadeInRight">
+                      <h4>Page</h4>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="box wow fadeInLeft" data-wow-delay="0.2s" >
+                      <h4>Page</h4>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="box wow fadeInRight" data-wow-delay="0.2s" >
+                      <h4>Page</h4>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+    <?php endif ?>
     
 </body>
 

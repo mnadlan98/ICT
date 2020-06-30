@@ -5,7 +5,9 @@ class MainController extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
+		$this->load->model('Login_model');
 		$this->load->helper('url');
+		
 	}
 
 	public function index()
@@ -32,6 +34,7 @@ class MainController extends CI_Controller {
 
 	public function viewProfil(){
 		$data['title'] = 'Profil';
+		$data['user']=$this->Login_model->getuser($this->session->userdata('email_user'));
 		$this->load->view('templates/header', $data);
 		$this->load->view('home/profil');
 		$this->load->view('templates/footer');	

@@ -20,6 +20,34 @@
         <script src="http://localhost/ICT/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
 
-<body style="background-image: url(../images/4.jpg); ">
+<body style="background-image: url(../images/13.jpg); ">
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?><!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title></title>
+
+</head>
+<style type="text/css">
+  label{color: #222;font-weight: bolder;}
+  input{height: 3.3em !important;}
+  .btn:hover{height: 3.3em !important;}
+</style>
+<?php foreach ($user as $key){
+         $first=$key->nama_sekolah;
+    ?>
+<body>
+    <?php $str=explode('@',$this->session->userdata('email_user'))?>
+    <div class="container-fluid">
+    
+            <h1>HELLO<h1>
+             <span><h6>Nama:</h6><h6><?php echo $this->session->userdata('email_user');?></h6> </span>
+    
+    </div>
+    
 
 </body>
+<?php } ?>

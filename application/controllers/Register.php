@@ -36,7 +36,7 @@ class Register extends CI_Controller {
             $data['password']       =  md5($this->input->post('password'));
  
             $this->Register_model->daftar($data);
-            redirect(site_url('MainController/userpage')); 
+            redirect(site_url('MainController/index')); 
         }
         $this->load->view('templates/header',$title);
         $this->load->view("home/registrasi");

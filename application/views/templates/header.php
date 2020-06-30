@@ -30,10 +30,10 @@
   <a href="<?php echo base_url().'MainController/index';?>" class="logo"><img src="../images/Indihome-Study-red.png"></a>
   <div class="header-right">
     <a class="item" href="#home">Beranda</a>
-    <a class="item" href="#contact">Tentang</a>
+    <a class="item" href="#about">Tentang</a>
     <a class="item" href="#about">Kontak Kami</a>
     <?php if ($this->session->userdata("user")['logged']): ?>
-      <a class="nav-link" href="">Profil</a>
+      <a class="nav-link" href="<?php echo site_url()."MainController/viewProfil"?>">Profil</a>
     <a class="item" href="<?php echo site_url()."MainController/logout"?>" style="background-color:gray;">Logout</a>
     <?php endif ?>
   </div>
