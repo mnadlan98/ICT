@@ -11,24 +11,28 @@ class Register extends CI_Controller {
  
     public function index() {
         $title['title'] = "Daftar";
-        $this->form_validation->set_rules('kode_sekolah', 'Kode Sekolah','required');
+        $this->form_validation->set_rules('jenjang_sekolah', 'Jenjang Sekolah','required');
+        $this->form_validation->set_rules('kota_sekolah', 'Kota/Kabupaten Sekolah','required');
         $this->form_validation->set_rules('nama_sekolah', 'Nama Sekolah','required');
         $this->form_validation->set_rules('email_sekolah', 'Email Sekolah','required|valid_email');
-        $this->form_validation->set_rules('alamat_sekolah', 'Alamat Sekolah','required');
-        $this->form_validation->set_rules('notelp_sekolah', 'No Telp Sekolah','required');
+        $this->form_validation->set_rules('notelp_sekolah', 'No Telp Sekolah','required|numeric');
+        $this->form_validation->set_rules('nama_user', 'Nama User','required');
         $this->form_validation->set_rules('email_user','Email Pengguna','required|valid_email');
+        $this->form_validation->set_rules('notelp_user', 'No Telp User','required|numeric');
         $this->form_validation->set_rules('password','Kata Sandi','required');
-        $this->form_validation->set_rules('password_conf','Konfirmasi Ulang','required|matches[password]');
+        $this->form_validation->set_rules('password_conf','Ulangi Kata Sandi','required|matches[password]');
         if($this->form_validation->run() == FALSE) {
             site_url('Register/index');
         }else{
-            $data['id_user']        =  rand(0,1000);
-            $data['kode_sekolah']   =  $this->input->post('kode_sekolah');
+            //$data['id_user']        =  rand(0,1000);
+            $data['jenjang_sekolah']   =  $this->input->post('jenjang_sekolah');
+            $data['kota_sekolah']   =  $this->input->post('kota_sekolah');
             $data['nama_sekolah']   =  $this->input->post('nama_sekolah');
             $data['email_sekolah']  =  $this->input->post('email_sekolah');
-            $data['alamat_sekolah'] =  $this->input->post('alamat_sekolah');
             $data['notelp_sekolah'] =  $this->input->post('notelp_sekolah');
+            $data['nama_user']   =  $this->input->post('nama_user');
             $data['email_user']     =  $this->input->post('email_user');
+            $data['notelp_user'] =  $this->input->post('notelp_user');
             $data['password']       =  md5($this->input->post('password'));
  
             $this->Register_model->daftar($data);
@@ -39,12 +43,22 @@ class Register extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
-    function get_autocomplete(){
+    function get_namasekolah(){
         if (isset($_GET['term'])) {
             $result = $this->Register_model->search_nama($_GET['term']);
             if (count($result) > 0) {
             foreach ($result as $row)
                 $arr_result[] = $row->Nama_Sekolah;
+                echo json_encode($arr_result);
+            }
+        }
+    }
+    function get_kotasekolah(){
+        if (isset($_GET['term'])) {
+            $result = $this->Register_model->search_kota($_GET['term']);
+            if (count($result) > 0) {
+            foreach ($result as $row)
+                $arr_result[] = $row->KabupatenKota;
                 echo json_encode($arr_result);
             }
         }

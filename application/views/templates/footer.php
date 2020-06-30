@@ -1,5 +1,5 @@
 
-<footer class="page-footer font-small " style="background-color: #434343; padding-top:4vh;"  >
+<footer class="footer font-small " style="background-color: #434343; padding-top:4vh;"  >
 
       <div class="container" >
 
@@ -72,9 +72,16 @@
   <script type="text/javascript">
         $(document).ready(function(){
             $( "#nama_sekolah" ).autocomplete({
-              source: "<?php echo site_url('Register/get_autocomplete/?');?>"
+              source: "<?php echo site_url('Register/get_namasekolah/?');?>"
             });
         });
-    </script>
+  </script>
+  <script type="text/javascript">
+        $(document).ready(function(){
+            $( "#kota_sekolah" ).autocomplete({
+              source: "<?php echo site_url('Register/get_kotasekolah/?');?>"
+            });
+        });
+  </script>
 </body>
 </html>

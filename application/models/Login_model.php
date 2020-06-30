@@ -12,6 +12,11 @@ class Login_model extends CI_Model {
         return $this->db->get('user')->row();
     }
 
+    public function getuser($email_user){
+		$this->db->where('email_user',$email_user);
+		return $this->db->get('user')->result();
+	}
+
 
 }
 
