@@ -29,12 +29,12 @@
   z-index: 999999; border-bottom:2px solid red;">
   <a href="<?php echo base_url().'MainController/index';?>" class="logo"><img src="../images/Indihome-Study-red.png"></a>
   <div class="header-right">
-    <a class="item" href="#home">Beranda</a>
-    <a class="item" href="#about">Tentang</a>
+    <a class="item" href="<?php echo site_url()."MainController/index#home"?>">Beranda</a>
+    <a class="item" href="<?php echo site_url()."MainController/index#about"?>">Tentang</a>
     <a class="item" href="#about">Kontak Kami</a>
     <?php if ($this->session->userdata("user")['logged']): ?>
       <a class="nav-link" href="<?php echo site_url()."MainController/viewProfil"?>" style="padding-left:10px; border-radius:0px; border-left:3px solid red;">Profil</a>
-      <a class="item" href="#review">Review Pengajuan</a>
+      <a class="item" href="<?php echo site_url()."MainController/index#review"?>">Review Pengajuan</a>
     <a class="item" href="<?php echo site_url()."MainController/logout"?>" style="background-color:#DCDCDC;" onmouseover="this.style.color='red'" onmouseout="this.style.color='black'">Logout</a>
     <?php endif ?>
   </div>

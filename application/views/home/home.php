@@ -24,7 +24,7 @@
     <?php if ($this->session->userdata("user")['logged']): ?>
     <style type="text/css">
       body {
-        background-image:url(../images/10.jpg);
+        background-image:url(../images/home.jpg);
       }
     </style>
     <?php else: ?>
@@ -35,53 +35,49 @@
     </style>
     <?php endif ?>
 <body >
-    <section>
+    <section id="home">
         
-        <div class="parallax-content baner-content" id="home">
+        <div class="parallax-content baner-content" >
             <div class="container">
             <?php if ($this->session->userdata("user")['logged']): ?>
-              <h1 style="font-size: 75px">Selamat Datang </h1>
+              <h1 class="wow fadeInDown" style="font-size: 75px; color:black;">Selamat Datang </h1>
             <?php endif ?>
                 <div class="first-content"> 
-                <span><img src="../images/logo.jpg" style="margin-right:6em; border-radius:20px; width:280px; height:140px;"></span> 
-                <h5  style="margin-left:3em; font-size:15px;"><strong>oleh</strong></h5>
-                <span><img src="../images/telkom-logo.png" style="margin-left:5em; width:160px; height:90px;"></span>
+                <span class="wow fadeInLeft" data-wow-delay="0.5s"><img src="../images/logo.jpg" style="margin-right:6em; border-radius:20px; width:280px; height:140px;"></span> 
+                <h5 class="wow fadeInUp" data-wow-delay="0.5s" style="margin-left:3em; font-size:15px;"><strong>oleh</strong></h5>
+                <span class="wow fadeInRight" data-wow-delay="0.5s"><img src="../images/telkom-logo.png" style="margin-left:5em; width:160px; height:90px;"></span>
                     <?php if ($this->session->userdata("user")['logged']): ?>
-                        <div class="primary-button">
-                            <a href="<?php echo base_url().'MainController/viewPengajuan';?>" style="background: #BD0306; border-radius: 8px;">Pengajuan ICT Tour</a>
+                        <div class="primary-button wow fadeInUp" data-wow-delay="1s">
+                            <a class="btn1" href="<?php echo base_url().'MainController/viewPengajuan';?>" >Pengajuan ICT Tour</a>
                         </div>
                     <?php else: ?>
                     <div class="primary-button wow fadeInUp">
-                        <a href="<?php echo base_url().'Login/inputlogin';?>" style="background: #D7D7D7; border: 2px solid #FFFFFF; box-sizing: border-box; border-radius: 8px; color:black;">Masuk</a>
-                        <a href="<?php echo base_url().'Register/index';?>" style="background: #BD0306; border-radius: 8px;">Daftar</a>
+                        <a class="btn" href="<?php echo base_url().'Login/inputlogin';?>">Masuk</a>
+                        <a class="btn" href="<?php echo base_url().'Register/index';?>">Daftar</a>
                     </div>
                     <?php endif ?>
                 </div>
             </div>
         </div>
     </section>
-    <section id="tutorial">
-      <div class="owl-carousel tutorial-carousel">
 
-      </div>
-    </section>
-    <section id="about">
+    <section class="wow fadeInRight" id="about">
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
                     
                 </div> 
-                <div class="col wow fadeInRight">
-                <span><strong>Apa itu ICT Tour?</strong></span>
-                <p>ICT Tour merupakan Program Study Tour yang diadakan oleh Indihome Study dengan tujuan untuk memberikan kesempatan siswa tingkat SD/SMP/SMA untuk mengunjungi kantor Datel, medapatkan simulasi Indihome Study dan sosialisasi Sobat Indihome</p>
+                <div class="col">
+                <span class="wow fadeInRight"><strong style="font-size:34px">Apa itu ICT Tour?</strong></span>
+                <p class="wow fadeInRight" data-wow-delay="0.5s" >ICT Tour merupakan Program Study Tour yang diadakan oleh Indihome Study dengan tujuan untuk memberikan kesempatan siswa tingkat SD/SMP/SMA untuk mengunjungi kantor Datel, medapatkan simulasi Indihome Study dan sosialisasi Sobat Indihome</p>
                 </div> 
             </div>      
         </div>
     </section>
-    <section id="services">
+    <section class="wow fadeInLeft" id="services">
         <div class="container">
             <div class="section-header">
-                <h2><strong style="font-size:26px; border-bottom:2px solid white">Alur Pengajuan ICT Tour</strong></h2>
+                <h2><strong style="font-size: 30px; border-bottom:2px solid white">Alur Pengajuan ICT Tour</strong></h2>
                 <p>Berikut merupakan tahapan pengajuan ICT Tour</p>
             </div>
             <div class="row">
@@ -112,10 +108,11 @@
             </div>
         </div>
     </section>
-    <section id="portfolio" class="wow fadeInUp">
+
+    <section class="wow fadeInRight" id="portfolio" class="wow fadeInUp">
       <div class="container">
         <div class="section-header">
-          <h2 ><strong style="font-size:26px; border-bottom:2px solid red">Galeri Kegiatan</strong></h2>
+          <h2 ><strong style="font-size: 30px; border-bottom:2px solid red">Galeri Kegiatan</strong></h2>
           <p>Berikut ini merupakan kumpulan dokumentasi foto selama ICT Tour berlangsung</p>
         </div>
       </div>
@@ -216,11 +213,11 @@
       </div>
     </section>
 
-    <section id="testimonials" class="wow fadeInUp">
+    <section id="testimonials" class="wow fadeInLeft">
       <div class="container">
         <div class="section-header">
-          <h2>Testimonials</h2>
-          <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>
+        <h2 ><strong style="font-size: 30px; border-bottom:2px solid red">Feedback</strong></h2>
+          <p>Apa kata mereka yang sudah mengikuti ICT Tour?</p>
         </div>
         <div class="owl-carousel testimonials-carousel">
 
@@ -250,7 +247,7 @@
               <p>
                 <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
                 Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
+                <img src="images1.png" class="quote-sign-right" alt="">
               </p>
               <img src="img/testimonial-3.jpg" class="testimonial-img" alt="">
               <h3>Jena Karlis</h3>
@@ -285,29 +282,29 @@
     </section>
 
     <?php if ($this->session->userdata("user")['logged']): ?>
-      <section id="review">
+      <section class="wow fadeInRight" id="review">
           <div class="container">
               <div class="section-header">
-                  <h2>Review Pengajuan</h2>
-                  <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>
+              <h2 ><strong style="font-size: 30px; border-bottom:2px solid red">Review Pengajuan</strong></h2>
+                  <p>Tinjau ulang pengajuan yang sudah dilakukan</p>
               </div>
               <div class="row">
-                  <div class="col-lg-6">
+                  <div class="col-lg-3">
                       <div class="box wow fadeInLeft" >
                       <h4>Page</h4>
                       </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-3">
                       <div class="box wow fadeInRight">
                       <h4>Page</h4>
                       </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-3">
                       <div class="box wow fadeInLeft" data-wow-delay="0.2s" >
                       <h4>Page</h4>
                       </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-3">
                       <div class="box wow fadeInRight" data-wow-delay="0.2s" >
                       <h4>Page</h4>
                       </div>

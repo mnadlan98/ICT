@@ -6,8 +6,10 @@
   }
 
     .header .logo img{
-    height: 40px;
-     width: 140px;
+      margin-top: 10px;
+      margin-left: 10px;
+      height: 40px;
+      width: 140px;
  }
   
   .header-right a:hover {
