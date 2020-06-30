@@ -15,10 +15,10 @@ class Register extends CI_Controller {
         $this->form_validation->set_rules('kota_sekolah', 'Kota/Kabupaten Sekolah','required');
         $this->form_validation->set_rules('nama_sekolah', 'Nama Sekolah','required');
         $this->form_validation->set_rules('email_sekolah', 'Email Sekolah','required|valid_email');
-        $this->form_validation->set_rules('notelp_sekolah', 'No Telp Sekolah','required|regex_match[/^[0-9]{15}$/]');
+        $this->form_validation->set_rules('notelp_sekolah', 'No Telp Sekolah','required|numeric');
         $this->form_validation->set_rules('nama_user', 'Nama User','required');
         $this->form_validation->set_rules('email_user','Email Pengguna','required|valid_email');
-        $this->form_validation->set_rules('notelp_user', 'No Telp User','required|regex_match[/^[0-9]{15}$/]');
+        $this->form_validation->set_rules('notelp_user', 'No Telp User','required|numeric');
         $this->form_validation->set_rules('password','Kata Sandi','required');
         $this->form_validation->set_rules('password_conf','Ulangi Kata Sandi','required|matches[password]');
         if($this->form_validation->run() == FALSE) {
