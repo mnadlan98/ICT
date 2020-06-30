@@ -37,7 +37,7 @@
                     <?php else: ?>
                     <div class="primary-button wow fadeInUp">
                         <a href="<?php echo base_url().'Login/inputlogin';?>" style="background: #D7D7D7; border: 2px solid #FFFFFF; box-sizing: border-box; border-radius: 8px; color:black;">Masuk</a>
-                        <a href="<?php echo base_url().'MainController/viewRegistrasi';?>" style="background: #BD0306; border-radius: 8px;">Daftar</a>
+                        <a href="<?php echo base_url().'register/index';?>" style="background: #BD0306; border-radius: 8px;">Daftar</a>
                     </div>
                     <?php endif ?>
                 </div>
