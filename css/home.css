@@ -52,12 +52,15 @@ body {
   
   #about {
     background-color: white;
+    padding: 150px;
   }
 
   #about .container .row .col span{
     font-size: 26px;
   }
   
+  /* Tutorial Section*/
+
   #services {
     padding: 30px 0 0 0;
   }
@@ -76,6 +79,26 @@ body {
     -webkit-transform: translateY(-10px);
     -moz-transform: translateY(-10px);
   }
+
+  #services .box h4 {
+    margin-left: 100px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 22px;
+  }
+  
+  #services .box h4 a {
+    color: #444;
+  }
+  
+  #services .box p {
+    font-size: 14px;
+    margin-left: 100px;
+    margin-bottom: 0;
+    line-height: 24px;
+  }
+
+   /* Protfolio Section*/
 
   #portfolio {
     background: #fff;

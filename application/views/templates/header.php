@@ -33,8 +33,9 @@
     <a class="item" href="#about">Tentang</a>
     <a class="item" href="#about">Kontak Kami</a>
     <?php if ($this->session->userdata("user")['logged']): ?>
-      <a class="nav-link" href="<?php echo site_url()."MainController/viewProfil"?>">Profil</a>
-    <a class="item" href="<?php echo site_url()."MainController/logout"?>" style="background-color:gray;">Logout</a>
+      <a class="nav-link" href="<?php echo site_url()."MainController/viewProfil"?>" style="padding-left:10px; border-radius:0px; border-left:3px solid red;">Profil</a>
+      <a class="item" href="#review">Review Pengajuan</a>
+    <a class="item" href="<?php echo site_url()."MainController/logout"?>" style="background-color:#DCDCDC;" onmouseover="this.style.color='red'" onmouseout="this.style.color='black'">Logout</a>
     <?php endif ?>
   </div>
 </div>
