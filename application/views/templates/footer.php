@@ -72,7 +72,7 @@
   <script type="text/javascript">
         $(document).ready(function(){
             $( "#nama_sekolah" ).autocomplete({
-              source: "<?php echo site_url('Register/get_autocomplete/?');?>"
+              source: "<?php echo site_url('Register/get_namasekolah/?');?>"
             });
         });
   </script>
