@@ -75,6 +75,13 @@
               source: "<?php echo site_url('Register/get_autocomplete/?');?>"
             });
         });
-    </script>
+  </script>
+  <script type="text/javascript">
+        $(document).ready(function(){
+            $( "#kota_sekolah" ).autocomplete({
+              source: "<?php echo site_url('Register/get_kotasekolah/?');?>"
+            });
+        });
+  </script>
 </body>
 </html>

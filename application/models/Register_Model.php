@@ -14,4 +14,11 @@
         $this->db->limit(10);
         return $this->db->get('sekolah')->result();
     	}
+      function search_kota($kota_sekolah){
+        $this->db->select('DISTINCT(KabupatenKota)');
+        $this->db->like('KabupatenKota', $kota_sekolah , 'both');
+        $this->db->order_by('KabupatenKota', 'ASC');
+        $this->db->limit(10);
+        return $this->db->get('sekolah')->result();
+      }
   }
