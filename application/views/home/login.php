@@ -10,7 +10,6 @@
   </div>
   <div class="col-md-4 py-3" style=" background-color: #D7D7D7;" >
   <h5 style="font-weight: bolder; color: black; padding-left: 9em; margin-top: 8em; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Masuk</strong></h5></br></br>
-     <?php // form_open(base_url('MainController/login')); ?> 
     <form action="<?php base_url('login/inputlogin') ?>" method="post">
       <div class="form-group">
         

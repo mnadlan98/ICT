@@ -22,7 +22,7 @@ class Login extends CI_Controller {
                     'id' => $row->id_user
                 );
                 $this->session->set_userdata("user",$data);
-                redirect(site_url('MainController/index'));
+                redirect(site_url('MainController/userpage'));
             }else{
                 $this->session->set_flashdata('message', 'Email / Password Salah');
             }

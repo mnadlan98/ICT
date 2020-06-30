@@ -55,22 +55,22 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="box wow fadeInLeft" >
-                    <h4>Hell</h4>
+                    <h4>page</h4>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="box wow fadeInRight">
-                    <h4>Hell</h4>
+                    <h4>page</h4>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="box wow fadeInLeft" data-wow-delay="0.2s" >
-                    <h4>Hell</h4>
+                    <h4>page</h4>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="box wow fadeInRight" data-wow-delay="0.2s" >
-                    <h4>Hell</h4>
+                    <h4>page</h4>
                     </div>
                 </div>
             </div>
