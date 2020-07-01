@@ -48,7 +48,7 @@
                 <span class="wow fadeInRight" data-wow-delay="0.5s"><img src="../images/telkom-logo.png" style="margin-left:5em; width:160px; height:90px;"></span>
                     <?php if ($this->session->userdata("user")['logged']): ?>
                         <div class="primary-button wow fadeInUp" data-wow-delay="1s">
-                            <a class="btn1" href="<?php echo base_url().'Pengajuan/index';?>" >Pengajuan ICT Tour</a>
+                            <a class="btn1" href="<?php echo base_url().'MainController/viewPengajuan';?>" >Pengajuan ICT Tour</a>
                         </div>
                     <?php else: ?>
                     <div class="primary-button wow fadeInUp">

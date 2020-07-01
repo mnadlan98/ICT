@@ -36,18 +36,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   input{height: 3.3em !important;}
   .btn:hover{height: 3.3em !important;}
 </style>
-<?php foreach ($user as $key){
-         $first=$key->nama_sekolah;
-    ?>
+
 <body>
     <?php $str=explode('@',$this->session->userdata('email_user'))?>
     <div class="container-fluid">
-    
-            <h1>HELLO<h1>
-             <span><h6>Nama:</h6><h6><?php echo $this->session->userdata('email_user');?></h6> </span>
-    
+    <h5 style="font-weight: bolder; color: white; margin-top: 5px; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Profil</strong></h5></br></br>
+    <div class="row">
+      <div class="col-md-2">
+        <img src="../images/avatar.png">
+          <div class="form-group row" style="margin-top: 20px; color:white;">
+              <label style="margin-left:4em; color:white; ">Unggah Foto Sekolah</label>
+              <input type="file" class="form-control-file" id="surat_permohonan" style="color:transparent; color:transparent; margin-left:5.6em; ">
+          </div>
+      </div>  
+      <div class="col-lg-4">
+        <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Nama Sekolah :</p>
+        <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Email Sekolah :</p>
+        <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Alamat Sekolah :</p>
+        <p style="font-size: 15px; border-bottom:1px solid gray; color: white">No. Telepon Sekolah :</p>
+      </div>
+    </div>
     </div>
     
 
 </body>
-<?php } ?>
