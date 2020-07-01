@@ -36,6 +36,7 @@ class Register extends CI_Controller {
             $data['password']       =  md5($this->input->post('password'));
  
             $this->Register_model->daftar($data);
+            $this->session->set_flashdata('sukses', 'Anda telah berhasil melakukan pendaftaran, silahkan masuk menggunakan akun yang telah terdaftar untuk mengajukan pengajuan.');
             redirect(site_url('MainController/index')); 
         }
         $this->load->view('templates/header',$title);
