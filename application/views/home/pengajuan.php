@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <style>
+          hr.onepixel {
+            border-top: 1px solid #afbcc6;
+            border-bottom: 1px solid #eff2f6;
+            height: 0px;
+            margin-bottom: 20px;
+        }
+        </style>
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Welcome</title>
@@ -25,6 +34,8 @@
   <h5 style="font-weight: bolder; color: black; margin-left: 15em; color:white; margin-top:5em; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Pengajuan ICT Tour</strong></h5></br></br>
   <?php echo form_open('Pengajuan');?> 
      <form method="post">
+          <hr class="onepixel">
+          <h5 style="font-weight: bolder; color: black;  color:white; "><strong style=" font-size:14px; ">Data Pengajuan</strong></h5><br>
           <div class="row">
             <div>
               <label style="font-size:15px; color:white; padding-right:3.1em;">Jumlah Siswa      </label>
@@ -77,8 +88,21 @@
             <div class="form-group col">
               <input type="file" class="form-control-file" id="daftar_peserta" style="margin-left:1.75em; color:white;">
             </div>
-          </div> 
-          <?php echo form_error('daftar_peserta'); ?></small>         
+          </div>         
+          <?php echo form_error('daftar_peserta'); ?></small>    
+          <hr class="onepixel">
+          <h5 style="font-weight: bolder; color: black;  color:white; "><strong style=" font-size:14px; ">Lokasi ICT Tour</strong></h5><br>
+          <div class="row" style="padding-right:1.75em;">
+            <div>
+              <label style="font-size:15px; color:white; margin-right:4.4em">Provinsi      </label>
+            </div>
+            <div class="form-group col">
+              <select class="form-control" id="kantor" name="kantor" placeholder="Pilih Lokasi Witel" style="margin-left:14.2em;">
+                <option selected>Jawa Barat</option>
+              </select>
+            </div>
+          </div>
+          <?php echo form_error('provinsi'); ?></small>
           <div class="row" style="padding-right:1.75em;">
             <div>
               <label style="font-size:15px; color:white; margin-right:17px">Kantor Cabang</label>

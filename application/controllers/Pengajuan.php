@@ -34,7 +34,7 @@ class Pengajuan extends CI_Controller {
             site_url('pengajuan');
         }else{
             $post = $this->input->post();
-            $this->id_pengajuan = uniqid();
+            $this->id_pengajuan = rand(0,99);
             $this->jumlah_siswa = $post["jumlah_siswa"];
             $this->pembimbing1 = $post["pembimbing1"];
             $this->pembimbing2 = $post["pembimbing2"];
@@ -42,14 +42,15 @@ class Pengajuan extends CI_Controller {
             $this->surat_permohonan = $this->upload_surat();
             $this->daftar_peserta = $this->upload_peserta();
             $this->kantor = $post["kantor"];
-            return $this->db->insert($this->_table, $this);
+
+            $this->db->insert($this->_table, $this);
 
             redirect(site_url('MainController/index')); 
         }
         $title['title'] = 'Pengajuan';
-		$this->load->view('templates/header', $title);
-		$this->load->view('home/pengajuan');
-		$this->load->view('templates/footer');	
+        $this->load->view('templates/header', $title);
+        $this->load->view('home/pengajuan');
+        $this->load->view('templates/footer');	
     }
 
       public function import(){
@@ -102,8 +103,7 @@ class Pengajuan extends CI_Controller {
 			$error = array('error' => $this->upload->display_errors());
 		}else{
 			$data = array('upload_data' => $this->upload->data());
-          }
-          return "";
+    }
 	}
 
      private function upload_peserta(){
@@ -116,13 +116,12 @@ class Pengajuan extends CI_Controller {
         
           $this->load->library('upload', $config);
  
-		if ( ! $this->upload->do_upload('berkas')){
-			$error = array('error' => $this->upload->display_errors());
-		}else{
-			$data = array('upload_data' => $this->upload->data());
+          if ( ! $this->upload->do_upload('berkas')){
+            $error = array('error' => $this->upload->display_errors());
+          }else{
+            $data = array('upload_data' => $this->upload->data());
           }
-          return "";
-     }
+    }
 
 }
     
