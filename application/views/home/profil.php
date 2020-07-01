@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="http://localhost/ICT/css/templatemo-main.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/owl-carousel.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/profil.css">
+        <link rel="stylesheet" href="http://localhost/ICT/css/animate.min.css">
 
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800" rel="stylesheet">
 
@@ -39,24 +40,95 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <body>
     <?php $str=explode('@',$this->session->userdata('email_user'))?>
-    <div class="container-fluid">
-    <h5 style="font-weight: bolder; color: white; margin-top: 5px; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Profil</strong></h5></br></br>
-    <div class="row">
-      <div class="col-md-2">
-        <img src="../images/avatar.png">
-          <div class="form-group row" style="margin-top: 20px; color:white;">
-              <label style="margin-left:4em; color:white; ">Unggah Foto Sekolah</label>
-              <input type="file" class="form-control-file" id="surat_permohonan" style="color:transparent; color:transparent; margin-left:5.6em; ">
+    <section>
+      <div class="container-fluid">
+        <h5 style="font-weight: bolder; color: white; margin-top: 5px; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Profil</strong></h5></br></br>
+        <div class="row">
+          <div class="col-md-2">
+            <img src="../images/avatar.png">
+            <div class="form-group row" style="margin-top: 20px; color:white;">
+                <label style="margin-left:4em; color:white; ">Unggah Foto Sekolah</label>
+                <input type="file" class="form-control-file" id="surat_permohonan" style="color:transparent; color:transparent; margin-left:5.6em; ">
+            </div>
+          </div>  
+          <div class="col-lg-4">
+            <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Nama Sekolah :</p>
+            <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Email Sekolah :</p>
+            <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Alamat Sekolah :</p>
+            <p style="font-size: 15px; border-bottom:1px solid gray; color: white">No. Telepon Sekolah :</p>
           </div>
-      </div>  
-      <div class="col-lg-4">
-        <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Nama Sekolah :</p>
-        <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Email Sekolah :</p>
-        <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Alamat Sekolah :</p>
-        <p style="font-size: 15px; border-bottom:1px solid gray; color: white">No. Telepon Sekolah :</p>
+        </div>
       </div>
-    </div>
-    </div>
+    </section>
+      
+    <section class="wow fadeInRight" id="progress">
+      <div class="section-header">
+        <h2 ><strong style="font-size: 30px; border-bottom:2px solid red">Progress Pengajuan</strong></h2>
+        <p>Tinjau progress pengajuan</p>
+      </div>
+      <div class="progress" style="margin-left:10px; margin-right:10px">
+        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+          <span class="sr-only">70% Complete</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3">
+            <div class="box wow fadeInLeft" >
+              <h4>Page</h4>
+            </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="box wow fadeInRight">
+            <h4>Page</h4>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="box wow fadeInLeft" data-wow-delay="0.2s" >
+            <h4>Page</h4>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="box wow fadeInRight" data-wow-delay="0.2s" >
+              <h4>Page</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      <section id="review">
+        <div class="section-header">
+          <h2 ><strong style=" margin-left: 10px;">Riwayat Pengajuan</strong></h2>
+          <p style="margin-left: 10px;">Tinjau ulang pengajuan yang sudah dilakukan</p>
+        </div>
+        <div class="row" style="margin-left: 10px;">
+          <div class="col-lg-8">
+              <div class="box wow fadeInLeft" >
+                <h4>Page</h4>
+              </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="box wow fadeInRight">
+                <h4>Page</h4>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="box wow fadeInLeft" data-wow-delay="0.2s" >
+              <h4>Page</h4>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="box wow fadeInRight" data-wow-delay="0.2s" >
+              <h4>Page</h4>
+            </div>
+          </div>
+        </div>
+        </section>
     
 
+
 </body>
+
+
+<script src="http://localhost/ICT/script/wow.min.js"></script>
+<script src="http://localhost/ICT/script/wow.js"></script>
+<script src="http://localhost/ICT/script/main.js"></script>

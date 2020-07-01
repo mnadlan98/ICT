@@ -281,39 +281,6 @@
       </div>
     </section>
 
-    <?php if ($this->session->userdata("user")['logged']): ?>
-      <section class="wow fadeInRight" id="review">
-          <div class="container">
-              <div class="section-header">
-              <h2 ><strong style="font-size: 30px; border-bottom:2px solid red">Review Pengajuan</strong></h2>
-                  <p>Tinjau ulang pengajuan yang sudah dilakukan</p>
-              </div>
-              <div class="row">
-                  <div class="col-lg-3">
-                      <div class="box wow fadeInLeft" >
-                      <h4>Page</h4>
-                      </div>
-                  </div>
-                  <div class="col-lg-3">
-                      <div class="box wow fadeInRight">
-                      <h4>Page</h4>
-                      </div>
-                  </div>
-                  <div class="col-lg-3">
-                      <div class="box wow fadeInLeft" data-wow-delay="0.2s" >
-                      <h4>Page</h4>
-                      </div>
-                  </div>
-                  <div class="col-lg-3">
-                      <div class="box wow fadeInRight" data-wow-delay="0.2s" >
-                      <h4>Page</h4>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </section>
-    <?php endif ?>
-
     
 </body>
 
