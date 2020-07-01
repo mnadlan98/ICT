@@ -19,24 +19,12 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800" rel="stylesheet">
 
         <script src="http://localhost/ICT/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <style type="text/css">
+          label{color: #222;font-weight: bolder;}
+          input{height: 3.3em !important;}
+          .btn:hover{height: 3.3em !important;}
+        </style>
     </head>
-
-<body style="background-image: url(../images/13.jpg); ">
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-  <title></title>
-
-</head>
-<style type="text/css">
-  label{color: #222;font-weight: bolder;}
-  input{height: 3.3em !important;}
-  .btn:hover{height: 3.3em !important;}
-</style>
 
 <body>
     <?php $str=explode('@',$this->session->userdata('email_user'))?>
@@ -66,11 +54,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <h2 ><strong style="font-size: 30px; border-bottom:2px solid red">Progress Pengajuan</strong></h2>
         <p>Tinjau progress pengajuan</p>
       </div>
-      <div class="progress" style="margin-left:10px; margin-right:10px">
-        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-          <span class="sr-only">70% Complete</span>
+      <div class="progress" style="margin-left:10px; margin-right:10px;">
+        <div class="progress-bar" role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" style="width:67%">
         </div>
       </div>
+      <div class="row" style="color:black; margin-bottom:20px; margin-top:20px; margin-left:1px;">
+            <div class="col"><p>Pengajuan</p></div>
+            <div class="col"><p>Varifikasi oleh witel</p></div>
+            <div class="col"><p style="margin-left:10em;">Verifikasi oleh Telkom Regional</p></div>
+            <div class="col" ><p style="margin-left:18em;">Hasil pengajuan</p></div>
+          </div>
       <div class="row">
         <div class="col-lg-3">
             <div class="box wow fadeInLeft" >

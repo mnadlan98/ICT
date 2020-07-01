@@ -9,6 +9,10 @@ body {
     height:auto;
   }
 
+  #review {
+    background-color: white;
+  }
+
   #review .section-header{
     padding-left: 10px;
     color: white;
@@ -24,7 +28,7 @@ body {
     padding: 20px;
     margin-bottom: 5px;
     box-shadow: 10px 10px 15px rgba(73, 78, 92, 0.1);
-    background:white;
+    background:whitesmoke;
     transition: 0.4s;
   }
   
