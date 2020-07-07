@@ -281,6 +281,9 @@
       </div>
     </section>
 
+
+
+    <a id="back-to-top" href="#" class="btn btn-dark btn-lg back-to-top" role="button" style="position: fixed;bottom: 25px;right: 25px;"><i class="fas fa-chevron-up"></i></a>
     
 </body>
 
