@@ -34,7 +34,6 @@ class MainController extends CI_Controller {
 
 	public function viewProfil(){
 		$data['title'] = 'Profil';
-		$data['user']=$this->Login_model->getuser($this->session->userdata('email_user'));
 		$this->load->view('templates/header', $data);
 		$this->load->view('home/profil');
 		$this->load->view('templates/footer');	
@@ -85,12 +84,11 @@ class MainController extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 	
-	public function adminhome()
+	public function admin()
 	{
-		$data['title'] = 'ICT Tour';
-		$this->load->view('templates/header', $data);
-		$this->load->view('admin/adminhome');
-		$this->load->view('templates/footer');
+	
+		$this->load->view('admin/navbar');
+		$this->load->view('admin/index');
 	}
 
 	public function logout(){

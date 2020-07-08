@@ -35,15 +35,18 @@
           <div class="col-md-2">
             <img src="../images/avatar.png">
             <div class="form-group row" style="margin-top: 20px; color:white;">
-                <label style="margin-left:4em; color:white; ">Unggah Foto Sekolah</label>
-                <input type="file" class="form-control-file" id="surat_permohonan" style="color:transparent; color:transparent; margin-left:5.6em; ">
+                <button type="button" class="btn btn-success btn-lg"  style="margin-left:7em;">Edit Profil</button>
+
+                
             </div>
           </div>  
           <div class="col-lg-4">
-            <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Nama Sekolah :</p>
-            <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Email Sekolah :</p>
-            <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Alamat Sekolah :</p>
-            <p style="font-size: 15px; border-bottom:1px solid gray; color: white">No. Telepon Sekolah :</p>
+            <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Nama : <?= $this->session->userdata("user")['nama_user'] ?></p>
+            <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Email : <?= $this->session->userdata("user")['email_user'] ?></p>
+            <p style="font-size: 15px; border-bottom:1px solid gray; color: white">No. Telepon : <?= $this->session->userdata("user")['notelp_user'] ?></p>
+            <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Nama Sekolah : <?= $this->session->userdata("user")['nama_sekolah'] ?></p>
+            <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Email Sekolah : <?= $this->session->userdata("user")['email_sekolah'] ?></p>
+            <p style="font-size: 15px; border-bottom:1px solid gray; color: white">No. Telepon Sekolah : <?= $this->session->userdata("user")['notelp_sekolah'] ?></p>
           </div>
         </div>
       </div>
@@ -60,9 +63,9 @@
       </div>
       <div class="row" style="color:black; margin-bottom:20px; margin-top:20px; margin-left:1px;">
             <div class="col"><p>Pengajuan</p></div>
-            <div class="col"><p>Varifikasi oleh witel</p></div>
-            <div class="col"><p style="margin-left:10em;">Verifikasi oleh Telkom Regional</p></div>
-            <div class="col" ><p style="margin-left:18em;">Hasil pengajuan</p></div>
+            <div class="col"><p>Review Pengajuan</p></div>
+            <div class="col"><p style="margin-left:10em;">Verifikasi Pengajuan</p></div>
+            <div class="col" ><p style="margin-left:18em;">Hasil Pengajuan</p></div>
           </div>
       <div class="row">
         <div class="col-lg-3">
@@ -90,8 +93,7 @@
 
       <section id="review">
         <div class="section-header">
-          <h2 ><strong style=" margin-left: 10px;">Riwayat Pengajuan</strong></h2>
-          <p style="margin-left: 10px;">Tinjau ulang pengajuan yang sudah dilakukan</p>
+          <h2 ><strong style="color:black;  margin-left: 10px;">Riwayat Pengajuan</strong></h2>
         </div>
         <div class="row" style="margin-left: 10px;">
           <div class="col-lg-8">

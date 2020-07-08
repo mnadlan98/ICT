@@ -8,15 +8,8 @@ class Login_model extends CI_Model {
     }
     function data_login($email_user,$password) {
         $this->db->where('email_user', $email_user);
-        $this->db->where('password', $password);
+        $this->db->where('password', md5($password));
         return $this->db->get('user')->row();
     }
-
-    public function getuser($email_user){
-		$this->db->where('email_user',$email_user);
-		return $this->db->get('user')->result();
-	}
-
-
 }
 

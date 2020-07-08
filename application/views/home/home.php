@@ -40,20 +40,19 @@
         <div class="parallax-content baner-content" >
             <div class="container">
             <?php if ($this->session->userdata("user")['logged']): ?>
-              <h1 class="wow fadeInDown" style="font-size: 75px; color:black;">Selamat Datang </h1>
+              <h1 class="wow fadeInDown" style="font-size: 75px; color:black;">Selamat Datang <?= $this->session->userdata("user")['nama_user'] ?>!</h1>
             <?php endif ?>
                 <div class="first-content"> 
-                <span class="wow fadeInLeft" data-wow-delay="0.5s"><img src="../images/logo.jpg" style="margin-right:6em; border-radius:20px; width:280px; height:140px;"></span> 
-                <h5 class="wow fadeInUp" data-wow-delay="0.5s" style="margin-left:3em; font-size:15px;"><strong>oleh</strong></h5>
-                <span class="wow fadeInRight" data-wow-delay="0.5s"><img src="../images/telkom-logo.png" style="margin-left:5em; width:160px; height:90px;"></span>
+                <span class="wow fadeInLeft" data-wow-delay="0.5s"><img src="../images/ICT.jpg" style="border-radius:20px; width:550px; height:240px;"></span> 
+                
                     <?php if ($this->session->userdata("user")['logged']): ?>
-                        <div class="primary-button wow fadeInUp" data-wow-delay="1s">
-                            <a class="btn1" href="<?php echo base_url().'MainController/viewPengajuan';?>" >Pengajuan ICT Tour</a>
+                        <div class="primary-button wow fadeInUp" data-wow-delay="1s" style="margin-top:5em;" >
+                            <a class="btn1" href="<?php echo base_url().'Pengajuan/index';?>" style="padding:18px; font-size:15px;" >Pengajuan ICT Tour</a>
                         </div>
                     <?php else: ?>
-                    <div class="primary-button wow fadeInUp">
-                        <a class="btn" href="<?php echo base_url().'Login/inputlogin';?>">Masuk</a>
-                        <a class="btn" href="<?php echo base_url().'Register/index';?>">Daftar</a>
+                    <div class="primary-button wow fadeInUp" >
+                        <a class="btn" href="<?php echo base_url().'Login/inputlogin';?>" style="padding:18px; font-size:15px;">Masuk</a>
+                        <a class="btn" href="<?php echo base_url().'Register/index';?>" style="padding:18px; font-size:15px;">Daftar</a>
                     </div>
                     <?php endif ?>
                 </div>
@@ -102,7 +101,7 @@
                 <div class="col-lg-6">
                     <div class="box wow fadeInRight" data-wow-delay="0.2s" >
                     <h4>Tahap 4</h4>
-                    <p class="description">Setelah melakukan kegiatan tur, jangan lupa untuk memberikan saran dan masukan terhadap ICT Tour untuk kedepannya</p>
+                    <p class="description">Setelah pengajuan disetujui, persiapkan siswa untuk melakukan ICT Tour</p></br>
                     </div>
                 </div>
             </div>

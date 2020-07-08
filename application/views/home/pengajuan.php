@@ -129,7 +129,7 @@
         </div>
         <?php echo form_close();?>   
         <div class="form-group" style="margin-bottom:0em; margin-left:5em;">
-          <p style="font-size:15px; margin-left:8.5em; margin-bottom:8em; padding-top:10px; color:white;">Unduh template surat pengajuan <a href="<?php echo base_url("excel/daftar_peserta.csv"); ?>" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Disini</u></small></a></p>
+          <p style="font-size:15px; margin-left:8.5em; margin-bottom:8em; padding-top:10px; color:white;">Unduh template daftar peserta <a href="<?php echo base_url("excel/daftar_peserta.csv"); ?>" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Disini</u></small></a></p>
         </div>               
         </form>
   </div>

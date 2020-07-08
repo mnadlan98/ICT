@@ -18,8 +18,14 @@ class Login extends CI_Controller {
                 $row = $this->Login_model->data_login($this->input->post('email_user'),$this->input->post('password'));
                 $data = array(
                     'logged' => TRUE,
-                    'email_user' => $email_user,
+                    'nama_user' => $row->nama_user,
+                    'email_user' => $row->email_user,
+                    'notelp_user' => $row->notelp_user,
+                    'nama_sekolah' => $row->nama_sekolah,
+                    'email_sekolah' => $row->email_sekolah,
+                    'notelp_sekolah' => $row->notelp_sekolah,
                     'id' => $row->id_user
+
                 );
                 $this->session->set_userdata("user",$data);
                 redirect(site_url('MainController/index'));
