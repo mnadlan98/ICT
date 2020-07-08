@@ -43,7 +43,7 @@
               <h1 class="wow fadeInDown" style="font-size: 75px; color:black;">Selamat Datang <?= $this->session->userdata("user")['nama_user'] ?>!</h1>
             <?php endif ?>
                 <div class="first-content"> 
-                <span class="wow fadeInLeft" data-wow-delay="0.5s"><img src="../images/ICT.jpg" style="border-radius:20px; width:550px; height:240px;"></span> 
+                <span class="wow fadeInLeft" data-wow-delay="0.5s"><img src="../images/ICT.png" style="border-radius:20px; width:650px; height:240px;"></span> 
                 
                     <?php if ($this->session->userdata("user")['logged']): ?>
                         <div class="primary-button wow fadeInUp" data-wow-delay="1s" style="margin-top:5em;" >
