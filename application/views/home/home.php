@@ -218,10 +218,7 @@
                 $feedback = mysqli_query("SELECT * from feedback");
                 foreach ($feedback as $row){
                     echo "<tr>
-                        <td>".$row['nim']."</td>
-                        <td>".$row['nama']."</td>
-                        <td>".$jenis_kelamin."</td>
-                        <td>".$row['jurusan']."</td>
+                        <td>".$row['komen']."</td>
                           </tr>";
                     $no++;
                 }
@@ -237,7 +234,6 @@
               <h4>Ceo &amp; Founder</h4>
               <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
             </div>
-
             <div class="testimonial-item">
               <p>
                 <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
