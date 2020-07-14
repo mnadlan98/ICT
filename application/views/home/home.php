@@ -210,19 +210,32 @@
     <section id="testimonials" class="wow fadeInLeft">
       <div class="container">
         <div class="section-header">
-        <h2 ><strong style="font-size: 30px; border-bottom:2px solid red">Feedback</strong></h2>
+        <h2 ><strong style="font-size: 30px; border-bottom:2px solid red">Feedback</strong> <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span></h2>
           <p>Apa kata mereka yang sudah mengikuti ICT Tour?</p>
         </div>
         <div class="owl-carousel testimonial-carousel">
+        <!--  <?php
+                $feedback = mysqli_query("SELECT * from feedback");
+                foreach ($feedback as $row){
+                    echo "<tr>
+                        <td>".$row['nim']."</td>
+                        <td>".$row['nama']."</td>
+                        <td>".$jenis_kelamin."</td>
+                        <td>".$row['jurusan']."</td>
+                          </tr>";
+                    $no++;
+                }
+              ?> -->
             <div class="testimonial-item">
               <p>
                 <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
                 Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. risus at semper.
                 <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
               </p>
-              <img src="img/testimonial-1.jpg" class="testimonial-img" alt="">
+              <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1561869127/BBBootstrap/img-3.jpg" class="testimonial-img" alt="">
               <h3>Saul Goodman</h3>
               <h4>Ceo &amp; Founder</h4>
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
             </div>
 
             <div class="testimonial-item">
@@ -231,9 +244,10 @@
                 Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid c legam anim culpa.
                 <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
               </p>
-              <img src="img/testimonial-2.jpg" class="testimonial-img" alt="">
+              <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1563294707/Profile/img-1.jpg" class="testimonial-img" alt="">
               <h3>Sara Wilsson</h3>
               <h4>Designer</h4>
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
             </div>
 
             <div class="testimonial-item">
@@ -242,9 +256,10 @@
                 Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla t eram fore quis sint minim.
                 <img src="images1.png" class="quote-sign-right" alt="">
               </p>
-              <img src="img/testimonial-3.jpg" class="testimonial-img" alt="">
+              <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1561869126/BBBootstrap/img-1.jpg" class="testimonial-img" alt="">
               <h3>Jena Karlis</h3>
               <h4>Store Owner</h4>
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
             </div>
 
             <div class="testimonial-item">
@@ -253,22 +268,24 @@
                 Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minimt fore quem dolore labore illum veniam.
                 <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
               </p>
-              <img src="img/testimonial-4.jpg" class="testimonial-img" alt="">
+              <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1561869127/BBBootstrap/img-2.jpg" class="testimonial-img" alt="">
               <h3>Matt Brandon</h3>
               <h4>Freelancer</h4>
+              <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
             </div>
 
             <div class="testimonial-item">
               <p>
                 <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
-                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam temppa fore nisi cillum quid.
+                sint quorum nulla t eram fore quis sint minim culpa iaculis purus consequat sem cure digni ssim d.
                 <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
               </p>
-              <img src="img/testimonial-5.jpg" class="testimonial-img" alt="">
-              <h3>John Larson</h3>
-              <h4>Entrepreneur</h4>
+              <img src="https://pbs.twimg.com/media/DLggLI1VAAAE70W?format=jpg&name=large" class="testimonial-img" alt="">
+              <h3>Lucy Amber</h3>
+              <h4>Teacher</h4>
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
             </div>
-
+          
         </div>
 
       </div>
@@ -281,7 +298,7 @@
     <script type="text/javascript">
 		$('.owl-carousel').owlCarousel({
 		    loop:true,
-		    margin:10,
+		    margin:50,
 		    nav:true,
 		    autoplay:true,
 		    autoplayTimeout:3000,
