@@ -8,7 +8,29 @@ body {
     height:auto;
   }
 
+  .back-to-top {
+    position: fixed;
+    display: none;
+    background: #50d8af;
+    color: #fff;
+    padding: 6px 12px 9px 12px;
+    font-size: 16px;
+    border-radius: 2px;
+    right: 15px;
+    bottom: 15px;
+    transition: background 0.5s;
+  }
   
+  .back-to-top:focus {
+    background: #50d8af;
+    color: #fff;
+    outline: none;
+  }
+  
+  .back-to-top:hover {
+    background: #0c2e8a;
+    color: #fff;
+  }
 
   .baner-content {
     padding-top: 15vh;
@@ -42,7 +64,7 @@ body {
   }
 
   .baner-content .primary-button {
-    margin-top: 2em;
+    margin-top: 1em;
     transition-delay: 2s;
   }
 
@@ -76,8 +98,8 @@ body {
   /* About Section*/
 
   #about {
-    background-color: white;
-    padding: 100px;
+    background-color: whitesmoke;
+    padding: 50px;
   }
 
   #about .container .row .col span{
@@ -106,8 +128,10 @@ body {
     -moz-transform: translateY(-10px);
   }
 
+
+
   #services .box h4 {
-    margin-left: 100px;
+   
     font-weight: 700;
     margin-bottom: 15px;
     font-size: 22px;
@@ -119,7 +143,7 @@ body {
   
   #services .box p {
     font-size: 14px;
-    margin-left: 100px;
+   
     margin-bottom: 0;
     line-height: 24px;
   }
@@ -127,7 +151,7 @@ body {
    /* Protfolio Section*/
 
   #portfolio {
-    background: #fff;
+    background: whitesmoke;
     padding: 30px 0;
   }
    
@@ -257,3 +281,8 @@ body {
     background-color: #50d8af;
   }
  
+  @media (max-width: 767px) {
+    #testimonials .testimonial-item {
+      margin: 30px 10px;
+    }
+  }

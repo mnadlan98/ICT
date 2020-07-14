@@ -52,44 +52,7 @@
       </div>
     </section>
       
-    <section class="wow fadeInRight" id="progress">
-      <div class="section-header">
-        <h2 ><strong style="font-size: 30px; border-bottom:2px solid red">Progress Pengajuan</strong></h2>
-        <p>Tinjau progress pengajuan</p>
-      </div>
-      <div class="progress" style="margin-left:10px; margin-right:10px;">
-        <div class="progress-bar" role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" style="width:67%">
-        </div>
-      </div>
-      <div class="row" style="color:black; margin-bottom:20px; margin-top:20px; margin-left:1px;">
-            <div class="col"><p>Pengajuan</p></div>
-            <div class="col"><p>Review Pengajuan</p></div>
-            <div class="col"><p style="margin-left:10em;">Verifikasi Pengajuan</p></div>
-            <div class="col" ><p style="margin-left:18em;">Hasil Pengajuan</p></div>
-          </div>
-      <div class="row">
-        <div class="col-lg-3">
-            <div class="box wow fadeInLeft" >
-              <h4>Page</h4>
-            </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="box wow fadeInRight">
-            <h4>Page</h4>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="box wow fadeInLeft" data-wow-delay="0.2s" >
-            <h4>Page</h4>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="box wow fadeInRight" data-wow-delay="0.2s" >
-              <h4>Page</h4>
-          </div>
-        </div>
-      </div>
-    </section>
+    
 
       <section id="review">
         <div class="section-header">

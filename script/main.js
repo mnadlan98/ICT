@@ -1,18 +1,38 @@
-new WOW().init();
+jQuery(document).ready(function ($) {
+	new WOW().init();
 
-$(document).ready(function(){
 	$(window).scroll(function () {
-			if ($(this).scrollTop() > 50) {
-				$('#back-to-top').fadeIn();
-			} else {
-				$('#back-to-top').fadeOut();
-			}
-		});
-		// scroll body to 0px on click
-		$('#back-to-top').click(function () {
-			$('body,html').animate({
-				scrollTop: 0
-			}, 400);
-			return false;
-		});
+		if ($(this).scrollTop() > 100) {
+		$('.back-to-top').fadeIn('slow');
+		} else {
+		$('.back-to-top').fadeOut('slow');
+		}
+	});
+	$('.back-to-top').click(function () {
+		$('html, body').animate({
+		scrollTop: 0
+		}, 1500, 'easeInOutExpo');
+		return false;
+	});
+
+	$('.portfolio-popup').magnificPopup({
+		type: 'image',
+		removalDelay: 300,
+		mainClass: 'mfp-fade',
+		gallery: {
+		enabled: true
+		},
+		zoom: {
+		enabled: true,
+		duration: 300,
+		easing: 'ease-in-out',
+		opener: function (openerElement) {
+			return openerElement.is('img') ? openerElement : openerElement.find('img');
+		}
+		}
+	});
+
+	
+	
+
 });
