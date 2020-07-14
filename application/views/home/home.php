@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="http://localhost/ICT/css/hero-slider.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/templatemo-main.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/home.css?version=51">
-        <link rel="stylesheet" href="http://localhost/ICT/css/animate.min.css">
+        
         <link rel="stylesheet" href="http://localhost/ICT/css/owl.carousel.min.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/owlcarousel/assets/owl.theme.default.min.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/ionicons.min.css">
@@ -198,7 +198,7 @@
         <h2 ><strong style="font-size: 30px; border-bottom:2px solid red">Feedback</strong></h2>
           <p>Apa kata mereka yang sudah mengikuti ICT Tour?</p>
         </div>
-        <div class="owl-carousel">
+        <div class="owl-carousel testimonial-carousel">
             <div class="testimonial-item">
               <p>
                 <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
@@ -265,9 +265,7 @@
     
 </body>
 
-<script src="http://localhost/ICT/script/wow.min.js"></script>
-<script src="http://localhost/ICT/script/wow.js"></script>
-<script src="http://localhost/ICT/script/jquery.min.js"></script>
+
 <script src="http://localhost/ICT/script/owl.carousel.min.js"></script>
 <script src="http://localhost/ICT/script/jquery-migrate.min.js"></script>
 <script src="http://localhost/ICT/script/bootstrap.bundle.min.js"></script>

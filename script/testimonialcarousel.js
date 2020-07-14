@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $(".owl-carousel").owlCarousel({
+    $(".testimonials-carousel").owlCarousel({
 		autoplay: true,
 		dots: true,
 		loop: true,

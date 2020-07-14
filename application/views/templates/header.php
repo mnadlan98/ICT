@@ -17,6 +17,12 @@
   <link href="<?php echo base_url()?>assets/bootstrap/css/mdb.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 
+  <link rel="stylesheet" href="http://localhost/ICT/css/animate.min.css">
+  <script src="http://localhost/ICT/script/wow.min.js"></script>
+  <script src="http://localhost/ICT/script/wow.js"></script>
+  <script src="http://localhost/ICT/script/main.js"></script>
+  <script src="http://localhost/ICT/script/jquery.min.js"></script>
+
 
   <link rel="stylesheet" type="text/css" href="http://localhost/ICT/css/header.css">
   <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>/assets/css/stylenav.css">
