@@ -32,16 +32,16 @@
 <body>
 <div class="col-md-5 py-3" style="margin-left:32em; margin-top: 1em;" >
   <h5 style="font-weight: bolder; color: black; margin-left: 15em; color:white; margin-top:5em; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Pengajuan ICT Tour</strong></h5></br></br>
-  <?php echo form_open('Pengajuan');?> 
+  <?php echo form_open_multipart('Pengajuan');?> 
      <form method="post">
           <hr class="onepixel">
           <h5 style="font-weight: bolder; color: black;  color:white; "><strong style=" font-size:14px; ">Data Pengajuan</strong></h5><br>
           <div class="row">
             <div>
-              <label style="font-size:15px; color:white; padding-right:3.1em;">Jumlah Siswa      </label>
+              <label style="font-size:15px; color:white; padding-right:3.1em;">Jumlah Siswa (Maksimum 30)</label>
             </div>
             <div class="form-group col">
-              <input type="text" class="form-control" id="jumlah_siswa" name="jumlah_siswa" style="margin-left:12em; box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25)">
+              <input type="number" class="form-control" id="jumlah_siswa" name="jumlah_siswa" min="1" max="30" style="margin-left:1.3em; box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25)">
             </div>
           </div>
           <?php echo form_error('jumlah_siswa'); ?></small>
@@ -77,7 +77,7 @@
               <label style="font-size:15px; color:white;">Unggah Surat Permohonan</label>
             </div>
             <div class="form-group col">
-              <input type="file" class="form-control-file" id="surat_permohonan" style="margin-left:5.6em; color:white;">
+              <input type="file" class="form-control-file" name="surat_permohonan" id="surat_permohonan" style="margin-left:5.6em; color:white;" required>
             </div>
           </div>
           <?php echo form_error('surat_permohonan'); ?></small>
@@ -86,18 +86,19 @@
               <label style="font-size:15px; color:white;">Unggah Daftar Peserta (.csv / .xlsx)</label>
             </div>
             <div class="form-group col">
-              <input type="file" class="form-control-file" id="daftar_peserta" style="margin-left:1.75em; color:white;">
+              <input type="file" class="form-control-file" name="daftar_peserta" id="daftar_peserta" style="margin-left:1.75em; color:white;" required>
             </div>
           </div>         
           <?php echo form_error('daftar_peserta'); ?></small>    
+          <p style="font-size:15px; padding-top:10px; margin-left:-1em;color:white;">Contoh Template Daftar Peserta <a href="<?php echo base_url("./excel/daftar_peserta.csv"); ?>" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Unduh</u></small></a></p>  
           <hr class="onepixel">
           <h5 style="font-weight: bolder; color: black;  color:white; "><strong style=" font-size:14px; ">Lokasi ICT Tour</strong></h5><br>
           <div class="row" style="padding-right:1.75em;">
             <div>
-              <label style="font-size:15px; color:white; margin-right:4.4em">Provinsi      </label>
+              <label style="font-size:15px; color:white; margin-right:4em">Provinsi      </label>
             </div>
             <div class="form-group col">
-              <select class="form-control" id="kantor" name="kantor" placeholder="Pilih Lokasi Witel" style="margin-left:14.2em;">
+              <select class="form-control" id="kantor" name="kantor" style="margin-left:14.3em;">
                 <option selected>Jawa Barat</option>
               </select>
             </div>
@@ -105,33 +106,65 @@
           <?php echo form_error('provinsi'); ?></small>
           <div class="row" style="padding-right:1.75em;">
             <div>
-              <label style="font-size:15px; color:white; margin-right:17px">Kantor Cabang</label>
+              <label style="font-size:15px; color:white; margin-right:6px">Kota/Kabupaten</label>
             </div>
             <div class="form-group col">
-              <select class="form-control" id="kantor" name="kantor" placeholder="Pilih Lokasi Witel" style="margin-left:14.3em;">
-                <option selected>Pilih Lokasi Witel ...</option>
-                <option>Tasikmalaya</option>
-                <option>Sukabumi</option>
-                <option>Cirebon</option>
-                <option>Bandung</option>
-                <option>Bandung Barat</option>
-                <option>Karawang</option>
+              <select class="form-control" id="kotakab" name="kotakab"  style="margin-left:14.3em;" required>
+                <option value="">Pilih Kota/Kabupaten ...</option>
+                <?php foreach($kotakab as $row):?>
+                <option value="<?php echo $row->id_kotakab;?>"><?php echo $row->nama_kotakab;?></option>
+                <?php endforeach;?>
+              </select>
+            </div>
+          </div>
+          <?php echo form_error('kotakab'); ?></small>
+          <div class="row" style="padding-right:1.75em;">
+            <div>
+              <label style="font-size:15px; color:white; margin-right:17px">Kantor Telkom</label>
+            </div>
+            <div class="form-group col">
+              <select class="form-control" id="datel" name="datel" style="margin-left:14.3em;" required>
+                <option value="">Pilih Lokasi Kantor Telkom ...</option>             
               </select>
             </div>
           </div>
           <?php echo form_error('kantor'); ?></small>
           <div class="form-check" style="margin-left:12em;">
-            <input class="form-check-input" type="checkbox" id="checkbox_policy">
-            <label class="form-check-label" for="checkbox_policy" style="color:white; margin-left:12px; ">Saya menyetujui <a href="#">syarat dan ketentuan</a> yang berlaku</label>
+            <input type="hidden" name="checkbox_policy" value="0">
+            <input class="form-check-input" type="checkbox" id="checkbox_policy" name="checkbox_policy" value="1">
+            <label class="form-check-label" for="checkbox_policy" style="color:white; margin-left:12px; ">Saya menyetujui <a href="#" style="color:dodgerblue" data-toggle="modal" data-target="#myModal">syarat dan ketentuan</a> yang berlaku</label>
           </div> </br>
           <div class="col-md-12" style="padding-left:20em;">
-          <button type="submit" name="login" class="btn btn-outline-dark" style="background: #BD0306; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 7px;font-weight: bold; font-size: 20px; font-family: Lato; color:white; border-color:white; ">Kirim</button>              
+          <button type="submit" name="login" class="btn btn-outline-dark" style="background: #BD0306; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 7px;font-weight: bold; font-size: 20px; font-family: Lato; color:white; border-color:white; ">Kirim</button>   
         </div>
-        <?php echo form_close();?>   
-        <div class="form-group" style="margin-bottom:0em; margin-left:5em;">
-          <p style="font-size:15px; margin-left:8.5em; margin-bottom:8em; padding-top:10px; color:white;">Unduh template daftar peserta <a href="<?php echo base_url("excel/daftar_peserta.csv"); ?>" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Disini</u></small></a></p>
-        </div>               
+        <?php echo form_close();?>                
         </form>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog modal-dialog-centered">
+          <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Syarat dan Ketentuan</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <div class="modal-body">
+                <p>1. ICT TOUR diperuntukkan jenjang SD/SMP/SMA</p>
+                <p>2. Jumlah peserta dalam 1 waktu kunjungan fisik 30 orang</p>
+                <p>3. Maksimal pembimbing dalam 1 waktu kunjugan 2 orang</p>
+                <p>4. Kunjungan ICT Tour bisa dilakukan setelah di approve oleh pihak Telkom</p>
+                <p>5. ICT Tour secara fisik dilaksanakan diutamakan di kantor Datel</p>
+                <p>6. Para Peserta wajib mengikuti peraturan yang sudah di tentukan dari pihak Telkom</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
   </div>
+
 </body>
 </html>
