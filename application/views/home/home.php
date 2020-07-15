@@ -19,10 +19,25 @@
         <link rel="stylesheet" href="http://localhost/ICT/css/owlcarousel/assets/owl.theme.default.min.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/ionicons.min.css">
 
-        <script src="http://localhost/ICT/script/main.js?v=1"></script>
-        <script src="http://localhost/ICT/script/testimonialcarousel.js?v=1"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/owl.carousel.min.js"></script>
+        <script src="http://localhost/ICT/script/owl.carousel.min.js"></script>
+        <script src="http://localhost/ICT/script/jquery-migrate.min.js"></script>
+        <script src="http://localhost/ICT/script/bootstrap.bundle.min.js"></script>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800" rel="stylesheet">
+
+        
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/assets/owl.carousel.min.css" rel="stylesheet" />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+        <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+        <link rel="stylesheet" type="text/css" href="css/owl.theme.default.css">
+        
+      
+        <script type="text/javascript" src="script/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="script/owl.carousel.js"></script>
         
     </head>
     <?php if ($this->session->userdata("user")['logged']): ?>
@@ -195,65 +210,78 @@
     <section id="testimonials" class="wow fadeInLeft">
       <div class="container">
         <div class="section-header">
-        <h2 ><strong style="font-size: 30px; border-bottom:2px solid red">Feedback</strong></h2>
+        <h2 ><strong style="font-size: 30px; border-bottom:2px solid red">Feedback</strong> <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span></h2>
           <p>Apa kata mereka yang sudah mengikuti ICT Tour?</p>
         </div>
         <div class="owl-carousel testimonial-carousel">
+        <!--  <?php
+                $feedback = mysqli_query("SELECT * from feedback");
+                foreach ($feedback as $row){
+                    echo "<tr>
+                        <td>".$row['komen']."</td>
+                          </tr>";
+                    $no++;
+                }
+              ?> -->
             <div class="testimonial-item">
               <p>
                 <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
-                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. risus at semper.
                 <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
               </p>
-              <img src="img/testimonial-1.jpg" class="testimonial-img" alt="">
+              <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1561869127/BBBootstrap/img-3.jpg" class="testimonial-img" alt="">
               <h3>Saul Goodman</h3>
               <h4>Ceo &amp; Founder</h4>
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
             </div>
-
             <div class="testimonial-item">
               <p>
                 <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
-                Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid c legam anim culpa.
                 <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
               </p>
-              <img src="img/testimonial-2.jpg" class="testimonial-img" alt="">
+              <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1563294707/Profile/img-1.jpg" class="testimonial-img" alt="">
               <h3>Sara Wilsson</h3>
               <h4>Designer</h4>
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
             </div>
 
             <div class="testimonial-item">
               <p>
                 <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
-                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla t eram fore quis sint minim.
                 <img src="images1.png" class="quote-sign-right" alt="">
               </p>
-              <img src="img/testimonial-3.jpg" class="testimonial-img" alt="">
+              <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1561869126/BBBootstrap/img-1.jpg" class="testimonial-img" alt="">
               <h3>Jena Karlis</h3>
               <h4>Store Owner</h4>
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
             </div>
 
             <div class="testimonial-item">
               <p>
                 <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
-                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minimt fore quem dolore labore illum veniam.
                 <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
               </p>
-              <img src="img/testimonial-4.jpg" class="testimonial-img" alt="">
+              <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1561869127/BBBootstrap/img-2.jpg" class="testimonial-img" alt="">
               <h3>Matt Brandon</h3>
               <h4>Freelancer</h4>
+              <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
             </div>
 
             <div class="testimonial-item">
               <p>
                 <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
-                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                sint quorum nulla t eram fore quis sint minim culpa iaculis purus consequat sem cure digni ssim d.
                 <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
               </p>
-              <img src="img/testimonial-5.jpg" class="testimonial-img" alt="">
-              <h3>John Larson</h3>
-              <h4>Entrepreneur</h4>
+              <img src="https://pbs.twimg.com/media/DLggLI1VAAAE70W?format=jpg&name=large" class="testimonial-img" alt="">
+              <h3>Lucy Amber</h3>
+              <h4>Teacher</h4>
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
             </div>
-
+          
         </div>
 
       </div>
@@ -297,10 +325,30 @@
     </section>
 
     <a id="back-to-top" href="#" class="btn btn-dark btn-lg back-to-top" role="button" style="position: fixed;bottom: 25px;right: 25px;"><i class="fas fa-chevron-up"></i></a>
+
+    <script type="text/javascript">
+		$('.owl-carousel').owlCarousel({
+		    loop:true,
+		    margin:50,
+		    nav:true,
+		    autoplay:true,
+		    autoplayTimeout:3000,
+		    autoplayHoverPause:true,
+		    responsive:{
+		        0:{
+		            items:1
+		        },
+		        600:{
+		            items:3
+		        },
+		        1000:{
+		            items:5
+		        }
+		    }
+		})
+ 
+	  </script>
     
 </body>
 
 
-<script src="http://localhost/ICT/script/owl.carousel.min.js"></script>
-<script src="http://localhost/ICT/script/jquery-migrate.min.js"></script>
-<script src="http://localhost/ICT/script/bootstrap.bundle.min.js"></script>

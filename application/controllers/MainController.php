@@ -6,12 +6,14 @@ class MainController extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Login_model');
+		$this->load->model('Feedback_model');
 		$this->load->helper('url');
 		
 	}
 
 	public function index()
 	{
+		$this->load->model('Feedback_model');
 		$data['title'] = 'Selamat Datang';
 		$this->load->view('templates/header', $data);
 		$this->load->view('home/home');
@@ -36,6 +38,13 @@ class MainController extends CI_Controller {
 		$data['title'] = 'Profil';
 		$this->load->view('templates/header', $data);
 		$this->load->view('home/profil');
+		$this->load->view('templates/footer');	
+	}
+
+	public function viewReview(){
+		$data['title'] = 'Review';
+		$this->load->view('templates/header', $data);
+		$this->load->view('home/review');
 		$this->load->view('templates/footer');	
 	}
 

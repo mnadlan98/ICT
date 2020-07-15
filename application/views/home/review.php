@@ -18,15 +18,31 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800" rel="stylesheet">
         
     </head>
+    <?php 
+        $status = array();
+        $koneksi = mysqli_connect("localhost", "root", "", "ict");
+        $user = $this->session->userdata("user")['id'];
+        $query = $this->db->get_where('pengajuan', array('id_user' => $user));
+        $data   = $query->result_array();
+        foreach ($data as $row){
+          echo "<tr>
+              <td>".$row['status_pengajuan']."</td>
+                </tr>";
+        }
+        $status = (float)$row['status_pengajuan'] * 25;
+        $status = '"width:'.$status.'%"';
+
+      ?>
 
 <body >
     <section class="wow fadeInRight" id="progress">
       <div class="section-header">
         <h2 ><strong style="font-size: 30px; border-bottom:2px solid red">Progress Pengajuan</strong></h2>
         <p>Tinjau progress pengajuan</p>
+        <p><?php echo $status ?></p>
       </div>
       <div class="progress" style="margin-left:10px; margin-right:10px;">
-        <div class="progress-bar" role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" style="width:67%">
+        <div class="progress-bar" role="progressbar"  style=<?php echo $status ?>>
         </div>
       </div>
       <div class="row" style="color:black; margin-bottom:20px; margin-top:20px; margin-left:1px;">
