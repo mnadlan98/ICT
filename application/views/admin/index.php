@@ -1,46 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <?php $this->load->view("admin/_partials/head.php") ?>
+</head>
+<body id="page-top">
+
+<?php $this->load->view("admin/_partials/navbar.php") ?>
+
+<div id="wrapper">
+
+  <?php $this->load->view("admin/_partials/sidebar.php") ?>
+
+  <div id="content-wrapper">
+
     <div class="container-fluid">
+
+    <!-- Icon Cards-->
+    <?php if ($this->session->userdata("admin")['level']==1): ?>
       <div class="row">
-          <aside>
-              <div class="col-sm-3 col-md-2 sidebar">
-                <ul class="nav nav-sidebar">
-                  <li ><a href="#"><i class="fa fa-home fa-lg"></i> Home</a></li>
-                  <li><a href="#"><i class="fa fa-archive fa-lg"></i> Pengajuan</a></li>
-                  <li><a href="#"><i class="fa fa-th-list fa-lg"></i> Konten Web</a></li>
-                  <li><a href="#"><i class="fa fa-users fa-lg"></i> Users</a></li>
-                </ul>
-              </div>
-          </aside>
-          <section id="konten">
-            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-              <h1 class="page-header">Home Admin</h1>
-              <div class="row placeholders">
-                <div class="col-xs-6 col-sm-3 placeholder">
-                  <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-                  <h4>Label</h4>
-                  <span class="text-muted">Something else</span>
-                </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                  <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-                  <h4>Label</h4>
-                  <span class="text-muted">Something else</span>
-                </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                  <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-                  <h4>Label</h4>
-                  <span class="text-muted">Something else</span>
-                </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                  <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-                  <h4>Label</h4>
-                  <span class="text-muted">Something else</span>
-                </div>
-              </div>
-            </div>
-          </section>
+      <?php for($x = 0; $x <= 5; $x++) { ?>
+      <div class="col-xl-3 col-sm-6 mb-3">
+      <div class="card text-white bg-primary o-hidden h-100">
+        <div class="card-body">
+        <h4 class="text-body font-weight-bold">Witel <?php echo $nama[$x]['nama_witel'] ?></h2>
+        <div class="mr-5"><?php echo $count[$x] ?> Pengajuan</div>
+        </div>
+        <a class="card-footer text-white clearfix small z-1" href="#">
+        <span class="float-left">View Details</span>
+        <span class="float-right">
+          <i class="fas fa-angle-right"></i>
+        </span>
+        </a>
       </div>
+      </div>
+      
+      <?php } ?>
+    <?php else: ?>
+      <div class="row">
+      <?php foreach ($pengajuan as $p): ?>
+      <div class="col-xl-3 col-sm-6 mb-3">
+      <div class="card text-white bg-primary o-hidden h-100">
+        <div class="card-body">
+        <h4 class="text-body font-weight-bold">Witel <?php echo $p->nama_witel ?></h2>
+        <div class="mr-5"><?php echo $count?> Pengajuan</div>
+        </div>
+        <a class="card-footer text-white clearfix small z-1" href="#">
+        <span class="float-left">View Details</span>
+        <span class="float-right">
+          <i class="fas fa-angle-right"></i>
+        </span>
+        </a>
+      </div>
+      </div>
+      <?php break;?>
+      <?php endforeach; ?>
+
+    <?php endif ?>
+    
+    
+    </div>    
     </div>
-    <script src="../bootstrap/js/jquery.js"></script>
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
-    <script src="../bootstrap/js/holder.js"></script>
-  </body>
+    <!-- /.container-fluid -->
+
+    <!-- Sticky Footer -->
+    <?php $this->load->view("admin/_partials/footer.php") ?>
+
+  </div>
+  <!-- /.content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+
+<?php $this->load->view("admin/_partials/scrolltop.php") ?>
+<?php $this->load->view("admin/_partials/modal.php") ?>
+<?php $this->load->view("admin/_partials/js.php") ?>
+    
+</body>
 </html>
