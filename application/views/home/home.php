@@ -236,9 +236,12 @@
             <?php $k = 0; ?>
             <?php foreach ($feedback as $row): ?>         
             <div class="testimonial-item">   
-              <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" class="testimonial-img" alt="">                                 
-              <p> <?php echo substr($row->komen,0,50); 
-                        echo '... <br> <a href="#"  data-toggle="modal" data-target="#modal'.$k.'">Read More</a>'; ?> </p>
+              <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" class="testimonial-img" alt=""><br><br>                                 
+              <p> <?php echo substr($row->komen,0,100); 
+                        if(strlen($row->komen)>100){
+                          echo '... <br> <a href="#"  data-toggle="modal" data-target="#modal'.$k.'">Read More</a>';
+                        }
+                         ?> </p><br>
               <h3> <?php echo $row->nama_user; ?> </h3>
               <h4> <?php echo $row->nama_sekolah; ?> </h4>
               <?php $star = ''; ?>
@@ -253,12 +256,18 @@
         </div>
     </section>
     <?php $i = 0; ?> 
-    <?php foreach ($feedback as $row): ?>      
+    <?php foreach ($feedback as $row): ?> 
+      <?php $star = ''; ?>
+              <?php for($b=0; $b<$row->rating; $b++):
+                  $star = $star.'★';
+
+                endfor;?>     
           <div class="modal"  role="dialog" id=<?php echo '"modal'.$i.'"'; ?>>
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h4 class="modal-title modal-title-centered"><?php echo $row->nama_user."<br>".$row->nama_sekolah; ?></h4>
+                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" class="testimonial-img" width="100px" height="100px" alt=""><hr>
+                    <h4 class="modal-title modal-title-centered"><?php echo $row->nama_user."<br>".$row->nama_sekolah."<br>".$star; ?></h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -321,19 +330,7 @@
 		    margin:50,
 		    nav:true,
 		    autoplay:true,
-		    autoplayTimeout:3000,
-		    autoplayHoverPause:true,
-		    responsive:{
-		        0:{
-		            items:1
-		        },
-		        600:{
-		            items:3
-		        },
-		        1000:{
-		            items:5
-		        }
-		    }
+        autoplayTimeout:5000
 		})
  
 	  </script>

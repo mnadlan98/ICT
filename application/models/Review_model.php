@@ -6,20 +6,26 @@
      {
         $status = array();
         $user = $this->session->userdata("user")['id'];
-        $query = $this->db->get_where('pengajuan', array('id_user' => $user));
-        $data   = $query->result_array();
-        foreach ($data as $row){
-          echo "<tr>
-              <td>".$row['status_pengajuan']."</td>
-                </tr>";
-        }
-        $value = (int)$row['status_pengajuan'];
+        $this->db->select('status_pengajuan');
+        $this->db->from('pengajuan');
+        $this->db->where('id_user = '.$user);
+        $this->db->order_by('id_pengajuan', 'DESC');
+        $this->db->limit(1);
+        $query = $this->db->get();
+        $data  = $query->row();
 
-        if($value == 4){
+        $value = (int)$data->status_pengajuan;
+
+        if($value == 5){
             $status[0] = '"col-xs-3 bs-wizard-step complete"';
             $status[1] = '"col-xs-3 bs-wizard-step complete"';
             $status[2] = '"col-xs-3 bs-wizard-step complete"';
-            $status[3] = '"col-xs-3 bs-wizard-step active"';
+            $status[3] = '"col-xs-3 bs-wizard-step decline"';
+        }else if($value == 4){
+            $status[0] = '"col-xs-3 bs-wizard-step complete"';
+            $status[1] = '"col-xs-3 bs-wizard-step complete"';
+            $status[2] = '"col-xs-3 bs-wizard-step complete"';
+            $status[3] = '"col-xs-3 bs-wizard-step accepted"';
         }else if($value == 3){
             $status[0] = '"col-xs-3 bs-wizard-step complete"';
             $status[1] = '"col-xs-3 bs-wizard-step complete"';
@@ -36,6 +42,7 @@
             $status[2] = '"col-xs-3 bs-wizard-step disabled"';
             $status[3] = '"col-xs-3 bs-wizard-step disabled"';
         }
+        $status[4] = $value;
         return $status;
      }
     }

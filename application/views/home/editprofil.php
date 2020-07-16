@@ -60,8 +60,6 @@
         <div class="section-header">
           <h2 ><strong style="color:black;  margin-left: 10px;">Riwayat Pengajuan</strong></h2>
         </div>
-        <?php $no=1; ?>
-        <?php foreach ($profil as $row): ?> 
         <div class="row" style="margin-left: 10px;">
         <div class="card-body">
                                 <div class="table-responsive">
@@ -77,43 +75,25 @@
                                                 <th>Datel</th>
                                                 <th>Witel</th>
                                                 <th>Tanggal Pengajuan</th>
-                                                <th>Status Pengajuan</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><?php echo $no ?> </td>
-                                                <td><?php echo $row->jumlah_siswa ?></td>
-                                                <td><?php echo $row->pembimbing1 ?></td>
-                                                <td><?php echo $row->pembimbing2 ?></td>
-                                                <td><?php echo $row->tanggal_pelaksanaan ?></td>
-                                                <td><?php echo $row->nama_kotakab ?></td>
-                                                <td><?php echo $row->nama_datel ?></td>
-                                                <td><?php echo $row->nama_witel ?></td>
-                                                <td><?php echo $row->tanggal_pengajuan ?></td>
-                                                <?php 
-                                                $cek = (int)$row->status_pengajuan;
-                                                if($cek == 1){
-                                                  $stat = "Pengajuan";
-                                                }else if($cek == 2){
-                                                  $stat = "Tahap Review";                                                 
-                                                }else if($cek == 3){
-                                                  $stat = "Verifikasi Pengajuan";
-                                                }else if($cek == 4){
-                                                  $stat = "Pengajuan Diterima";
-                                                }else if($cek == 5){
-                                                  $stat = "Pengajuan Ditolak";
-                                                }
-                                                ?>
-                                                <td><?php echo $stat ?></td>
+                                                <td>1</td>
+                                                <td>22</td>
+                                                <td>Sudardi</td>
+                                                <td>Darmaji</td>
+                                                <td>2020-07-12</td>
+                                                <td>Sumedang</td>
+                                                <td>Sumedang</td>
+                                                <td>Sumedang</td>
+                                                <td>2020-07-19</td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
         </div>
-        <?php $no++; ?>
-        <?php endforeach; ?>
         </section>
     
 

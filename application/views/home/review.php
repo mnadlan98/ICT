@@ -44,7 +44,7 @@
                   <div class="text-center bs-wizard-stepnum">Tahap 2</div>
                   <div class="progress"><div class="progress-bar"></div></div>
                   <a href="#" class="bs-wizard-dot"></a>
-                  <div class="bs-wizard-info text-center">Review Pengajuan</div>
+                  <div class="bs-wizard-info text-center">Tahap Review</div>
                 </div>
                 
                 <div class=<?php echo $status[2] ?>>
@@ -86,7 +86,16 @@
         <div class="col-lg-3">
           <div class="box wow fadeInRight" data-wow-delay="0.2s" >
           <h4>Tahap 4</h4>
-          <p class="description">Pengajuan telah disetujui atau ditolak</p><br>
+          <?php 
+          if($status[4] == 4){
+            $rs = "Pengajuan anda telah kami setujui";
+          }else if ($status[4] == 5){
+            $rs = "Maaf, Persetujuan yang anda buat tidak disetujui";
+          }else{
+            $rs = "Pengajuan telah disetujui atau ditolak";
+          }
+          ?>
+          <p class="description"><?php echo $rs ?></p><br>
           </div>
         </div>
       </div>

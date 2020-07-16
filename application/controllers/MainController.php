@@ -35,6 +35,8 @@ class MainController extends CI_Controller {
 	}
 
 	public function viewProfil(){
+		$this->load->model('Profil_model');
+		$data['profil'] = $this->Profil_model->getAll();
 		$data['title'] = 'Profil';
 		$this->load->view('templates/header', $data);
 		$this->load->view('home/profil');
