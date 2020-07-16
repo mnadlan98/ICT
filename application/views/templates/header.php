@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="http://localhost/ICT/css/animate.min.css">
   <script src="http://localhost/ICT/script/wow.min.js"></script>
   <script src="http://localhost/ICT/script/wow.js"></script>
-  <script src="http://localhost/ICT/script/main.js"></script>
+  <script src="http://localhost/ICT/script/main.js?version=1"></script>
   <script src="http://localhost/ICT/script/jquery.min.js"></script>
 
 
