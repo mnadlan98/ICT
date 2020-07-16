@@ -39,7 +39,7 @@
   <div class="header-right">
     <a class="item" href="<?php echo site_url()."MainController/index#home"?>">Beranda</a>
     <a class="item" href="<?php echo site_url()."MainController/index#about"?>">Tentang</a>
-    <a class="item" href="#about">Kontak Kami</a>
+    <a class="item" href="<?php echo site_url()."MainController/index#contact"?>">Kontak Kami</a>
     <?php if ($this->session->userdata("user")['logged']): ?>
       <a class="nav-link" href="<?php echo site_url()."MainController/viewProfil"?>" style="padding-left:10px; border-radius:0px; border-left:3px solid red;">Profil</a>
       <a class="item" href="<?php echo site_url()."MainController/review"?>">Review Pengajuan</a>

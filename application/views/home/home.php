@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="http://localhost/ICT/css/font-awesome.min.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/hero-slider.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/templatemo-main.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/home.css?version=51">
+        <link rel="stylesheet" href="http://localhost/ICT/css/home.css?version=52">
         
         <link rel="stylesheet" href="http://localhost/ICT/css/owl.carousel.min.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/owlcarousel/assets/owl.theme.default.min.css">
@@ -224,34 +224,22 @@
                 }
               ?> -->
             <div class="testimonial-item">
-              <p>
-                <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
-                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. risus at semper.
-                <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
-              </p>
+              <p>Study tour berjalan dengan baik namun dalam waktu yang cukup lama.</p>
               <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1561869127/BBBootstrap/img-3.jpg" class="testimonial-img" alt="">
               <h3>Saul Goodman</h3>
               <h4>Ceo &amp; Founder</h4>
               <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
             </div>
             <div class="testimonial-item">
-              <p>
-                <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
-                Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid c legam anim culpa.
-                <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
-              </p>
-              <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1563294707/Profile/img-1.jpg" class="testimonial-img" alt="">
+              <p>Menambah wawasan dan pengalaman.</p>
+              <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1563294707/Profile/img-1.jpg" class="testimonial-img" alt="" style="position:relative; bottom:10px;">
               <h3>Sara Wilsson</h3>
               <h4>Designer</h4>
               <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
             </div>
 
             <div class="testimonial-item">
-              <p>
-                <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
-                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla t eram fore quis sint minim.
-                <img src="images1.png" class="quote-sign-right" alt="">
-              </p>
+              <p>Study tour yang sangat menyenangkan, namun perlu lebih ditingkatkan lagi.</p>
               <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1561869126/BBBootstrap/img-1.jpg" class="testimonial-img" alt="">
               <h3>Jena Karlis</h3>
               <h4>Store Owner</h4>
@@ -259,11 +247,7 @@
             </div>
 
             <div class="testimonial-item">
-              <p>
-                <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
-                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minimt fore quem dolore labore illum veniam.
-                <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
-              </p>
+              <p> Terlalu banyak waktu luang, namun sudah cukup menyenangkan.</p>
               <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1561869127/BBBootstrap/img-2.jpg" class="testimonial-img" alt="">
               <h3>Matt Brandon</h3>
               <h4>Freelancer</h4>
@@ -271,11 +255,7 @@
             </div>
 
             <div class="testimonial-item">
-              <p>
-                <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
-                sint quorum nulla t eram fore quis sint minim culpa iaculis purus consequat sem cure digni ssim d.
-                <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
-              </p>
+              <p>Perjalanan Study Tour terbaik yang pernah saya alami.</p>
               <img src="https://pbs.twimg.com/media/DLggLI1VAAAE70W?format=jpg&name=large" class="testimonial-img" alt="">
               <h3>Lucy Amber</h3>
               <h4>Teacher</h4>
@@ -287,7 +267,42 @@
       </div>
     </section>
 
+    <section id="contact" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2 ><strong style="font-size: 30px; border-bottom:2px solid red">Kontak Kami</strong></h2>
+          <p>Hubungi kami melalui</p>
+        </div>
 
+        <div class="row contact-info">
+
+          <div class="col-md-4">
+            <div class="contact-address">
+              <i class=""><img src="../images/icon/location.svg" style="width:50px;"></i>
+              <h3>Alamat</h3>
+              <address>Jalan Japati No. 1, Bandung, Jawa Barat</address>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-phone">
+              <i class=""><img src="../images/icon/phone.svg" style="width:50px;"></i>
+              <h3>Nomor Telepon</h3>
+              <p><a href="tel:+6255895548855">+62 5589 55488 55</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-email">
+              <i class=""><img src="../images/icon/email.svg" style="width:50px;"></i>
+              <h3>Email</h3>
+              <p><a href="mailto:info@example.com">info@example.com</a></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
 
     <a id="back-to-top" href="#" class="btn btn-dark btn-lg back-to-top" role="button" style="position: fixed;bottom: 25px;right: 25px;"><i class="fas fa-chevron-up"></i></a>
 
