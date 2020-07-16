@@ -210,16 +210,35 @@
     <section id="testimonials" class="wow fadeInLeft">
       <div class="container">
         <div class="section-header">
-        <h2 ><strong style="font-size: 30px; border-bottom:2px solid red">Feedback</strong> <span>★</span><span>★</span><span>★</span><span>★</span></h2>
+        <?php 
+          $cek = 0;
+          $no = 0;
+          foreach ($feedback as $row): 
+            $cek = $cek+$row->rating;
+            $no++;
+          endforeach;
+          $ovstar = '';
+          $rating = $cek/$no;
+          $loop = floor($cek/$no);
+          for($i=0; $i<$loop; $i++):
+            $ovstar = $ovstar.'★';
+          endfor;
+
+        ?>
+        
+        
+    
+        <h2 ><strong style="font-size: 30px; border-bottom:2px solid red">Feedback</strong> </h2>
+        <h3><strong style="font-size: 30px;">Overall Rating : <?php echo $ovstar." ".$rating ?></strong> </h2>
           <p>Apa kata mereka yang sudah mengikuti ICT Tour?</p>
         </div>
         <div class="owl-carousel testimonial-carousel">
-            <?php foreach ($feedback as $row): ?>        
-            <div class="testimonial-item">
-              
+            <?php $k = 0; ?>
+            <?php foreach ($feedback as $row): ?>         
+            <div class="testimonial-item">   
               <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" class="testimonial-img" alt="">                                 
               <p> <?php echo substr($row->komen,0,50); 
-                        echo '... <br> <a href="#"  data-toggle="modal" data-target="#myModal">Read More</a>' ?> </p>
+                        echo '... <br> <a href="#"  data-toggle="modal" data-target="#modal'.$k.'">Read More</a>'; ?> </p>
               <h3> <?php echo $row->nama_user; ?> </h3>
               <h4> <?php echo $row->nama_sekolah; ?> </h4>
               <?php $star = ''; ?>
@@ -229,33 +248,33 @@
                 endfor;?>   
               <p> <?php echo $star ?> </p>          
             </div>
+            <?php $k++; ?>
             <?php endforeach; ?>
         </div>
-        <div class="modal fade" id="myModal" role="dialog">
+    </section>
+    <?php $i = 0; ?> 
+    <?php foreach ($feedback as $row): ?>      
+          <div class="modal"  role="dialog" id=<?php echo '"modal'.$i.'"'; ?>>
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h4 class="modal-title">Syarat dan Ketentuan</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title modal-title-centered"><?php echo $row->nama_user."<br>".$row->nama_sekolah; ?></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
                   </div>
-
                   <div class="modal-body">
-                    <p>1. ICT TOUR diperuntukkan jenjang SD/SMP/SMA</p>
-                    <p>2. Jumlah peserta dalam 1 waktu kunjungan fisik 30 orang</p>
-                    <p>3. Maksimal pembimbing dalam 1 waktu kunjugan 2 orang</p>
-                    <p>4. Kunjungan ICT Tour bisa dilakukan setelah di approve oleh pihak Telkom</p>
-                    <p>5. ICT Tour secara fisik dilaksanakan diutamakan di kantor Datel</p>
-                    <p>6. Para Peserta wajib mengikuti peraturan yang sudah di tentukan dari pihak Telkom</p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <p><?php echo $row->komen ?></p>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+        <?php $i++; ?>
+    <?php endforeach; ?>
+    
 
-      </div>
-    </section>
+    
 
     <section id="contact" class="wow fadeInUp">
       <div class="container">
