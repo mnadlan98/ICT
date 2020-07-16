@@ -7,6 +7,7 @@ class MainController extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Login_model');
 		$this->load->model('Feedback_model');
+		$this->load->model('kontak_model');
 		$this->load->helper('url');
 		
 	}
@@ -15,6 +16,7 @@ class MainController extends CI_Controller {
 	{
 		$data['title'] = 'Selamat Datang';
 		$data['feedback'] = $this->Feedback_model->getAll();
+		$data['kontak'] = $this->kontak_model->getAll();
 		$this->load->view('templates/header', $data);
 		$this->load->view('home/home');
 		$this->load->view('templates/footer');

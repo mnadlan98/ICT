@@ -24,6 +24,7 @@
         <script src="http://localhost/ICT/script/owl.carousel.min.js"></script>
         <script src="http://localhost/ICT/script/jquery-migrate.min.js"></script>
         <script src="http://localhost/ICT/script/bootstrap.bundle.min.js"></script>
+        <script src="http://localhost/ICT/script/main.js?version=1"></script>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800" rel="stylesheet">
 
@@ -284,44 +285,50 @@
     
 
     
-
+    
     <section id="contact" class="wow fadeInUp">
       <div class="container">
         <div class="section-header">
           <h2 ><strong style="font-size: 30px; border-bottom:2px solid red">Kontak Kami</strong></h2>
           <p>Hubungi kami melalui</p>
         </div>
-
+        <?php
+            $no = 1;
+            foreach($kontak as $u){
+        ?>
+        <h4 style="text-align:center;"><?php echo $u->nama_witel?></h4>
         <div class="row contact-info">
-
+        
+          
           <div class="col-md-4">
             <div class="contact-address">
-              <i class=""><img src="../images/icon/location.svg" style="width:50px;"></i>
-              <h3>Alamat</h3>
-              <address>Jalan Japati No. 1, Bandung, Jawa Barat</address>
+              
+              <h3 >Alamat</h3>
+              <address><?php echo $u->alamat_witel?></address>
             </div>
           </div>
 
           <div class="col-md-4">
             <div class="contact-phone">
-              <i class=""><img src="../images/icon/phone.svg" style="width:50px;"></i>
+              
               <h3>Nomor Telepon</h3>
-              <p><a href="tel:+6255895548855">+62 5589 55488 55</a></p>
+              <p><a href="#"><?php echo $u->no_telp_witel?></a></p>
             </div>
           </div>
 
           <div class="col-md-4">
             <div class="contact-email">
-              <i class=""><img src="../images/icon/email.svg" style="width:50px;"></i>
+              
               <h3>Email</h3>
-              <p><a href="mailto:info@example.com">info@example.com</a></p>
+              <p><a href="#"><?php echo $u->email_witel?></a></p>
             </div>
           </div>
-
+        
         </div>
+        <?php } ?>
       </div>
     </section>
-
+    
     <a id="back-to-top" href="#" class="btn btn-dark btn-lg back-to-top" role="button" style="position: fixed;bottom: 25px;right: 25px;"><i class="fas fa-chevron-up"></i></a>
 
     <script type="text/javascript">
