@@ -210,20 +210,29 @@
     <section id="testimonials" class="wow fadeInLeft">
       <div class="container">
         <div class="section-header">
-        <h2 ><strong style="font-size: 30px; border-bottom:2px solid red">Feedback</strong> <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span></h2>
+        <h2 ><strong style="font-size: 30px; border-bottom:2px solid red">Feedback</strong> <span>★</span><span>★</span><span>★</span><span>★</span></h2>
           <p>Apa kata mereka yang sudah mengikuti ICT Tour?</p>
         </div>
         <div class="owl-carousel testimonial-carousel">
-        <!--  <?php
-                $feedback = mysqli_query("SELECT * from feedback");
-                foreach ($feedback as $row){
-                    echo "<tr>
-                        <td>".$row['komen']."</td>
-                          </tr>";
-                    $no++;
-                }
-              ?> -->
+            <?php foreach ($feedback as $row): 
+              $no=0;?>
+            
             <div class="testimonial-item">
+<<<<<<< HEAD
+              
+              <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" class="testimonial-img" alt="">
+              <h3> <?php echo $row->nama_user; ?> </h3>
+              <h4> <?php echo $row->nama_sekolah; ?> </h4>
+              <?php $star = ''; ?>
+              <?php for($i=0; $i<$row->rating; $i++):
+                  $star = $star.'★';
+
+                endfor;?>
+              <p> <?php echo $star; ?> 
+              <p> <?php ;
+              echo substr($row->komen,0,300);
+              ?> </p>
+=======
               <p>Study tour berjalan dengan baik namun dalam waktu yang cukup lama.</p>
               <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1561869127/BBBootstrap/img-3.jpg" class="testimonial-img" alt="">
               <h3>Saul Goodman</h3>
@@ -260,8 +269,9 @@
               <h3>Lucy Amber</h3>
               <h4>Teacher</h4>
               <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+>>>>>>> dbbdea52cc71b558631c13f0181aaba2df5a5355
             </div>
-          
+            <?php endforeach; ?>
         </div>
 
       </div>
