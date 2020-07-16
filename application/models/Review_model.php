@@ -1,14 +1,19 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+ 
+  class Review_model extends CI_Model{
 
-class Review_model extends CI_Model
-{
-
-private $_table = "pengajuan";
-
-public function getById($id)
-    {
-        return $this->db->get_where($this->_table, ["id_user" => $id_user])->row();
-    }
-
-
-}
+     function getStatus()
+     {
+        $status = array();
+        $user = $this->session->userdata("user")['id'];
+        $query = $this->db->get_where('pengajuan', array('id_user' => $user));
+        $data   = $query->result_array();
+        foreach ($data as $row){
+          echo "<tr>
+              <td>".$row['status_pengajuan']."</td>
+                </tr>";
+        }
+        $status = (float)$row['status_pengajuan'] * 25;
+        $status = '"width:'.$status.'%"';
+        return $status
+     }

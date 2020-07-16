@@ -22,28 +22,14 @@
         <script src="http://localhost/ICT/script/main.js"></script>
         <script src="http://localhost/ICT/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
-    <?php 
-        $status = array();
-        $koneksi = mysqli_connect("localhost", "root", "", "ict");
-        $user = $this->session->userdata("user")['id'];
-        $query = $this->db->get_where('pengajuan', array('id_user' => $user));
-        $data   = $query->result_array();
-        foreach ($data as $row){
-          echo "<tr>
-              <td>".$row['status_pengajuan']."</td>
-                </tr>";
-        }
-        $status = (float)$row['status_pengajuan'] * 25;
-        $status = '"width:'.$status.'%"';
-
-      ?>
+    
 
 <body >
     <section class="wow fadeInRight" id="progress">
       <div class="section-header">
         <h2 ><strong style="font-size: 30px; border-bottom:2px solid red">Progress Pengajuan</strong></h2>
         <p>Tinjau progress pengajuan</p>
-        <p><?php echo $status ?></p>
+
       </div>
       <div class="progress" style="margin-left:10px; margin-right:10px;">
         <div class="progress-bar" role="progressbar"  style=<?php echo $status ?>>
@@ -53,30 +39,36 @@
             <div class="col"><p>Pengajuan</p></div>
             <div class="col"><p>Review Pengajuan</p></div>
             <div class="col"><p style="margin-left:10em;">Verifikasi Pengajuan</p></div>
-            <div class="col" ><p style="margin-left:18em;">Hasil Pengajuan</p></div>
+            <div class="col" ><p style="margin-left:18em;">Hasil Pengajuan</p><br><br><br><br></div>
           </div>
       <div class="row">
+        
         <div class="col-lg-3">
             <div class="box wow fadeInLeft" >
-              <h4>Page</h4>
+            <h4>Tahap 1</h4>
+            <p class="description">Daftarkan sekolah anda pada website ini dengan cara klik tombol daftar yang tersedia</p><br>
             </div>
         </div>
         <div class="col-lg-3">
           <div class="box wow fadeInRight">
-            <h4>Page</h4>
+          <h4>Tahap 2</h4>
+          <p class="description">Lakukan pengajuan dengan cara mengisi form pendaftaran yang sudah disediakan di dalam website dan pastikan semua syarat telah terpenuhi</p>
           </div>
         </div>
         <div class="col-lg-3">
           <div class="box wow fadeInLeft" data-wow-delay="0.2s" >
-            <h4>Page</h4>
+          <h4>Tahap 3</h4>
+          <p class="description">Hasil dari pengajuan akan ditinjau oleh pihak Telkom Regional dan akan diberikan pemberitahuan apabila pengajuan telah disetujui</p>
           </div>
         </div>
         <div class="col-lg-3">
           <div class="box wow fadeInRight" data-wow-delay="0.2s" >
-              <h4>Page</h4>
+          <h4>Tahap 4</h4>
+          <p class="description">Setelah pengajuan disetujui, persiapkan siswa untuk melakukan ICT Tour</p><br>
           </div>
         </div>
       </div>
+      </br><br>
     </section>
 </body>
 
