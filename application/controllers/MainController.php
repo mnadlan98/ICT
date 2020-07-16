@@ -13,7 +13,6 @@ class MainController extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->model('Feedback_model');
 		$data['title'] = 'Selamat Datang';
 		$this->load->view('templates/header', $data);
 		$this->load->view('home/home');
