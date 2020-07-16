@@ -324,7 +324,7 @@
     $('.owl-carousel').owlCarousel({
         items:3,
         loop:true,
-        margin:50,
+        margin:30,
     });
 </script>
 

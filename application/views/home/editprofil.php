@@ -36,67 +36,42 @@
         <div class="row">
           <div class="col-md-2">
             <img src="../images/avatar.png">
-            <div class="form-group row" style="margin-top: 20px; color:white;">
-                <button type="button" class="btn btn-success btn-lg"  style="margin-left:7em;">Edit Profil</button>
-
-                
+            <div class="form-group row" style="margin-top: 20px; color:white;">          
             </div>
           </div>  
-          <div class="col-lg-4">
-            <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Nama : <?= $this->session->userdata("user")['nama_user'] ?></p>
-            <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Email : <?= $this->session->userdata("user")['email_user'] ?></p>
-            <p style="font-size: 15px; border-bottom:1px solid gray; color: white">No. Telepon : <?= $this->session->userdata("user")['notelp_user'] ?></p>
-            <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Nama Sekolah : <?= $this->session->userdata("user")['nama_sekolah'] ?></p>
-            <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Email Sekolah : <?= $this->session->userdata("user")['email_sekolah'] ?></p>
-            <p style="font-size: 15px; border-bottom:1px solid gray; color: white">No. Telepon Sekolah : <?= $this->session->userdata("user")['notelp_sekolah'] ?></p>
+          <?php echo form_open_multipart('editprofil/index');?> 
+          <form action="" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <input type="text" class="form-control" id="nama_user" name="nama_user"  value=<?= $this->session->userdata("user")['nama_user'] ?>  >
+              <small class="form-text text-danger"><?php echo form_error('nama_user'); ?></small>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="email_user" name="email_user" value=<?= $this->session->userdata("user")['email_user'] ?>  >
+              <small class="form-text text-danger"><?php echo form_error('email_user'); ?></small>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="notelp_user" name="notelp_user"  value=<?= $this->session->userdata("user")['notelp_user'] ?>   >
+              <small class="form-text text-danger"><?php echo form_error('notelp_user'); ?></small>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="nama_sekolah" name="nama_sekolah" value=<?= $this->session->userdata("user")['nama_sekolah'] ?>   >
+              <small class="form-text text-danger"><?php echo form_error('nama_sekolah'); ?></small>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="email_sekolah" name="email_sekolah" value=<?= $this->session->userdata("user")['email_sekolah'] ?>   >
+              <small class="form-text text-danger"><?php echo form_error('email_sekolah'); ?></small>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="notelp_sekolah" name="notelp_sekolah" value=<?= $this->session->userdata("user")['notelp_sekolah'] ?>   >
+              <small class="form-text text-danger"><?php echo form_error('notelp_sekolah'); ?></small>
+            </div>
+            <button type="submit"  class="btn btn-outline-dark" style="background: #BD0306; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 7px;font-weight: bold; font-size: 20px; font-family: Lato; color:white; border-color:white; ">Update</button>
           </div>
-        </div>
+        </div>      
+        </form>
+        <?php echo form_close();?>  
       </div>
     </section>
-      
-    
-
-      <section id="review">
-        <div class="section-header">
-          <h2 ><strong style="color:black;  margin-left: 10px;">Riwayat Pengajuan</strong></h2>
-        </div>
-        <div class="row" style="margin-left: 10px;">
-        <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>No.</th>
-                                                <th>Jumlah Siswa</th>
-                                                <th>Pembimbing 1</th>
-                                                <th>Pembimbing 2</th>
-                                                <th>Tanggal Pelaksanaan</th>
-                                                <th>Kota/Kabupaten</th>
-                                                <th>Datel</th>
-                                                <th>Witel</th>
-                                                <th>Tanggal Pengajuan</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>22</td>
-                                                <td>Sudardi</td>
-                                                <td>Darmaji</td>
-                                                <td>2020-07-12</td>
-                                                <td>Sumedang</td>
-                                                <td>Sumedang</td>
-                                                <td>Sumedang</td>
-                                                <td>2020-07-19</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-        </div>
-        </section>
-    
-
 
 </body>
 
