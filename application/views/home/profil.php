@@ -13,8 +13,10 @@
         <link rel="stylesheet" href="http://localhost/ICT/css/hero-slider.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/templatemo-main.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/owl-carousel.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/profil.css">
+        <link rel="stylesheet" href="http://localhost/ICT/css/profil.css?version=51">
         <link rel="stylesheet" href="http://localhost/ICT/css/animate.min.css">
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800" rel="stylesheet">
 
@@ -59,26 +61,38 @@
           <h2 ><strong style="color:black;  margin-left: 10px;">Riwayat Pengajuan</strong></h2>
         </div>
         <div class="row" style="margin-left: 10px;">
-          <div class="col-lg-8">
-              <div class="box wow fadeInLeft" >
-                <h4>Page</h4>
-              </div>
-          </div>
-          <div class="col-lg-8">
-            <div class="box wow fadeInRight">
-                <h4>Page</h4>
-            </div>
-          </div>
-          <div class="col-lg-8">
-            <div class="box wow fadeInLeft" data-wow-delay="0.2s" >
-              <h4>Page</h4>
-            </div>
-          </div>
-          <div class="col-lg-8">
-            <div class="box wow fadeInRight" data-wow-delay="0.2s" >
-              <h4>Page</h4>
-            </div>
-          </div>
+        <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>No.</th>
+                                                <th>Jumlah Siswa</th>
+                                                <th>Pembimbing 1</th>
+                                                <th>Pembimbing 2</th>
+                                                <th>Tanggal Pelaksanaan</th>
+                                                <th>Kota/Kabupaten</th>
+                                                <th>Datel</th>
+                                                <th>Witel</th>
+                                                <th>Tanggal Pengajuan</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>22</td>
+                                                <td>Sudardi</td>
+                                                <td>Darmaji</td>
+                                                <td>2020-07-12</td>
+                                                <td>Sumedang</td>
+                                                <td>Sumedang</td>
+                                                <td>Sumedang</td>
+                                                <td>2020-07-19</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
         </div>
         </section>
     
@@ -90,3 +104,9 @@
 <script src="http://localhost/ICT/script/wow.min.js"></script>
 <script src="http://localhost/ICT/script/wow.js"></script>
 <script src="http://localhost/ICT/script/main.js"></script>
+<script src="http://localhost/ICT/script/datatables-demo.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+        
