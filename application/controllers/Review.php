@@ -18,3 +18,4 @@ class Review extends CI_Controller {
 		$this->load->view('home/review');
 		$this->load->view('templates/footer');
 	}
+}
