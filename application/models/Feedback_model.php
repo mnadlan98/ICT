@@ -6,6 +6,10 @@
 
     public function getAll()
     {
-        return $this->db->get($this->_table)->result();
+      $this->db->select('nama_user,nama_sekolah,komen,rating');
+      $this->db->from('user');
+      $this->db->join('feedback', 'feedback.id_user = user.id_user');
+      $query = $this->db->get();
+      return $query->result();
     }
   }

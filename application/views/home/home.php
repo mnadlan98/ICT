@@ -214,26 +214,45 @@
           <p>Apa kata mereka yang sudah mengikuti ICT Tour?</p>
         </div>
         <div class="owl-carousel testimonial-carousel">
-            <?php foreach ($feedback as $row): 
-              $no=0;?>
-            
+            <?php foreach ($feedback as $row): ?>        
             <div class="testimonial-item">
               
-              <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" class="testimonial-img" alt="">
+              <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" class="testimonial-img" alt="">                                 
+              <p> <?php echo substr($row->komen,0,50); 
+                        echo '... <br> <a href="#"  data-toggle="modal" data-target="#myModal">Read More</a>' ?> </p>
               <h3> <?php echo $row->nama_user; ?> </h3>
               <h4> <?php echo $row->nama_sekolah; ?> </h4>
               <?php $star = ''; ?>
               <?php for($i=0; $i<$row->rating; $i++):
                   $star = $star.'★';
 
-                endfor;?>
-              <p> <?php echo $star; ?> 
-              <p> <?php ;
-              echo substr($row->komen,0,300);
-              ?> </p>
+                endfor;?>   
+              <p> <?php echo $star ?> </p>          
             </div>
             <?php endforeach; ?>
         </div>
+        <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Syarat dan Ketentuan</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body">
+                    <p>1. ICT TOUR diperuntukkan jenjang SD/SMP/SMA</p>
+                    <p>2. Jumlah peserta dalam 1 waktu kunjungan fisik 30 orang</p>
+                    <p>3. Maksimal pembimbing dalam 1 waktu kunjugan 2 orang</p>
+                    <p>4. Kunjungan ICT Tour bisa dilakukan setelah di approve oleh pihak Telkom</p>
+                    <p>5. ICT Tour secara fisik dilaksanakan diutamakan di kantor Datel</p>
+                    <p>6. Para Peserta wajib mengikuti peraturan yang sudah di tentukan dari pihak Telkom</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
 
       </div>
     </section>
