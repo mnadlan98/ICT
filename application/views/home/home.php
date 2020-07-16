@@ -27,19 +27,7 @@
         <script src="http://localhost/ICT/script/main.js?version=1"></script>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800" rel="stylesheet">
-
-        
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/assets/owl.carousel.min.css" rel="stylesheet" />
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-
-        <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
-        <link rel="stylesheet" type="text/css" href="css/owl.theme.default.css">
-        
-      
-        <script type="text/javascript" src="script/jquery-3.3.1.min.js"></script>
-        <script type="text/javascript" src="script/owl.carousel.js"></script>
-        
+       
     </head>
     <?php if ($this->session->userdata("user")['logged']): ?>
     <style type="text/css">
@@ -220,15 +208,13 @@
           endforeach;
           $ovstar = '';
           $rating = $cek/$no;
-          $loop = floor($cek/$no);
+          $loop = floor($rating);
           for($i=0; $i<$loop; $i++):
             $ovstar = $ovstar.'★';
           endfor;
 
         ?>
-        
-        
-    
+  
         <h2 ><strong style="font-size: 30px; border-bottom:2px solid red">Feedback</strong> </h2>
         <h3><strong style="font-size: 30px;">Overall Rating : <?php echo $ovstar." ".$rating ?></strong> </h2>
           <p>Apa kata mereka yang sudah mengikuti ICT Tour?</p>
@@ -261,7 +247,6 @@
       <?php $star = ''; ?>
               <?php for($b=0; $b<$row->rating; $b++):
                   $star = $star.'★';
-
                 endfor;?>     
           <div class="modal"  role="dialog" id=<?php echo '"modal'.$i.'"'; ?>>
               <div class="modal-dialog modal-dialog-centered">
@@ -331,17 +316,16 @@
     
     <a id="back-to-top" href="#" class="btn btn-dark btn-lg back-to-top" role="button" style="position: fixed;bottom: 25px;right: 25px;"><i class="fas fa-chevron-up"></i></a>
 
-    <script type="text/javascript">
-		$('.owl-carousel').owlCarousel({
-		    loop:true,
-		    margin:50,
-		    nav:true,
-		    autoplay:true,
-        autoplayTimeout:5000
-		})
- 
-	  </script>
     
 </body>
+
+<script type="text/javascript">
+
+    $('.owl-carousel').owlCarousel({
+        items:3,
+        loop:true,
+        margin:50,
+    });
+</script>
 
 
