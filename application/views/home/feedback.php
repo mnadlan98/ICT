@@ -46,13 +46,8 @@
           <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
           <div class="row" style="margin-top:2.5em;"><label class="form-check-label" for="inlineRadio5" style="font-size:14px;">5</label></div>
         </div>
-          <div class="form-group" style="margin-top:2.5em;">
-            <label>Kritik untuk ICT Tour</label>
-            <input type="text-lg" class="form-control" id="kritik" name="kritik">
-            
-          </div>
           <div class="form-group">
-          <label>Saran untuk ICT Tour</label>
+          <label>Ulasan untuk ICT Tour</label>
             <input type="text-lg" class="form-control" id="saran" name="saran" >
             
           </div>
