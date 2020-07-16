@@ -218,7 +218,6 @@
               $no=0;?>
             
             <div class="testimonial-item">
-<<<<<<< HEAD
               
               <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" class="testimonial-img" alt="">
               <h3> <?php echo $row->nama_user; ?> </h3>
@@ -232,44 +231,6 @@
               <p> <?php ;
               echo substr($row->komen,0,300);
               ?> </p>
-=======
-              <p>Study tour berjalan dengan baik namun dalam waktu yang cukup lama.</p>
-              <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1561869127/BBBootstrap/img-3.jpg" class="testimonial-img" alt="">
-              <h3>Saul Goodman</h3>
-              <h4>Ceo &amp; Founder</h4>
-              <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
-            </div>
-            <div class="testimonial-item">
-              <p>Menambah wawasan dan pengalaman.</p>
-              <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1563294707/Profile/img-1.jpg" class="testimonial-img" alt="" style="position:relative; bottom:10px;">
-              <h3>Sara Wilsson</h3>
-              <h4>Designer</h4>
-              <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
-            </div>
-
-            <div class="testimonial-item">
-              <p>Study tour yang sangat menyenangkan, namun perlu lebih ditingkatkan lagi.</p>
-              <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1561869126/BBBootstrap/img-1.jpg" class="testimonial-img" alt="">
-              <h3>Jena Karlis</h3>
-              <h4>Store Owner</h4>
-              <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
-            </div>
-
-            <div class="testimonial-item">
-              <p> Terlalu banyak waktu luang, namun sudah cukup menyenangkan.</p>
-              <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1561869127/BBBootstrap/img-2.jpg" class="testimonial-img" alt="">
-              <h3>Matt Brandon</h3>
-              <h4>Freelancer</h4>
-              <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
-            </div>
-
-            <div class="testimonial-item">
-              <p>Perjalanan Study Tour terbaik yang pernah saya alami.</p>
-              <img src="https://pbs.twimg.com/media/DLggLI1VAAAE70W?format=jpg&name=large" class="testimonial-img" alt="">
-              <h3>Lucy Amber</h3>
-              <h4>Teacher</h4>
-              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
->>>>>>> dbbdea52cc71b558631c13f0181aaba2df5a5355
             </div>
             <?php endforeach; ?>
         </div>
