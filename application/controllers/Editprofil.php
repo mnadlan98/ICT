@@ -13,13 +13,17 @@ class Editprofil extends CI_Controller
 
     public function index()
     {
+        $edit = $this->Editprofil_model;
         $validation = $this->form_validation;
-        $validation->set_rules($this->Editprofil_model->rules());
+        $validation->set_rules($edit->rules());
         if ($validation->run()) {
-            $this->Editprofil_model->update();
+            $edit->update();
             redirect(site_url('MainController/viewProfil'));
+        }else{
+            echo $edit->update();
         }
-		$data['title'] = 'Profil';
+    
+		$data['title'] = 'Edit Profil';
 		$this->load->view('templates/header', $data);
 		$this->load->view('home/editprofil');
 		$this->load->view('templates/footer');

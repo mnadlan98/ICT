@@ -27,7 +27,19 @@
         <script src="http://localhost/ICT/script/main.js?version=1"></script>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800" rel="stylesheet">
-       
+
+        
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/assets/owl.carousel.min.css" rel="stylesheet" />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+        <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+        <link rel="stylesheet" type="text/css" href="css/owl.theme.default.css">
+        
+      
+        <script type="text/javascript" src="script/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="script/owl.carousel.js"></script>
+        
     </head>
     <?php if ($this->session->userdata("user")['logged']): ?>
     <style type="text/css">
@@ -202,16 +214,21 @@
         <?php 
           $cek = 0;
           $no = 0;
+          $rating = 0;
           foreach ($feedback as $row): 
             $cek = $cek+$row->rating;
             $no++;
           endforeach;
           $ovstar = '';
-          $rating = $cek/$no;
-          $loop = floor($rating);
-          for($i=0; $i<$loop; $i++):
-            $ovstar = $ovstar.'★';
-          endfor;
+          if(!empty($feedback)){
+            $rating = $cek/$no;
+            $loop = floor($rating);
+            for($i=0; $i<$loop; $i++):
+              $ovstar = $ovstar.'★';
+            endfor;
+          }
+         
+          
 
         ?>
   
@@ -324,7 +341,11 @@
     $('.owl-carousel').owlCarousel({
         items:3,
         loop:true,
-        margin:30,
+        margin:10,
+        autoplay:true,
+        autoplayTimeout:5300,
+        autoplayHoverPause:true,
+        autoplaySpeed:6000  
     });
 </script>
 

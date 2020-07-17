@@ -39,8 +39,8 @@
             <div class="form-group row" style="margin-top: 20px; color:white;">          
             </div>
           </div>  
-          <?php echo form_open_multipart('editprofil/index');?> 
-          <form action="" method="post" enctype="multipart/form-data">
+          <?php echo form_open_multipart('MainController/editProfile');?> 
+          <form action="" method="post" >
             <div class="form-group">
               <input type="text" class="form-control" id="nama_user" name="nama_user"  value=<?= $this->session->userdata("user")['nama_user'] ?>  >
               <small class="form-text text-danger"><?php echo form_error('nama_user'); ?></small>
@@ -65,7 +65,7 @@
               <input type="text" class="form-control" id="notelp_sekolah" name="notelp_sekolah" value=<?= $this->session->userdata("user")['notelp_sekolah'] ?>   >
               <small class="form-text text-danger"><?php echo form_error('notelp_sekolah'); ?></small>
             </div>
-            <button type="submit"  class="btn btn-outline-dark" style="background: #BD0306; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 7px;font-weight: bold; font-size: 20px; font-family: Lato; color:white; border-color:white; ">Update</button>
+            <button type="submit" name="login" class="btn btn-outline-dark" style="background: #BD0306; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 7px;font-weight: bold; font-size: 20px; font-family: Lato; color:white; border-color:white; ">Update</button>
           </div>
         </div>      
         </form>
