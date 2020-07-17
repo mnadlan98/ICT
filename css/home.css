@@ -32,6 +32,8 @@ body {
     color: #fff;
   }
 
+  
+
   .baner-content {
     padding-top: 15vh;
     text-align: center;
@@ -323,6 +325,8 @@ body {
   #contact .contact-info a {
     color: #000;
   }
+
+  
   
   #contact .contact-info a:hover {
     color: #50d8af;
@@ -332,4 +336,24 @@ body {
   #contact .contact-phone,
   #contact .contact-email {
     margin-bottom: 20px;
+  }
+
+  .collapsible {
+    background-color: wh;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 15px;
+  }
+  
+  .active, .collapsible:hover {
+    background-color: #555;
+  }
+  
+  .content {
+    display: none;
+    background-color: #f1f1f1;
   }
