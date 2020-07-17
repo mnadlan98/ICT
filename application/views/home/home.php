@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="http://localhost/ICT/css/font-awesome.min.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/hero-slider.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/templatemo-main.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/home.css?version=52">
+        <link rel="stylesheet" href="http://localhost/ICT/css/home.css?version=53">
         
         <link rel="stylesheet" href="http://localhost/ICT/css/owl.carousel.min.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/owlcarousel/assets/owl.theme.default.min.css">
@@ -275,42 +275,56 @@
       <div class="container">
         <div class="section-header">
           <h2 ><strong style="font-size: 30px; border-bottom:2px solid red">Kontak Kami</strong></h2>
-          <p>Hubungi kami melalui</p>
+          <p>Tiap witel dapat dihubungi pada kontak berikut</p>
+        </div>
+        
+        
+        
+        <button type="button" class="collapsible" style="background-color:white; color:black;">Kontak Setiap Witel</button>
+        
+        
+        <div class="content">
+        <div class="row contact-info">
+        <div class="col-md-3"><i class="icon"><img src="../images/icon/office.svg" style="width:50px;"></i><h3 >Nama Witel</h3></div>
+        <div class="col-md-3"><i class="icon"><img src="../images/icon/location.svg" style="width:50px;"></i><h3 >Alamat</h3></div>
+        <div class="col-md-3"><i class="icon"><img src="../images/icon/phone.svg" style="width:50px;"></i><h3>Nomor Telepon</h3></div>
+        <div class="col-md-3"><i class="icon"><img src="../images/icon/email.svg" style="width:50px;"></i><h3>Email</h3></div>
         </div>
         <?php
             $no = 1;
             foreach($kontak as $u){
         ?>
-        <h4 style="text-align:center;"><?php echo $u->nama_witel?></h4>
         <div class="row contact-info">
-        
-          
-          <div class="col-md-4">
-            <div class="contact-address">
-              
-              <h3 >Alamat</h3>
+          <div class="col-md-3">
+            <div class="contact-address">           
+              <address><?php echo $u->nama_witel?></address>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="contact-address">            
               <address><?php echo $u->alamat_witel?></address>
             </div>
           </div>
 
-          <div class="col-md-4">
-            <div class="contact-phone">
-              
-              <h3>Nomor Telepon</h3>
+          <div class="col-md-3">
+            <div class="contact-phone">             
               <p><a href="#"><?php echo $u->no_telp_witel?></a></p>
             </div>
           </div>
 
-          <div class="col-md-4">
+          <div class="col-md-3">
             <div class="contact-email">
               
-              <h3>Email</h3>
+              
               <p><a href="#"><?php echo $u->email_witel?></a></p>
             </div>
           </div>
-        
+          </div>
+          <?php } ?>
         </div>
-        <?php } ?>
+      
+        
       </div>
     </section>
     
@@ -326,6 +340,22 @@
         loop:true,
         margin:30,
     });
+</script>
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
 </script>
 
 
