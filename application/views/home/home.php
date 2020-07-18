@@ -8,13 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
   
-        <link rel="stylesheet" href="http://localhost/ICT/css/bootstrap.min.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/fontAwesome.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/font-awesome.min.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/hero-slider.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/templatemo-main.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/home.css?version=53">
-        
+
+        <link rel="stylesheet" href="http://localhost/ICT/css/home.css?version=53">        
         <link rel="stylesheet" href="http://localhost/ICT/css/owl.carousel.min.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/owlcarousel/assets/owl.theme.default.min.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/ionicons.min.css">

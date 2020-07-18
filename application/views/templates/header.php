@@ -9,6 +9,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="http://localhost/ICT/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://localhost/ICT/css/fontAwesome.css">
+<link rel="stylesheet" href="http://localhost/ICT/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://localhost/ICT/css/hero-slider.css">
+<link rel="stylesheet" href="http://localhost/ICT/css/templatemo-main.css">
 
 
   <!-- Footer -->
