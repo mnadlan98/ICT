@@ -159,8 +159,8 @@
         
           <div class="col-lg-3 col-md-4">
             <div class="portfolio-item wow fadeInUp">
-              <a href="<?php echo $l->foto ?>" class="portfolio-popup">
-                <img src="<?php echo $l->foto ?>" alt="">
+              <a href="../images/galery/<?php echo $l->foto ?>" class="portfolio-popup">
+                <img src="../images/galery/<?php echo $l->foto ?>" alt="">
                 <div class="portfolio-overlay">
                   <div class="portfolio-info"><h2 class="wow fadeInUp"><?php echo $l->judul ?></h2></div>
                 </div>
