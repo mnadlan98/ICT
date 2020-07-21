@@ -13,6 +13,8 @@
         <link rel="stylesheet" href="http://localhost/ICT/css/owl.carousel.min.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/owlcarousel/assets/owl.theme.default.min.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/ionicons.min.css">
+        <link rel="stylesheet" href="http://localhost/ICT/css/hero-slider.css">
+        <link rel="stylesheet" href="http://localhost/ICT/css/templatemo-main.css">
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/owl.carousel.min.js"></script>

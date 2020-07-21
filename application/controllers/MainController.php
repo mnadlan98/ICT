@@ -87,7 +87,7 @@ class MainController extends CI_Controller {
 	public function viewAdminlogin(){
 		$data['title'] = 'Admin';
 		$this->load->view('templates/header', $data);
-		$this->load->view('home/adminlogin');
+		$this->load->view('admin/register');
 		$this->load->view('templates/footer');	
 	}
 

@@ -8,10 +8,10 @@
 </div>
 <div class="row">
   <div class="side col" >
-  <img src="../images/logo.jpg" style="width:280px; height:140px; position: absolute; left: 720px; top: 40px;">
+  <img src="../images/logo.png" style="width:480px; height:140px; position: absolute; left: 500px; top: 40px;">
   </div>
   <div class="col-md-4 py-3" style=" background-color: #D7D7D7;" >
-  <h5 style="font-weight: bolder; color: black; padding-left: 12em; margin-top: 5px; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Daftar</strong></h5></br></br>
+  <h5 style="font-weight: bolder; color: black; padding-left: 10em; margin-top: 5px; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Daftar</strong></h5></br></br>
       <?php echo form_open('Register/index');?>
           <div class="form-group">
             <select class="form-control"   id="jenjang_sekolah" name="jenjang_sekolah">
@@ -70,12 +70,12 @@
             <input class="form-check-input" type="checkbox" id="checkbox_policy">
             <label class="form-check-label" for="checkbox_policy">Saya menyetujui <a href="#">syarat dan ketentuan</a> yang berlaku</label>
           </div> </br>
-          <div class="col-md-12" style="padding-left:14em;">
+          <div class="col-md-12" style="padding-left:12em;">
           <button type="submit" name="btnSubmit" class="btn btn-outline-dark" style="background: #BD0306; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 7px;font-weight: bold; font-size: 20px; font-family: Lato; color:white; " value="Daftar">Daftar</button>              
         </div>
       <?php echo form_close();?>
         <div class="form-group" style="margin-bottom:2em;">
-          <p style="font-size:13px; padding-left:13.5em; font-family: Lato; padding-top:10px;">Sudah punya akun? <a href="<?php echo base_url().'Login/inputlogin';?>" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Masuk Disni</u></small></a></p>
+          <p style="font-size:13px; padding-left:11.5em; font-family: Lato; padding-top:10px;">Sudah punya akun? <a href="<?php echo base_url().'Login/inputlogin';?>" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Masuk Disni</u></small></a></p>
         </div>               
       
   </div>

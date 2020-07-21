@@ -6,7 +6,7 @@
 </div>
 <div class="row">
   <div class="side col">
-  <img src="../images/logo.jpg" style="width:280px; height:140px; position: absolute; left:720px; top: 40px;">
+  <img src="../images/logo.png" style="width:480px; height:140px; position: absolute; left: 500px; top: 40px;">
   </div>
   <div class="col-md-4 py-3" style=" background-color: #D7D7D7;" >
   <h5 style="font-weight: bolder; color: black; padding-left: 11em; margin-top: 8em; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Masuk</strong></h5></br></br>

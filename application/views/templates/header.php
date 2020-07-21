@@ -12,8 +12,7 @@
   <link rel="stylesheet" href="http://localhost/ICT/css/bootstrap.min.css">
 <link rel="stylesheet" href="http://localhost/ICT/css/fontAwesome.css">
 <link rel="stylesheet" href="http://localhost/ICT/css/font-awesome.min.css">
-<link rel="stylesheet" href="http://localhost/ICT/css/hero-slider.css">
-<link rel="stylesheet" href="http://localhost/ICT/css/templatemo-main.css">
+
 
 
   <!-- Footer -->
