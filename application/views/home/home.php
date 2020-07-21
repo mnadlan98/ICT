@@ -8,16 +8,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
   
-        <link rel="stylesheet" href="http://localhost/ICT/css/bootstrap.min.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/fontAwesome.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/font-awesome.min.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/hero-slider.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/templatemo-main.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/home.css?version=53">
-        
+
+        <link rel="stylesheet" href="http://localhost/ICT/css/home.css?version=53">        
         <link rel="stylesheet" href="http://localhost/ICT/css/owl.carousel.min.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/owlcarousel/assets/owl.theme.default.min.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/ionicons.min.css">
+        <link rel="stylesheet" href="http://localhost/ICT/css/hero-slider.css">
+        <link rel="stylesheet" href="http://localhost/ICT/css/templatemo-main.css">
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/owl.carousel.min.js"></script>
@@ -158,51 +155,21 @@
 
       <div class="container-fluid">
         <div class="row no-gutters">
-
+        <?php $i=0;?>
+        <?php foreach ($galeri as $l):
+          ?>
+        
           <div class="col-lg-3 col-md-4">
             <div class="portfolio-item wow fadeInUp">
-              <a href="../images/galery/1.jpg" class="portfolio-popup">
-                <img src="../images/galery/1.jpg" alt="">
+              <a href="../images/galery/<?php echo $l->foto ?>" class="portfolio-popup">
+                <img src="../images/galery/<?php echo $l->foto ?>" alt="">
                 <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 1</h2></div>
+                  <div class="portfolio-info"><h2 class="wow fadeInUp"><?php echo $l->judul ?></h2></div>
                 </div>
               </a>
             </div>
           </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="portfolio-item wow fadeInUp">
-              <a href="../images/galery/4.jpg" class="portfolio-popup">
-                <img src="../images/galery/4.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 2</h2></div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="portfolio-item wow fadeInUp">
-              <a href="../images/galery/2.jpg" class="portfolio-popup">
-                <img src="../images/galery/2.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 3</h2></div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="portfolio-item wow fadeInUp">
-              <a href="../images/galery/3.jpg" class="portfolio-popup">
-                <img src="../images/galery/3.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 4</h2></div>
-                </div>
-              </a>
-            </div>
-          </div>
-
+        <?php endforeach; ?>
         </div>
 
       </div>

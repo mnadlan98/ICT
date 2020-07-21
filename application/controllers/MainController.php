@@ -8,6 +8,7 @@ class MainController extends CI_Controller {
 		$this->load->model('Login_model');
 		$this->load->model('Profile_model');
 		$this->load->model('kontak_model');
+		$this->load->model('galeri_model');
 		$this->load->helper('url');
 		
 	}
@@ -17,6 +18,7 @@ class MainController extends CI_Controller {
 		$data['title'] = 'Selamat Datang';
 		$data['feedback'] = $this->Profile_model->getAllFeedback();
 		$data['kontak'] = $this->kontak_model->getAll();
+		$data['galeri'] = $this->galeri_model->getAll();
 		$this->load->view('templates/header', $data);
 		$this->load->view('home/home');
 		$this->load->view('templates/footer');
@@ -85,7 +87,7 @@ class MainController extends CI_Controller {
 	public function viewAdminlogin(){
 		$data['title'] = 'Admin';
 		$this->load->view('templates/header', $data);
-		$this->load->view('home/adminlogin');
+		$this->load->view('admin/register');
 		$this->load->view('templates/footer');	
 	}
 
@@ -124,4 +126,5 @@ class MainController extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect(base_url().'/MainController/index');
 	}
+
 }
