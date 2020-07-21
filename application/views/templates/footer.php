@@ -61,7 +61,7 @@
 
 
 
-	<script
+  <script
         src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
         crossorigin="anonymous"></script>
@@ -83,5 +83,31 @@
             });
         });
   </script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('#wilayah').change(function(){ 
+                var id=$(this).val();
+                $.ajax({
+                    url : "<?php echo site_url('pengajuan/get_sto');?>",
+                    method : "POST",
+                    data : {id: id},
+                    async : true,
+                    dataType : 'json',
+                    success: function(data){
+                        
+                        var html = '';
+                        var i;
+                        for(i=0; i<data.length; i++){
+                            html += '<option value='+data[i].id_sto+'>'+data[i].keterangan+'</option>';
+                        }
+                        $('#sto').html(html);
+                    }
+                });
+                return false;
+            }); 
+            
+    });
+  </script>
+    
 </body>
 </html>

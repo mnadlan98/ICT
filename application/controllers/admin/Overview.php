@@ -29,7 +29,7 @@ class Overview extends CI_Controller {
 			$this->load->view('admin/index',$data);
 		}
 		else{
-			redirect(site_url('login'));
+			redirect(site_url('login/index'));
 		}   
 	}
 
@@ -47,7 +47,7 @@ class Overview extends CI_Controller {
 			$this->load->view('admin/list',$data);
 		}
 		else{
-			redirect(site_url('login'));
+			redirect(site_url('login/index'));
 		}   
 	}
 
@@ -292,7 +292,7 @@ class Overview extends CI_Controller {
 			$this->load->view('admin/sekolah',$data);
 		}
 		else{
-			redirect(site_url('login'));
+			redirect(site_url('login/index'));
 		}   
 	}
 
@@ -310,7 +310,7 @@ class Overview extends CI_Controller {
 			$this->load->view('admin/sekolah',$data);
 		}
 		else{
-			redirect(site_url('login'));
+			redirect(site_url('login/index'));
 		}   
 	}
 

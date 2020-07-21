@@ -105,10 +105,30 @@
 					        <div class="form-group">
 					            <label>Status Pengajuan</label>
 					             <select class="form-control"   id="status_pengajuan" name="status_pengajuan">
-					              <option value="SLB" selected>Review</option>
-					              <option value="SD">Verifikasi</option>
-					              <option value="SMP">Accept</option>
-					              <option value="SMP">Reject</option>
+					             	<?php if ($pengajuan->status_pengajuan==1 || $pengajuan->status_pengajuan==2 ): ?>
+					              	<option value="2" selected>Review</option>
+					              	<option value="3">Verifikasi</option>
+					              	<option value="4">Accept</option>
+					              	<option value="5">Reject</option>
+					              <?php endif ?>
+					              <?php if ($pengajuan->status_pengajuan==3): ?>
+					              	<option value="3" selected>Verifikasi</option>
+					              	<option value="2">Review</option>
+					              	<option value="4">Accept</option>
+					              	<option value="5">Reject</option>
+					              <?php endif ?>
+					              <?php if ($pengajuan->status_pengajuan==4): ?>
+					              	<option value="4" selected>Accept</option>
+					              	<option value="2">Review</option>
+					              	<option value="3">Verifikasi</option>
+					              	<option value="5">Reject</option>
+					              <?php endif ?>
+					              <?php if ($pengajuan->status_pengajuan==5): ?>
+					              	<option value="5" selected>Reject</option>
+					              	<option value="2">Review</option>
+					              	<option value="3">Verifikasi</option>
+					              	<option value="4">Accept</option>
+					              <?php endif ?>
 					            </select>
 					            <small class="form-text text-danger"><?php echo form_error('jenjang_sekolah'); ?></small>
 							</div>

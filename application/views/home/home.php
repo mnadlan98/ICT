@@ -15,7 +15,6 @@
         <link rel="stylesheet" href="http://localhost/ICT/css/ionicons.min.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/hero-slider.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/templatemo-main.css">
-
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/owl.carousel.min.js"></script>
         <script src="http://localhost/ICT/script/owl.carousel.min.js"></script>
@@ -68,7 +67,7 @@
                         </div>
                     <?php else: ?>
                     <div class="primary-button wow fadeInUp" data-wow-delay="1.5s" >
-                        <a class="btn" href="<?php echo base_url().'Login/inputlogin';?>" style="padding:18px; font-size:15px;">Masuk</a>
+                        <a class="btn" href="<?php echo base_url().'Login/index';?>" style="padding:18px; font-size:15px;">Masuk</a>
                         <a class="btn" href="<?php echo base_url().'Register/index';?>" style="padding:18px; font-size:15px;">Daftar</a>
                     </div>
                     <?php endif ?>

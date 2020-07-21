@@ -103,39 +103,38 @@
               </select>
             </div>
           </div>
-          <?php echo form_error('provinsi'); ?></small>
+          
           <div class="row" style="padding-right:1.75em;">
             <div>
               <label style="font-size:15px; color:white; margin-right:6px">Kota/Kabupaten</label>
             </div>
             <div class="form-group col">
-              <select class="form-control" id="kotakab" name="kotakab"  style="margin-left:14.3em;" required>
+              <select class="form-control" id="wilayah" name="wilayah"  style="margin-left:14.3em;" required>
                 <option value="">Pilih Kota/Kabupaten ...</option>
-                <?php foreach($kotakab as $row):?>
-                <option value="<?php echo $row->id_kotakab;?>"><?php echo $row->nama_kotakab;?></option>
+                <?php foreach($wilayah as $row):?>
+                <option value="<?php echo $row->id_wilayah;?>"><?php echo $row->wilayah?></option>
                 <?php endforeach;?>
               </select>
             </div>
           </div>
-          <?php echo form_error('kotakab'); ?></small>
           <div class="row" style="padding-right:1.75em;">
             <div>
               <label style="font-size:15px; color:white; margin-right:17px">Kantor Telkom</label>
             </div>
             <div class="form-group col">
-              <select class="form-control" id="datel" name="datel" style="margin-left:14.3em;" required>
+              <select class="form-control" id="sto" name="sto" style="margin-left:14.3em;" required>
                 <option value="">Pilih Lokasi Kantor Telkom ...</option>             
               </select>
             </div>
           </div>
-          <?php echo form_error('kantor'); ?></small>
+    
           <div class="form-check" style="margin-left:12em;">
             <input type="hidden" name="checkbox_policy" value="0">
             <input class="form-check-input" type="checkbox" id="checkbox_policy" name="checkbox_policy" value="1">
             <label class="form-check-label" for="checkbox_policy" style="color:white; margin-left:12px; ">Saya menyetujui <a href="#" style="color:dodgerblue" data-toggle="modal" data-target="#myModal">syarat dan ketentuan</a> yang berlaku</label>
           </div> </br>
           <div class="col-md-12" style="padding-left:20em;">
-          <button type="submit" name="login" class="btn btn-outline-dark" style="background: #BD0306; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 7px;font-weight: bold; font-size: 20px; font-family: Lato; color:white; border-color:white; ">Kirim</button>   
+          <button type="submit" name="submit" class="btn btn-outline-dark" style="background: #BD0306; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 7px;font-weight: bold; font-size: 20px; font-family: Lato; color:white; border-color:white; ">Kirim</button>   
         </div>
         <?php echo form_close();?>                
         </form>
@@ -150,12 +149,10 @@
               </div>
 
               <div class="modal-body">
-                <p>1. ICT TOUR diperuntukkan jenjang SD/SMP/SMA</p>
-                <p>2. Jumlah peserta dalam 1 waktu kunjungan fisik 30 orang</p>
-                <p>3. Maksimal pembimbing dalam 1 waktu kunjugan 2 orang</p>
-                <p>4. Kunjungan ICT Tour bisa dilakukan setelah di approve oleh pihak Telkom</p>
-                <p>5. ICT Tour secara fisik dilaksanakan diutamakan di kantor Datel</p>
-                <p>6. Para Peserta wajib mengikuti peraturan yang sudah di tentukan dari pihak Telkom</p>
+                <?php $i=0;?>
+                <?php foreach ($term as $s):?>
+                <p><?php echo $i+=1; ?>. <?php echo $s->kalimat ?></p>
+                <?php endforeach; ?>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>

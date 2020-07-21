@@ -10,45 +10,48 @@ class Pengajuan extends CI_Controller {
     }
 
     public function index() {
-        $data['kotakab'] = $this->Pengajuan_Model->get_kotakab()->result();
+        
+        $this->form_validation->set_rules('jumlah_siswa', 'Jumlah Siswa','trim|required|xss_clean');
+        $this->form_validation->set_rules('pembimbing1', 'Nama Pembimbing 1','trim|required|xss_clean');
+        $this->form_validation->set_rules('pembimbing2', 'Nama Pembimbing 2','trim|xss_clean');
+        $this->form_validation->set_rules('tanggal_pelaksanaan', 'Tanggal Pelaksanaan','trim|required|xss_clean');
 
-        $this->form_validation->set_rules('jumlah_siswa', 'Jumlah Siswa','required');
-        $this->form_validation->set_rules('pembimbing1', 'Nama Pembimbing 1','required');
-        $this->form_validation->set_rules('pembimbing2', 'Nama Pembimbing 2','required');
-        $this->form_validation->set_rules('tanggal_pelaksanaan', 'Tanggal Pelaksanaan','required');
-        $this->form_validation->set_rules('surat_permohonan', 'Surat Permohonan');
-        $this->form_validation->set_rules('daftar_peserta','Daftar Peserta');
-       
         if($this->form_validation->run() == FALSE) {
             site_url('pengajuan');
         }else{
-            $post = $this->input->post();
             $this->id_user = $this->session->userdata("user")['id'];
-            $this->jumlah_siswa = $post["jumlah_siswa"];
-            $this->pembimbing1 = $post["pembimbing1"];
-            $this->pembimbing2 = $post["pembimbing2"];
-            $this->tanggal_pelaksanaan = $post["tanggal_pelaksanaan"];
+            $this->jumlah_siswa = $this->input->post("jumlah_siswa",TRUE);
+            $this->pembimbing1 = $this->input->post("pembimbing1",TRUE);
+            $this->pembimbing2 = $this->input->post("pembimbing2",TRUE);
+            $this->tanggal_pelaksanaan = $this->input->post("tanggal_pelaksanaan",TRUE);
             $this->surat_permohonan = $this->upload_surat();
             $this->daftar_peserta = $this->upload_peserta();
-            $this->id_kotakab = $post["kotakab"];
-            $this->id_datel = $post["datel"];
-            $this->id_witel = $this->Pengajuan_Model->get_witel($this->id_datel);
-            $this->checkbox_policy = $post["checkbox_policy"];
+            $this->id_sto = $this->input->post("sto",TRUE);
+            $this->id_witel = $this->Pengajuan_Model->getWitel_bySto($this->id_sto);
+            $this->checkbox_policy = $this->input->post('checkbox_policy',TRUE);
             $this->tanggal_pengajuan = date('Y-m-d');
-            $this->status_pengajuan = 'Diajukan';
+            $this->status_pengajuan = 1;
             $this->Pengajuan_Model->daftar($this);
 
             redirect(site_url('MainController/review')); 
         }
-        $data['title'] = 'Pengajuan';
-        $this->load->view('templates/header', $data);
-        $this->load->view('home/pengajuan');
-        $this->load->view('templates/footer');	
+        if ($this->session->userdata('user')['logged']) {
+          $data['title'] = 'Pengajuan';
+          $data['wilayah'] = $this->Pengajuan_Model->get_wilayah();
+          $data['term'] = $this->Pengajuan_Model->get_Term();
+          $this->load->view('templates/header', $data);
+          $this->load->view('home/pengajuan');
+          $this->load->view('templates/footer');  
+        }
+        else{
+          redirect(site_url('MainController/index'));
+        }
+        
     }
 
-    function get_datel(){
-        $id_kotakab = $this->input->post('id',TRUE);
-        $data = $this->Pengajuan_Model->get_datel($id_kotakab)->result();
+    function get_sto(){
+        $id_wilayah = $this->input->post('id',TRUE);
+        $data = $this->Pengajuan_Model->get_sto_byWilayah($id_wilayah);
         echo json_encode($data);
     }
 
