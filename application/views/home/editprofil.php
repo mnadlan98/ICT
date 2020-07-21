@@ -41,27 +41,45 @@
           </div>  
           <?php echo form_open_multipart('MainController/editProfile');?> 
           <form action="" method="post" >
-            <div class="form-group">
+            <div class="form-group row">
+              <div>
+                <label style="font-size:15px; color:white;">Nama :</label>
+              </div>
               <input type="text" class="form-control" id="nama_user" name="nama_user"  value=<?= $this->session->userdata("user")['nama_user'] ?>  >
               <small class="form-text text-danger"><?php echo form_error('nama_user'); ?></small>
             </div>
-            <div class="form-group">
+            <div class="form-group row">
+              <div>
+                <label style="font-size:15px; color:white;">Email User : </label>
+              </div>
               <input type="text" class="form-control" id="email_user" name="email_user" value=<?= $this->session->userdata("user")['email_user'] ?>  >
               <small class="form-text text-danger"><?php echo form_error('email_user'); ?></small>
             </div>
-            <div class="form-group">
+            <div class="form-group row">
+              <div>
+                <label style="font-size:15px; color:white;">No. Telp User :</label>
+              </div>
               <input type="text" class="form-control" id="notelp_user" name="notelp_user"  value=<?= $this->session->userdata("user")['notelp_user'] ?>   >
               <small class="form-text text-danger"><?php echo form_error('notelp_user'); ?></small>
             </div>
-            <div class="form-group">
+            <div class="form-group row">
+              <div>
+                <label style="font-size:15px; color:white;">Nama Sekolah : </label>
+              </div>
               <input type="text" class="form-control" id="nama_sekolah" name="nama_sekolah" value=<?= $this->session->userdata("user")['nama_sekolah'] ?>   >
               <small class="form-text text-danger"><?php echo form_error('nama_sekolah'); ?></small>
             </div>
-            <div class="form-group">
+            <div class="form-group row">
+              <div>
+                <label style="font-size:15px; color:white;">Email Sekolah : </label>
+              </div>
               <input type="text" class="form-control" id="email_sekolah" name="email_sekolah" value=<?= $this->session->userdata("user")['email_sekolah'] ?>   >
               <small class="form-text text-danger"><?php echo form_error('email_sekolah'); ?></small>
             </div>
-            <div class="form-group">
+            <div class="form-group row">
+              <div>
+                <label style="font-size:15px; color:white;">No. Telp Sekolah : </label>
+              </div>
               <input type="text" class="form-control" id="notelp_sekolah" name="notelp_sekolah" value=<?= $this->session->userdata("user")['notelp_sekolah'] ?>   >
               <small class="form-text text-danger"><?php echo form_error('notelp_sekolah'); ?></small>
             </div>

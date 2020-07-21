@@ -74,8 +74,9 @@
                                                 <th>Pembimbing 2</th>
                                                 <th>Tanggal Pelaksanaan</th>
                                                 <th>Kota/Kabupaten</th>
-                                                <th>Datel</th>
                                                 <th>Witel</th>
+                                                <th>Datel</th>
+                                                <th>STO</th>
                                                 <th>Tanggal Pengajuan</th>
                                                 <th>Status Pengajuan</th>
                                             </tr>
@@ -87,9 +88,10 @@
                                                 <td><?php echo $row->pembimbing1 ?></td>
                                                 <td><?php echo $row->pembimbing2 ?></td>
                                                 <td><?php echo $row->tanggal_pelaksanaan ?></td>
-                                                <td><?php echo $row->nama_kotakab ?></td>
-                                                <td><?php echo $row->nama_datel ?></td>
+                                                <td><?php echo $row->wilayah ?></td>
                                                 <td><?php echo $row->nama_witel ?></td>
+                                                <td><?php echo $row->datel ?></td>
+                                                <td><?php echo $row->keterangan ?></td>
                                                 <td><?php echo $row->tanggal_pengajuan ?></td>
                                                 <?php 
                                                 $cek = (int)$row->status_pengajuan;
