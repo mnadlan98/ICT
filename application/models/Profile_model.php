@@ -164,16 +164,19 @@
         return (int)$data->id_pengajuan;
     }
 
-    public function approved($value){
+    public function approved($value,$alasan){
         $id = $this->Profile_model->getIdPengajuan();
         if($value==1 || $value==2){
             $status = 3;
         }
+        if($alasan==""){
+            $alasan = NULL;
+        }
         $this->db->set('status_pengajuan',$status);
         $this->db->set('approved', $value);
+        $this->db->set('alasan', $alasan);
         $this->db->where('id_pengajuan', $id);
         $this->db->update('pengajuan');
-        return $this->db->last_query();
     } 
 
   }

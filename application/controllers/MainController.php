@@ -51,11 +51,11 @@ class MainController extends CI_Controller {
 		$data['title'] = 'Review';
 		$data['profil'] = $this->Profile_model->getPengajuanTerbaru();
 		$data['status'] = $this->Profile_model->getStatus();
-		$this->form_validation->set_rules('form_cek','form_cek','required');
-		$value = $this->input->post("form_cek");
-		$cek = $this->input->post("cek");
-		if ($this->form_validation->run()==TRUE && $cek!=0) {
-			$this->Profile_model->approved($value);
+		$this->form_validation->set_rules('alasan','alasan','trim|xss_clean');
+		$value = $this->input->post("status");
+		$alasan = $this->input->post("alasan");
+		if ($this->form_validation->run()==TRUE) {
+			$this->Profile_model->approved($value,$alasan);
 			if($value==1){
 				$this->session->set_flashdata('tolak', 'Persetujuan telah anda tolak');
 			}else if($value==2){

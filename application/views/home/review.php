@@ -18,11 +18,8 @@
 
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="script/jquery-3.5.1.js"></script>
-
-        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800" rel="stylesheet">
-
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>       
     </head>
    
 
@@ -30,25 +27,8 @@
     <?php if ($this->session->flashdata('setuju')) { ?>
       <div class="alert alert-success"> <?= $this->session->flashdata('setuju') ?> </div>
     <?php } ?>
-    <?php if ($this->session->flashdata('tolak')) { ?>
-      <div class="modal fade" id="myModal" role="dialog" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h4 class="modal-title modal-title-centered">Tulis Alasan Pembatalan</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <input type="text" name="alasan" placeholder="Tulis di sini..." rows="4" cols="50">
-                  </div>
-                  </div>
-                </div>
-              </div>
-      </div>
+    <?php if ($this->session->flashdata('tolak')) { ?>   
       <div class="alert alert-danger"> <?= $this->session->flashdata('tolak') ?> </div>
-      
     <?php } ?>
     <section class="wow fadeInRight" id="progress">
       <div class="section-header">
@@ -114,7 +94,7 @@
           if($status[4] == 4){
             $rs = "Pengajuan telah disetujui pihak Telkom";
           }else if ($status[4] == 5){
-            $rs = "Maaf, Persetujuan yang anda buat tidak disetujui pihal Telkom";
+            $rs = "Maaf, Persetujuan yang anda buat tidak disetujui pihak Telkom";
           }else{
             $rs = "Pengajuan telah disetujui atau ditolak";
           }
@@ -125,7 +105,7 @@
       </div>
       </br><br>
    
-    <?php if ($status[4]>=2): ?>      
+        
       <section id="review">
           <div class="section-header">
             <h2 ><strong style="color:black;  margin-left: 10px;">Status Pengajuan</strong></h2><br>
@@ -146,12 +126,14 @@
                                                 <th>Witel</th>
                                                 <th>Datel</th>
                                                 <th>STO</th>
-                                                <th>Persetujuan</th> 
                                                 <th>Tanggal Pengajuan Dibuat</th>                                            
                                                 <th>Tanggal Pengajuan Pelaksanaan</th>
                                                 <th>Tanggal Persetujuan Pelaksanaan</th>
+                                                <th>Persetujuan Sekolah</th> 
                                                 <th>Status Pengajuan</th>
+                                                <?php if ($row->approved==0){ ?>
                                                 <th>Aksi</th>
+                                                <?php } ?>
                                             </tr>
                                         </thead>
                                         <?php foreach ($profil as $row): ?>
@@ -165,6 +147,10 @@
                                                 <td><?php echo $row->nama_witel ?></td>
                                                 <td><?php echo $row->datel ?></td>
                                                 <td><?php echo $row->keterangan ?></td>
+                                                
+                                                <td><?php echo $row->tanggal_pengajuan ?></td>
+                                                <td><?php echo $row->tanggal_pelaksanaan ?></td>
+                                                <td><?php echo $row->tanggal_persetujuan ?></td>
                                                 <?php if($row->approved == 0){
                                                   $setuju = "Belum Disetujui";
                                                 }else if($row->approved == 1){
@@ -172,10 +158,7 @@
                                                 }else{
                                                   $setuju = "Disetujui";
                                                 } ?>
-                                                <td><?php echo $setuju; ?></td>	
-                                                <td><?php echo $row->tanggal_pengajuan ?></td>
-                                                <td><?php echo $row->tanggal_pelaksanaan ?></td>                                  
-                                                <td><?php echo $row->tanggal_persetujuan ?></td>                                              
+                                                <td><?php echo $setuju; ?></td>                                            
                                                 <?php 
                                                 $cek = (int)$row->status_pengajuan;
                                                 if($cek == 1){
@@ -191,20 +174,17 @@
                                                 }
                                                 ?>
                                                 <td><?php echo $stat ?></td>
-                                                <?php $no++; ?>
+                                                
                                                 <?php endforeach; ?>
                                                 <?php endforeach; ?> 
                                                 <?php if ($row->approved==0){ ?>
-                                                <?php echo form_open('MainController/Review');?> 
-                                                  <form method="post">                              
-                                                    <td><button type="submit" name="persetujuan" id="setuju" class="btn btn-outline-dark delete" style="background: #3cde67; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 7px;font-weight: bold; font-size: 20px; font-family: Lato; color:white; border-color:white; "  > Setuju</button>
-                                                    <button type="submit" name="persetujuan" id="tolak" class="btn btn-outline-dark" style="background: #BD0306; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 7px;font-weight: bold; font-size: 20px; font-family: Lato; color:white; border-color:white; "  > Tolak</button></td>
-                                                    <input type="hidden" name="form_cek" id="form_cek" value=<?php echo $row->approved ?>  />   
-                                                    <input type="hidden" name="cek" id="cek" value="0"  /> 
-                                                  </form>
-                                                <?php echo form_close(); ?>
+                                                  <td>                                                   
+                                                    <a data-toggle="modal" data-target="#modalSetuju" class="btn btn-success">Setuju</a>
+                                                    <a data-toggle="modal" data-target="#modalTolak" class="btn btn-danger">Tolak</a>
+                                                  </td>
+                                                
                                                 <?php } ?>
-                                                <?php endif; ?>
+                                                
                                             </tr>
                                         </tbody>
                                       </table>
@@ -212,22 +192,61 @@
                               </div>
           </div>     
           </section>
-          
-      <script>
-      $('#setuju').click(function(){
-          confirm('Apakah Anda Yakin?') ? $('#form').submit() : FALSE;
-          if($('#form').submit()){
-            $('#form_cek').val('2');
-            $('#cek').val('1');
-          }
-        });
-      $('#tolak').click(function(){
-        confirm('Apakah Anda Yakin?') ? $('#form').submit() : FALSE;
-          if($('#form').submit()){
-            $('#form_cek').val('1');
-            $('#cek').val('1');
-        }
-      });  
-    </script>
+      <div class="modal fade" id="modalTolak" role="dialog" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title modal-title-centered">Alasan Tidak Menyetujui</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                      <form id="form" action="<?= site_url('MainController/review') ?>" method="POST">                     
+                      <div class="form-group">
+                          <div>
+                              <input type="text" name="alasan" placeholder="Tulis di sini..." >
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <div>
+                            <input type="hidden" name="status" value="1">
+                              <button type="submit" name="status" class="btn btn-success" value="1">
+                                  Submit
+                              </button>
+                          </div>
+                      </div>
+                      </form>
+                  </div>
+                </div>
+              </div>
+      </div>
+
+      <div class="modal fade" id="modalSetuju" role="dialog" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title modal-title-centered">Apakah Anda Yakin ?</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                      <form id="form" action="<?= site_url('MainController/review') ?>" method="POST">                    
+                      <div class="form-group">
+                          <div>
+                              <input type="hidden" name="status" value="2">
+                              <button type="submit"  class="btn btn-success" >
+                                  Submit
+                              </button>
+                          </div>
+                      </div>
+                      </form>
+                  </div>
+                </div>
+              </div>
+      </div>
 </body>
+
+
 
