@@ -19,6 +19,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800" rel="stylesheet">
+        <script type="text/javascript" src="script/jquery-3.3.1.min.js"></script>
 
         <script src="http://localhost/ICT/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
         <style type="text/css">
@@ -27,6 +28,15 @@
           .btn:hover{height: 3.3em !important;}
         </style>
     </head>
+
+    <script>
+      $(document).ready(function() {
+      $('.confirm-div').hide();
+      <?php if($this->session->flashdata('msg')){ ?>
+      $('.confirm-div').html('<?php echo $this->session->flashdata('msg'); ?>').show();
+      <?php } ?>
+      });
+    </script>
 
 <body>
     <?php $str=explode('@',$this->session->userdata('email_user'))?>
@@ -37,9 +47,7 @@
           <div class="col-md-2">
             <img src="../images/avatar.png">
             <div class="form-group row" style="margin-top: 20px; color:white;">
-                <a type="button" class="btn btn-success btn-lg"  style="margin-left:7em;" href="<?php echo site_url()."MainController/editProfile"?>" >Edit Profil</a>
-
-                
+                <a type="button" class="btn btn-success btn-lg"  style="margin-left:7em;" href="<?php echo site_url()."MainController/editProfile"?>" >Edit Profil</a>     
             </div>
           </div>  
           <div class="col-lg-4">
@@ -54,14 +62,14 @@
       </div>
     </section>
       
-    
+ 
 
       <section id="review">
         <div class="section-header">
           <h2 ><strong style="color:black;  margin-left: 10px;">Riwayat Pengajuan</strong></h2>
         </div>
         <?php $no=1; ?>
-        <?php foreach ($profil as $row): ?> 
+         
         <div class="row" style="margin-left: 10px;">
         <div class="card-body">
                                 <div class="table-responsive">
@@ -71,36 +79,48 @@
                                                 <th>No.</th>
                                                 <th>Jumlah Siswa</th>
                                                 <th>Pembimbing 1</th>
-                                                <th>Pembimbing 2</th>
-                                                <th>Tanggal Pelaksanaan</th>
+                                                <th>Pembimbing 2</th>                                               
                                                 <th>Kota/Kabupaten</th>
                                                 <th>Witel</th>
                                                 <th>Datel</th>
                                                 <th>STO</th>
-                                                <th>Tanggal Pengajuan</th>
+                                                <th>Persetujuan</th>  
+                                                <th>Tanggal Pengajuan Dibuat</th>                                          
+                                                <th>Tanggal Pengajuan Pelaksanaan</th>
+                                                <th>Tanggal Persetujuan Pelaksanaan</th>
                                                 <th>Status Pengajuan</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <?php foreach ($profil as $row): ?>
+                                        <tbody>                                           
                                             <tr>
                                                 <td><?php echo $no ?> </td>
                                                 <td><?php echo $row->jumlah_siswa ?></td>
                                                 <td><?php echo $row->pembimbing1 ?></td>
-                                                <td><?php echo $row->pembimbing2 ?></td>
-                                                <td><?php echo $row->tanggal_pelaksanaan ?></td>
+                                                <td><?php echo $row->pembimbing2 ?></td>                                              
                                                 <td><?php echo $row->wilayah ?></td>
                                                 <td><?php echo $row->nama_witel ?></td>
                                                 <td><?php echo $row->datel ?></td>
                                                 <td><?php echo $row->keterangan ?></td>
-                                                <td><?php echo $row->tanggal_pengajuan ?></td>
+                                                <?php if($row->approved == 0){
+                                                  $setuju = "Belum Disetujui";
+                                                }else if($row->approved == 1){
+                                                  $setuju = "Ditolak";
+                                                }else{
+                                                  $setuju = "Disetujui";
+                                                } ?>
+                                                <td><?php echo $setuju; ?></td>	 
+                                                <td><?php echo $row->tanggal_pengajuan ?></td>                                             
+                                                <td><?php echo $row->tanggal_pelaksanaan ?></td>
+                                                <td><?php echo $row->tanggal_persetujuan ?></td>                                              
                                                 <?php 
                                                 $cek = (int)$row->status_pengajuan;
                                                 if($cek == 1){
                                                   $stat = "Pengajuan";
                                                 }else if($cek == 2){
-                                                  $stat = "Tahap Review";                                                 
+                                                  $stat = "Verifikasi";                                                 
                                                 }else if($cek == 3){
-                                                  $stat = "Verifikasi Pengajuan";
+                                                  $stat = "Persetujuan";
                                                 }else if($cek == 4){
                                                   $stat = "Pengajuan Diterima";
                                                 }else if($cek == 5){
@@ -108,14 +128,15 @@
                                                 }
                                                 ?>
                                                 <td><?php echo $stat ?></td>
+                                                <?php $no++; ?>
+                                                <?php endforeach; ?>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
         </div>
-        <?php $no++; ?>
-        <?php endforeach; ?>
+        
         </section>
     
 

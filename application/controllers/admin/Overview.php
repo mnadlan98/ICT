@@ -53,22 +53,45 @@ class Overview extends CI_Controller {
 
 	public function review($id = null)
     {
-       
-        $this->load->model('Pengajuan_Model');
-        //$validation = $this->form_validation;
-        //$validation->set_rules($product->rules());
+       if ($this->session->userdata("admin")['logged'] && $this->session->userdata("admin")['level']==2) {
+
+       	$this->load->model('Pengajuan_Model');
+        $this->form_validation->set_rules('jumlah_siswa', 'Jumlah Siswa','trim|required|xss_clean');
+        $this->form_validation->set_rules('pembimbing1', 'Nama Pembimbing 1','trim|required|xss_clean');
+        $this->form_validation->set_rules('pembimbing2', 'Nama Pembimbing 2','trim|xss_clean');
+		$this->form_validation->set_rules('tanggal_pelaksanaan', 'Tanggal Pelaksanaan','trim|required|xss_clean');
+		$this->form_validation->set_rules('tanggal_persetujuan', 'Tanggal Persetujuan','trim|required|xss_clean');
+        
+        
+        
+        if ($this->form_validation->run()) {
+
+            $this->jumlah_siswa = $this->input->post("jumlah_siswa",TRUE);
+            $this->pembimbing1 = $this->input->post("pembimbing1",TRUE);
+            $this->pembimbing2 = $this->input->post("pembimbing2",TRUE);
+			$this->tanggal_pelaksanaan = $this->input->post("tanggal_pelaksanaan",TRUE);
+			$this->tanggal_persetujuan = $this->input->post("tanggal_persetujuan",TRUE);
+            $this->id_sto = $this->input->post("sto",TRUE);
+            $this->id_witel = $this->Pengajuan_Model->getWitel_bySto($this->id_sto);
+            $this->status_pengajuan = $this->input->post("status_pengajuan",TRUE);
+            $this->Pengajuan_Model->updatePengajuan($id,$this);
+            $this->session->set_flashdata('msg','Berhasil Diupdate');
+           
+        }
+        else{
+        	$this->session->set_flashdata('msg',validation_errors());
+        	
+        }
         $data["pengajuan"] = $this->Pengajuan_Model->get_PengajuanbyId($id);
         $data["witel"] = $this->Pengajuan_Model->getWitel_byId($this->session->userdata('admin')['id_witel']);
+        $data['wilayah'] = $this->Pengajuan_Model->get_wilayah();
         if (!$data["pengajuan"]) show_404();
-        // if ($validation->run()) {
-        //     $product->update();
-        //     $this->session->set_flashdata('success', 'Berhasil disimpan');
-        // }
-
+        $this->load->view("admin/review",$data);
+       }
+       else{
+       	redirect(site_url('admin/overview/'));
+       }
         
-        
-        
-        $this->load->view("admin/review", $data);
     }
 
 	public function term(){
@@ -278,6 +301,19 @@ class Overview extends CI_Controller {
         redirect(site_url('admin/overview/sto_list'));
 	}
 
+	public function delete_gallery($id=null){
+		$this->load->model('galeri_model');
+		if (!isset($id)) show_404();
+        
+        if ($this->galeri_model->delete($id)) {
+        	$this->session->set_flashdata('msg','Berhasil Dihapus');
+        }
+        else{
+        	$this->session->set_flashdata('msg',validation_errors());
+        }
+        redirect(site_url('admin/overview/gallery'));
+	}
+
 	public function sekolah()
 	{
 		if ($this->session->userdata("admin")['logged']) {
@@ -412,5 +448,113 @@ class Overview extends CI_Controller {
 		$this->load->view('admin/sto',$data);
 	}
 
+	public function gallery(){
+		if ($this->session->userdata("admin")['logged'] && $this->session->userdata("admin")['level']==2 && $this->session->userdata("admin")['role']==2) {
+			$this->load->model('Pengajuan_Model');
+			$this->load->model('galeri_model');
+			$data['gallery'] = $this->galeri_model->getAll();
+			$data["list"] = $this->Pengajuan_Model->getWitel();
+		}
+		else{
+			redirect(site_url('admin/Overview'));
+		}
+		$this->load->view('admin/gallery',$data);
+	}
+
+	public function report($id = null)
+    {
+	   $id = 2;
+       if ($this->session->userdata("admin")['logged'] && $this->session->userdata("admin")['level']==2) {
+		
+		$this->load->model('Pengajuan_Model');
+        $this->form_validation->set_rules('daftar_hadir', 'Upload Daftar Peserta');
+        $this->form_validation->set_rules('materi','Materi','trim|required|xss_clean');
+		$this->form_validation->set_rules('files[]','Upload Gambar');
+		
+
+        
+        if ($this->form_validation->run()) {
+			$this->id_user = 10;
+			$this->id_pengajuan = $id;
+			$this->daftar_hadir = $this->upload_kehadiran();
+			$this->materi = $this->input->post("materi",TRUE);
+			$files = $this->images(); 
+			$this->Pengajuan_Model->insertReport($this);
+			$this->Pengajuan_Model->insertFotoReport($files);				
+        }
+        else{
+        	$this->session->set_flashdata('msg',validation_errors());
+        	
+        }
+        $data["pengajuan"] = $this->Pengajuan_Model->get_PengajuanbyId($id);
+        $data["witel"] = $this->Pengajuan_Model->getWitel_byId($this->session->userdata('admin')['id_witel']);
+        $data['wilayah'] = $this->Pengajuan_Model->get_wilayah();
+        $this->load->view("admin/report",$data);
+       }
+       else{
+       	redirect(site_url('admin/overview/'));
+       }
+        
+	}
+	
+	public function images()
+	{
+		$filesCount = count($_FILES['files']['name']); 
+                for($i = 0; $i < $filesCount; $i++){ 
+                    $_FILES['file']['name']     = $_FILES['files']['name'][$i]; 
+                    $_FILES['file']['type']     = $_FILES['files']['type'][$i]; 
+                    $_FILES['file']['tmp_name'] = $_FILES['files']['tmp_name'][$i]; 
+                    $_FILES['file']['error']     = $_FILES['files']['error'][$i]; 
+                    $_FILES['file']['size']     = $_FILES['files']['size'][$i]; 
+                     
+                    // File upload configuration 
+
+                    $config['upload_path'] = 'upload/report/gambar'; 
+                    $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
+                    //$config['max_size']    = '100'; 
+                    //$config['max_width'] = '1024'; 
+                    //$config['max_height'] = '768'; 
+                     
+                    // Load and initialize upload library 
+                    $this->load->library('upload', $config); 
+                    $this->upload->initialize($config); 
+                     
+                    // Upload file to server 
+                    if($this->upload->do_upload('file')){ 
+                        // Uploaded file data 
+                        $fileData = $this->upload->data(); 
+                        $uploadData[$i]['foto_report'] = $fileData['file_name']; 
+                        $uploadData[$i]['tanggal_upload'] = date("Y-m-d H:i:s"); 
+                    }else{  
+                        $errorUploadType .= $_FILES['file']['name'].' | ';  
+                    } 
+                } 
+                 
+                $errorUploadType = !empty($errorUploadType)?'<br/>File Type Error: '.trim($errorUploadType, ' | '):''; 
+                if(!empty($uploadData)){ 
+                    // Insert files data into the database 
+                    return $uploadData; 
+                     
+                    // Upload status message 
+                    $statusMsg = $insert?'Files uploaded successfully!'.$errorUploadType:'Some problem occurred, please try again.'; 
+                }else{ 
+                    $statusMsg = "Sorry, there was an error uploading your file.".$errorUploadType; 
+                } 
+            
+         
+	}
+
+	function upload_kehadiran(){
+
+		$config['upload_path']          = './upload/report/daftar_hadir';
+		$config['allowed_types']        = 'xlsx';
+		$config['max_size']             = 2048; // 2MB
+  
+		$this->load->library('upload', $config);
+		$this->upload->initialize($config);
+		if ($this->upload->do_upload('daftar_hadir')) {
+		  return $this->upload->data("file_name");
+		}
+	}
 
 }

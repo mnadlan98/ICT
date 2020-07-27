@@ -32,13 +32,15 @@
 										<th>Nama User</th>
 										<th>Nama Sekolah</th>
 										<th>Kota/Kabupaten Sekolah</th>
-										<th>Jumlah Siswa</th>
-										<th>Tanggal Pelaksanaan</th>
+										<th>Jumlah Siswa</th>																			
 										<th>Surat Permohonan</th>
 										<th>Daftar Peserta</th>
 										<th>STO</th>
 										<th>Keterangan</th>
-										<th>Tanggal Pengajuan</th>
+										<th>Persetujuan</th>
+										<th>Tanggal Pengajuan Dibuat</th>
+										<th>Tanggal Pengajuan Pelaksanaan</th>
+										<th>Tanggal Persetujuan Pelaksanaan</th>
 										<th>Status Pengajuan</th>
 										<?php if ($this->session->userdata("admin")['level']==2 && $this->session->userdata("admin")['role']==2): ?>
 											<th>Aksi</th>
@@ -65,10 +67,7 @@
 										</td>
 										<td>
 											<?php echo $p->jumlah_siswa ?>
-										</td>
-										<td>
-											<?php echo $p->tanggal_pelaksanaan ?>	
-										</td>
+										</td>																				
 										<td>
 											<a href="<?php echo base_url("./upload/surat_permohonan/".$p->surat_permohonan); ?>"><?php echo $p->surat_permohonan ?></a>
 										</td>
@@ -81,11 +80,39 @@
 										<td>
 											<?php echo $p->keterangan ?>	
 										</td>
+										<?php if($p->approved == 0){
+                                                  $setuju = "Belum Disetujui";
+                                                }else if($p->approved == 1){
+                                                  $setuju = "Ditolak";
+                                                }else if($p->approved == 2){
+                                                  $setuju = "Disetujui";
+                                                } ?>
+                                        <td><?php echo $setuju; ?></td>	
 										<td>
 											<?php echo $p->tanggal_pengajuan ?>	
 										</td>
 										<td>
-											<?php echo $p->status_pengajuan ?>	
+											<?php echo $p->tanggal_pelaksanaan ?>	
+										</td>										
+										<td>
+											<?php echo $p->tanggal_persetujuan ?>	
+										</td>
+										<td>
+											<?php if ($p->status_pengajuan ==1) : ?>
+												<?php echo "Diajukan"?>
+											<?php endif ?>
+											<?php if ($p->status_pengajuan ==2) : ?>
+												<?php echo "Verifikasi"?>
+											<?php endif ?>	
+											<?php if ($p->status_pengajuan==3) : ?>
+												<?php echo "Persetujuan"?>
+											<?php endif ?>	
+											<?php if ($p->status_pengajuan==4) : ?>
+												<?php echo "Diterima"?>
+											<?php endif ?>	
+											<?php if ($p->status_pengajuan==5) : ?>
+												<?php echo "Ditolak"?>
+											<?php endif ?>	
 										</td>
 										<?php if ($this->session->userdata("admin")['level']==2 && $this->session->userdata("admin")['role']==2): ?>
 											<td width="250">

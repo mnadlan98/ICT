@@ -37,8 +37,8 @@ class MainController extends CI_Controller {
         $validation->set_rules($edit->rules());
         if ($validation->run()) {
 			$edit->updateProfile();
-			$this->session->set_flashdata('success', 'Berhasil disimpan');
-            redirect(site_url('MainController/viewProfil'));
+			$this->session->set_flashdata('msg', 'Perubahan berhasil disimpan');
+            redirect(site_url('MainController/editProfile'));
         }
     
 		$data['title'] = 'Edit Profil';
@@ -49,7 +49,20 @@ class MainController extends CI_Controller {
 
 	public function Review(){
 		$data['title'] = 'Review';
-        $data['status'] = $this->Profile_model->getStatus();
+		$data['profil'] = $this->Profile_model->getPengajuanTerbaru();
+		$data['status'] = $this->Profile_model->getStatus();
+		$this->form_validation->set_rules('form_cek','form_cek','required');
+		$value = $this->input->post("form_cek");
+		$cek = $this->input->post("cek");
+		if ($this->form_validation->run()==TRUE && $cek!=0) {
+			$this->Profile_model->approved($value);
+			if($value==1){
+				$this->session->set_flashdata('tolak', 'Persetujuan telah anda tolak');
+			}else if($value==2){
+				$this->session->set_flashdata('setuju', 'Persetujuan telah anda setujui');
+			}
+			redirect(site_url('MainController/Review'));
+		}
 		$this->load->view('templates/header', $data);
 		$this->load->view('home/review');
 		$this->load->view('templates/footer');
@@ -62,5 +75,7 @@ class MainController extends CI_Controller {
 		$this->load->view('home/feedback');
 		$this->load->view('templates/footer');	
 	}
+
+
 
 }

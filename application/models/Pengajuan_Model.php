@@ -7,6 +7,30 @@
           $this->db->insert('pengajuan',$data);
      }
 
+     public function insertReport($data)
+     {
+          $this->db->insert('report',$data);
+     }
+
+     public function insertFotoReport($data = array())
+     {       
+          $this->db->select('id_report');
+          $this->db->from('report');
+          $this->db->order_by('id_report', 'DESC');
+          $this->db->limit(1);
+
+          $query = $this->db->get();
+          $row  = $query->row();
+          $id = (int)$row->id_report;
+
+          for($x = 0; $x < count($data); $x++){
+              $data[$x]['id_report'] = $id;
+          }
+          $this->db->insert_batch('galeri_report',$data);
+     }
+     
+
+
      function updatePengajuan($id,$data)
      {
           $this->db->update('pengajuan', $data, array('id_pengajuan' => $id));

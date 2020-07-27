@@ -5,13 +5,29 @@
     public function getPengajuan()
     {
       $user = $this->session->userdata("user")['id'];
-      $this->db->select('jumlah_siswa,pembimbing1,pembimbing2,tanggal_pelaksanaan,wilayah,datel,nama_witel,keterangan,tanggal_pengajuan,status_pengajuan');
+      $this->db->select('jumlah_siswa,pembimbing1,pembimbing2,tanggal_pelaksanaan,wilayah,datel,nama_witel,keterangan,tanggal_pengajuan,status_pengajuan,approved,tanggal_persetujuan');
       $this->db->from('pengajuan');
       $this->db->join('sto', 'pengajuan.id_sto = sto.id_sto');
       $this->db->join('wilayah', 'sto.id_wilayah = wilayah.id_wilayah');
       $this->db->join('datel', 'sto.id_datel = datel.id_datel');
       $this->db->join('witel', 'pengajuan.id_witel = witel.id_witel');
       $this->db->where('pengajuan.id_user = '.$user);
+      $query = $this->db->get();
+      return $query->result();
+    }
+
+    public function getPengajuanTerbaru()
+    {
+      $user = $this->session->userdata("user")['id'];
+      $this->db->select('jumlah_siswa,pembimbing1,pembimbing2,tanggal_pelaksanaan,wilayah,datel,nama_witel,keterangan,tanggal_pengajuan,status_pengajuan,approved,tanggal_persetujuan');
+      $this->db->from('pengajuan');
+      $this->db->join('sto', 'pengajuan.id_sto = sto.id_sto');
+      $this->db->join('wilayah', 'sto.id_wilayah = wilayah.id_wilayah');
+      $this->db->join('datel', 'sto.id_datel = datel.id_datel');
+      $this->db->join('witel', 'pengajuan.id_witel = witel.id_witel');
+      $this->db->where('pengajuan.id_user = '.$user);
+      $this->db->order_by('id_pengajuan', 'DESC');
+      $this->db->limit(1);
       $query = $this->db->get();
       return $query->result();
     }
@@ -132,6 +148,32 @@
           'id' => $id
         );
         $this->session->set_userdata("user",$data);
-        return $this->db->update('user');        
+        return $this->db->update('user');  
     }
+
+    function getIdPengajuan()
+     {
+        $user = $this->session->userdata("user")['id'];
+        $this->db->select('id_pengajuan');
+        $this->db->from('pengajuan');
+        $this->db->where('id_user = '.$user);
+        $this->db->order_by('id_pengajuan', 'DESC');
+        $this->db->limit(1);
+        $query = $this->db->get();
+        $data  = $query->row();
+        return (int)$data->id_pengajuan;
+    }
+
+    public function approved($value){
+        $id = $this->Profile_model->getIdPengajuan();
+        if($value==1 || $value==2){
+            $status = 3;
+        }
+        $this->db->set('status_pengajuan',$status);
+        $this->db->set('approved', $value);
+        $this->db->where('id_pengajuan', $id);
+        $this->db->update('pengajuan');
+        return $this->db->last_query();
+    } 
+
   }

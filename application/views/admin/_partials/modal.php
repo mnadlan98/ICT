@@ -278,3 +278,40 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+<!-- Modal Add Gallery-->
+<div id="AddGallery" class="modal fade">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title">Tambah Gallery</h1>
+            </div>
+            <div class="modal-body">
+                <form action="<?= site_url('admin/overview/add_gallery') ?>" method="POST">
+                    
+                    <div class="form-group">
+                        <label class="control-label">Nama Sekolah</label>
+                        <div>
+                            <input type="text" class="form-control input-lg" name="judul">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Foto</label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="foto" id="foto" required>
+                            <label class="custom-file-label" for="foto">Pilih foto...</label>
+                                
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <button type="submit" class="btn btn-success">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

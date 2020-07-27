@@ -139,7 +139,7 @@
 					              		value="" placeholder="Verifikasi">
 								 <?php }else{ ?>
 								      <?php if($pengajuan->approved==1){ ?>
-											<select class="form-control disabled"  id="status_pengajuan" name="status_pengajuan">	
+											<select class="form-control disabled"  id="status_pengajuan" name="status_pengajuan" value="" placeholder="Persetujuan">	
 											<option value="5"> 
 												<?php if ($pengajuan->status_pengajuan==3){ 
 													echo "Persetujuan";
@@ -168,10 +168,10 @@
 					            <small class="form-text text-danger"><?php echo form_error('jenjang_sekolah'); ?></small>
 							</div>
 							<?php if($pengajuan->approved!=1){ ?>
-                                <input class="btn btn-success" type="submit" name="btn" value="Update" onclick="changeStatus()" />
-                            <?php }else{ ?>
-                                <input class="btn btn-danger" id="tombol" type="submit" name="btn" value="Batalkan" />
-                            <?php } ?>
+								<input class="btn btn-success" type="submit" name="btn" value="Update" onclick="changeStatus()" />
+							<?php }else{ ?>
+								<input class="btn btn-danger" type="submit" name="btn" value="Batalkan" onclick="Batalkan()" />
+							<?php } ?>
 						</form>
 					</div>
 					<div class="card-footer small text-muted">
@@ -226,7 +226,14 @@
 			status.value = "3";
 		}else if(status.placeholder == "Diajukan"){
 			status.value = "2";
+		}else if(status.placeholder == "Persetujuan"){
+			status.value = "5";
 		}
+		
 	};
 
+	function Batalkan(){
+		var status = document.getElementById("status_pengajuan");
+		status.value = "5";
+	};
   </script>
