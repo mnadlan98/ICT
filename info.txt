@@ -1,6 +1,0 @@
-witel dapat melihat 1 bulan
-admin keseluruhan dapat melihat semua witel
-report pihak witel
-notifikasi witel ke sekolah untuk feedback
-report kehadiran dengan foto foto
-3 user, sekolah, witel dan trex
