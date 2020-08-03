@@ -145,6 +145,8 @@
           'nama_sekolah' => $post["nama_sekolah"],
           'email_sekolah' => $post["email_sekolah"],
           'notelp_sekolah' => $post["notelp_sekolah"],
+          'status_pengajuan' => $this->session->userdata("user")['status_pengajuan'],
+          'eventover' => $this->session->userdata("user")['eventover'],
           'id' => $id
         );
         $this->session->set_userdata("user",$data);
@@ -169,14 +171,27 @@
         if($value==1 || $value==2){
             $status = 3;
         }
-        if($alasan==""){
-            $alasan = NULL;
-        }
         $this->db->set('status_pengajuan',$status);
         $this->db->set('approved', $value);
         $this->db->set('alasan', $alasan);
         $this->db->where('id_pengajuan', $id);
         $this->db->update('pengajuan');
     } 
+
+    function getReport(){
+        return $this->db->get('report',1)->result();          
+    }
+
+    function getIdReport(){
+        $id = $this->Profile_model->getIdPengajuan();
+        return (int)$this->db->get_where('report', array('id_pengajuan' => $id))->result();         
+    }
+
+    function getFotoReport($id){
+        return $this->db->get_where('galeri_report', array('id_report' => $id))->result();                 
+    }
+
+
+    
 
   }

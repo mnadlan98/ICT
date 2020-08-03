@@ -110,7 +110,7 @@
           <div class="section-header">
             <h2 ><strong style="color:black;  margin-left: 10px;">Status Pengajuan</strong></h2><br>
           </div>
-          <?php $no=1; ?>
+          <?php $no=1; ?>        
           <?php foreach ($profil as $row): ?> 
           <div class="row" style="margin-left: 10px;">
           <div class="card-body">
@@ -171,13 +171,15 @@
                                                   $stat = "Pengajuan Diterima";
                                                 }else if($cek == 5){
                                                   $stat = "Pengajuan Ditolak";
+                                                }else if($cek == 6){
+                                                  $stat = "Acara Selesai";
                                                 }
                                                 ?>
                                                 <td><?php echo $stat ?></td>
                                                 
                                                 <?php endforeach; ?>
                                                 <?php endforeach; ?> 
-                                                <?php if ($row->approved==0){ ?>
+                                                <?php if ($row->approved==0 && $row->status_pengajuan==2){ ?>
                                                   <td>                                                   
                                                     <a data-toggle="modal" data-target="#modalSetuju" class="btn btn-success">Setuju</a>
                                                     <a data-toggle="modal" data-target="#modalTolak" class="btn btn-danger">Tolak</a>

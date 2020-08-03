@@ -42,6 +42,7 @@
 										<th>Tanggal Pengajuan Pelaksanaan</th>
 										<th>Tanggal Persetujuan Pelaksanaan</th>
 										<th>Status Pengajuan</th>
+										<th>Status Report</th>
 										<?php if ($this->session->userdata("admin")['level']==2 && $this->session->userdata("admin")['role']==2): ?>
 											<th>Aksi</th>
 										<?php endif ?>
@@ -113,11 +114,26 @@
 											<?php if ($p->status_pengajuan==5) : ?>
 												<?php echo "Ditolak"?>
 											<?php endif ?>	
+											<?php if ($p->status_pengajuan==6) : ?>
+												<?php echo "Selesai"?>
+											<?php endif ?>
+										</td>
+										<td>
+											<?php if ($p->eventover==1) : ?>
+												<?php echo "Sudah melakukan report"?>
+											<?php endif ?>
+											<?php if ($p->eventover==0) : ?>
+												<?php echo "Belum melakukan report"?>
+											<?php endif ?>	
 										</td>
 										<?php if ($this->session->userdata("admin")['level']==2 && $this->session->userdata("admin")['role']==2): ?>
 											<td width="250">
 											<a href="<?php echo site_url('admin/overview/review/'.$p->id_pengajuan) ?>"
 											 class="btn btn-small"><i class="fas fa-edit"></i> Review</a>
+											 <?php if ($p->status_pengajuan==4 && $p->eventover!=1) : ?>												
+												<a href="<?php echo site_url('admin/overview/report/'.$p->id_pengajuan) ?>"
+												class="btn btn-small"><i class="fas fa-reply"></i> Report</a>
+											 <?php endif ?>
 										</td>
 										<?php endif ?>
 									</tr>

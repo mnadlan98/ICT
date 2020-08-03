@@ -57,6 +57,7 @@
             <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Nama Sekolah : <?= $this->session->userdata("user")['nama_sekolah'] ?></p>
             <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Email Sekolah : <?= $this->session->userdata("user")['email_sekolah'] ?></p>
             <p style="font-size: 15px; border-bottom:1px solid gray; color: white">No. Telepon Sekolah : <?= $this->session->userdata("user")['notelp_sekolah'] ?></p>
+            <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Status Pengajuan : <?= $this->session->userdata("user")['status_pengajuan'] ?></p>
           </div>
         </div>
       </div>
@@ -125,6 +126,8 @@
                                                   $stat = "Pengajuan Diterima";
                                                 }else if($cek == 5){
                                                   $stat = "Pengajuan Ditolak";
+                                                }else if($cek == 6){
+                                                  $stat = "Acara Selesai";
                                                 }
                                                 ?>
                                                 <td><?php echo $stat ?></td>

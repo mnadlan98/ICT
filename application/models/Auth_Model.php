@@ -57,10 +57,17 @@ class Auth_model extends CI_Model {
 
      function login_user($email_user,$password)
     {
-        $query = $this->db->get_where('user',array('email_user'=>$email_user));
+        $query = $this->db->get_where('user',array('email_user'=>$email_user));        
         if($query->num_rows() > 0)
         {
-            $row = $query->row();
+            $row = $query->row();          
+            $this->db->select('status_pengajuan,eventover');
+            $this->db->from('pengajuan');
+            $this->db->where('id_user = '.$row->id_user);
+            $this->db->order_by('tanggal_pengajuan','ASC');
+            $this->db->limit(1);
+            $query = $this->db->get();
+            $d  = $query->row();
             if (password_verify($password, $row->password)) {
                 $data = array(
                     'logged' => TRUE,
@@ -70,6 +77,8 @@ class Auth_model extends CI_Model {
                     'nama_sekolah' => $row->nama_sekolah,
                     'email_sekolah' => $row->email_sekolah,
                     'notelp_sekolah' => $row->notelp_sekolah,
+                    'status_pengajuan' => $d->status_pengajuan,
+                    'eventover' => $d->eventover,
                     'id' => $row->id_user
                 );
                 $this->session->set_userdata("user",$data);

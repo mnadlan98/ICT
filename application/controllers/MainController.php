@@ -14,7 +14,7 @@ class MainController extends CI_Controller {
 	
 	public function index()
 	{
-		$data['title'] = 'Selamat Datang';
+		$data['title'] = 'Selamat Datang';		
 		$data['feedback'] = $this->Profile_model->getAllFeedback();
 		$data['kontak'] = $this->kontak_model->getAll();
 		$data['galeri'] = $this->galeri_model->getAll();
@@ -25,7 +25,7 @@ class MainController extends CI_Controller {
 
 	public function Profil(){
 		$data['profil'] = $this->Profile_model->getPengajuan();
-		$data['title'] = 'Profil';
+		$data['title'] = 'Profil';		
 		$this->load->view('templates/header', $data);
 		$this->load->view('home/profil');
 		$this->load->view('templates/footer');	
@@ -39,9 +39,8 @@ class MainController extends CI_Controller {
 			$edit->updateProfile();
 			$this->session->set_flashdata('msg', 'Perubahan berhasil disimpan');
             redirect(site_url('MainController/editProfile'));
-        }
-    
-		$data['title'] = 'Edit Profil';
+        } 
+		$data['title'] = 'Edit Profil';		
 		$this->load->view('templates/header', $data);
 		$this->load->view('home/editprofil');
 		$this->load->view('templates/footer');
@@ -62,19 +61,22 @@ class MainController extends CI_Controller {
 				$this->session->set_flashdata('setuju', 'Persetujuan telah anda setujui');
 			}
 			redirect(site_url('MainController/Review'));
-		}
+		}	
 		$this->load->view('templates/header', $data);
 		$this->load->view('home/review');
 		$this->load->view('templates/footer');
 	}
 
 
-	public function viewFeedback(){
+	public function Feedback(){
 		$data['title'] = 'Feedback';
+		$data['report'] = $this->Profile_model->getReport();
+		$data['foto'] = $this->Profile_model->getFotoReport($this->Profile_model->getIdReport());
 		$this->load->view('templates/header', $data);
 		$this->load->view('home/feedback');
 		$this->load->view('templates/footer');	
 	}
+
 
 
 

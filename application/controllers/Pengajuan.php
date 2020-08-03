@@ -31,10 +31,47 @@ class Pengajuan extends CI_Controller {
             $this->checkbox_policy = $this->input->post('checkbox_policy',TRUE);
             $this->tanggal_pengajuan = date('Y-m-d');
             $this->status_pengajuan = 1;
-            $this->Pengajuan_Model->daftar($this);
+            $data = array(
+              'logged' => TRUE,
+              'nama_user' => $this->session->userdata("user")['nama_user'],
+              'email_user' => $this->session->userdata("user")['email_user'],
+              'notelp_user' => $this->session->userdata("user")['notelp_user'],
+              'nama_sekolah' => $this->session->userdata("user")['nama_sekolah'],
+              'email_sekolah' => $this->session->userdata("user")['email_sekolah'],
+              'notelp_sekolah' => $this->session->userdata("user")['notelp_sekolah'],
+              'status_pengajuan' => 1,
+              'eventover' => $this->session->userdata("user")['eventover'],
+              'id' => $this->session->userdata("user")['id']
+            );
+            $this->session->set_userdata("user",$data);
 
+            if($this->Pengajuan_Model->daftar($this)){
+              $this->load->library('email');
+
+              $config['protocol']    = 'smtp';
+              $config['smtp_host']    = 'ssl://smtp.gmail.com';
+              $config['smtp_port']    = '465';
+              $config['smtp_timeout'] = '7';
+              $config['smtp_user']    = 'sibola124@gmail.com';
+              $config['smtp_pass']    = 'SIBOLA124';
+              $config['charset']    = 'utf-8';
+              $config['newline']    = "\r\n";
+              $config['mailtype'] = 'text'; // or html
+              $config['validation'] = TRUE; // bool whether to validate email or not      
+
+              $this->email->initialize($config);
+
+              $this->email->from($config['smtp_user']);
+              $this->email->to($data["pengajuan"]->email_user);
+              $this->email->subject("Status Pengajuan");
+              $this->email->message(" Pengajuan anda telah kami terima dan sedang dalam tahap review oleh admin. ");	
+              $this->email->send();	
+              			                       
+              
+            }
             redirect(site_url('MainController/review')); 
-        }
+				}
+            
         if ($this->session->userdata('user')['logged']) {
           $data['title'] = 'Pengajuan';
           $data['wilayah'] = $this->Pengajuan_Model->get_wilayah();

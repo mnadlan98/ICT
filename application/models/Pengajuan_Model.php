@@ -29,11 +29,29 @@
           $this->db->insert_batch('galeri_report',$data);
      }
      
+     public function getDHadirByPengajuan($id){
+          $this->db->select('daftar_hadir');
+          $this->db->from('report');
+          $cek = $this->db->where("EXISTS(SELECT materi FROM report WHERE id_pengajuan = ".$id.")");
+        
+          if ($cek==TRUE){
+               $query = $this->db->get();
+               $row  = $query->row();
+               return $row->daftar_hadir;
+          }else{
+               return null;
+          }
+     }
 
+     public function getIdUserByPengajuan($id){
+          $query = $this->db->get_where('pengajuan', array('id_pengajuan' => $id));
+          $data  = $query->row();
+          return (int)$data->status_pengajuan;
+     }
 
      function updatePengajuan($id,$data)
      {
-          $this->db->update('pengajuan', $data, array('id_pengajuan' => $id));
+          return $this->db->update('pengajuan', $data, array('id_pengajuan' => $id));
      }
 
      function get_Term(){
@@ -185,5 +203,51 @@
      function deleteSto($id)
      {
           return $this->db->delete('sto', array("id_sto" => $id));
+     }
+
+     function getStatus($id)
+     {
+        $status = array();
+        $query = $this->db->get_where('pengajuan', array('id_pengajuan' => $id));
+        $data  = $query->row();
+        if(empty($data)){
+            $value = 0;
+        }else{
+            $value = (int)$data->status_pengajuan;
+        }
+
+        if($value == 5){
+            $status[0] = '"col-xs-3 bs-wizard-step complete"';
+            $status[1] = '"col-xs-3 bs-wizard-step complete"';
+            $status[2] = '"col-xs-3 bs-wizard-step complete"';
+            $status[3] = '"col-xs-3 bs-wizard-step decline"';
+        }else if($value == 4){
+            $status[0] = '"col-xs-3 bs-wizard-step complete"';
+            $status[1] = '"col-xs-3 bs-wizard-step complete"';
+            $status[2] = '"col-xs-3 bs-wizard-step complete"';
+            $status[3] = '"col-xs-3 bs-wizard-step accepted"';
+        }else if($value == 3){
+            $status[0] = '"col-xs-3 bs-wizard-step complete"';
+            $status[1] = '"col-xs-3 bs-wizard-step complete"';
+            $status[2] = '"col-xs-3 bs-wizard-step active"';
+            $status[3] = '"col-xs-3 bs-wizard-step disabled"';
+        }else if($value == 2){
+            $status[0] = '"col-xs-3 bs-wizard-step complete"';
+            $status[1] = '"col-xs-3 bs-wizard-step active"';
+            $status[2] = '"col-xs-3 bs-wizard-step disabled"';
+            $status[3] = '"col-xs-3 bs-wizard-step disabled"';
+        }else if($value == 1){
+            $status[0] = '"col-xs-3 bs-wizard-step active"';
+            $status[1] = '"col-xs-3 bs-wizard-step disabled"';
+            $status[2] = '"col-xs-3 bs-wizard-step disabled"';
+            $status[3] = '"col-xs-3 bs-wizard-step disabled"';
+        }else if($value == 0){
+            $status[0] = '"col-xs-3 bs-wizard-step disabled"';
+            $status[1] = '"col-xs-3 bs-wizard-step disabled"';
+            $status[2] = '"col-xs-3 bs-wizard-step disabled"';
+            $status[3] = '"col-xs-3 bs-wizard-step disabled"';
+        }
+        $status[4] = $value;
+        return $status;
      }
 }

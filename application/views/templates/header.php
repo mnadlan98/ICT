@@ -46,9 +46,15 @@
     <a class="item" href="<?php echo site_url()."MainController/index#contact"?>">Kontak Kami</a>
     <?php if ($this->session->userdata("user")['logged']): ?>
       <a class="nav-link" href="<?php echo site_url()."MainController/Profil"?>" style="padding-left:10px; border-radius:0px; border-left:3px solid red;">Profil</a>
-      <a class="item" href="<?php echo site_url()."MainController/Review"?>">Review Pengajuan</a>
+      <?php if ($this->session->userdata("user")['status_pengajuan'] != 0): ?>
+        <a class="item" href="<?php echo site_url()."MainController/Review"?>">Review Pengajuan</a>
+      <?php endif ?>
+      <?php if ($this->session->userdata("user")['eventover'] == 1): ?>
+        <a class="item" href="<?php echo site_url()."MainController/Feedback"?>">Data Report</a>
+      <?php endif ?>
     <a class="item" href="<?php echo site_url()."login/logout"?>" style="background-color:#DCDCDC;" onmouseover="this.style.color='red'" onmouseout="this.style.color='black'">Logout</a>
     <?php endif ?>
+
   </div>
 </div>
 </body>

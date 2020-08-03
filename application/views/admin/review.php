@@ -3,6 +3,7 @@
 
 <head>
 	<?php $this->load->view("admin/_partials/head.php") ?>
+	<link rel="stylesheet" href="http://localhost/ICT/css/stepbar.css">
 </head>
 
 <body id="page-top">
@@ -128,11 +129,41 @@
 								
 					        
 							</div>
+							<div class="row bs-wizard" style="border-bottom:0;">
+                
+								<div class=<?php echo $status[0] ?> >
+								<div class="text-center bs-wizard-stepnum">Tahap 1</div>
+								<div class="progress"><div class="progress-bar"></div></div>
+								<a href="#" class="bs-wizard-dot"></a>
+								<div class="bs-wizard-info text-center">-----------Pengajuan-----------</div>
+								</div>
+								
+								<div class=<?php echo $status[1] ?>>
+								<div class="text-center bs-wizard-stepnum">Tahap 2</div>
+								<div class="progress"><div class="progress-bar"></div></div>
+								<a href="#" class="bs-wizard-dot"></a>
+								<div class="bs-wizard-info text-center">-----------Verifikasi-----------</div>
+								</div>
+								
+								<div class=<?php echo $status[2] ?>>
+								<div class="text-center bs-wizard-stepnum">Tahap 3</div>
+								<div class="progress"><div class="progress-bar"></div></div>
+								<a href="#" class="bs-wizard-dot"></a>
+								<div class="bs-wizard-info text-center">-----------Persetujuan-----------</div>
+								</div>
+								
+								<div class=<?php echo $status[3] ?>>
+								<div class="text-center bs-wizard-stepnum">Tahap 4</div>
+								<div class="progress"><div class="progress-bar"></div></div>
+								<a href="#" class="bs-wizard-dot"></a>
+								<div class="bs-wizard-info text-center">-----------Hasil Pengajuan</div>
+								</div>
+							</div>   
 							<?php endif ?>
 					        <div class="form-group">
 					            <label>Status Pengajuan</label>
 								 <?php if ($pengajuan->status_pengajuan==1){ ?>
-					             <input type="text" class="form-control disabled"   id="status_pengajuan" name="status_pengajuan"					             	
+					             <input type="text" class="form-control disabled"  id="status_pengajuan" name="status_pengajuan"					             	
 					              		value="" placeholder="Diajukan">
 								 <?php }else if($pengajuan->status_pengajuan==2){ ?>
 								<input type="text" class="form-control disabled"   id="status_pengajuan" name="status_pengajuan"					             	
@@ -147,31 +178,36 @@
 													echo "Ditolak"; 
 												} ?> </option>
 										<?php }else{ ?> 
-											<select class="form-control"  id="status_pengajuan" name="status_pengajuan">							 
+																		 
 											<?php if ($pengajuan->status_pengajuan==3){ ?>
+											<select class="form-control"  id="status_pengajuan" name="status_pengajuan">
 												<option value="" selected>Pilih Hasil Persetujuan...</option>
 												<option value="4">Accept</option>
 												<option value="5">Reject</option>
 											<?php }else{ ?>	
-												<option value=<?php echo $pengajuan->status_pengajuan?>> 
-												<?php if ($pengajuan->status_pengajuan==4){ 
-													echo "Disetujui";
-												}else if ($pengajuan->status_pengajuan==5){ 
-													echo "Ditolak"; 
-												}else{
-													echo "ERROR";
-												} ?> </option>													 
+											
+												<?php if ($pengajuan->status_pengajuan==4){ ?>
+													<input type="text" class="form-control disabled"   id="status_pengajuan" name="status_pengajuan"					             	
+					              						value="" placeholder="Disetujui">																							
+												<?php }else if ($pengajuan->status_pengajuan==5){ ?> 
+													<input type="text" class="form-control disabled"   id="status_pengajuan" name="status_pengajuan"					             	
+					              						value="" placeholder="Ditolak">	
+												<?php }  ?>																							 
 											</select>										
+																								 
+										
 											<?php } ?>	
 										<?php } ?>
 									<?php } ?>
 					            <small class="form-text text-danger"><?php echo form_error('jenjang_sekolah'); ?></small>
 							</div>
-							<?php if($pengajuan->approved!=1){ ?>
+							<?php if ($pengajuan->status_pengajuan==4 || $pengajuan->status_pengajuan==5){ ?>
+                                <input type="hidden">
+                            <?php }else if($pengajuan->approved!=1 ){ ?>
                                 <input class="btn btn-success" type="submit" name="btn" value="Update" onclick="changeStatus()" />
                             <?php }else{ ?>
-                                <input class="btn btn-danger" id="tombol" type="submit" name="btn" value="Batalkan" />
-                            <?php } ?>
+								<input class="btn btn-danger" id="tombol" type="submit" name="btn" value="Batalkan" />
+							<?php } ?>
 						</form>
 					</div>
 					<div class="card-footer small text-muted">
@@ -226,6 +262,10 @@
 			status.value = "3";
 		}else if(status.placeholder == "Diajukan"){
 			status.value = "2";
+		}else if(status.placeholder == "Ditolak"){
+			status.value = "5";
+		}else if(status.placeholder == "Disetujui"){
+			status.value = "4";
 		}
 	};
 
