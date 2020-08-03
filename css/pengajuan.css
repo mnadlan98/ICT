@@ -9,4 +9,18 @@ body {
     height:auto;
   }
 
+  .btn{
+    background: #BD0306; border-radius: 30px;
+    text-align: center;
+    width:100%;
+    max-width: 100px;
+    vertical-align: middle;
+    color: white;
+    
+  }
+
+  .btn:hover{
+    background-color: transparent;
+    border: 1px solid black;
+  }
   

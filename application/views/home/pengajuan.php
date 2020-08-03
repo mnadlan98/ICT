@@ -22,7 +22,7 @@
         <link rel="stylesheet" href="http://localhost/ICT/css/hero-slider.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/templatemo-main.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/owl-carousel.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/pengajuan.css">
+        <link rel="stylesheet" href="http://localhost/ICT/css/pengajuan.css?v=6">
 
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800" rel="stylesheet">
 
@@ -30,8 +30,18 @@
     </head>
 
 <body>
-<div class="col-md-5 py-3" style="margin-left:32em; margin-top: 1em;" >
-  <h5 style="font-weight: bolder; color: black; margin-left: 15em; color:white; margin-top:5em; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Pengajuan ICT Tour</strong></h5></br></br>
+<div class="row">
+<div class="col-sm-3">
+</div>
+<div class="col-sm-5" >
+      <div class="row-sm-6">
+      </div>
+      <div class="row-sm-6 text-center" style="">
+      <h5 style="font-weight: bolder; color: black; margin-left: 15em; color:white; margin-top:5em; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Pengajuan ICT Tour</strong></h5></br></br>
+      </div>
+      <div class="row-sm-6">
+      </div>
+  
   <?php echo form_open_multipart('Pengajuan');?> 
      <form method="post">
           <hr class="onepixel">
@@ -133,11 +143,16 @@
             <input class="form-check-input" type="checkbox" id="checkbox_policy" name="checkbox_policy" value="1">
             <label class="form-check-label" for="checkbox_policy" style="color:white; margin-left:12px; ">Saya menyetujui <a href="#" style="color:dodgerblue" data-toggle="modal" data-target="#myModal">syarat dan ketentuan</a> yang berlaku</label>
           </div> </br>
-          <div class="col-md-12" style="padding-left:20em;">
-          <button type="submit" name="submit" class="btn btn-outline-dark" style="background: #BD0306; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 7px;font-weight: bold; font-size: 20px; font-family: Lato; color:white; border-color:white; ">Kirim</button>   
+          <div class="row-sm-6">
+          </div>
+          <div class="row-sm-6 text-center" style="">
+          <button type="submit" name="submit" class="btn" style="background: #BD0306; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 27px;font-weight: bold; font-size: 15px; font-family: Lato; color:white; border-color:white; ">Kirim</button>        
+          </div>
+          <div class="row-sm-6">
+          </div>
         </div>
         <?php echo form_close();?>                
-        </form>
+      </form>
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
           <div class="modal-dialog modal-dialog-centered">
@@ -162,6 +177,10 @@
         </div>
 
   </div>
+  <div class="col-sm-3 ">
+</div>
+</div>
+
 
 </body>
 </html>

@@ -9,7 +9,7 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
   
 
-        <link rel="stylesheet" href="http://localhost/ICT/css/home.css?version=53">        
+        <link rel="stylesheet" href="http://localhost/ICT/css/home.css?version=59">        
         <link rel="stylesheet" href="http://localhost/ICT/css/owl.carousel.min.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/owlcarousel/assets/owl.theme.default.min.css">
         <link rel="stylesheet" href="http://localhost/ICT/css/ionicons.min.css">
@@ -37,7 +37,7 @@
         <script type="text/javascript" src="script/owl.carousel.js"></script>
         
     </head>
-    <?php if ($this->session->userdata("user")['logged']): ?>
+    <?php if (isset($this->session->userdata("user")['logged'])): ?>
     <style type="text/css">
       body {
         background-image:url(../images/home.jpg);
@@ -55,20 +55,20 @@
         
         <div class="parallax-content baner-content" >
             <div class="container">
-            <?php if ($this->session->userdata("user")['logged']): ?>
-              <h1 class="wow fadeInDown" style="font-size: 75px; color:black;">Selamat Datang <?= $this->session->userdata("user")['nama_user'] ?>!</h1>
+            <?php if (isset($this->session->userdata("user")['logged'])): ?>
+              <h1 class="wow fadeInDown headname" style="font-size: 5vw; color:black;">Selamat Datang <?= $this->session->userdata("user")['nama_user'] ?>!</h1>
             <?php endif ?>
                 <div class="first-content"> 
-                <span class="wow fadeInLeft" data-wow-delay="0.5s"><img src="../images/logo.png" style="border-radius:20px; width:875px; height:240px;"></span> 
+                <span class="wow fadeInLeft" data-wow-delay="0.5s"><img class="logo" src="../images/logo.png" style=""></span> 
                 
-                    <?php if ($this->session->userdata("user")['logged']): ?>
+                    <?php if (isset($this->session->userdata("user")['logged'])): ?>
                         <div class="primary-button wow fadeInUp" data-wow-delay="1s" style="margin-top:5em;" >
-                            <a class="btn1" href="<?php echo base_url().'Pengajuan/index';?>" style="padding:18px; font-size:15px;" >Pengajuan ICT Tour</a>
+                            <a class="btn1" href="<?php echo base_url().'Pengajuan/index';?>" style="padding:12px; font-size:15px; text-transform: capitalize;" >Pengajuan ICT Tour</a>
                         </div>
                     <?php else: ?>
                     <div class="primary-button wow fadeInUp" data-wow-delay="1.5s" >
-                        <a class="btn" href="<?php echo base_url().'Login/index';?>" style="padding:18px; font-size:15px;">Masuk</a>
-                        <a class="btn" href="<?php echo base_url().'Register/index';?>" style="padding:18px; font-size:15px;">Daftar</a>
+                        <a class="btn mr-auto" href="<?php echo base_url().'Login/index';?>" style="padding:8px; font-size:15px; text-transform: capitalize;">Masuk</a>
+                        <a class="btn ml-auto" href="<?php echo base_url().'Register/index';?>" style="padding:8px; font-size:15px; text-transform: capitalize;">Daftar</a>
                     </div>
                     <?php endif ?>
                 </div>
@@ -80,7 +80,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <img src="../images/trip2.png" style="width:500px;">
+                    <img src="../images/trip2.png" style="max-width:500px; width:100%;">
                 </div> 
                 <div class="col">
                 <span class="wow fadeInRight"><strong style="font-size:34px">Apa itu ICT Tour?</strong></span>
@@ -268,10 +268,10 @@
         
         <div class="content">
         <div class="row contact-info">
-        <div class="col-md-3"><i class="icon"><img src="../images/icon/office.svg" style="width:50px;"></i><h3 >Nama Witel</h3></div>
-        <div class="col-md-3"><i class="icon"><img src="../images/icon/location.svg" style="width:50px;"></i><h3 >Alamat</h3></div>
-        <div class="col-md-3"><i class="icon"><img src="../images/icon/phone.svg" style="width:50px;"></i><h3>Nomor Telepon</h3></div>
-        <div class="col-md-3"><i class="icon"><img src="../images/icon/email.svg" style="width:50px;"></i><h3>Email</h3></div>
+        <div class="col-sm-3"><i class="icon"><img src="../images/icon/office.svg" style="max-width:50px; width:100%;"></i><h3  >Nama Witel</h3></div>
+        <div class="col-sm-3"><i class="icon"><img src="../images/icon/location.svg" style="max-width:50px; width:100%;"></i><h3 >Alamat</h3></div>
+        <div class="col-sm-3"><i class="icon"><img src="../images/icon/phone.svg" style="max-width:50px; width:100%;"></i><h3>Nomor Telepon</h3></div>
+        <div class="col-sm-3"><i class="icon"><img src="../images/icon/email.svg" style="max-width:50px; width:100%;"></i><h3>Email</h3></div>
         </div>
         <?php
             $no = 1;

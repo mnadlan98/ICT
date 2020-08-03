@@ -1,28 +1,14 @@
-
-<footer class="footer font-small " style="background-color: #434343; padding-top:4vh;"  >
-
-      <div class="container" >
-
-        <div class="row py-4 d-flex align-items-center" >
+<footer class="footer font-small " style="background-color: #434343; padding-top:12vh;"  >
 
 
-        </div>
+    <div class="container">
 
-      </div>
+      <div class="row">
 
-    <div class="container text-center text-md-left mt-5">
+        <div class="col">
 
-      <div class="row mt-3">
-
-        <div class="col-md-3 col-lg-4 col-xl-3 mb-2">
-
-          <form class="input-group">
-            <input type="text" class="form-control form-control-sm bg-light" placeholder="Your email address" aria-label="Your email" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-              <button class="btn btn-sm btn-danger my-0" style="width: 100%;" type="button">Subscribe</button>
-            </div>
-          </form>
-          <div class="col-md-15 py-5">
+          
+          <div class="col-md-15 py-2">
           <div class="mb-2 flex-center">
 
             <a class="fb-ic" style="color: white;">
@@ -44,19 +30,12 @@
         </div>
 
         </div>
-
-        <div class="col-md-2 col-lg-2 col-xl-3 mx-auto mb-4">
-        </div>
-
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-2">
-        </div>
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4" >
-        </div>
+        
 
       </div>
 
     </div>
-
+    <p style="color:white;">Copyright Wifi.id Jabar 2020<p>
   </footer>
 
 

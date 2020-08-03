@@ -10,9 +10,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="http://localhost/ICT/css/bootstrap.min.css">
-<link rel="stylesheet" href="http://localhost/ICT/css/fontAwesome.css">
-<link rel="stylesheet" href="http://localhost/ICT/css/font-awesome.min.css">
 
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 
 
   <!-- Footer -->
@@ -24,27 +23,32 @@
   <link rel="stylesheet" href="http://localhost/ICT/css/animate.min.css">
   <script src="http://localhost/ICT/script/wow.min.js"></script>
   <script src="http://localhost/ICT/script/wow.js"></script>
-  <script src="http://localhost/ICT/script/main.js?version=1"></script>
+  <script src="http://localhost/ICT/script/main.js?version=54"></script>
   <script src="http://localhost/ICT/script/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" type="text/css" href="http://localhost/ICT/css/header.css">
+  <link rel="stylesheet" type="text/css" href="http://localhost/ICT/css/header.css?v=2">
   <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>/assets/css/stylenav.css">
   
   <title><?php echo $title ;?></title>
 </head>
 
 <body >
-<div class="header sticky-top" style="box-shadow: 0px 10px 5px #27272780;
+<nav class="header sticky-top " style="box-shadow: 0px 10px 5px #27272780;
   -webkit-box-shadow: 0px 5px 5px #27272780;
   -moz-box-shadow: 0px 5px 5px #27272780;
   z-index: 999999; border-bottom:2px solid red;">
-  <a href="<?php echo base_url().'MainController/index';?>" class="logo"><img src="../images/Indihome-Study-red.png"></a>
-  <div class="header-right">
+  
+  <a href="<?php echo base_url().'MainController/index';?>" ><img class="logohead" src="../images/Indihome-Study-red.png" style="max-width:140px; width:100%; margin-top: 10px; margin-left: 10px;"></a>
+  <button class="navbar-toggler mr-auto ml-10" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="fa fa-bars"></span>
+  </button>
+  <div class="collapse navbar-collapse header-right mr-auto" id="navbarSupportedContent">
+    <ul class="">
     <a class="item" href="<?php echo site_url()."MainController/index#home"?>">Beranda</a>
     <a class="item" href="<?php echo site_url()."MainController/index#about"?>">Tentang</a>
     <a class="item" href="<?php echo site_url()."MainController/index#contact"?>">Kontak Kami</a>
-    <?php if ($this->session->userdata("user")['logged']): ?>
+    <?php if (isset($this->session->userdata("user")['logged'])): ?>
       <a class="nav-link" href="<?php echo site_url()."MainController/Profil"?>" style="padding-left:10px; border-radius:0px; border-left:3px solid red;">Profil</a>
       <?php if ($this->session->userdata("user")['status_pengajuan'] != 0): ?>
         <a class="item" href="<?php echo site_url()."MainController/Review"?>">Review Pengajuan</a>
@@ -56,6 +60,6 @@
     <?php endif ?>
 
   </div>
-</div>
+</nav>
 </body>
 </html>
