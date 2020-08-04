@@ -1,6 +1,10 @@
 <!-- Bootstrap core JavaScript-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+        src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+        crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <!-- Page level plugin JavaScript-->
 
@@ -16,10 +20,10 @@
         <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script> -->
 <script>
-	function deleteConfirm(url){
-		$('#btn-delete').attr('href', url);
-		$('#deleteModal').modal();
-	}
+    function deleteConfirm(url){
+        $('#btn-delete').attr('href', url);
+        $('#deleteModal').modal();
+    }
 
     function addModal(url,plc,txt,name){
         $('#form1').attr('action', url);
@@ -37,23 +41,114 @@
         $('#modalEdit').modal();
     }
 
-    function editAdmin(url,val){
+    function editAdmin(url,val,nama){
         $('#editAdmin').attr('action', url);
         $('#username').attr('value', val);
+        $('#nama').attr('value', nama);
         $('#EditAdminWitel').modal();
     }
+
+    function editAdminTreg(url,val,nama,unit){
+        $('#editAdminTreg').attr('action', url);
+        $('#username1').attr('value', val);
+        $('#nama1').attr('value', nama);
+        $('#unit').attr('value', unit);
+        $('#EditAdminTreg').modal();
+    }
+
     function ModalSTO(url,txt,sto,ket){
         $('#form2').attr('action', url);
         $('#txt2').text(txt);
         $('#sto').attr('value', sto);
         $('#keterangan').attr('value', ket);
-        $('#ModalSTO').modal();
+        $('#witel').change(function(){ 
+                var id=$(this).val();
+                $.ajax({
+                    url : "<?php echo site_url('admin/Overview/get_datel');?>",
+                    method : "POST",
+                    data : {id: id},
+                    async : true,
+                    dataType : 'json',
+                    success: function(data){
+                        
+                        var html = '';
+                        var i;
+                        for(i=0; i<data.length; i++){
+                            html += '<option value='+data[i].id_datel+'>'+data[i].datel+'</option>';
+                        }
+                        $('#datel').html(html);
+                    }
+                    
+                });
+                $.ajax({
+                    url : "<?php echo site_url('admin/Overview/get_wilayah');?>",
+                    method : "POST",
+                    data : {id: id},
+                    async : true,
+                    dataType : 'json',
+                    success: function(data){
+                        
+                        var html = '';
+                        var i;
+                        for(i=0; i<data.length; i++){
+                            html += '<option value='+data[i].id_wilayah+'>'+data[i].wilayah+'</option>';
+                        }
+                        $('#wilayah').html(html);
+                    }
+                    
+                });
+                return false;
+        });
+        $('#ModalSTO').modal();    
     }
-	
+
+    function ModalWilayah(url,txt,wilayah){
+        $('#form3').attr('action', url);
+        $('#txt3').text(txt);
+        $('#wilayah1').attr('value', wilayah);
+        $('#ModalWilayah').modal();
+    }
+
+    function ModalDatel(url,txt,datel){
+        $('#form4').attr('action', url);
+        $('#txt4').text(txt);
+        $('#datel1').attr('value', datel);
+        $('#ModalDatel').modal();
+    }
+
+    function ModalKontak(url,txt,namawitel,alamat,notelp,email_kontak){
+        $('#form5').attr('action', url);
+        $('#txt5').text(txt);
+        $('#namawitel').attr('value', namawitel);
+        $('#alamat').attr('value', alamat);
+        $('#notelp').attr('value', notelp);
+        $('#email_kontak').attr('value', email_kontak)
+        $('#ModalKontak').modal();
+    }
+    
+    function ModalGallery(url,txt,judul){
+        $('#formgaleri').attr('action', url);
+        $('#txtgaleri').text(txt);
+        $('#judul').attr('value', judul);
+        $('#ModalGallery').modal();
+    }
+
+    function ModalSekolah(url,txt,npsn,nama_sekolah,KabupatenKota){
+        $('#formsekolah').attr('action', url);
+        $('#txtsekolah').text(txt);
+        $('#npsn').attr('value', npsn);
+        $('#nama_sekolah').attr('value', nama_sekolah);
+        $( "#KabupatenKota" ).autocomplete({
+            source: "<?php echo site_url('Register/get_kotasekolah/?');?>"
+        });
+        $('#KabupatenKota').attr('value', KabupatenKota);
+        $('#ModalSekolah').modal();
+    }
+
 </script>
 
 <!-- <script>
-	$(document).ready(function() {
+    $(document).ready(function() {
     $('#example').DataTable( {
         dom: 'Bfrtip',
         buttons: [

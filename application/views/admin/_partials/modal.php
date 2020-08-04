@@ -88,6 +88,12 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="control-label">Nama</label>
+                        <div>
+                            <input type="text" class="form-control input-lg" id="nama" name="nama" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="role">Role</label>
                         <select class="form-control" id="role" name="role" required>
                             <option value="">Pilih Role..</option>
@@ -110,6 +116,10 @@
                             <button type="submit" class="btn btn-success">
                                 Submit
                             </button>
+
+                        </div>
+                        <div>
+                            <button type="" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
                 </form>
@@ -132,6 +142,12 @@
                         <label class="control-label">Username</label>
                         <div>
                             <input type="text" class="form-control input-lg" name="username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Nama</label>
+                        <div>
+                            <input type="text" class="form-control input-lg" name="nama">
                         </div>
                     </div>
                     <div class="form-group">
@@ -192,6 +208,22 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="control-label">Nama</label>
+                        <div>
+                            <input type="text" class="form-control input-lg" name="nama">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="unit">Unit</label>
+                        <select class="form-control" id="unit" name="unit" required>
+                            <option value="">Pilih Unit..</option>
+                            <?php foreach ($unit as $w ): ?>{
+                              <option value="<?php echo $w->id_unit?>"><?php echo $w->nama_unit?></option>
+                            }
+                          <?php endforeach;?>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label class="control-label">Password</label>
                         <div>
                             <input type="password" class="form-control input-lg" name="password">
@@ -200,6 +232,52 @@
                     <div class="form-group">
                         <label class="control-label">Confirm Password</label>
                         <input type="password" class="form-control" id="password" name="password_conf">
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <button type="submit" class="btn btn-success">
+                                Register
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal Edit Admin T-Reg Form-->
+<div id="EditAdminTreg" class="modal fade">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title">Edit Admin T-Reg</h1>
+            </div>
+            <div class="modal-body">
+                <form id="editAdminTreg"action="" method="POST">
+                    <input type="text" name="level" value="1" hidden>
+                    <div class="form-group">
+                        <label class="control-label">Username</label>
+                        <div>
+                            <input type="text" class="form-control input-lg" id="username1" name="username" value="" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Nama</label>
+                        <div>
+                            <input type="text" class="form-control input-lg" id="nama1" name="nama" value="">
+                        </div>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="unit">Unit</label>
+                        <select class="form-control" id="unit" name="unit" required>
+                            <option value="">Pilih Unit..</option>
+                            <?php foreach ($unit as $w ): ?>{
+                              <option value="<?php echo $w->id_unit?>"><?php echo $w->nama_unit?></option>
+                            }
+                          <?php endforeach;?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <div>
@@ -230,7 +308,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Keterangan STO</label>
+                        <label class="control-label">Nama STO</label>
                         <div>
                             <input type="text" class="form-control input-lg" name="keterangan" id="keterangan" value="">
                         </div>
@@ -249,20 +327,14 @@
                         <label for="datel">Datel</label>
                         <select class="form-control" id="datel" name="datel" required>
                             <option value="">Pilih Datel..</option>
-                            <?php foreach ($datel as $w ): ?>{
-                              <option value="<?php echo $w->id_datel?>"><?php echo $w->datel?></option>
-                            }
-                          <?php endforeach;?>
+                            
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="wilayah">Wilayah</label>
                         <select class="form-control" id="wilayah" name="wilayah" required>
                             <option value="">Pilih Wilayah..</option>
-                            <?php foreach ($wilayah as $w ): ?>{
-                              <option value="<?php echo $w->id_wilayah?>"><?php echo $w->wilayah?></option>
-                            }
-                          <?php endforeach;?>
+                            
                         </select>
                     </div>
                     
@@ -279,27 +351,151 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<!-- Modal Add Gallery-->
-<div id="AddGallery" class="modal fade">
+<!-- Modal Wilayah Form-->
+<div id="ModalWilayah" class="modal fade">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title">Tambah Gallery</h1>
+                <h1 id="txt3"class="modal-title"></h1>
             </div>
             <div class="modal-body">
-                <form action="<?= site_url('admin/overview/add_gallery') ?>" method="POST">
+                <form id="form3"action="" method="POST">
+                    <div class="form-group">
+                        <label class="control-label">Nama Wilayah</label>
+                        <div>
+                            <input type="text" class="form-control input-lg" id="wilayah1" name="wilayah1" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="witel">Witel</label>
+                        <select class="form-control" id="witel" name="witel" required>
+                            <option value="">Pilih Witel..</option>
+                            <?php foreach ($list as $w ): ?>{
+                              <option value="<?php echo $w->id_witel?>"><?php echo $w->nama_witel?></option>
+                            }
+                          <?php endforeach;?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <button type="submit" class="btn btn-success">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal Datel Form-->
+<div id="ModalDatel" class="modal fade">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 id="txt4"class="modal-title"></h1>
+            </div>
+            <div class="modal-body">
+                <form id="form4"action="" method="POST">
+                    <div class="form-group">
+                        <label class="control-label">Nama Datel</label>
+                        <div>
+                            <input type="text" class="form-control input-lg" id="datel1" name="datel1" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="witel">Witel</label>
+                        <select class="form-control" id="witel" name="witel" required>
+                            <option value="">Pilih Witel..</option>
+                            <?php foreach ($list as $w ): ?>{
+                              <option value="<?php echo $w->id_witel?>"><?php echo $w->nama_witel?></option>
+                            }
+                          <?php endforeach;?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <button type="submit" class="btn btn-success">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal Kontak Form-->
+<div id="ModalKontak" class="modal fade">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 id="txt5"class="modal-title"></h1>
+            </div>
+            <div class="modal-body">
+                <form id="form5"action="" method="POST">
+                    <div class="form-group">
+                        <label class="control-label">Witel</label>
+                        <div>
+                            <input type="text" class="form-control input-lg" id="namawitel" name="namawitel" value="" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Alamat Witel</label>
+                        <div>
+                            <input type="text" class="form-control input-lg" id="alamat" name="alamat" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">No Telepon</label>
+                        <div>
+                            <input type="text" class="form-control input-lg" id="notelp" name="notelp" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Email Witel</label>
+                        <div>
+                            <input type="text" class="form-control input-lg" id="email_kontak" name="email_kontak" value="">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div>
+                            <button type="submit" class="btn btn-success">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal Gallery-->
+<div id="ModalGallery" class="modal fade">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 id ="txtgaleri" class="modal-title"></h1>
+            </div>
+            <div class="modal-body">
+                <?php echo form_open_multipart('','id="formgaleri"');?> 
+                    <form method="post">
                     
                     <div class="form-group">
                         <label class="control-label">Nama Sekolah</label>
                         <div>
-                            <input type="text" class="form-control input-lg" name="judul">
+                            <input type="text" class="form-control input-lg" name="judul" id="judul" value=""> 
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Foto</label>
+                        <label class="control-label">Foto (max 5 mb)</label>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" name="foto" id="foto" required>
-                            <label class="custom-file-label" for="foto">Pilih foto...</label>
+                            <label class="custom-file-label" for="foto">Pilih foto (.jpeg/.jpg/.png)</label>
                                 
                         </div>
                     </div>
@@ -310,7 +506,59 @@
                             </button>
                         </div>
                     </div>
-                </form>
+                    </form>
+                <?php echo form_close();?> 
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal Sekolah-->
+<div id="ModalSekolah" class="modal fade">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 id ="txtsekolah" class="modal-title"></h1>
+            </div>
+            <div class="modal-body">
+                <?php echo form_open_multipart('','id="formsekolah"');?> 
+                    <form method="post">
+                    <div class="form-group">
+                        <label class="control-label">NPSN</label>
+                        <div>
+                            <input type="text" class="form-control input-lg" name="npsn" id="npsn" value=""> 
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Nama Sekolah</label>
+                        <div>
+                            <input type="text" class="form-control input-lg" name="nama_sekolah" id="nama_sekolah" value=""> 
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="control-label">Jenjang Sekolah</label>
+                        <select class="form-control" id="bp" name="bp" required>
+                          <option value="">Pilih Jenjang Sekolah..</option>
+                          <option value="SLB">SLB</option>
+                          <option value="SD">SD</option>
+                          <option value="SMP">SMP</option>
+                          <option value="SMK">SMK</option>
+                          <option value="SMA">SMA</option>
+                        </select>
+                      </div>
+                    <div class="form-group">
+                        <label for="control-label">Kota/Kabupaten</label>
+                        <input type="text" class="form-control KabupatenKota" id="KabupatenKota" name="KabupatenKota" value="<?php echo set_value('KabupatenKota'); ?>"  >
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <button type="submit" class="btn btn-success">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                    </form>
+                <?php echo form_close();?> 
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
