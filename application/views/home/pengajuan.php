@@ -30,6 +30,12 @@
     </head>
 
 <body>
+  <?php if ($this->session->flashdata('msg')): ?>
+    <div class="alert alert-success" role="alert">
+      <?php echo $this->session->flashdata('msg'); ?>
+    </div>
+  <?php endif ?>
+  
 <div class="row">
 <div class="col-sm-3">
 </div>
@@ -50,11 +56,11 @@
             <div>
               <label style="font-size:15px; color:white; padding-right:3.1em;">Jumlah Siswa (Maksimum 30)</label>
             </div>
-            <div class="form-group col">
-              <input type="number" class="form-control" id="jumlah_siswa" name="jumlah_siswa" min="1" max="30" style="margin-left:1.3em; box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25)">
+            <div class="form-group col-xs-2">
+              <input type="number" class="form-control " id="jumlah_siswa" name="jumlah_siswa" min="1" max="30" style="margin-left:2.8em; box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25)">
             </div>
           </div>
-          <?php echo form_error('jumlah_siswa'); ?></small>
+          <label style="font-size:10px; color:red;"><?php echo form_error('jumlah_siswa'); ?></label>
           <div class="row">
             <div>
               <label style="font-size:15px; color:white;">Nama Pembimbing 1</label>
@@ -63,7 +69,7 @@
               <input type="text" class="form-control" id="pembimbing1" name="pembimbing1" style="margin-left:12em; box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25)">
             </div>
           </div>
-          <?php echo form_error('pembimbing1'); ?></small>
+          <label style="font-size:10px; color:red;"><?php echo form_error('pembimbing1'); ?></label>
           <div class="row">
             <div>
               <label style="font-size:15px; color:white;">Nama Pembimbing 2</label>
@@ -72,7 +78,7 @@
               <input type="text" class="form-control" id="pembimbing2" name="pembimbing2" style="margin-left:12em; box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25)">
             </div>
           </div>
-          <?php echo form_error('pembimbing2'); ?></small>
+          <label style="font-size:10px; color:red;"><?php echo form_error('pembimbing2'); ?></label>
           <div class="row" style="padding-right:200px">
             <div>
               <label style="font-size:15px; color:white;">Tanggal Pelaksanaan</label>
@@ -81,25 +87,27 @@
               <input type="date" class="form-control" id="tanggal_pelaksanaan" name="tanggal_pelaksanaan" style="margin-left:11.75em; box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25)">
             </div>
           </div>
-          <?php echo form_error('tanggal_pelaksanaan'); ?></small>
+          <label style="font-size:10px; color:red;"><?php echo form_error('tanggal_pelaksanaan'); ?></label>
           <div class="row">
             <div>
-              <label style="font-size:15px; color:white;">Unggah Surat Permohonan</label>
+              <label style="font-size:15px; color:white;">Unggah Surat Permohonan (.pdf)</label>
             </div>
             <div class="form-group col">
-              <input type="file" class="form-control-file" name="surat_permohonan" id="surat_permohonan" style="margin-left:5.6em; color:white;" required>
+              <input type="file" class="form-control-file" name="surat_permohonan" id="surat_permohonan" style="margin-left:2.75em; color:white;" required>
+              <label style="font-size:10px; margin-left: 4em; color:white;">max 2 MB</label>
             </div>
           </div>
-          <?php echo form_error('surat_permohonan'); ?></small>
+          
            <div class="row">
             <div>
               <label style="font-size:15px; color:white;">Unggah Daftar Peserta (.csv / .xlsx)</label>
             </div>
             <div class="form-group col">
               <input type="file" class="form-control-file" name="daftar_peserta" id="daftar_peserta" style="margin-left:1.75em; color:white;" required>
+              <label style="font-size:10px; margin-left: 2.75em; color:white;">max 2 MB</label>
             </div>
           </div>         
-          <?php echo form_error('daftar_peserta'); ?></small>    
+           
           <p style="font-size:15px; padding-top:10px; margin-left:-1em;color:white;">Contoh Template Daftar Peserta <a href="<?php echo base_url("./excel/daftar_peserta.csv"); ?>" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Unduh</u></small></a></p>  
           <hr class="onepixel">
           <h5 style="font-weight: bolder; color: black;  color:white; "><strong style=" font-size:14px; ">Lokasi ICT Tour</strong></h5><br>
