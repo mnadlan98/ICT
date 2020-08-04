@@ -42,9 +42,9 @@
     <h5 style="font-weight: bolder; color: black; margin-top: 5px; "><strong style="border-bottom: 3px solid red; font-size:25px; ">Reporting & Feedback</strong></h5>
       <?php foreach ($report as $row): ?>
         <h2 ><strong style="font-size: 18px;">Download Daftar Hadir </strong></h2>
-        <a class="btn2" href="<?php echo base_url("./upload/report/daftar_hadir/$row->daftar_hadir"); ?>" style="background-color:#BD0306; text-decoration: none; text-align:center;">Unduh</a><br><br><br>
+        <a class="btn2" href="<?php echo base_url("./upload/report/daftar_hadir/$row->daftar_hadir"); ?>" style="background-color:#BD0306; text-decoration: none; text-align:center;">Unduh</a><br><br><br><br><br>
         <h2 ><strong style="font-size: 18px;">Download Materi </strong></h2>
-        <a href="<?php echo base_url("./upload/report/materi/$row->materi"); ?>" style="background-color:#BD0306; text-decoration: none; text-align:center;">Unduh</a>
+        <a class="btn" href="<?php echo base_url("./upload/report/materi/$row->materi"); ?>" style="background-color:#BD0306; text-decoration: none; text-align:center;">Unduh</a>
       <?php endforeach ?>
       <div style="margin-top:7em;">
         <div>
