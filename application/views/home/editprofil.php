@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="<?php echo base_url()?>css/hero-slider.css">
         <link rel="stylesheet" href="<?php echo base_url()?>css/templatemo-main.css">
         <link rel="stylesheet" href="<?php echo base_url()?>css/owl-carousel.css">
-        <link rel="stylesheet" href="<?php echo base_url()?>css/profil.css?version=51">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/profil.css?version=52">
         <link rel="stylesheet" href="<?php echo base_url()?>css/animate.min.css">
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
@@ -24,77 +24,64 @@
         <style type="text/css">
           label{color: #222;font-weight: bolder;}
           input{height: 3.3em !important;}
-          .btn:hover{height: 3.3em !important;}
+  
         </style>
     </head>
 
 <body>
     <?php $str=explode('@',$this->session->userdata('email_user'))?>
-    <section>
       <div class="container-fluid">
-        <h5 style="font-weight: bolder; color: white; margin-top: 5px; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Profil</strong></h5></br></br>
+        <h5 style="font-weight: bolder; color: white; margin-top: 30px; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Edit Profil</strong></h5></br></br>
         <div class="row">
           <div class="col-md-2">
             <img src="../images/avatar.png">
-            <div class="form-group row" style="margin-top: 20px; color:white;">          
+            <div class="form-group row" style="margin-top: 20px; color:white;">
             </div>
           </div>  
+          <div class="col-lg-4" style="margin-left:20px;">
           <?php echo form_open_multipart('MainController/editProfile');?> 
-          <form action="" method="post" >
-            <div class="form-group row">
-              <div>
-                <label style="font-size:15px; color:white;">Nama :</label>
-              </div>
-              <input type="text" class="form-control" id="nama_user" name="nama_user"  value="<?= $this->session->userdata("user")['nama_user'] ?>"  >
-              <small class="form-text text-danger"><?php echo form_error('nama_user'); ?></small>
-            </div>
-            <div class="form-group row">
-              <div>
-                <label style="font-size:15px; color:white;">Email User : </label>
-              </div>
-              <input type="text" class="form-control" id="email_user" name="email_user" value="<?= $this->session->userdata("user")['email_user'] ?>"  >
-              <small class="form-text text-danger"><?php echo form_error('email_user'); ?></small>
-            </div>
-            <div class="form-group row">
-              <div>
-                <label style="font-size:15px; color:white;">No. Telp User :</label>
-              </div>
-              <input type="text" class="form-control" id="notelp_user" name="notelp_user"  value="<?= $this->session->userdata("user")['notelp_user'] ?>"   >
-              <small class="form-text text-danger"><?php echo form_error('notelp_user'); ?></small>
-            </div>
-            <div class="form-group row">
-              <div>
-                <label style="font-size:15px; color:white;">Nama Sekolah : </label>
-              </div>
-              <input type="text" class="form-control" id="nama_sekolah" name="nama_sekolah" value="<?= $this->session->userdata("user")['nama_sekolah'] ?>"   >
-              <small class="form-text text-danger"><?php echo form_error('nama_sekolah'); ?></small>
-            </div>
-            <div class="form-group row">
-              <div>
-                <label style="font-size:15px; color:white;">Email Sekolah : </label>
-              </div>
-              <input type="text" class="form-control" id="email_sekolah" name="email_sekolah" value="<?= $this->session->userdata("user")['email_sekolah'] ?>"   >
-              <small class="form-text text-danger"><?php echo form_error('email_sekolah'); ?></small>
-            </div>
-            <div class="form-group row">
-              <div>
-                <label style="font-size:15px; color:white;">No. Telp Sekolah : </label>
-              </div>
-              <input type="text" class="form-control" id="notelp_sekolah" name="notelp_sekolah" value="<?= $this->session->userdata("user")['notelp_sekolah'] ?>"   >
-              <small class="form-text text-danger"><?php echo form_error('notelp_sekolah'); ?></small>
-            </div>
-            <button type="submit" name="login" class="btn btn-outline-dark" style="background: #BD0306; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 7px;font-weight: bold; font-size: 20px; font-family: Lato; color:white; border-color:white; ">Update</button>
+                  <form action="" method="post" >
+                    <div class="form-group row">
+                      <label style="font-size:15px; color:white;">Nama :</label>
+                      <input type="text" class="form-control" id="nama_user" name="nama_user"  value="<?= $this->session->userdata("user")['nama_user'] ?>"  >
+                      <small class="form-text text-danger"><?php echo form_error('nama_user'); ?></small>
+                    </div>
+                    <div class="form-group row">
+                      <label style="font-size:15px; color:white;">Email User : </label>
+                      <input type="text" class="form-control" id="email_user" name="email_user" value="<?= $this->session->userdata("user")['email_user'] ?>"  >
+                      <small class="form-text text-danger"><?php echo form_error('email_user'); ?></small>
+                    </div>
+                    <div class="form-group row">
+                      <label style="font-size:15px; color:white;">No. Telp User :</label>
+                      <input type="text" class="form-control" id="notelp_user" name="notelp_user"  value="<?= $this->session->userdata("user")['notelp_user'] ?>"   >
+                      <small class="form-text text-danger"><?php echo form_error('notelp_user'); ?></small>
+                    </div>
+                    <div class="form-group row">
+                      <label style="font-size:15px; color:white;">Nama Sekolah : </label>
+                      <input type="text" class="form-control" id="nama_sekolah" name="nama_sekolah" value="<?= $this->session->userdata("user")['nama_sekolah'] ?>"   >
+                      <small class="form-text text-danger"><?php echo form_error('nama_sekolah'); ?></small>
+                    </div>
+                    <div class="form-group row">
+                      <label style="font-size:15px; color:white;">Email Sekolah : </label>
+                      <input type="text" class="form-control" id="email_sekolah" name="email_sekolah" value="<?= $this->session->userdata("user")['email_sekolah'] ?>"   >
+                      <small class="form-text text-danger"><?php echo form_error('email_sekolah'); ?></small>
+                    </div>
+                    <div class="form-group row">
+                      <label style="font-size:15px; color:white;">No. Telp Sekolah : </label>
+                      <input type="text" class="form-control" id="notelp_sekolah" name="notelp_sekolah" value="<?= $this->session->userdata("user")['notelp_sekolah'] ?>"   >
+                      <small class="form-text text-danger"><?php echo form_error('notelp_sekolah'); ?></small>
+                    </div>
+                    <button type="submit" name="login" class="btn btn-outline-dark" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato; ">Update</button>
+                  </div>
+                </form>
+            <?php echo form_close();?>   
           </div>
-        </div>      
-        </form>
-        <?php echo form_close();?>  
+        </div>
       </div>
       <br>
       <?php if ($this->session->flashdata('msg')) { ?>
         <div class="alert alert-success"> <?= $this->session->flashdata('msg') ?> </div>
       <?php } ?>
-    </section>
-
 </body>
 
 

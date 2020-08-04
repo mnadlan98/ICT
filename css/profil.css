@@ -84,3 +84,19 @@ body {
   .table-bordered td {
       border: 1px solid #dee2e6 !important;
     }
+
+    .btn{
+      background: #BD0306; border-radius: 30px;
+      text-align: center;
+      width:100%;
+      max-width: 200px;
+      vertical-align: middle;
+      color: white;
+      
+    }
+  
+    .btn:hover{
+      background-color: white;
+      border: 1px solid black;
+      color: black;
+    }
