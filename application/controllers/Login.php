@@ -14,8 +14,7 @@ class Login extends CI_Controller {
         $this->form_validation->set_rules('password','password','trim|required|xss_clean');
         $data['title'] = "Login";
         if (isset($this->session->userdata('user')['logged']) || isset($this->session->userdata('admin')['logged'] )) {
-            redirect(site_url('MainController/index'));
-            
+            redirect(site_url('MainController/index'));       
         }
         else{
             if ($this->form_validation->run() == true) {
@@ -47,6 +46,7 @@ class Login extends CI_Controller {
             $this->load->view("home/login",$data);
             $this->load->view('templates/footer');
         }
+    }
         
     
 

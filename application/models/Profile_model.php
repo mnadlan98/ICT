@@ -184,7 +184,15 @@
 
     function getIdReport(){
         $id = $this->Profile_model->getIdPengajuan();
-        return (int)$this->db->get_where('report', array('id_pengajuan' => $id))->result();         
+        $this->db->select('id_report');
+        $this->db->from('report');
+        $this->db->where('id_pengajuan = '.$id);
+        $this->db->order_by('id_pengajuan', 'DESC');
+        $this->db->limit(1);
+        
+        $query = $this->db->get();
+        $data  = $query->row();
+        return (int)$data->id_report;   
     }
 
     function getFotoReport($id){

@@ -41,8 +41,10 @@
     <div class="container">
     <h5 style="font-weight: bolder; color: black; margin-top: 5px; "><strong style="border-bottom: 3px solid red; font-size:25px; ">Reporting & Feedback</strong></h5>
       <?php foreach ($report as $row): ?>
-        <h2 ><strong style="font-size: 18px;">Download Daftar Hadir dan Materi</strong></h2>
-        <a class="btn2" href="<?php echo base_url("./upload/report/daftar_hadir/$row->materi"); ?>" style="background-color:#BD0306; text-decoration: none; text-align:center;">Unduh</a>
+        <h2 ><strong style="font-size: 18px;">Download Daftar Hadir </strong></h2>
+        <a class="btn2" href="<?php echo base_url("./upload/report/daftar_hadir/$row->daftar_hadir"); ?>" style="background-color:#BD0306; text-decoration: none; text-align:center;">Unduh</a><br><br><br>
+        <h2 ><strong style="font-size: 18px;">Download Materi </strong></h2>
+        <a href="<?php echo base_url("./upload/report/materi/$row->materi"); ?>" style="background-color:#BD0306; text-decoration: none; text-align:center;">Unduh</a>
       <?php endforeach ?>
       <div style="margin-top:7em;">
         <div>
@@ -54,12 +56,12 @@
         <div class="container-fluid">
           <div class="row no-gutters">
             <?php $i=0;?>
-            <?php foreach ($galeri as $r): ?>
+            <?php foreach ($foto as $r): ?>
             <div class="col-lg-3 col-md-4">
               <div class="portfolio-item wow fadeInUp">
-                <a href="<?php echo base_url("./images/galery/$r->foto"); ?>" class="portfolio-popup">
-                  <img style="width:300px;" src="<?php echo base_url("./images/galery/$r->foto"); ?>">
-                </a>
+                <a href="<?php echo base_url("./upload/report/gambar/$r->foto_report"); ?>" class="portfolio-popup">
+                  <img style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$r->foto_report"); ?>">                 
+                </a>               
               </div>
             </div>
             <?php endforeach; ?>
