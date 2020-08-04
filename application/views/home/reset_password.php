@@ -2,6 +2,7 @@
   
 </style>
 <link rel="stylesheet" href="<?php echo base_url()?>css/daftar.css">
+<link rel="stylesheet" href="<?php echo base_url()?>css/templatemo-main.css">
 <div class="container-fluid">
   <?php if ($this->session->flashdata('msg')): ?>
     <div class="alert alert-success" role="alert">
@@ -9,14 +10,20 @@
     </div>
   <?php endif ?>
 
-<div class="row" style="background-color: #FFFFFF ; padding-left: 5vh; padding-right: 20vh; color: black;">
+  <div class="row" style="background-color: #FFFFFF ; padding-left: 5vh; padding-right: 20vh; color: black;">
 </div>
 <div class="row">
-  <div class="side col" >
-  <img src="<?php echo base_url()?>images/logo.png" style="width:480px; height:140px; position: absolute; left: 500px; top: 40px;">
+  <div class="side col">
+    <img src="<?php echo base_url()?>images/logo.png" style="width:400px;  position: absolute; left: 500px; top: 40px;">
   </div>
   <div class="col-md-4 py-3" style=" background-color: #D7D7D7;" >
-  <h5 style="font-weight: bolder; color: black; padding-left: 10em; margin-top: 5px; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Reset Password</strong></h5></br></br>
+    <div class="row-sm-6">
+    </div>
+    <div class="row-sm-6 text-center" style="">
+      <h5 style="font-weight: bolder; color: black; margin-top: 11em; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Reset Password</strong></h5></br></br>
+    </div>
+    <div class="row-sm-6">
+    </div>
       <?php $last = $this->uri->total_segments();
             $reset = $this->uri->segment($last);
       ?>
@@ -32,12 +39,14 @@
 
             <small class="form-text text-danger"><?php echo form_error('password_conf'); ?></small>
           </div>
-          
-          <div class="col-md-12" style="padding-left:12em;">
-          <button type="submit" name="btnSubmit" class="btn btn-outline-dark" style="background: #BD0306; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 7px;font-weight: bold; font-size: 20px; font-family: Lato; color:white; " value="Daftar">Submit</button>              
-        </div>
+          <div class="row-sm-6" style="margin-top:3em;">
+          </div>
+          <div class="row-sm-6 text-center">
+          <button type="submit" name="btnSubmit" class="btn btn-outline-dark" style="padding:5px; font-size:15px; text-transform: capitalize; " value="Daftar">Submit</button>              
+          </div>
+          <div class="row-sm-6" style="margin-bottom:14em;" >
+      </div>
       <?php echo form_close();?>           
-      
   </div>
 </div>
 </div>

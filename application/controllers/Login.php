@@ -13,7 +13,7 @@ class Login extends CI_Controller {
         $this->form_validation->set_rules('username','username','trim|required|xss_clean');
         $this->form_validation->set_rules('password','password','trim|required|xss_clean');
         $data['title'] = "Login";
-        if (($this->session->userdata('user')['logged']) || $this->session->userdata('admin')['logged'] ) {
+        if (isset($this->session->userdata('user')['logged']) || isset($this->session->userdata('admin')['logged'] )) {
             redirect(site_url('MainController/index'));
             
         }

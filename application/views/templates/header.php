@@ -25,7 +25,7 @@
   <script src="http://localhost/ICT/script/wow.js"></script>
   <script src="http://localhost/ICT/script/main.js?version=54"></script>
   <script src="http://localhost/ICT/script/jquery.min.js"></script>
-
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
 
   <link rel="stylesheet" type="text/css" href="http://localhost/ICT/css/header.css?v=2">
   <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>/assets/css/stylenav.css">
