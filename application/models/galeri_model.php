@@ -13,6 +13,11 @@
         return $this->db->delete($this->_table, array("id_foto" => $id));
      }
 
+     public function edit($id,$data)
+     {
+          $this->db->update('galeri', $data, array('id_foto' => $id));
+     }
+
      public function getAll()
      {
         return $this->db->get('galeri')->result();

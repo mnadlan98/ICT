@@ -114,6 +114,11 @@
           $this->db->update('witel', $data, array('id_witel' => $id));
      }
 
+     function deleteWitel($id)
+     {
+          return $this->db->delete('witel', array("id_witel" => $id));
+     }
+
      function getWitel_bySto($id_sto){
           $row = $this->db->get_where('sto', array('id_sto' => $id_sto))->row();
           return $row->id_witel;
@@ -145,6 +150,7 @@
           $this->db->join('witel', 'pengajuan.id_witel=witel.id_witel');
           $this->db->join('sto', 'pengajuan.id_sto=sto.id_sto');
           $this->db->join('user', 'pengajuan.id_user=user.id_user');
+          $this->db->join('wilayah', 'sto.id_wilayah=wilayah.id_wilayah');
           $this->db->where('pengajuan.id_pengajuan', $id_pengajuan);
           return $this->db->get()->row();
      }
@@ -153,8 +159,28 @@
           return $this->db->get('sekolah')->result();
      }
 
+     function addSekolah($data)
+     {
+          $this->db->insert('sekolah',$data);
+     }
+
+     function editSekolah($id,$data)
+     {
+          $this->db->update('sekolah', $data, array('NPSN' => $id));
+     }
+
+     function deleteSekolah($id)
+     {
+          return $this->db->delete('sekolah', array("NPSN" => $id));
+     }
+
      function getDatel(){
+          $this->db->join('witel', 'datel.id_witel=witel.id_witel');
           return $this->db->get('datel')->result();
+     }
+
+     function get_datel_byWitel($id_witel){
+          return $this->db->get_where('datel', array('id_witel' => $id_witel))->result();
      }
 
      function addDatel($data)
@@ -167,8 +193,18 @@
           $this->db->update('datel', $data, array('id_datel' => $id));
      }
 
+     function deleteDatel($id)
+     {
+          return $this->db->delete('datel', array("id_datel" => $id));
+     }
+
      function getWilayah(){
+          $this->db->join('witel', 'wilayah.id_witel=witel.id_witel');
           return $this->db->get('wilayah')->result();
+     }
+
+     function get_wilayah_byWitel($id_witel){
+          return $this->db->get_where('wilayah', array('id_witel' => $id_witel))->result();
      }
 
      function addWilayah($data)
@@ -179,6 +215,11 @@
      function editWilayah($id,$data)
      {
           $this->db->update('wilayah', $data, array('id_wilayah' => $id));
+     }
+
+     function deleteWilayah($id)
+     {
+          return $this->db->delete('wilayah', array("id_wilayah" => $id));
      }
 
      function getSto(){
