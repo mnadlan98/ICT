@@ -160,6 +160,21 @@ class Overview extends CI_Controller {
 		redirect(site_url('admin/overview/term'));
 	}
 
+	public function add_unit(){
+
+		$this->load->model('Auth_Model');
+		$this->form_validation->set_rules('nama_unit', 'Nama Unit','trim|required|xss_clean|is_unique[unit.nama_unit]');
+		if ($this->form_validation->run()) {
+			$this->nama_unit = $this->input->post('nama_unit',true);
+			$this->Auth_Model->addUnit($this);
+			$this->session->set_flashdata('msg','Berhasil Disimpan');
+		}
+		else{
+			$this->session->set_flashdata('msg',validation_errors());
+		}
+		redirect(site_url('admin/overview/unit'));
+	}
+
 	public function add_witel(){
 
 		$this->load->model('Pengajuan_Model');
@@ -178,9 +193,10 @@ class Overview extends CI_Controller {
 	public function add_datel(){
 
 		$this->load->model('Pengajuan_Model');
-		$this->form_validation->set_rules('datel', 'Nama Datel','trim|required|xss_clean|is_unique[datel.datel]');
+		$this->form_validation->set_rules('datel1', 'Nama Datel','trim|required|xss_clean|is_unique[datel.datel]');
 		if ($this->form_validation->run()) {
-			$this->datel = $this->input->post('datel',true);
+			$this->datel = $this->input->post('datel1',true);
+			$this->id_witel = $this->input->post('witel',true);
 			$this->Pengajuan_Model->addDatel($this);
 			$this->session->set_flashdata('msg','Berhasil Disimpan');
 		}
@@ -193,9 +209,11 @@ class Overview extends CI_Controller {
 	public function add_wilayah(){
 
 		$this->load->model('Pengajuan_Model');
-		$this->form_validation->set_rules('wilayah', 'Nama Wilayah','trim|required|xss_clean|is_unique[wilayah.wilayah]');
+		$this->form_validation->set_rules('wilayah1', 'Nama Wilayah','trim|required|xss_clean|is_unique[wilayah.wilayah]');
+		
 		if ($this->form_validation->run()) {
-			$this->wilayah = $this->input->post('wilayah',true);
+			$this->wilayah = $this->input->post('wilayah1',true);
+			$this->id_witel = $this->input->post('witel',true);
 			$this->Pengajuan_Model->addWilayah($this);
 			$this->session->set_flashdata('msg','Berhasil Disimpan');
 		}
@@ -225,6 +243,53 @@ class Overview extends CI_Controller {
 		redirect(site_url('admin/overview/sto_list'));
 	}
 
+	public function add_kontak(){
+
+		$this->load->model('kontak_model');
+		$this->form_validation->set_rules('alamat', 'Alamat Witel','trim|required|xss_clean');
+		$this->form_validation->set_rules('notelp', 'No Telepon','trim|required|xss_clean|numeric');
+		$this->form_validation->set_rules('email_kontak', 'Email Witel','trim|required|xss_clean|valid_email');
+		if ($this->form_validation->run()) {
+			$this->alamat_witel = $this->input->post('alamat',true);
+			$this->no_telp_witel = $this->input->post('notelp',true);
+			$this->email_witel = $this->input->post('email_kontak',true);
+			$this->id_witel = $this->session->userdata('admin')['id_witel'];
+			$this->kontak_model->insert($this);
+			$this->session->set_flashdata('msg','Berhasil Disimpan');
+		}
+		else{
+			$this->session->set_flashdata('msg',validation_errors());
+		}
+		redirect(site_url('admin/overview/kontak'));
+	}
+
+	public function add_gallery(){
+		$this->load->model('galeri_model');
+		$this->form_validation->set_rules('judul', 'Nama Sekolah','trim|required|xss_clean');
+		$config['upload_path']          = './images/galery';
+        $config['allowed_types']        = 'jpg|png|jpeg';
+        $config['max_size']             = 6000; // 6MB
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+
+		if($this->form_validation->run() == TRUE){
+            if ($this->upload->do_upload('foto')) {
+                $file = $this->upload->data();
+                $this->judul = $this->input->post('judul',TRUE);
+                $this->foto = $file['file_name'];
+                $this->galeri_model->insert($this);
+                $this->session->set_flashdata('msg','Berhasil Disimpan');
+            }
+            else{
+                $this->session->set_flashdata('msg',$this->upload->display_errors());
+            } 
+        }
+        else{
+            $this->session->set_flashdata('msg',validation_errors());
+        }
+		redirect(site_url('admin/overview/gallery'));
+	}
+
 	public function edit_term($id=null){
 		$this->load->model('Pengajuan_Model');
 		$this->form_validation->set_rules('syarat', 'Syarat dan Ketentuan','trim|required|xss_clean');
@@ -239,7 +304,20 @@ class Overview extends CI_Controller {
 		redirect(site_url('admin/overview/term'));
 	}
 
-	
+	public function edit_unit($id=null){
+
+		$this->load->model('Auth_Model');
+		$this->form_validation->set_rules('nama_unit', 'Nama Unit','trim|required|xss_clean');
+		if ($this->form_validation->run()) {
+			$this->nama_unit = $this->input->post('nama_unit',true);
+			$this->Auth_Model->editUnit($id,$this);
+			$this->session->set_flashdata('msg','Berhasil Diupdate');
+		}
+		else{
+			$this->session->set_flashdata('msg',validation_errors());
+		}
+		redirect(site_url('admin/overview/unit'));
+	}
 
 	public function edit_witel($id=null){
 		$this->load->model('Pengajuan_Model');
@@ -257,9 +335,10 @@ class Overview extends CI_Controller {
 
 	public function edit_datel($id=null){
 		$this->load->model('Pengajuan_Model');
-		$this->form_validation->set_rules('datel', 'Nama Datel','trim|required|xss_clean');
+		$this->form_validation->set_rules('datel1', 'Nama Datel','trim|required|xss_clean');
 		if ($this->form_validation->run()) {
-			$this->datel = $this->input->post('datel',true);
+			$this->datel = $this->input->post('datel1',true);
+			$this->id_witel = $this->input->post('witel',true);
 			$this->Pengajuan_Model->editDatel($id,$this);
 			$this->session->set_flashdata('msg','Berhasil Diupdate');
 		}
@@ -271,10 +350,11 @@ class Overview extends CI_Controller {
 
 	public function edit_wilayah($id=null){
 		$this->load->model('Pengajuan_Model');
-		$this->form_validation->set_rules('sto', 'STO','trim|required|xss_clean');
-		$this->form_validation->set_rules('keterangan', 'Keterangan STO','trim|required|xss_clean');
+		$this->form_validation->set_rules('wilayah1', 'Nama Wilayah','trim|required|xss_clean');
+		
 		if ($this->form_validation->run()) {
-			$this->wilayah = $this->input->post('wilayah',true);
+			$this->wilayah = $this->input->post('wilayah1',true);
+			$this->id_witel = $this->input->post('witel',true);
 			$this->Pengajuan_Model->editWilayah($id,$this);
 			$this->session->set_flashdata('msg','Berhasil Diupdate');
 		}
@@ -293,13 +373,72 @@ class Overview extends CI_Controller {
 			$this->id_wilayah = $this->input->post('wilayah',true);
 			$this->id_witel = $this->input->post('witel',true);
 			$this->id_datel = $this->input->post('datel',true);
-			$this->Pengajuan_Model->addSto($this);
+			$this->Pengajuan_Model->editSto($id,$this);
 			$this->session->set_flashdata('msg','Berhasil Diupdate');
 		}
 		else{
 			$this->session->set_flashdata('msg',validation_errors());
 		}
 		redirect(site_url('admin/overview/sto_list'));
+	}
+
+	public function edit_kontak($id=null){
+		$this->load->model('kontak_model');
+		$this->form_validation->set_rules('alamat', 'Alamat Witel','trim|required|xss_clean');
+		$this->form_validation->set_rules('notelp', 'No Telepon','trim|required|xss_clean|numeric');
+		$this->form_validation->set_rules('email_kontak', 'Email Witel','trim|required|xss_clean|valid_email');
+		if ($this->form_validation->run()) {
+			$this->alamat_witel = $this->input->post('alamat',true);
+			$this->no_telp_witel = $this->input->post('notelp',true);
+			$this->email_witel = $this->input->post('email_kontak',true);
+			$this->id_witel = $this->session->userdata('admin')['id_witel'];
+			$this->kontak_model->edit($id,$this);
+			$this->session->set_flashdata('msg','Berhasil Diupdate');
+		}
+		else{
+			$this->session->set_flashdata('msg',validation_errors());
+		}
+		redirect(site_url('admin/overview/kontak'));
+	}
+
+	public function edit_gallery($id=null){
+		$this->load->model('galeri_model');
+		$this->form_validation->set_rules('judul', 'Nama Sekolah','trim|required|xss_clean');
+		$config['upload_path']          = './images/galery';
+        $config['allowed_types']        = 'jpg|png|jpeg';
+        $config['max_size']             = 6000; // 6MB
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+
+		if($this->form_validation->run() == TRUE){
+            if ($this->upload->do_upload('foto')) {
+                $file = $this->upload->data();
+                $this->judul = $this->input->post('judul',TRUE);
+                $this->foto = $file['file_name'];
+                $this->galeri_model->edit($id,$this);
+                $this->session->set_flashdata('msg','Berhasil Diupdate');
+            }
+            else{
+                $this->session->set_flashdata('msg',$this->upload->display_errors());
+            } 
+        }
+        else{
+            $this->session->set_flashdata('msg',validation_errors());
+        }
+		redirect(site_url('admin/overview/gallery'));
+	}
+
+	public function delete_kontak($id=null){
+		$this->load->model('kontak_model');
+		if (!isset($id)) show_404();
+        
+        if ($this->kontak_model->delete($id)) {
+        	$this->session->set_flashdata('msg','Berhasil Dihapus');
+        }
+        else{
+        	$this->session->set_flashdata('msg',validation_errors());
+        }
+        redirect(site_url('admin/overview/kontak'));
 	}
 
 	public function delete_term($id=null){
@@ -313,6 +452,19 @@ class Overview extends CI_Controller {
         	$this->session->set_flashdata('msg',validation_errors());
         }
         redirect(site_url('admin/overview/term'));
+	}
+
+	public function delete_unit($id=null){
+		$this->load->model('Auth_Model');
+		if (!isset($id)) show_404();
+        
+        if ($this->Auth_Model->deleteUnit($id)) {
+        	$this->session->set_flashdata('msg','Berhasil Dihapus');
+        }
+        else{
+        	$this->session->set_flashdata('msg',validation_errors());
+        }
+        redirect(site_url('admin/overview/unit'));
 	}
 
 	public function delete_user($id=null){
@@ -341,6 +493,45 @@ class Overview extends CI_Controller {
         redirect(site_url('admin/overview/sto_list'));
 	}
 
+	public function delete_witel($id=null){
+		$this->load->model('Pengajuan_Model');
+		if (!isset($id)) show_404();
+        
+        if ($this->Pengajuan_Model->deleteWitel($id)) {
+        	$this->session->set_flashdata('msg','Berhasil Dihapus');
+        }
+        else{
+        	$this->session->set_flashdata('msg',validation_errors());
+        }
+        redirect(site_url('admin/overview/witel_list'));
+	}
+
+	public function delete_datel($id=null){
+		$this->load->model('Pengajuan_Model');
+		if (!isset($id)) show_404();
+        
+        if ($this->Pengajuan_Model->deleteDatel($id)) {
+        	$this->session->set_flashdata('msg','Berhasil Dihapus');
+        }
+        else{
+        	$this->session->set_flashdata('msg',validation_errors());
+        }
+        redirect(site_url('admin/overview/datel_list'));
+	}
+
+	public function delete_wilayah($id=null){
+		$this->load->model('Pengajuan_Model');
+		if (!isset($id)) show_404();
+        
+        if ($this->Pengajuan_Model->deleteWilayah($id)) {
+        	$this->session->set_flashdata('msg','Berhasil Dihapus');
+        }
+        else{
+        	$this->session->set_flashdata('msg',validation_errors());
+        }
+        redirect(site_url('admin/overview/wilayah_list'));
+	}
+
 	public function delete_gallery($id=null){
 		$this->load->model('galeri_model');
 		if (!isset($id)) show_404();
@@ -354,9 +545,10 @@ class Overview extends CI_Controller {
         redirect(site_url('admin/overview/gallery'));
 	}
 
+
 	public function sekolah()
 	{
-		if ($this->session->userdata("admin")['logged']) {
+		if ($this->session->userdata("admin")['logged'] && $this->session->userdata("admin")['level']==1) {
 
 			$this->load->model('Pengajuan_Model');
 			if ($this->session->userdata("admin")['level']==1) {
@@ -372,31 +564,65 @@ class Overview extends CI_Controller {
 		}   
 	}
 
-	public function update_sekolah()
-	{
-		if ($this->session->userdata("admin")['logged']) {
+	public function add_sekolah(){
 
-			$this->load->model('Pengajuan_Model');
-			if ($this->session->userdata("admin")['level']==1) {
-				$data["list"] = $this->Pengajuan_Model->getWitel();
-			}
-			
-			
-
-			$this->load->view('admin/sekolah',$data);
+		$this->load->model('Pengajuan_Model');
+		$this->form_validation->set_rules('npsn', 'NPSN','trim|required|numeric|xss_clean|is_unique[sekolah.NPSN]');
+		$this->form_validation->set_rules('nama_sekolah', 'Nama Sekolah','trim|required|xss_clean');
+		if ($this->form_validation->run()) {
+			$this->NPSN = $this->input->post('npsn',true);
+			$this->Nama_Sekolah = $this->input->post('nama_sekolah',true);
+			$this->BP = $this->input->post('bp',true);
+			$this->KabupatenKota = $this->input->post('KabupatenKota',true);
+			$this->Pengajuan_Model->addSekolah($this);
+			$this->session->set_flashdata('msg','Berhasil Disimpan');
 		}
 		else{
-			redirect(site_url('login/index'));
-		}   
+			$this->session->set_flashdata('msg',validation_errors());
+		}
+		redirect(site_url('admin/overview/sekolah'));
+	}
+
+	public function edit_sekolah($id=null)
+	{
+		$this->load->model('Pengajuan_Model');
+		$this->form_validation->set_rules('npsn', 'NPSN','trim|required|numeric|xss_clean');
+		$this->form_validation->set_rules('nama_sekolah', 'Nama Sekolah','trim|required|xss_clean');
+		if ($this->form_validation->run()) {
+			$this->NPSN = $this->input->post('npsn',true);
+			$this->Nama_Sekolah = $this->input->post('nama_sekolah',true);
+			$this->BP = $this->input->post('bp',true);
+			$this->KabupatenKota = $this->input->post('KabupatenKota',true);
+			$this->Pengajuan_Model->editSekolah($id,$this);
+			$this->session->set_flashdata('msg','Berhasil Diupdate');
+		}
+		else{
+			$this->session->set_flashdata('msg',validation_errors());
+		}
+		redirect(site_url('admin/overview/sekolah')); 
+	}
+
+	public function delete_sekolah($id=null){
+		$this->load->model('Pengajuan_Model');
+		if (!isset($id)) show_404();
+        
+        if ($this->Pengajuan_Model->deleteSekolah($id)) {
+        	$this->session->set_flashdata('msg','Berhasil Dihapus');
+        }
+        else{
+        	$this->session->set_flashdata('msg',validation_errors());
+        }
+        redirect(site_url('admin/overview/sekolah'));
 	}
 
 	public function admin_list(){
 		if ($this->session->userdata("admin")['logged'] && $this->session->userdata("admin")['level']==1) {
 			$this->load->model('Pengajuan_Model');
 			$this->load->model('Auth_Model');
-			$result = $this->Auth_Model->get_admin();
+			$result = $this->Auth_Model->get_adminwitel();
 			$data["list"] = $this->Pengajuan_Model->getWitel();
-
+			$data["admintreg"] = $this->Auth_Model->get_admintreg();
+			$data["unit"] = $this->Auth_Model->get_unit();
 			foreach ($result as &$r) {
 
 				if ($r['level'] == 1) {
@@ -415,7 +641,7 @@ class Overview extends CI_Controller {
 				}
 			}
 			unset($r);
-			$data["admin"] = $result;
+			$data["adminwitel"] = $result;
 		}
 		else{
 			redirect(site_url('admin/Overview'));
@@ -493,7 +719,7 @@ class Overview extends CI_Controller {
 			$this->load->model('Pengajuan_Model');
 			$this->load->model('galeri_model');
 			$data['gallery'] = $this->galeri_model->getAll();
-			$data["list"] = $this->Pengajuan_Model->getWitel();
+			$data["witel"] = $this->Pengajuan_Model->getWitel_byId($this->session->userdata('admin')['id_witel']);
 		}
 		else{
 			redirect(site_url('admin/Overview'));
@@ -501,7 +727,47 @@ class Overview extends CI_Controller {
 		$this->load->view('admin/gallery',$data);
 	}
 
-	public function report($id = null)
+	public function kontak(){
+		if ($this->session->userdata("admin")['logged'] && $this->session->userdata("admin")['level']==2 && $this->session->userdata("admin")['role']==2) {
+			$this->load->model('Pengajuan_Model');
+			$this->load->model('kontak_model');
+			$data['kontak'] = $this->kontak_model->getbyWitel($this->session->userdata("admin")["id_witel"]);
+			$data["witel"] = $this->Pengajuan_Model->getWitel_byId($this->session->userdata('admin')['id_witel']);
+		}
+		else{
+			redirect(site_url('admin/Overview'));
+		}
+		$this->load->view('admin/kontak',$data);
+	}
+
+	public function unit(){
+		if ($this->session->userdata("admin")['logged'] && $this->session->userdata("admin")['level']==1) {
+			$this->load->model('Pengajuan_Model');
+			$this->load->model('Auth_Model');
+			$data['unit'] = $this->Auth_Model->get_unit();
+			$data["list"] = $this->Pengajuan_Model->getWitel();
+		}
+		else{
+			redirect(site_url('admin/Overview'));
+		}
+		$this->load->view('admin/unit',$data);
+	}
+
+
+	function get_datel(){
+		$this->load->model('Pengajuan_Model');
+        $id_witel = $this->input->post('id',TRUE);
+        $data = $this->Pengajuan_Model->get_datel_byWitel($id_witel);
+        echo json_encode($data);
+    }
+    function get_wilayah(){
+		$this->load->model('Pengajuan_Model');
+        $id_witel = $this->input->post('id',TRUE);
+        $data = $this->Pengajuan_Model->get_wilayah_byWitel($id_witel);
+        echo json_encode($data);
+    }
+
+    public function report($id = null)
     {
        if ($this->session->userdata("admin")['logged'] && $this->session->userdata("admin")['level']==2) {
 		
