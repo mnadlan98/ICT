@@ -8,18 +8,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
      
-        <link rel="stylesheet" href="http://localhost/ICT/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/owlcarousel/assets/owl.theme.default.min.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/ionicons.min.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/hero-slider.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/templatemo-main.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/feedback.css?version=4">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/owl.carousel.min.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/owlcarousel/assets/owl.theme.default.min.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/ionicons.min.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/hero-slider.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/templatemo-main.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/feedback.css?version=4">
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/owl.carousel.min.js"></script>
-        <script src="http://localhost/ICT/script/owl.carousel.min.js"></script>
-        <script src="http://localhost/ICT/script/jquery-migrate.min.js"></script>
-        <script src="http://localhost/ICT/script/bootstrap.bundle.min.js"></script>
-        <script src="http://localhost/ICT/script/main.js?version=1"></script>
+        <script src="<?php echo base_url()?>script/owl.carousel.min.js"></script>
+        <script src="<?php echo base_url()?>script/jquery-migrate.min.js"></script>
+        <script src="<?php echo base_url()?>script/bootstrap.bundle.min.js"></script>
+        <script src="<?php echo base_url()?>script/main.js?version=1"></script>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800" rel="stylesheet">
 

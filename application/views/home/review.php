@@ -8,13 +8,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <link rel="stylesheet" href="http://localhost/ICT/css/bootstrap.min.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/fontAwesome.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/hero-slider.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/templatemo-main.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/owl-carousel.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/review.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/stepbar.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/fontAwesome.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/hero-slider.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/templatemo-main.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/owl-carousel.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/review.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/stepbar.css">
 
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>

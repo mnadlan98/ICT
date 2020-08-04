@@ -9,8 +9,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="http://localhost/ICT/css/bootstrap.min.css">
-
+  <link rel="stylesheet" href="<?php echo base_url()?>css/bootstrap.min.css">
+  
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 
 
@@ -20,14 +20,14 @@
   <link href="<?php echo base_url()?>assets/bootstrap/css/mdb.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 
-  <link rel="stylesheet" href="http://localhost/ICT/css/animate.min.css">
-  <script src="http://localhost/ICT/script/wow.min.js"></script>
-  <script src="http://localhost/ICT/script/wow.js"></script>
-  <script src="http://localhost/ICT/script/main.js?version=54"></script>
-  <script src="http://localhost/ICT/script/jquery.min.js"></script>
+  <link rel="stylesheet" href="<?php echo base_url()?>css/animate.min.css">
+  <script src="<?php echo base_url()?>script/wow.min.js"></script>
+  <script src="<?php echo base_url()?>script/wow.js"></script>
+  <script src="<?php echo base_url()?>script/main.js?version=54"></script>
+  <script src="<?php echo base_url()?>script/jquery.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
 
-
-  <link rel="stylesheet" type="text/css" href="http://localhost/ICT/css/header.css?v=2">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/header.css?v=2">
   <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>/assets/css/stylenav.css">
   
   <title><?php echo $title ;?></title>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="<?php echo base_url()?>css/templatemo-main.css">
-<link rel="stylesheet" href="<?php echo base_url()?>css/login.css?v=8">
+<link rel="stylesheet" href="<?php echo base_url()?>css/login.css?v=">
 <div class="container-fluid">
 </head>
 
@@ -18,34 +18,38 @@
 </div>
 <div class="row">
   <div class="side col">
-  <img src="<?php echo base_url()?>images/logo.png" style="width:480px; height:140px; position: absolute; left: 500px; top: 40px;">
+  <img src="<?php echo base_url()?>images/logo.png" style="width:400px;  position: absolute; left: 500px; top: 40px;">
   </div>
   <div class="col-md-4 py-3" style=" background-color: #D7D7D7;" >
-  <h5 style="font-weight: bolder; color: black; padding-left: 11em; margin-top: 8em; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Masuk</strong></h5></br></br>
+  <div class="row-sm-6">
+      </div>
+      <div class="row-sm-6 text-center" style="">
+        <h5 style="font-weight: bolder; color: black; margin-top: 11em; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Masuk</strong></h5></br></br>
+      </div>
+      <div class="row-sm-6">
+      </div>
     <form action="<?php echo site_url('login/index') ?>" method="post">
       <div class="form-group">
         
         <input type="text" class="form-control  " id="username" name="username" placeholder="Username or Email" style="padding-left:3em;">
-        <i class="fa fa-envelope icon fa-lg" style="position: absolute; margin-bottom: 10px; top:273px; left:25px; "></i>
+        <i class="fa fa-envelope icon fa-lg" style="position: absolute; margin-bottom: 10px; top:250px; left:25px; "></i>
         <small class="form-text text-danger"><?php echo form_error('username'); ?></small>
       </div>
       <div class="form-group">
         <input type="password" class="form-control" id="password" name="password" placeholder="Password" style="padding-left:3em;">
-        <i class="fa fa-lock icon fa-lg" style="position: absolute; margin-bottom: 10px; top:325px; left:27px; "></i>
+        <i class="fa fa-lock icon fa-lg" style="position: absolute; margin-bottom: 10px; top:300px; left:27px; "></i>
         <small class="form-text text-danger"><?php echo form_error('password'); ?></small>
       </div>
       <div class="form-group">
         <a href="#" data-toggle="modal" data-target="#forgetpass" style="color: light-blue; text-decoration: none; padding-left:1vh; font-family: Lato;" ><small><u>Lupa Password?</u></small></a>
       </div>
-      <div class="row">
-        <div class="col-md-12" style="padding-left:15em;">
-          <button type="submit" name="login" class="btn btn-outline-dark" style="background: #BD0306; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 7px;font-weight: bold; font-size: 20px; font-family: Lato; color:white; ">Masuk</button>              
-        </div>
-        
+      <div class="row-sm-6">
       </div>
-      <div class="form-group" style="margin-bottom:14em;">
-      <p style="font-size:13px; padding-left:13.5em; font-family: Lato; padding-top:10px;">Belum punya akun? <a href="<?php echo site_url().'Register/';?>" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Daftar Disni</u></small></a></p>
-        
+      <div class="row-sm-6 text-center" style="">
+          <button type="submit" name="login" class="btn" style="padding:5px; font-size:15px; text-transform: capitalize;">Masuk</button>              
+          <p style="font-size:13px;font-family: Lato; padding-top:10px; ">Belum punya akun? <a href="<?php echo site_url().'Register/';?>" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Daftar Disni</u></small></a></p>
+      </div>
+      <div class="row-sm-6" style="margin-bottom:14em;" >
       </div>
      
 

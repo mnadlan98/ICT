@@ -1,7 +1,7 @@
 body {
     min-height:100%;
-    background-attachment: fixed;
-    background-size:cover;
+    background-attachment: local;
+    background-size:contain;
     background-position:top; 
     background-repeat: no-repeat;
     max-width:100%;
@@ -39,7 +39,7 @@ body {
   .logo{
     border-radius:20px; 
     width:100%;
-    max-width:800px; 
+    max-width:600px; 
     height:auto;
   }
 

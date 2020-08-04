@@ -77,6 +77,12 @@ class MainController extends CI_Controller {
 		$this->load->view('templates/footer');	
 	}
 
+	public function forgetpass(){
+		$this->load->view('templates/header');
+		$this->load->view('home/reset_password');
+		$this->load->view('templates/footer');	
+	}
+
 
 
 

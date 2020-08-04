@@ -9,18 +9,18 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
   
 
-        <link rel="stylesheet" href="http://localhost/ICT/css/home.css?version=59">        
-        <link rel="stylesheet" href="http://localhost/ICT/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/owlcarousel/assets/owl.theme.default.min.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/ionicons.min.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/hero-slider.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/templatemo-main.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/home.css?version=68">        
+        <link rel="stylesheet" href="<?php echo base_url()?>css/owl.carousel.min.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/owlcarousel/assets/owl.theme.default.min.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/ionicons.min.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/hero-slider.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/templatemo-main.css">
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/owl.carousel.min.js"></script>
-        <script src="http://localhost/ICT/script/owl.carousel.min.js"></script>
-        <script src="http://localhost/ICT/script/jquery-migrate.min.js"></script>
-        <script src="http://localhost/ICT/script/bootstrap.bundle.min.js"></script>
-        <script src="http://localhost/ICT/script/main.js?version=1"></script>
+        <script src="<?php echo base_url()?>script/owl.carousel.min.js"></script>
+        <script src="<?php echo base_url()?>script/jquery-migrate.min.js"></script>
+        <script src="<?php echo base_url()?>script/bootstrap.bundle.min.js"></script>
+        <script src="<?php echo base_url()?>script/main.js?version=1"></script>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800" rel="stylesheet">
 
@@ -40,13 +40,13 @@
     <?php if (isset($this->session->userdata("user")['logged'])): ?>
     <style type="text/css">
       body {
-        background-image:url(../images/home.jpg);
+        background-image:url(../images/homepage.jpg);
       }
     </style>
     <?php else: ?>
       <style type="text/css">
       body {
-        background-image:url(../images/1.jpg);
+        background-image:url(../images/hom.jpg);
       }
     </style>
     <?php endif ?>
@@ -60,17 +60,17 @@
         <div class="parallax-content baner-content" >
             <div class="container">
             <?php if (isset($this->session->userdata("user")['logged'])): ?>
-              <h1 class="wow fadeInDown headname" style="font-size: 5vw; color:black;">Selamat Datang <?= $this->session->userdata("user")['nama_user'] ?>!</h1>
+              <h1 class="wow fadeInDown headname" style="font-size: 4vw; color:black;">Selamat Datang <?= $this->session->userdata("user")['nama_user'] ?>!</h1>
             <?php endif ?>
                 <div class="first-content"> 
-                <span class="wow fadeInLeft" data-wow-delay="0.5s"><img class="logo" src="../images/logo.png" style=""></span> 
+                <span class="wow fadeInLeft" data-wow-delay="0.25s"><img class="logo" src="../images/logo.png" ></span> 
                 
                     <?php if (isset($this->session->userdata("user")['logged'])): ?>
-                        <div class="primary-button wow fadeInUp" data-wow-delay="1s" style="margin-top:5em;" >
+                        <div class="primary-button wow fadeInUp" data-wow-delay="0.5s" style="margin-top:5em;" >
                             <a class="btn1" href="<?php echo base_url().'Pengajuan/index';?>" style="padding:12px; font-size:15px; text-transform: capitalize;" >Pengajuan ICT Tour</a>
                         </div>
                     <?php else: ?>
-                    <div class="primary-button wow fadeInUp" data-wow-delay="1.5s" >
+                    <div class="primary-button wow fadeInUp" data-wow-delay="0.5s" style="margin-top:3em;" >
                         <a class="btn mr-auto" href="<?php echo base_url().'Login/index';?>" style="padding:8px; font-size:15px; text-transform: capitalize;">Masuk</a>
                         <a class="btn ml-auto" href="<?php echo base_url().'Register/index';?>" style="padding:8px; font-size:15px; text-transform: capitalize;">Daftar</a>
                     </div>

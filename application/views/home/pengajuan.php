@@ -17,16 +17,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <link rel="stylesheet" href="http://localhost/ICT/css/bootstrap.min.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/fontAwesome.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/hero-slider.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/templatemo-main.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/owl-carousel.css">
-        <link rel="stylesheet" href="http://localhost/ICT/css/pengajuan.css?v=6">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/fontAwesome.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/hero-slider.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/templatemo-main.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/owl-carousel.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/pengajuan.css?v=7">
 
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800" rel="stylesheet">
 
-        <script src="http://localhost/ICT/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="<?php echo base_url()?>js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
 
 <body>
@@ -40,95 +40,97 @@
 <div class="row">
 <div class="col-sm-3">
 </div>
-<div class="col-sm-5" >
-      <div class="row-sm-6">
+<div class="col-sm-6" >
+<div class="row">
+      <div class="col-sm-9">
       </div>
-      <div class="row-sm-6 text-center" style="">
+      <div class="col-sm-9 text-center" style="">
       <h5 style="font-weight: bolder; color: black; margin-left: 15em; color:white; margin-top:5em; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Pengajuan ICT Tour</strong></h5></br></br>
       </div>
-      <div class="row-sm-6">
+      <div class="col-sm-9">
       </div>
-  
+  </div>
+  <div class="row-md-10">
   <?php echo form_open_multipart('Pengajuan');?> 
      <form method="post">
           <hr class="onepixel">
           <h5 style="font-weight: bolder; color: black;  color:white; "><strong style=" font-size:14px; ">Data Pengajuan</strong></h5><br>
           <div class="row">
-            <div>
+            <div class="col-sm-5">
               <label style="font-size:15px; color:white; padding-right:3.1em;">Jumlah Siswa (Maksimum 30)</label>
             </div>
             <div class="form-group col-xs-2">
-              <input type="number" class="form-control " id="jumlah_siswa" name="jumlah_siswa" min="1" max="30" style="margin-left:2.8em; box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25)">
+              <input type="number" class="form-control " id="jumlah_siswa" name="jumlah_siswa" min="1" max="30" style=" box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25)">
             </div>
           </div>
           <label style="font-size:10px; color:red;"><?php echo form_error('jumlah_siswa'); ?></label>
           <div class="row">
-            <div>
+            <div class="col-sm-5">
               <label style="font-size:15px; color:white;">Nama Pembimbing 1</label>
             </div>
             <div class="form-group col">
-              <input type="text" class="form-control" id="pembimbing1" name="pembimbing1" style="margin-left:12em; box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25)">
+              <input type="text" class="form-control" id="pembimbing1" name="pembimbing1" style=" box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25)">
             </div>
           </div>
           <label style="font-size:10px; color:red;"><?php echo form_error('pembimbing1'); ?></label>
           <div class="row">
-            <div>
+            <div class="col-sm-5">
               <label style="font-size:15px; color:white;">Nama Pembimbing 2</label>
             </div>
             <div class="form-group col">
-              <input type="text" class="form-control" id="pembimbing2" name="pembimbing2" style="margin-left:12em; box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25)">
+              <input type="text" class="form-control" id="pembimbing2" name="pembimbing2" style=" box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25)">
             </div>
           </div>
           <label style="font-size:10px; color:red;"><?php echo form_error('pembimbing2'); ?></label>
-          <div class="row" style="padding-right:200px">
-            <div>
+          <div class="row" >
+          <div class="col-sm-5">
               <label style="font-size:15px; color:white;">Tanggal Pelaksanaan</label>
             </div>
             <div class="form-group col">
-              <input type="date" class="form-control" id="tanggal_pelaksanaan" name="tanggal_pelaksanaan" style="margin-left:11.75em; box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25)">
+              <input type="date" class="form-control" id="tanggal_pelaksanaan" name="tanggal_pelaksanaan" style=" box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25)">
             </div>
           </div>
           <label style="font-size:10px; color:red;"><?php echo form_error('tanggal_pelaksanaan'); ?></label>
           <div class="row">
-            <div>
+          <div class="col-sm-5">
               <label style="font-size:15px; color:white;">Unggah Surat Permohonan (.pdf)</label>
             </div>
             <div class="form-group col">
-              <input type="file" class="form-control-file" name="surat_permohonan" id="surat_permohonan" style="margin-left:2.75em; color:white;" required>
-              <label style="font-size:10px; margin-left: 4em; color:white;">max 2 MB</label>
+              <input type="file" class="form-control-file" name="surat_permohonan" id="surat_permohonan" style=" color:white;" required>
+              <label style="font-size:10px; color:white;">max 2 MB</label>
             </div>
           </div>
           
            <div class="row">
-            <div>
+           <div class="col-sm-5">
               <label style="font-size:15px; color:white;">Unggah Daftar Peserta (.csv / .xlsx)</label>
             </div>
             <div class="form-group col">
-              <input type="file" class="form-control-file" name="daftar_peserta" id="daftar_peserta" style="margin-left:1.75em; color:white;" required>
-              <label style="font-size:10px; margin-left: 2.75em; color:white;">max 2 MB</label>
+              <input type="file" class="form-control-file" name="daftar_peserta" id="daftar_peserta" style="color:white;" required>
+              <label style="font-size:10px;  color:white;">max 2 MB</label>
             </div>
           </div>         
            
-          <p style="font-size:15px; padding-top:10px; margin-left:-1em;color:white;">Contoh Template Daftar Peserta <a href="<?php echo base_url("./excel/daftar_peserta.csv"); ?>" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Unduh</u></small></a></p>  
+          <p style="font-size:15px; padding-top:10px; color:white;">Contoh Template Daftar Peserta <a href="<?php echo base_url("./excel/daftar_peserta.csv"); ?>" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Unduh</u></small></a></p>  
           <hr class="onepixel">
           <h5 style="font-weight: bolder; color: black;  color:white; "><strong style=" font-size:14px; ">Lokasi ICT Tour</strong></h5><br>
-          <div class="row" style="padding-right:1.75em;">
-            <div>
-              <label style="font-size:15px; color:white; margin-right:4em">Provinsi      </label>
+          <div class="row" style="padding-right:1.75em; margin-bottom:20px;">
+          <div class="col-sm-5">
+              <label style="font-size:15px; color:white;">Provinsi      </label>
             </div>
             <div class="form-group col">
-              <select class="form-control" id="kantor" name="kantor" style="margin-left:14.3em;">
+              <select class="form-control" id="kantor" name="kantor" >
                 <option selected>Jawa Barat</option>
               </select>
             </div>
           </div>
           
-          <div class="row" style="padding-right:1.75em;">
-            <div>
+          <div class="row" style="padding-right:1.75em; margin-bottom:20px;">
+          <div class="col-sm-5">
               <label style="font-size:15px; color:white; margin-right:6px">Kota/Kabupaten</label>
             </div>
             <div class="form-group col">
-              <select class="form-control" id="wilayah" name="wilayah"  style="margin-left:14.3em;" required>
+              <select class="form-control" id="wilayah" name="wilayah"  required>
                 <option value="">Pilih Kota/Kabupaten ...</option>
                 <?php foreach($wilayah as $row):?>
                 <option value="<?php echo $row->id_wilayah;?>"><?php echo $row->wilayah?></option>
@@ -136,12 +138,12 @@
               </select>
             </div>
           </div>
-          <div class="row" style="padding-right:1.75em;">
-            <div>
+          <div class="row" style="padding-right:1.75em; margin-bottom:20px;">
+          <div class="col-sm-5">
               <label style="font-size:15px; color:white; margin-right:17px">Kantor Telkom</label>
             </div>
             <div class="form-group col">
-              <select class="form-control" id="sto" name="sto" style="margin-left:14.3em;" required>
+              <select class="form-control" id="sto" name="sto"  required>
                 <option value="">Pilih Lokasi Kantor Telkom ...</option>             
               </select>
             </div>
@@ -155,7 +157,7 @@
           <div class="row-sm-6">
           </div>
           <div class="row-sm-6 text-center" style="">
-          <button type="submit" name="submit" class="btn" style="background: #BD0306; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 27px;font-weight: bold; font-size: 15px; font-family: Lato; color:white; border-color:white; ">Kirim</button>        
+          <button type="submit" name="submit" class="btn" style="background: #BD0306; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 27px;font-weight: bold; font-size: 15px; font-family: Lato; color:white; border-color:white; margin-bottom:8em; ">Kirim</button>        
           </div>
           <div class="row-sm-6">
           </div>
@@ -184,9 +186,9 @@
             </div>
           </div>
         </div>
-
   </div>
-  <div class="col-sm-3 ">
+  </div>
+  <div class="col-sm-2 ">
 </div>
 </div>
 
