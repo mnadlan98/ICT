@@ -46,7 +46,7 @@
      public function getIdUserByPengajuan($id){
           $query = $this->db->get_where('pengajuan', array('id_pengajuan' => $id));
           $data  = $query->row();
-          return (int)$data->status_pengajuan;
+          return (int)$data->id_user;
      }
 
      function updatePengajuan($id,$data)
