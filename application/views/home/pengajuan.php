@@ -30,9 +30,10 @@
     </head>
 
 <body>
-  <?php if ($this->session->flashdata('msg')): ?>
+
+  <?php if ($this->session->flashdata('msge')): ?>
     <div class="alert alert-success" role="alert">
-      <?php echo $this->session->flashdata('msg'); ?>
+      <?php echo $this->session->flashdata('msge'); ?>
     </div>
   <?php endif ?>
   

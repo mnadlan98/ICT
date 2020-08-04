@@ -773,7 +773,6 @@ class Overview extends CI_Controller {
 		
 		$this->load->model('Pengajuan_Model');
 		$this->load->library('Pdf');
-        $this->load->model('peserta_model');
 		$data['title'] = 'Daftar Peserta';
 		$dhadir = $this->Pengajuan_Model->getDHadirByPengajuan($id);
 		if(!empty($dhadir)){
@@ -781,7 +780,6 @@ class Overview extends CI_Controller {
 		}else{
 			$data['dhadir'] = null;
 		}
-        $data['peserta'] = $this->peserta_model->getAll();
         $data["pengajuan"] = $this->Pengajuan_Model->get_PengajuanbyId($id);
         $data["witel"] = $this->Pengajuan_Model->getWitel_byId($this->session->userdata('admin')['id_witel']);
         $data['wilayah'] = $this->Pengajuan_Model->get_wilayah();
@@ -796,43 +794,106 @@ class Overview extends CI_Controller {
 			
 			$this->id_user = $this->Pengajuan_Model->getIdUserByPengajuan($id);
 			$this->id_pengajuan = $id;
+
 			$this->daftar_hadir = $this->upload_dhadir();
 			$this->materi = $this->upload_materi();
-			$files = $this->images(); 
+			
+
+			$files = $this->images();
+			
+
+			if($this->materi != null && $this->daftar_hadir != null || $files != null){
+				$this->Pengajuan_Model->insertReport($this);
+				$this->Pengajuan_Model->insertFotoReport($files);	
+				if($this->Pengajuan_Model->updatePengajuan($id,array('eventover' => TRUE))){
+						$this->session->set_flashdata('msg','Berhasil Disubmit');
+						$config = array();
+						$config['charset'] = 'utf-8';
+						$config['useragent'] = 'Codeigniter';
+						$config['protocol']= "smtp";
+						$config['mailtype']= "html";
+						$config['smtp_host']= "ssl://smtp.gmail.com";//pengaturan smtp
+						$config['smtp_port']= "465";
+						$config['smtp_timeout']= "400";
+						$config['smtp_user']= "sibola124@gmail.com";
+						$config['smtp_pass']= "SIBOLA124";
+						$config['crlf']="\r\n";
+						$config['newline']="\r\n";
+						$config['wordwrap'] = TRUE;
+
+						$this->email->initialize($config);
+
+						$this->email->from($config['smtp_user']);
+						$this->email->to($data["pengajuan"]->email_user);
+						$this->email->subject("Status Pengajuan");					
+						$this->email->message(" Admin telah melakukan report terkait kunjungan anda <br> Silahkan melakukan login dan cek website untuk melihat hasil laporan");	
+						$this->email->send();																																				
+				}
+			}else{
+					$this->session->set_flashdata('msg','Format file yang anda upload tidak sesuai');   					
+			}
+		}else{
+			$this->session->set_flashdata('msg',validation_errors());				
+		}
+		if($this->session->flashdata('msg')){
+			redirect(site_url('admin/overview/report/'.$id));	
+		}								
+       }else{
+		redirect(site_url('admin/overview/'));
+	   }      
+	}
+
+	public function editreport($id = null)
+    {
+       if ($this->session->userdata("admin")['logged'] && $this->session->userdata("admin")['level']==2) {
+		
+		$this->load->model('Pengajuan_Model');
+		$this->load->library('Pdf');
+		$data['title'] = 'Daftar Peserta';
+		$dhadir = $this->Pengajuan_Model->getDHadirByPengajuan($id);
+		if(!empty($dhadir)){
+			$data['dhadir'] = $dhadir;
+		}else{
+			$data['dhadir'] = null;
+		}
+        $data["pengajuan"] = $this->Pengajuan_Model->get_PengajuanbyId($id);
+        $data["witel"] = $this->Pengajuan_Model->getWitel_byId($this->session->userdata('admin')['id_witel']);
+        $data['wilayah'] = $this->Pengajuan_Model->get_wilayah();
+        $this->load->view("admin/report",$data);
+		
+		$this->form_validation->set_rules('materi','materi');
+		$this->form_validation->set_rules('daftar_hadir','daftar hadir');
+		$this->form_validation->set_rules('cek','cek','required');
+		$this->form_validation->set_rules('files[]','Upload Gambar');
+		       
+        if ($this->form_validation->run()) {
+			
+			$this->id_user = $this->Pengajuan_Model->getIdUserByPengajuan($id);
+			$this->id_pengajuan = $id;
+
+			$this->daftar_hadir = $this->upload_dhadir();
+			$this->materi = $this->upload_materi();
 
 			$this->Pengajuan_Model->insertReport($this);
-			$this->Pengajuan_Model->insertFotoReport($files);		
-			if($this->Pengajuan_Model->updatePengajuan($id,array('eventover' => TRUE))){
-				$this->session->set_flashdata('msg','Berhasil Disubmit');
-					$config = array();
-					$config['charset'] = 'utf-8';
-					$config['useragent'] = 'Codeigniter';
-					$config['protocol']= "smtp";
-					$config['mailtype']= "html";
-					$config['smtp_host']= "ssl://smtp.gmail.com";//pengaturan smtp
-					$config['smtp_port']= "465";
-					$config['smtp_timeout']= "400";
-					$config['smtp_user']= "sibola124@gmail.com";
-					$config['smtp_pass']= "SIBOLA124";
-					$config['crlf']="\r\n";
-					$config['newline']="\r\n";
-					$config['wordwrap'] = TRUE;
 
-					$this->email->initialize($config);
+			$files = $this->images(); 
+			$this->Pengajuan_Model->insertFotoReport($files);
 
-					$this->email->from($config['smtp_user']);
-					$this->email->to($data["pengajuan"]->email_user);
-					$this->email->subject("Status Pengajuan");					
-					$this->email->message(" Admin telah melakukan report terkait kunjungan anda <br> Silahkan melakukan login dan cek website untuk melihat hasil laporan");	
-					$this->email->send();				
-			}	
-        }
-        else{
-        	$this->session->set_flashdata('msg',validation_errors());       	
-		}		
-       }
-       else{
-       	redirect(site_url('admin/overview/'));
+			$this->Pengajuan_Model->updatePengajuan($id,array('eventover' => TRUE));
+			$this->email->from($config['smtp_user']);
+			$this->email->to($data["pengajuan"]->email_user);
+			$this->email->subject("Status Pengajuan");					
+			$this->email->message(" Admin telah melakukan report terkait kunjungan anda <br> Silahkan melakukan login dan cek website untuk melihat hasil laporan");	
+			$this->email->send();	
+			redirect(site_url('admin/overview/report/'.$id));						
+				
+		}else{
+			$this->session->set_flashdata('msg',validation_errors());    
+				   	
+		}
+				
+       }else{
+       		redirect(site_url('admin/overview/'));
        }
         
 	}
@@ -865,21 +926,13 @@ class Overview extends CI_Controller {
                         $fileData = $this->upload->data(); 
                         $uploadData[$i]['foto_report'] = $fileData['file_name']; 
                         $uploadData[$i]['tanggal_upload'] = date("Y-m-d H:i:s"); 
-                    }else{  
-                        $errorUploadType .= $_FILES['file']['name'].' | ';  
-                    } 
+                    }
                 } 
                  
-                $errorUploadType = !empty($errorUploadType)?'<br/>File Type Error: '.trim($errorUploadType, ' | '):''; 
                 if(!empty($uploadData)){ 
                     // Insert files data into the database 
-                    return $uploadData; 
-                     
-                    // Upload status message 
-                    $statusMsg = $insert?'Files uploaded successfully!'.$errorUploadType:'Some problem occurred, please try again.'; 
-                }else{ 
-                    $statusMsg = "Sorry, there was an error uploading your file.".$errorUploadType; 
-                } 
+                    return $uploadData;                     
+                }
             
          
 	}
@@ -887,13 +940,15 @@ class Overview extends CI_Controller {
 	function upload_materi(){
 
 		$config['upload_path']          = './upload/report/materi';
-		$config['allowed_types']        = 'xlsx|pdf';
+		$config['allowed_types']        = 'pdf';
 		$config['max_size']             = 8192; // 8MB
   
 		$this->load->library('upload', $config);
 		$this->upload->initialize($config);
 		if ($this->upload->do_upload('materi')) {
 		  return $this->upload->data("file_name");
+		}else{
+		  return $this->session->set_flashdata('msg',$this->upload->display_errors());
 		}
 	}
 
@@ -907,6 +962,8 @@ class Overview extends CI_Controller {
 		$this->upload->initialize($config);
 		if ($this->upload->do_upload('daftar_hadir')) {
 		  return $this->upload->data("file_name");
+		}else{
+		  return $this->session->set_flashdata('msg',$this->upload->display_errors());
 		}
 	}
 

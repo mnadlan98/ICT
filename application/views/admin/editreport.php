@@ -56,34 +56,7 @@
 					<div class="card-body">
 						<h5 style="font-weight: bolder; margin-top: 5px; "><strong style="font-size:24px; ">Report </strong></h5><br>	
 						<?php if($dhadir==null){ ?>				
-						<form action="<?php echo site_url().'admin/overview/report/'.$pengajuan->id_pengajuan?>" method="post" enctype="multipart/form-data" >
-						
-							<div class="form-group">
-
-								<label for="materi">Download Template Daftar Hadir</label><br>
-								<a href="<?php echo base_url("./excel/daftar_hadir.xlsx"); ?>" 
-								style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Download</u></small></a> <br><br><br>
-							
-								<label for="daftar_hadir">Upload Daftar Hadir </label>
-								<input class="form-control"
-								 type="file" name="daftar_hadir" required/>
-								 <br><br>
-
-								 <label for="materi">Upload Materi (PDF)</label>
-								<input class="form-control"
-								 type="file" name="materi" required/>
-								 <br><br>
-								 
-								<label for="files[]">Upload Gambar Acara</label>
-								<input class="form-control"
-								 type="file" name="files[]" multiple="multiple" required/>
-								 <br>
-
-								 <input type="hidden" name="cek" value="cek">
-								
-							</div>
-													
-							<input class="btn btn-success" type="submit" name="btn" value="Submit"  />					
+							<p> Admin Belum melakukan report </p>			
 						</form>
 						<?php }else{ ?>
 							<form action="<?php echo site_url().'admin/overview/report/'.$pengajuan->id_pengajuan?>" method="post" enctype="multipart/form-data" >

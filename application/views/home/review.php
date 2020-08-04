@@ -30,6 +30,9 @@
     <?php if ($this->session->flashdata('tolak')) { ?>   
       <div class="alert alert-danger"> <?= $this->session->flashdata('tolak') ?> </div>
     <?php } ?>
+    <?php if ($this->session->flashdata('msg')) { ?>
+      <div class="alert alert-success"> <?= $this->session->flashdata('msg') ?> </div>
+    <?php } ?>
     <section class="wow fadeInRight" id="progress">
       <div class="section-header">
         <h2 ><strong style="font-size: 30px; border-bottom:2px solid red">Progress Pengajuan</strong></h2>

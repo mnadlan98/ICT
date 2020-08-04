@@ -130,7 +130,7 @@
 											<td width="250">
 											<a href="<?php echo site_url('admin/overview/review/'.$p->id_pengajuan) ?>"
 											 class="btn btn-small"><i class="fas fa-edit"></i> Review</a>
-											 <?php if ($p->status_pengajuan==4 && $p->eventover!=1) : ?>												
+											 <?php if ($p->status_pengajuan==4 ) : ?>												
 												<a href="<?php echo site_url('admin/overview/report/'.$p->id_pengajuan) ?>"
 												class="btn btn-small"><i class="fas fa-reply"></i> Report</a>
 											 <?php endif ?>

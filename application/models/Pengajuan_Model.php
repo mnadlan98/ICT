@@ -32,11 +32,11 @@
      public function getDHadirByPengajuan($id){
           $this->db->select('daftar_hadir');
           $this->db->from('report');
-          $cek = $this->db->where("EXISTS(SELECT materi FROM report WHERE id_pengajuan = ".$id.")");
+          $this->db->where("EXISTS(SELECT materi FROM report WHERE id_pengajuan = ".$id.")");
         
-          if ($cek==TRUE){
-               $query = $this->db->get();
-               $row  = $query->row();
+          $query = $this->db->get();
+          $row  = $query->row();
+          if(!empty($row)){
                return $row->daftar_hadir;
           }else{
                return null;
@@ -46,7 +46,7 @@
      public function getIdUserByPengajuan($id){
           $query = $this->db->get_where('pengajuan', array('id_pengajuan' => $id));
           $data  = $query->row();
-          return (int)$data->status_pengajuan;
+          return (int)$data->id_user;
      }
 
      function updatePengajuan($id,$data)
