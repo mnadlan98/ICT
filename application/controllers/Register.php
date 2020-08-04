@@ -10,7 +10,7 @@ class Register extends CI_Controller {
     }
  
     public function index() {
-        $title['title'] = "Daftar";
+        
         $this->form_validation->set_rules('kota_sekolah', 'Kota/Kabupaten Sekolah','trim|required|xss_clean');
         $this->form_validation->set_rules('nama_sekolah', 'Nama Sekolah','trim|required|xss_clean');
         $this->form_validation->set_rules('email_sekolah', 'Email Sekolah','trim|required|xss_clean|valid_email');
@@ -18,8 +18,9 @@ class Register extends CI_Controller {
         $this->form_validation->set_rules('nama_user', 'Nama User','trim|required|xss_clean');
         $this->form_validation->set_rules('email_user','Email Pengguna','trim|required|xss_clean|valid_email|is_unique[user.email_user]');
         $this->form_validation->set_rules('notelp_user', 'No Telp User','trim|required|xss_clean|numeric');
-        $this->form_validation->set_rules('password','Kata Sandi','trim|required|min_length[6]|max_length[255]|xss_clean');
+        $this->form_validation->set_rules('password','Kata Sandi','trim|required|xss_clean|callback_valid_password');
         $this->form_validation->set_rules('password_conf','Ulangi Kata Sandi','trim|required|matches[password]|xss_clean');
+        $this->form_validation->set_rules('captcha', 'Captcha', 'trim|required|xss_clean|callback_cek_captcha');
         if($this->form_validation->run() == FALSE) {
             site_url('Register/index');
         }else{
@@ -33,14 +34,87 @@ class Register extends CI_Controller {
             $data['email_user']     =  $this->input->post('email_user',true);
             $data['notelp_user'] =  $this->input->post('notelp_user',true);
             $data['password']       =  password_hash($this->input->post('password',true),PASSWORD_BCRYPT);
+            $data['active'] = 0;
+            $captcha = $this->input->post('captcha');
+
+            $id = $this->Auth_Model->daftar($data);
+            $encrypted_id = base64_encode($id);
+            
+            $config = array();
+            $config['charset'] = 'utf-8';
+            $config['useragent'] = 'Codeigniter';
+            $config['protocol']= "smtp";
+            $config['mailtype']= "html";
+            $config['smtp_host']= "ssl://smtp.gmail.com";//pengaturan smtp
+            $config['smtp_port']= "465";
+            $config['smtp_timeout']= "400";
+            $config['smtp_user']= "sibola124@gmail.com";
+            $config['smtp_pass']= "SIBOLA124";
+            $config['crlf']="\r\n";
+            $config['newline']="\r\n";
+            $config['wordwrap'] = TRUE;
+
+            $this->email->initialize($config);
+
+            $this->email->from($config['smtp_user']);
+            $this->email->to($data['email_user']);
+            $this->email->subject("Verifikasi Akun");
+            $this->email->message(" Silahkan klik link untuk melakukan verifikasi akun anda <br><br>".site_url("Register/verification/".$encrypted_id));
+            
+            if($this->email->send()){
  
-            $this->Auth_Model->daftar($data);
-            $this->session->set_flashdata('sukses', 'Anda telah berhasil melakukan pendaftaran, silahkan masuk menggunakan akun yang telah terdaftar untuk mengajukan pengajuan.');
+                $this->session->set_flashdata('msg', 'Anda telah berhasil melakukan pendaftaran, silahkan periksa email untuk melakukan verifikasi akun');
+                 
+            }
+            else{
+                //notifikasi jika email sudah terkirim atau belum terkirim
+                 
+                 $this->session->set_flashdata('msg', 'Gagal Mengirim Email Verifikasi, Silahkan Hubungi Kontak Admin');
+            }
             redirect(site_url('MainController/index')); 
         }
-        $this->load->view('templates/header',$title);
+        $vals = array(
+        'img_path' => './captcha/',
+        'img_url' => base_url().'captcha/',
+        'font_size'     => 64,
+        'font_path' => './font/timesbd.ttf',
+        'img_width' => 170,
+        'img_height' => 45,
+        'word_length'   => 5,
+        'pool'          => '0123456789',
+
+        'expiration' => 180
+        );
+        $cap = create_captcha($vals);
+        $this->session->set_userdata('keycode',$cap['word']);
+        $data['captcha_img'] = $cap['image'];
+        $data['title'] = "Daftar";
+
+        $this->load->view('templates/header',$data);
         $this->load->view("home/registrasi");
         $this->load->view('templates/footer');
+    }
+
+    public function verification($key)
+    {
+        if ($this->Auth_Model->changeActiveState($key)) {
+            $this->session->set_flashdata('msg', 'Akun anda telah berhasil diverifikasi, silahkan melakukan login untuk melakukan pengajuan ICT Tour');
+        }
+        else{
+            $this->session->set_flashdata('msg', 'Gagal');
+        }
+        redirect(site_url('MainController/index')); 
+    }
+
+    public function cek_captcha($input)
+    {
+        if($input === $this->session->userdata('keycode')){
+            $this->session->unset_userdata('keycode');
+            return TRUE;
+        } else {
+            $this->form_validation->set_message('cek_captcha', '%s yang anda input salah!');
+            return FALSE;
+        }
     }
 
     function get_namasekolah(){
@@ -62,5 +136,65 @@ class Register extends CI_Controller {
                 echo json_encode($arr_result);
             }
         }
+    }
+
+    public function valid_password($password)
+    {
+
+        $regex_lowercase = '/[a-z]/';
+        $regex_uppercase = '/[A-Z]/';
+        $regex_number = '/[0-9]/';
+        
+
+        if (preg_match_all($regex_lowercase, $password) < 1)
+        {
+            $this->form_validation->set_message('valid_password', 'The {field} field must be at least one lowercase letter.');
+
+            return FALSE;
+        }
+
+        if (preg_match_all($regex_uppercase, $password) < 1)
+        {
+            $this->form_validation->set_message('valid_password', 'The {field} field must be at least one uppercase letter.');
+
+            return FALSE;
+        }
+
+        if (preg_match_all($regex_number, $password) < 1)
+        {
+            $this->form_validation->set_message('valid_password', 'The {field} field must have at least one number.');
+
+            return FALSE;
+        }
+
+
+        if (strlen($password) < 8)
+        {
+            $this->form_validation->set_message('valid_password', 'The {field} field must be at least 8 characters in length.');
+
+            return FALSE;
+        }
+
+        return TRUE;
+    }
+
+    public function reset_password($reset_key = null){
+        $this->form_validation->set_rules('password','Kata Sandi','trim|required|xss_clean|callback_valid_password');
+        $this->form_validation->set_rules('password_conf','Ulangi Kata Sandi','trim|required|matches[password]|xss_clean');
+        if ($this->form_validation->run()){
+            $password = password_hash($this->input->post('password',true),PASSWORD_BCRYPT);
+
+            if ($this->Auth_Model->update_password($password,$reset_key)) {
+                $this->session->set_flashdata('login','Berhasil Reset Password, Silahkan Melakukan Login');
+            }
+            else{
+                $this->session->set_flashdata('login','Gagal Melakukan Reset Password, Silahkan Coba Lagi');
+            }
+            redirect(site_url('login/index'));
+        }
+        $data['title'] = "Reset Password";
+        $this->load->view('templates/header',$data);
+        $this->load->view("home/reset_password");
+        $this->load->view('templates/footer');
     }
 }
