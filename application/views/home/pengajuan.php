@@ -22,7 +22,7 @@
         <link rel="stylesheet" href="<?php echo base_url()?>css/hero-slider.css">
         <link rel="stylesheet" href="<?php echo base_url()?>css/templatemo-main.css">
         <link rel="stylesheet" href="<?php echo base_url()?>css/owl-carousel.css">
-        <link rel="stylesheet" href="<?php echo base_url()?>css/pengajuan.css?v=6">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/pengajuan.css?v=7">
 
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800" rel="stylesheet">
 

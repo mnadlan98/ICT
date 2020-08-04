@@ -1,7 +1,7 @@
 body {
     min-height:100%;
-    background-attachment: fixed;
-    background-size:cover;
+    background-attachment: local;
+    background-size:contain;
     background-position:top; 
     background-repeat: no-repeat;
     max-width:100%;
