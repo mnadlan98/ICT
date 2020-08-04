@@ -52,7 +52,11 @@
     <?php endif ?>
 <body >
     <section id="home">
-        
+        <?php if ($this->session->flashdata('msg')): ?>
+          <div class="alert alert-success" role="alert">
+            <?php print_r($this->session->flashdata('msg')) ; ?>
+           </div>
+        <?php endif ?>
         <div class="parallax-content baner-content" >
             <div class="container">
             <?php if (isset($this->session->userdata("user")['logged'])): ?>
