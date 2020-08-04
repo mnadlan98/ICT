@@ -20,7 +20,9 @@
 
 				<!-- DataTables -->
 				<div class="card mb-3">
-					<?php echo $this->session->flashdata('msg') ?>
+					<div class="alert alert-success" role="alert">
+						<?php echo $this->session->flashdata('msg'); ?>
+					</div>
 					<div class="card-header">
 						<a href="#" onclick="ModalSTO('<?php echo site_url('admin/overview/add_sto') ?>','Tambah STO')"><i class="fas fa-plus"></i> Add STO</a>
 					</div>
@@ -32,7 +34,7 @@
 									<tr>
 										<th>No</th>
 										<th>STO</th>
-										<th>Keterangan</th>
+										<th>Nama STO</th>
 										<th>Datel</th>
 										<th>Witel</th>
 										<th>Wilayah</th>
@@ -62,7 +64,7 @@
 											<?php echo $l->wilayah ?>
 										</td>
 										<td width="250">
-											<a onclick="ModalSTO('<?php echo site_url('admin/overview/edit_sto') ?>','Edit STO','<?php echo $l->sto?>','<?php echo $l->keterangan?>')"
+											<a onclick="ModalSTO('<?php echo site_url('admin/overview/edit_sto/'.$l->id_sto) ?>','Edit STO','<?php echo $l->sto?>','<?php echo $l->keterangan?>')"
 											 href="#!" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
 											<a onclick="deleteConfirm('<?php echo site_url('admin/overview/delete_sto/'.$l->id_sto) ?>')"
 											 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>

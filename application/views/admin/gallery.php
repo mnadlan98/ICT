@@ -20,9 +20,11 @@
 
 				<!-- DataTables -->
 				<div class="card mb-3">
-					<?php echo $this->session->flashdata('msg') ?>
+					<div class="alert alert-success" role="alert">
+						<?php echo $this->session->flashdata('msg'); ?>
+					</div>
 					<div class="card-header">
-						<a href= "#"data-toggle="modal" data-target="#AddGallery"><i class="fas fa-plus"></i> Add Gallery</a>
+						<a href= "#" onclick="ModalGallery('add_gallery','Tambah Gallery')"><i class="fas fa-plus"></i> Add Gallery</a>
 					</div>
 					<center><h2>List Gallery</h2></center>
 					<div class="card-body">
@@ -54,7 +56,7 @@
 										</td>
 										<td width="250">
 											<a
-											 href="#!" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+											 href="#!" onclick="ModalGallery('edit_gallery/<?php echo $l->id_foto?>','Edit Gallery','<?php echo $l->judul ?>')" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
 											<a onclick="deleteConfirm('<?php echo site_url('admin/overview/delete_gallery/'.$l->id_foto) ?>')"
 											 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
 										</td>

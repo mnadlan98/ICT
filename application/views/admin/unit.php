@@ -24,37 +24,34 @@
 						<?php echo $this->session->flashdata('msg'); ?>
 					</div>
 					<div class="card-header">
-						<a href="#" onclick="ModalDatel('<?php echo site_url('admin/overview/add_datel') ?>','Tambah Datel')"><i class="fas fa-plus"></i> Add Datel</a>
+						<a href="#" onclick="addModal('<?php echo site_url('admin/overview/add_unit/') ?>','Nama Unit','Tambah Unit','nama_unit')" ><i class="fas fa-plus"></i> Add Unit</a>
+
+
 					</div>
-					<center><h2>List Datel</h2></center>
 					<div class="card-body">
 						<div class="table-responsive">
 							<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
 								<thead>
 									<tr>
 										<th>No</th>
-										<th>Datel</th>
-										<th>Witel</th>
-										<th>Action</th>
+										<th>Nama Unit</th>
+										<th>Aksi</th>
 									</tr>
 								</thead>
 								<tbody>
 									<?php $i=0;?>
-									<?php foreach ($datel as $l):?>
+									<?php foreach ($unit as $s):?>
 									<tr>
 										<td>
 											<?php echo $i+=1; ?>
 										</td>
 										<td>
-											<?php echo $l->datel ?>
-										</td>
-										<td>
-											<?php echo $l->nama_witel ?>
+											<?php echo $s->nama_unit ?>
 										</td>
 										<td width="250">
-											<a onclick="ModalDatel('<?php echo site_url('admin/overview/edit_datel/'.$l->id_datel) ?>','Edit Datel','<?php echo $l->datel ?>','<?php echo $l->datel ?>')"
-											 href="#!" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-											 <a onclick="deleteConfirm('<?php echo site_url('admin/overview/delete_datel/'.$l->id_datel) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+											<a  onclick="editModal('<?php echo site_url('admin/overview/edit_unit/'.$s->id_unit) ?>','<?php echo $s->nama_unit?>','Edit Unit','nama_unit')" href="#!" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+											<a onclick="deleteConfirm('<?php echo site_url('admin/overview/delete_unit/'.$s->id_unit) ?>')"
+											 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
 										</td>
 									</tr>
 									<?php endforeach; ?>

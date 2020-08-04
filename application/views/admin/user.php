@@ -20,7 +20,9 @@
 				<h2>User</h2>
 				<!-- DataTables -->
 				<div class="card mb-3">
-					<?php echo $this->session->flashdata('msg') ?>
+					<div class="alert alert-success" role="alert">
+						<?php echo $this->session->flashdata('msg'); ?>
+					</div>
 					
 					<div class="card-body">
 						<div class="table-responsive">

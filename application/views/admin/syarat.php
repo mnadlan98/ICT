@@ -20,7 +20,9 @@
 
 				<!-- DataTables -->
 				<div class="card mb-3">
-					<?php echo $this->session->flashdata('msg') ?>
+					<div class="alert alert-success" role="alert">
+						<?php echo $this->session->flashdata('msg'); ?>
+					</div>
 					<div class="card-header">
 						<a href="#" onclick="addModal('<?php echo site_url('admin/overview/add_term/') ?>','Syarat dan Ketentuan','Tambah Syarat dan Ketentuan','syarat')"><i class="fas fa-plus"></i> Add Term</a>
 					</div>
