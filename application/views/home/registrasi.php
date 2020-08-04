@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="<?php echo base_url()?>css/daftar.css">
-<link rel="stylesheet" href="http://localhost/ICT/css/templatemo-main.css">
+<link rel="stylesheet" href="<?php echo base_url()?>css/templatemo-main.css">
 <div class="container-fluid">
   <?php if ($this->session->flashdata('msg')): ?>
     <div class="alert alert-success" role="alert">
@@ -11,7 +11,7 @@
 </div>
 <div class="row">
   <div class="side col" >
-  <img src="<?php echo base_url()?>images/logo.png" style="width:480px; height:140px; position: absolute; left: 500px; top: 40px;">
+  <img src="<?php echo base_url()?>images/logo.png" style="width:400px; position: absolute; left: 500px; top: 40px;">
   </div>
   <div class="col-md-4 py-3" style=" background-color: #D7D7D7;" >
   <div class="row-sm-6">

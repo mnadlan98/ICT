@@ -9,7 +9,7 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
   
 
-        <link rel="stylesheet" href="<?php echo base_url()?>css/home.css?version=60">        
+        <link rel="stylesheet" href="<?php echo base_url()?>css/home.css?version=65">        
         <link rel="stylesheet" href="<?php echo base_url()?>css/owl.carousel.min.css">
         <link rel="stylesheet" href="<?php echo base_url()?>css/owlcarousel/assets/owl.theme.default.min.css">
         <link rel="stylesheet" href="<?php echo base_url()?>css/ionicons.min.css">
@@ -66,11 +66,11 @@
                 <span class="wow fadeInLeft" data-wow-delay="0.25s"><img class="logo" src="../images/logo.png" ></span> 
                 
                     <?php if (isset($this->session->userdata("user")['logged'])): ?>
-                        <div class="primary-button wow fadeInUp" data-wow-delay="1s" style="margin-top:5em;" >
+                        <div class="primary-button wow fadeInUp" data-wow-delay="0.5s" style="margin-top:5em;" >
                             <a class="btn1" href="<?php echo base_url().'Pengajuan/index';?>" style="padding:12px; font-size:15px; text-transform: capitalize;" >Pengajuan ICT Tour</a>
                         </div>
                     <?php else: ?>
-                    <div class="primary-button wow fadeInUp" data-wow-delay="1.5s" >
+                    <div class="primary-button wow fadeInUp" data-wow-delay="0.5s" >
                         <a class="btn mr-auto" href="<?php echo base_url().'Login/index';?>" style="padding:8px; font-size:15px; text-transform: capitalize;">Masuk</a>
                         <a class="btn ml-auto" href="<?php echo base_url().'Register/index';?>" style="padding:8px; font-size:15px; text-transform: capitalize;">Daftar</a>
                     </div>
