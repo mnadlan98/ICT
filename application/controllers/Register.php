@@ -137,6 +137,36 @@ class Register extends CI_Controller {
             }
         }
     }
+	
+				public function edit_user($id=null) {
+        
+        $this->form_validation->set_rules('kota_sekolah', 'Kota/Kabupaten Sekolah','trim|required|xss_clean');
+        $this->form_validation->set_rules('nama_sekolah', 'Nama Sekolah','trim|required|xss_clean');
+        $this->form_validation->set_rules('email_sekolah', 'Email Sekolah','trim|required|xss_clean|valid_email');
+        $this->form_validation->set_rules('notelp_sekolah', 'No Telp Sekolah','trim|required|xss_clean|numeric');
+        $this->form_validation->set_rules('nama_user', 'Nama User','trim|required|xss_clean');
+        $this->form_validation->set_rules('email_user','Email Pengguna','trim|required|xss_clean|valid_email');
+        $this->form_validation->set_rules('notelp_user', 'No Telp User','trim|required|xss_clean|numeric');
+
+        if($this->form_validation->run() == FALSE) {
+            $this->session->set_flashdata('msg',validation_errors());
+        }
+        else{
+            $data['jenjang_sekolah']   =  $this->input->post('jenjang_sekolah',true);
+            $data['kota_sekolah']   =  $this->input->post('kota_sekolah',true);
+            $data['nama_sekolah']   =  $this->input->post('nama_sekolah',true);
+            $data['email_sekolah']  =  $this->input->post('email_sekolah',true);
+            $data['notelp_sekolah'] =  $this->input->post('notelp_sekolah',true);
+            $data['nama_user']   =  $this->input->post('nama_user',true);
+            $data['email_user']     =  $this->input->post('email_user',true);
+            $data['notelp_user'] =  $this->input->post('notelp_user',true);
+            $data['active'] = $this->input->post('active',true);;
+            $id = $this->Auth_Model->editUser($id,$data);
+            $this->session->set_flashdata('msg','Berhasil Diupdate');
+        }
+        redirect(site_url('admin/overview/user_list'));
+        
+    }
 
     public function valid_password($password)
     {
