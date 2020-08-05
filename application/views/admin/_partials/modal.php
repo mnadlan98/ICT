@@ -292,6 +292,80 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+<!-- Modal Edit User Form-->
+<div id="EditUser" class="modal fade">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title">Edit User</h1>
+            </div>
+            <div class="modal-body">
+                <form id="editUser"action="" method="POST">
+                    <div class="form-group">
+                        <label class="control-label">Nama User</label>
+                        <div>
+                            <input type="text" class="form-control input-lg" id="nama_user" name="nama_user" value="" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Email User</label>
+                        <div>
+                            <input type="email" class="form-control input-lg" id="email_user" name="email_user" value="">
+                        </div>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">No Telp User</label>
+                        <input type="text" class="form-control" id="notelp_user" name="notelp_user" value=""  >
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Jenjang Sekolah</label>
+                        <select class="form-control" id="jenjang_sekolah" name="jenjang_sekolah" required>
+                          <option selected disabled hidden>Pilih Jenjang..</option>
+                          <option value="SLB">SLB</option>
+                          <option value="SD">SD</option>
+                          <option value="SMP">SMP</option>
+                          <option value="SMK">SMK</option>
+                          <option value="SMA">SMA</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Kota Sekolah</label>
+                        <input type="text" class="form-control" id="kota_sekolah" name="kota_sekolah" value="" >
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Nama Sekolah</label>
+                        <input type="text" class="form-control" id="nama_sekolah" name="nama_sekolah"  value="">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Email Sekolah</label>
+                        <input type="text" class="form-control" id="email_sekolah" name="email_sekolah"   value=""  >
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">No Telp Sekolah</label>
+                        <input type="text" class="form-control" id="notelp_sekolah" name="notelp_sekolah"  value=""  >
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Status Verifikasi Akun</label>
+                        <select class="form-control" id="active" name="active" required>
+                          <option selected disabled hidden>Pilih Status Verifikasi..</option>
+                          <option value="0">Belum Verifikasi</option>
+                          <option value="1">Sudah Verifikasi</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <button type="submit" class="btn btn-success">
+                                Register
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <!-- Modal STO Form-->
 <div id="ModalSTO" class="modal fade">
     <div class="modal-dialog" role="document">
