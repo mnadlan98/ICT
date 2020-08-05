@@ -3,7 +3,7 @@
 
 <head>
 	<?php $this->load->view("admin/_partials/head.php") ?>
-	<link rel="stylesheet" href="http://localhost/ICT/css/stepbar.css">
+	<link rel="stylesheet" href="<?php echo base_url('css/stepbar.css')?>">
 </head>
 
 <body id="page-top">
