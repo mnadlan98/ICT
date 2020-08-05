@@ -401,6 +401,33 @@ class Overview extends CI_Controller {
 		}
 		redirect(site_url('admin/overview/kontak'));
 	}
+	
+	public function edit_config_email($id=null){
+		$this->load->model('Auth_Model');
+		$this->load->library('encryption');
+		$this->form_validation->set_rules('protocol', 'protocol','trim|required|xss_clean');
+		$this->form_validation->set_rules('mailtype', 'mailtype','trim|required|xss_clean');
+		$this->form_validation->set_rules('smtp_host', 'smtp_host','trim|required|xss_clean');
+		$this->form_validation->set_rules('smtp_port', 'smtp_port','trim|required|xss_clean|numeric');
+		$this->form_validation->set_rules('smtp_timeout', 'smtp_timeout','trim|required|xss_clean|numeric');
+		$this->form_validation->set_rules('smtp_user', 'smtp_user','trim|required|xss_clean');
+		$this->form_validation->set_rules('smtp_pass', 'smtp_pass','trim|required|xss_clean');
+		if ($this->form_validation->run()) {
+			$this->protocol = $this->input->post('protocol',true);
+			$this->mail_type = $this->input->post('mailtype',true);
+			$this->smtp_host = $this->input->post('smtp_host',true);
+			$this->smtp_port = $this->input->post('smtp_port',true);
+			$this->smtp_timeout = $this->input->post('smtp_timeout',true);
+			$this->smtp_user = $this->input->post('smtp_user',true);
+			$this->smtp_pass = $this->encryption->encrypt($this->input->post('smtp_pass',true));
+			$this->Auth_Model->editConfig_email($id,$this);
+			$this->session->set_flashdata('msg','Berhasil Diupdate');
+		}
+		else{
+			$this->session->set_flashdata('msg',validation_errors());
+		}
+		redirect(site_url('admin/overview/config_email'));
+	}
 
 	public function edit_gallery($id=null){
 		$this->load->model('galeri_model');
@@ -753,8 +780,22 @@ class Overview extends CI_Controller {
 		}
 		$this->load->view('admin/unit',$data);
 	}
-
-
+	
+	public function config_email(){
+		if ($this->session->userdata("admin")['logged'] && $this->session->userdata("admin")['level']==1) {
+			$this->load->model('Pengajuan_Model');
+			$this->load->model('Auth_Model');
+			$this->load->library('encryption');
+			$data['config_email'] = $this->Auth_Model->get_config_email();
+			$data['config_email']->smtp_pass = $this->encryption->decrypt($data['config_email']->smtp_pass);
+			$data["list"] = $this->Pengajuan_Model->getWitel();
+		}
+		else{
+			redirect(site_url('admin/Overview'));
+		}
+		$this->load->view('admin/config_email',$data);
+	}
+	
 	function get_datel(){
 		$this->load->model('Pengajuan_Model');
         $id_witel = $this->input->post('id',TRUE);
