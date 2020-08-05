@@ -57,34 +57,37 @@
           </div>
         </div>
         <div class="container-fluid">
-          <div class="row no-gutters">
-          <?php foreach ($report as $report): ?>
-            <div class="col-lg-3 col-md-4">
-              <div class="portfolio-item wow fadeInUp">
-                <a href="<?php echo base_url("./upload/report/gambar/$report->gambar1"); ?>" class="portfolio-popup">
-                  <img style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$report->gambar1"); ?>">                 
-                </a>               
-              </div>
+        <div id="carouselExampleControls" class=" carousel slide" data-ride="carousel">
+        
+          <div class="carousel-inner" >
+          <div class="carousel-item active" >
+              <a href="../images/galery/header.jpg">
+                  <img   class="img-responsive center-block" src="../images/galery/header.jpg" alt="" style="width:100%;">
+                  <div class="carousel-caption d-none d-md-block">           
+                  </div>
+                </a>
+            </div>
+            <?php $i=0;?>
+            <?php foreach ($foto as $r): ?>
+            <div class="carousel-item" >
+            <a href="<?php echo base_url("./upload/report/gambar/$r->foto_report"); ?>" class="portfolio-popup">
+                  <img style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$r->foto_report"); ?>">                 
+                </a>   
             </div>
 
-            <div class="col-lg-3 col-md-4">
-              <div class="portfolio-item wow fadeInUp">
-                <a href="<?php echo base_url("./upload/report/gambar/$report->gambar2"); ?>" class="portfolio-popup">
-                  <img style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$report->gambar2"); ?>">                 
-                </a>               
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4">
-              <div class="portfolio-item wow fadeInUp">
-                <a href="<?php echo base_url("./upload/report/gambar/$report->gambar3"); ?>" class="portfolio-popup">
-                  <img style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$report->gambar3"); ?>">                 
-                </a>               
-              </div>
-            </div>
           <?php endforeach ?>
           </div>
+          
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
+      </div>
       </div>
       
       <form action="<?php echo site_url().'MainController/Feedback' ?>" method="post" enctype="multipart/form-data" >

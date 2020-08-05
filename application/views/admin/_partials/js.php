@@ -162,6 +162,18 @@
         $('#notelp_sekolah').attr('value', notelp_sekolah);
         $('#EditUser').modal();
     }
+	
+    function ModalConfigEmail(url,protocol,mailtype,smtp_host,smtp_port,smtp_timeout,smtp_user,smtp_pass){
+        $('#configEmail').attr('action', url);
+        $('#protocol').attr('value', protocol);
+        $('#mailtype').attr('value', mailtype);
+        $('#smtp_host').attr('value', smtp_host);
+        $('#smtp_port').attr('value', smtp_port);
+        $('#smtp_timeout').attr('value', smtp_timeout);
+        $('#smtp_user').attr('value', smtp_user);
+        $('#smtp_pass').attr('value', smtp_pass);
+        $('#editConfigEmail').modal();
+    }
 
 </script>
 

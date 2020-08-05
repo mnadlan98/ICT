@@ -39,17 +39,18 @@ class Register extends CI_Controller {
 
             $id = $this->Auth_Model->daftar($data);
             $encrypted_id = base64_encode($id);
-            
+            $this->load->library('encryption');
+            $config_email = $this->Auth_Model->get_config_email();
             $config = array();
             $config['charset'] = 'utf-8';
             $config['useragent'] = 'Codeigniter';
-            $config['protocol']= "smtp";
-            $config['mailtype']= "html";
-            $config['smtp_host']= "ssl://smtp.gmail.com";//pengaturan smtp
-            $config['smtp_port']= "465";
-            $config['smtp_timeout']= "400";
-            $config['smtp_user']= "sibola124@gmail.com";
-            $config['smtp_pass']= "SIBOLA124";
+            $config['protocol']= $config_email->protocol;
+            $config['mailtype']= $config_email->mail_type;
+            $config['smtp_host']= $config_email->smtp_host;//pengaturan smtp
+            $config['smtp_port']= $config_email->smtp_port;
+            $config['smtp_timeout']= $config_email->smtp_timeout;
+            $config['smtp_user']= $config_email->smtp_user;
+            $config['smtp_pass']= $this->encryption->decrypt($config_email->smtp_pass);
             $config['crlf']="\r\n";
             $config['newline']="\r\n";
             $config['wordwrap'] = TRUE;

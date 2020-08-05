@@ -223,5 +223,14 @@ class Auth_model extends CI_Model {
      {
           return $this->db->delete('unit', array("id_unit" => $id));
      }
+	
+     function get_config_email(){
+        return $this->db->get('config_email')->row();
+     }
+
+     function editConfig_email($id,$data)
+     {
+          $this->db->update('config_email', $data, array('id_email' => $id));
+     }
 }
 

@@ -57,16 +57,18 @@ class Login extends CI_Controller {
             $reset_key = random_string('alnum',50);
 
             if ($this->Auth_Model->update_reset_key($email,$reset_key)) {
+                $this->load->library('encryption');
+                $config_email = $this->Auth_Model->get_config_email();
                 $config = array();
                 $config['charset'] = 'utf-8';
                 $config['useragent'] = 'Codeigniter';
-                $config['protocol']= "smtp";
-                $config['mailtype']= "html";
-                $config['smtp_host']= "ssl://smtp.gmail.com";//pengaturan smtp
-                $config['smtp_port']= "465";
-                $config['smtp_timeout']= "400";
-                $config['smtp_user']= "sibola124@gmail.com";
-                $config['smtp_pass']= "SIBOLA124";
+                $config['protocol']= $config_email->protocol;
+                $config['mailtype']= $config_email->mail_type;
+                $config['smtp_host']= $config_email->smtp_host;//pengaturan smtp
+                $config['smtp_port']= $config_email->smtp_port;
+                $config['smtp_timeout']= $config_email->smtp_timeout;
+                $config['smtp_user']= $config_email->smtp_user;
+                $config['smtp_pass']= $this->encryption->decrypt($config_email->smtp_pass);
                 $config['crlf']="\r\n";
                 $config['newline']="\r\n";
                 $config['wordwrap'] = TRUE;
