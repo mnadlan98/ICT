@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="<?php echo base_url()?>css/ionicons.min.css">
         <link rel="stylesheet" href="<?php echo base_url()?>css/hero-slider.css">
         <link rel="stylesheet" href="<?php echo base_url()?>css/templatemo-main.css">
-        <link rel="stylesheet" href="<?php echo base_url()?>css/feedback.css?version=4">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/feedback.css?version=5">
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/owl.carousel.min.js"></script>
         <script src="<?php echo base_url()?>script/owl.carousel.min.js"></script>
@@ -37,14 +37,17 @@
     </head>
 
 <body>
-  <div style="  margin-top:20px;">
+    <?php if ($this->session->flashdata('msg')) { ?>
+      <div class="alert alert-success"> <?= $this->session->flashdata('msg') ?> </div>
+    <?php } ?>
+  <div style="  margin-top:20px;"> 
     <div class="container">
     <h5 style="font-weight: bolder; color: black; margin-top: 5px; "><strong style="border-bottom: 3px solid red; font-size:25px; ">Reporting & Feedback</strong></h5>
       <?php foreach ($report as $row): ?>
         <h2 ><strong style="font-size: 18px;">Download Daftar Hadir </strong></h2>
-        <a class="btn2" href="<?php echo base_url("./upload/report/daftar_hadir/$row->daftar_hadir"); ?>" style="background-color:#BD0306; text-decoration: none; text-align:center;">Unduh</a><br><br><br><br><br>
+        <a class="btn2" href="<?php echo base_url("./upload/report/daftar_hadir/$row->daftar_hadir"); ?>" style="background-color:#BD0306; text-decoration: none; text-align:center;">Unduh</a><br><br>
         <h2 ><strong style="font-size: 18px;">Download Materi </strong></h2>
-        <a class="btn" href="<?php echo base_url("./upload/report/materi/$row->materi"); ?>" style="background-color:#BD0306; text-decoration: none; text-align:center;">Unduh</a>
+        <a class="btn1" href="<?php echo base_url("./upload/report/materi/$row->materi"); ?>" style="background-color:#BD0306; text-decoration: none; text-align:center;">Unduh</a>
       <?php endforeach ?>
       <div style="margin-top:7em;">
         <div>
@@ -69,30 +72,29 @@
         </div>
       </div>
       
-      <?php // form_open(base_url('MainController/register')); ?> 
-      <form method="post">
+      <form action="<?php echo site_url().'MainController/Feedback' ?>" method="post" enctype="multipart/form-data" >
         <div class="row">
           <div class="col-sm-6" style="margin-bottom:3em;">
           <h2 style="font-size:18px; font-weight:bold; margin-top:3em;">Rating</h2>
           <p style="margin-top:5px;">Tingkat kepuasan selama menjalani ICT Tour</p>
             <div class="form-check form-check-inline" style="margin-left:20px;">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
               <div class="row" style="margin-top:2.5em;"><label class="form-check-label" for="inlineRadio1" style="font-size:15px;">1</label></div>
             </div>
             <div class="form-check form-check-inline" style="margin-left:45px;">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
               <div class="row" style="margin-top:2.5em;"><label class="form-check-label" for="inlineRadio2" style="font-size:15px;">2</label></div>
             </div>
             <div class="form-check form-check-inline" style="margin-left:45px;">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3">
               <div class="row" style="margin-top:2.5em;"><label class="form-check-label" for="inlineRadio3" style="font-size:15px;">3</label></div>
             </div>
             <div class="form-check form-check-inline" style="margin-left:45px;">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4">
               <div class="row" style="margin-top:2.5em;"><label class="form-check-label" for="inlineRadio4" style="font-size:15px;">4</label></div>
             </div>
             <div class="form-check form-check-inline" style="margin-left:45px;">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="5">
               <div class="row" style="margin-top:2.5em;"><label class="form-check-label" for="inlineRadio5" style="font-size:15px;">5</label></div>
             </div>
             </div>

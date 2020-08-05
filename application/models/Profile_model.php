@@ -199,7 +199,16 @@
         return $this->db->get_where('galeri_report', array('id_report' => $id))->result();                 
     }
 
-
-    
+    public function insertFeedback($komen,$rating)
+    {
+        $id = $this->session->userdata("user")['id'];
+        $data = array(
+          'id_user' => $id,
+          'komen' => $komen,
+          'rating' => $rating,
+          'tanggal_feedback' => date('Y-m-d'),
+        );
+        $this->db->insert('feedback', $data); 
+    }   
 
   }

@@ -11,7 +11,7 @@ body {
 
 
   .btn{
-    background: #BD0306; 
+    	  background: #BD0306; 
 	  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
 	  border-radius: 30px; 
 	  font-size: 15px; 
@@ -22,7 +22,7 @@ body {
 	  width:100%;
 	  max-width: 150px;
 	  position: absolute;
-	  top: 30%;
+	  top: 52%;
 	  margin-left: 5em;
 	  -ms-transform: translate(-50%, -50%);
 	  transform: translate(-50%, -50%);
@@ -40,7 +40,25 @@ body {
 	  width:100%;
 	  max-width: 150px;
 	  position: absolute;
-	  top: 30%;
+	  top: 14%;
+	  margin-left: 5em;
+	  -ms-transform: translate(-50%, -50%);
+	  transform: translate(-50%, -50%);
+	  }
+
+.btn1{
+	  background: #BD0306; 
+	  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
+	  border-radius: 30px; 
+	  font-size: 15px; 
+	  font-family: Lato; 
+	  color:white; 
+	  padding: 4px;
+	  height: auto;
+	  width:100%;
+	  max-width: 150px;
+	  position: absolute;
+	  top: 21%;
 	  margin-left: 5em;
 	  -ms-transform: translate(-50%, -50%);
 	  transform: translate(-50%, -50%);

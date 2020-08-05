@@ -75,6 +75,17 @@ class MainController extends CI_Controller {
 		$this->load->view('templates/header', $data);
 		$this->load->view('home/feedback');
 		$this->load->view('templates/footer');	
+
+		$this->form_validation->set_rules('inlineRadioOptions','rating','required|trim|xss_clean');
+		$this->form_validation->set_rules('saran','saran','required|trim|xss_clean');
+
+		$rating = $this->input->post("inlineRadioOptions");
+		$saran = $this->input->post("saran");
+		if ($this->form_validation->run()==TRUE) {
+			$this->Profile_model->insertFeedback($saran,$rating);		
+			$this->session->set_flashdata('msg', 'Feedback telah dikirim');
+			redirect(site_url('MainController/Feedback'));
+		}		
 	}
 
 	public function forgetpass(){
