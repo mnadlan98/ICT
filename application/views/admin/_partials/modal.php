@@ -637,3 +637,68 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+<!-- Modal Edit Config Email -->
+<div id="editConfigEmail" class="modal fade">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title">Edit Config Email</h1>
+            </div>
+            <div class="modal-body">
+                <form id="configEmail"action="" method="POST">
+                    <div class="form-group">
+                        <label class="control-label">protocol</label>
+                        <div>
+                            <input type="text" class="form-control input-lg" id="protocol" name="protocol" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">mailtype</label>
+                        <div>
+                            <input type="text" class="form-control input-lg" id="mailtype" name="mailtype" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">smtp_host</label>
+                        <div>
+                            <input type="text" class="form-control input-lg" id="smtp_host" name="smtp_host" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">smtp_port</label>
+                        <div>
+                            <input type="text" class="form-control input-lg" id="smtp_port" name="smtp_port" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">smtp_timeout</label>
+                        <div>
+                            <input type="text" class="form-control input-lg" id="smtp_timeout" name="smtp_timeout" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">smtp_user</label>
+                        <div>
+                            <input type="text" class="form-control input-lg" id="smtp_user" name="smtp_user" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">smtp_pass</label>
+                        <div>
+                            <input type="text" class="form-control input-lg" id="smtp_pass" name="smtp_pass" value="">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div>
+                            <button type="submit" class="btn btn-success">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
