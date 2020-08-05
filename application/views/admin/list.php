@@ -35,7 +35,7 @@
 										<th>Jumlah Siswa</th>																			
 										<th>Surat Permohonan</th>
 										<th>Daftar Peserta</th>
-										<th>STO</th>
+										<th>Nama STO</th>
 										<th>Keterangan</th>
 										<th>Persetujuan</th>
 										<th>Tanggal Pengajuan Dibuat</th>
