@@ -67,7 +67,7 @@
                   </div>
                 </a>
             </div>
-            <?php $i=0;?>
+
             <?php foreach ($report as $r): ?>
             <div class="carousel-item" >
             <a href="<?php echo base_url("./upload/report/gambar/$r->gambar1"); ?>" class="portfolio-popup">

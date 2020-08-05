@@ -124,31 +124,55 @@
 								<input class="form-control"
 								 type="file" name="materi" required/>
 								 <br><br>
+
+								<?php foreach ($foto as $r): ?> 
 								 
+								<?php if(!empty($r->gambar1)): ?> 
+								<img style="width:200px;length:200px;" src="<?php echo base_url("./upload/report/gambar/$r->gambar1"); ?>"><br><br>
+								<?php endif ?>
 								<label for="gambar">4. Upload Gambar Acara 1</label>
 								<input class="form-control"
 								 type="file" name="gambar1" required/>
 								 <br><br>
+								 
 
+								<?php if(!empty($r->gambar2)): ?> 
+								<img style="width:200px;length:200px;" src="<?php echo base_url("./upload/report/gambar/$r->gambar2"); ?>"><br><br>
+								<?php endif ?>
 								<label for="gambar">-  Upload Gambar Acara 2</label>
 								<input class="form-control"
 								 type="file" name="gambar2"  />
-								 <br><br>
+								<br><br>
+								
 
+								<?php if(!empty($r->gambar3)): ?> 
+								<img style="width:200px;length:200px;" src="<?php echo base_url("./upload/report/gambar/$r->gambar3"); ?>"><br><br>
+								<?php endif ?>
 								<label for="gambar">-  Upload Gambar Acara 3</label>
 								<input class="form-control"
 								 type="file" name="gambar3"  />
-								 <br><br>
+								<br><br>
+								
 
+								<?php if(!empty($r->gambar4)): ?> 
+								<img style="width:200px;length:200px;" src="<?php echo base_url("./upload/report/gambar/$r->gambar4"); ?>"><br><br>
+								<?php endif ?>
 								<label for="gambar">-  Upload Gambar Acara 4</label>
 								<input class="form-control"
 								 type="file" name="gambar4"  />
-								 <br><br>
+								<br><br>
+								
 
+								<?php if(!empty($r->gambar5)): ?> 
+								<img style="width:200px;length:200px;" src="<?php echo base_url("./upload/report/gambar/$r->gambar5"); ?>"><br><br>
+								<?php endif ?>
 								<label for="gambar">-  Upload Gambar Acara 5</label>
 								<input class="form-control"
 								 type="file" name="gambar5"  />
-								 <br><br>
+								<br><br>
+								
+
+								<?php endforeach ?>
 
 								 <input type="hidden" name="cek" value="cek">
 								

@@ -181,7 +181,7 @@
 																		 
 											<?php if ($pengajuan->status_pengajuan==3){ ?>
 											<select class="form-control"  id="status_pengajuan" name="status_pengajuan">
-												<option value="" selected>Pilih Hasil Persetujuan...</option>
+												<option value="3" selected>Pilih Hasil Persetujuan...</option>
 												<option value="4">Accept</option>
 												<option value="5">Reject</option>
 												<small class="form-text text-danger"><?php echo form_error('status_pengajuan'); ?></small>

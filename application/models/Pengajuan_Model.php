@@ -31,6 +31,10 @@
           }
      }
 
+     function getReportbyIdPengajuan($id){
+          return $this->db->get('report',array('id_pengajuan' => $id))->result();          
+     }
+
      public function getIdUserByPengajuan($id){
           $query = $this->db->get_where('pengajuan', array('id_pengajuan' => $id));
           $data  = $query->row();
@@ -285,4 +289,6 @@
         $status[4] = $value;
         return $status;
      }
+
+
 }

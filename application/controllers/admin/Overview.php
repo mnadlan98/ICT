@@ -834,7 +834,8 @@ class Overview extends CI_Controller {
 		}
         $data["pengajuan"] = $this->Pengajuan_Model->get_PengajuanbyId($id);
         $data["witel"] = $this->Pengajuan_Model->getWitel_byId($this->session->userdata('admin')['id_witel']);
-        $data['wilayah'] = $this->Pengajuan_Model->get_wilayah();
+		$data['wilayah'] = $this->Pengajuan_Model->get_wilayah();
+		$data['foto'] = $this->Pengajuan_Model->getReportbyIdPengajuan($id);
         $this->load->view("admin/report",$data);
 		
 		$this->form_validation->set_rules('materi','materi');
