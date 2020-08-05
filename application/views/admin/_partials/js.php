@@ -116,13 +116,15 @@
         $('#ModalDatel').modal();
     }
 
-    function ModalKontak(url,txt,namawitel,alamat,notelp,email_kontak){
+    function ModalKontak(url,txt,idwitel,namawitel,alamat,notelp,email_kontak){
         $('#form5').attr('action', url);
         $('#txt5').text(txt);
+        $('#idwitel').attr('value', idwitel);
         $('#namawitel').attr('value', namawitel);
         $('#alamat').attr('value', alamat);
         $('#notelp').attr('value', notelp);
         $('#email_kontak').attr('value', email_kontak)
+    
         $('#ModalKontak').modal();
     }
     
