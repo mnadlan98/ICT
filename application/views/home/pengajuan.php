@@ -165,7 +165,7 @@
         <?php echo form_close();?>                
       </form>
         <!-- Modal -->
-        <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal" id="myModal" role="dialog">
           <div class="modal-dialog modal-dialog-centered">
           <!-- Modal content-->
             <div class="modal-content">
