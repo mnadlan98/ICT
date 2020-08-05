@@ -104,16 +104,13 @@ class Overview extends CI_Controller {
 				$this->email->to($data["pengajuan"]->email_user);
 				$this->email->subject("Status Pengajuan");
 				if($this->input->post("status_pengajuan")==2){
-					$this->email->message(" Pengajuan anda telah direview oleh admin silahkan lakukan konfirmasi 
-					<br> Silahkan login untuk melakukan konfirmasi<br><br>".site_url("login/index"));	
+					$this->email->message(" Pengajuan anda telah direview oleh admin. Silahkan login untuk melakukan konfirmasi ".site_url("login/index"));	
 					$this->email->send();				
 				}else if($this->input->post("status_pengajuan")==3){
-					$this->email->message(" Pengajuan anda telah direview oleh admin silahkan lakukan konfirmasi 
-					<br> Silahkan login untuk melakukan konfirmasi<br><br>".site_url("login/index"));	
+					$this->email->message(" Pengajuan anda telah direview oleh admin");	
 					$this->email->send();				
 				}else if($this->input->post("status_pengajuan")==4){
-					$this->email->message(" Pengajuan anda telah disetujui oleh pihak telkom silahkan lakukan konfirmasi 
-					<br> Silahkan hubungi kontak yang tersedia");
+					$this->email->message(" Pengajuan anda telah disetujui oleh pihak telkom silahkan lakukan konfirmasi. Silahkan hubungi kontak yang tersedia");
 					$this->email->send();
 				}else if($this->input->post("status_pengajuan")==5){
 					$this->email->message(" Pengajuan anda telah ditolak oleh pihak telkom ");
@@ -787,25 +784,31 @@ class Overview extends CI_Controller {
         $this->load->view("admin/report",$data);
 		
 		$this->form_validation->set_rules('materi','materi');
-		$this->form_validation->set_rules('daftar_hadir','daftar hadir');
+		$this->form_validation->set_rules('daftar_siswa','daftar siswa');
 		$this->form_validation->set_rules('cek','cek','required');
-		$this->form_validation->set_rules('files[]','Upload Gambar');
+		$this->form_validation->set_rules('gambar1','Upload Gambar');
+		$this->form_validation->set_rules('gambar2','Upload Gambar');
+		$this->form_validation->set_rules('gambar3','Upload Gambar');
+		$this->form_validation->set_rules('gambar4','Upload Gambar');
+		$this->form_validation->set_rules('gambar5','Upload Gambar');
 		       
         if ($this->form_validation->run()) {
 			
 			$this->id_user = $this->Pengajuan_Model->getIdUserByPengajuan($id);
 			$this->id_pengajuan = $id;
 
-			$this->daftar_hadir = $this->upload_dhadir();
-			$this->materi = $this->upload_materi();
+			$this->daftar_siswa = $this->upload_dhadir();
+			$this->daftarmateri = $this->upload_materi();
+			
+			$this->gambar1 = $this->upload_gambar(1);
+			$this->gambar2 = $this->upload_gambar(2);
+			$this->gambar3 = $this->upload_gambar(3);
+			$this->gambar4 = $this->upload_gambar(4);
+			$this->gambar5 = $this->upload_gambar(5);
 			
 
-			$files = $this->images();
-			
-
-			if($this->materi != null && $this->daftar_hadir != null || $files != null){
+			if($this->materi != null && $this->daftar_siswa != null || $this->gambar1 != null){
 				$this->Pengajuan_Model->insertReport($this);
-				$this->Pengajuan_Model->insertFotoReport($files);	
 				if($this->Pengajuan_Model->updatePengajuan($id,array('eventover' => TRUE))){
 						$this->session->set_flashdata('msg','Berhasil Disubmit');
 						$config = array();
@@ -827,7 +830,7 @@ class Overview extends CI_Controller {
 						$this->email->from($config['smtp_user']);
 						$this->email->to($data["pengajuan"]->email_user);
 						$this->email->subject("Status Pengajuan");					
-						$this->email->message(" Admin telah melakukan report terkait kunjungan anda <br> Silahkan melakukan login dan cek website untuk melihat hasil laporan");	
+						$this->email->message(" Admin telah melakukan report terkait kunjungan anda. Silahkan melakukan login dan kunjungi website ICT Tour untuk melihat hasil report");	
 						$this->email->send();																																				
 				}
 			}else{
@@ -863,26 +866,33 @@ class Overview extends CI_Controller {
         $this->load->view("admin/report",$data);
 		
 		$this->form_validation->set_rules('materi','materi');
-		$this->form_validation->set_rules('daftar_hadir','daftar hadir');
+		$this->form_validation->set_rules('daftar_siswa','daftar siswa');
 		$this->form_validation->set_rules('cek','cek','required');
-		//$this->form_validation->set_rules('files[]','Upload Gambar');
+		$this->form_validation->set_rules('gambar1','Upload Gambar');
+		$this->form_validation->set_rules('gambar2','Upload Gambar');
+		$this->form_validation->set_rules('gambar3','Upload Gambar');
+		$this->form_validation->set_rules('gambar4','Upload Gambar');
+		$this->form_validation->set_rules('gambar5','Upload Gambar');
 		       
         if ($this->form_validation->run()) {
 			
 			$this->id_user = $this->Pengajuan_Model->getIdUserByPengajuan($id);
 			$this->id_pengajuan = $id;
 
-			$this->daftar_hadir = $this->upload_dhadir();
-			$this->materi = $this->upload_materi();
+			$this->daftar_siswa = $this->upload_dhadir();
+			$this->daftarmateri = $this->upload_materi();
+			
+			$this->gambar1 = $this->upload_gambar(1);
+			$this->gambar2 = $this->upload_gambar(2);
+			$this->gambar3 = $this->upload_gambar(3);
+			$this->gambar4 = $this->upload_gambar(4);
+			$this->gambar5 = $this->upload_gambar(5);
 			
 			$report = $this->Pengajuan_Model->getIdReportByPengajuan($id);
+		
 
-			//$files = $this->images();
-			
-
-			if($this->materi != null && $this->daftar_hadir != null || $files != null){
+			if($this->materi != null && $this->daftar_siswa != null || $this->gambar1 != null){
 				$this->Pengajuan_Model->updateReport($report,$this);
-				//$this->Pengajuan_Model->updateFotoReport($report,$files);	
 				$this->Pengajuan_Model->updatePengajuan($id,array('eventover' => TRUE));	
 				$this->session->set_flashdata('msg','Data report berhasil diupdate');  																																		
 			}else{
@@ -899,50 +909,23 @@ class Overview extends CI_Controller {
 	   }      
 	}
 
-	
-	
-	public function images()
-	{
-		$filesCount = count($_FILES['files']['name']); 
-                for($i = 0; $i < $filesCount; $i++){ 
-                    $_FILES['file']['name']     = $_FILES['files']['name'][$i]; 
-                    $_FILES['file']['type']     = $_FILES['files']['type'][$i]; 
-                    $_FILES['file']['tmp_name'] = $_FILES['files']['tmp_name'][$i]; 
-                    $_FILES['file']['error']     = $_FILES['files']['error'][$i]; 
-                    $_FILES['file']['size']     = $_FILES['files']['size'][$i]; 
-                     
-                    // File upload configuration 
+	function upload_gambar($id){
 
-                    $config['upload_path'] = 'upload/report/gambar'; 
-                    $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
-                    //$config['max_size']    = '100'; 
-                    //$config['max_width'] = '1024'; 
-                    //$config['max_height'] = '768'; 
-                     
-                    // Load and initialize upload library 
-                    $this->load->library('upload', $config); 
-                    $this->upload->initialize($config); 
-                     
-                    // Upload file to server 
-                    if($this->upload->do_upload('file')){ 
-                        // Uploaded file data 
-                        $fileData = $this->upload->data(); 
-                        $uploadData[$i]['foto_report'] = $fileData['file_name']; 
-                        $uploadData[$i]['tanggal_upload'] = date("Y-m-d H:i:s"); 
-                    }
-                } 
-                 
-                if(!empty($uploadData)){ 
-                    // Insert files data into the database 
-                    return $uploadData;                     
-                }
-            
-         
+		$config['upload_path']          = './upload/report/gambar';
+		$config['allowed_types']        = 'jpg|jpeg|png|gif';
+		$config['max_size']             = 8192; // 8MB
+  
+		$this->load->library('upload', $config);
+		$this->upload->initialize($config);
+		if ($this->upload->do_upload('gambar'.$id)) {
+		  return $this->upload->data("file_name");
+		}
 	}
+		
 
 	function upload_materi(){
 
-		$config['upload_path']          = './upload/report/materi';
+		$config['upload_path']          = './upload/report/daftarmateri';
 		$config['allowed_types']        = 'pdf';
 		$config['max_size']             = 8192; // 8MB
   
@@ -957,13 +940,13 @@ class Overview extends CI_Controller {
 
 	function upload_dhadir(){
 
-		$config['upload_path']          = './upload/report/daftar_hadir';
+		$config['upload_path']          = './upload/report/daftar_siswa';
 		$config['allowed_types']        = 'xlsx';
 		$config['max_size']             = 8192; // 8MB
   
 		$this->load->library('upload', $config);
 		$this->upload->initialize($config);
-		if ($this->upload->do_upload('daftar_hadir')) {
+		if ($this->upload->do_upload('daftar_siswa')) {
 		  return $this->upload->data("file_name");
 		}else{
 		  return $this->session->set_flashdata('msg',$this->upload->display_errors());
@@ -979,6 +962,8 @@ class Overview extends CI_Controller {
 				'tanggal_tour' => $this->input->post('tanggal_tour'),
 				'lokasi_tour' => $this->input->post('lokasi_tour'),
 				'nama_pejabat' => $this->input->post('nama_pejabat'),
+				'gelar_pejabat' => $this->input->post('gelar_pejabat'),
+				'nama_witel' => $this->input->post('nama_witel'),
 				'tanggal' => date('d-m-Y'),
 			);
 			

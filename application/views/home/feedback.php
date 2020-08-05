@@ -45,9 +45,9 @@
     <h5 style="font-weight: bolder; color: black; margin-top: 5px; "><strong style="border-bottom: 3px solid red; font-size:25px; ">Reporting & Feedback</strong></h5>
       <?php foreach ($report as $row): ?>
         <h2 ><strong style="font-size: 18px;">Download Daftar Hadir </strong></h2>
-        <a class="btn2" href="<?php echo base_url("./upload/report/daftar_hadir/$row->daftar_hadir"); ?>" style="background-color:#BD0306; text-decoration: none; text-align:center;">Unduh</a><br><br>
+        <a class="btn2" href="<?php echo base_url("./upload/report/daftar_hadir/$row->daftar_siswa"); ?>" style="background-color:#BD0306; text-decoration: none; text-align:center;">Unduh</a><br><br>
         <h2 ><strong style="font-size: 18px;">Download Materi </strong></h2>
-        <a class="btn1" href="<?php echo base_url("./upload/report/materi/$row->materi"); ?>" style="background-color:#BD0306; text-decoration: none; text-align:center;">Unduh</a>
+        <a class="btn1" href="<?php echo base_url("./upload/report/materi/$row->daftarmateri"); ?>" style="background-color:#BD0306; text-decoration: none; text-align:center;">Unduh</a>
       <?php endforeach ?>
       <div style="margin-top:7em;">
         <div>
@@ -58,16 +58,31 @@
         </div>
         <div class="container-fluid">
           <div class="row no-gutters">
-            <?php $i=0;?>
-            <?php foreach ($foto as $r): ?>
+          <?php foreach ($report as $report): ?>
             <div class="col-lg-3 col-md-4">
               <div class="portfolio-item wow fadeInUp">
-                <a href="<?php echo base_url("./upload/report/gambar/$r->foto_report"); ?>" class="portfolio-popup">
-                  <img style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$r->foto_report"); ?>">                 
+                <a href="<?php echo base_url("./upload/report/gambar/$report->gambar1"); ?>" class="portfolio-popup">
+                  <img style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$report->gambar1"); ?>">                 
                 </a>               
               </div>
             </div>
-            <?php endforeach; ?>
+
+            <div class="col-lg-3 col-md-4">
+              <div class="portfolio-item wow fadeInUp">
+                <a href="<?php echo base_url("./upload/report/gambar/$report->gambar2"); ?>" class="portfolio-popup">
+                  <img style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$report->gambar2"); ?>">                 
+                </a>               
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+              <div class="portfolio-item wow fadeInUp">
+                <a href="<?php echo base_url("./upload/report/gambar/$report->gambar3"); ?>" class="portfolio-popup">
+                  <img style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$report->gambar3"); ?>">                 
+                </a>               
+              </div>
+            </div>
+          <?php endforeach ?>
           </div>
         </div>
       </div>

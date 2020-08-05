@@ -31,13 +31,14 @@
                     <br /><span style="color:black;text-align:center;font-weight:bold;font-size:38pt;">PARTICIPATION</span>
                     <br /><span></span>
                     <br /><span style="color:red;text-align:center;font-weight:bold;font-size:15pt;">Management PT. Telekomunikasi Indonesia, Tbk</span>
-                    <br /><span style="color:red;text-align:center;font-weight:bold;font-size:15pt;">Telkom Regional III Jawa Barat</span>
+                    <br /><span style="color:red;text-align:center;font-weight:bold;font-size:15pt;">'.$peserta['nama_witel'].'</span>
                     <br /><p style="color:black;text-align:center;font-weight:light;font-size:15pt;"><i>This to certify that</i></p>       
                     <br /><span style="color:black;text-align:center;font-weight:light;font-size:70pt;"><u>'.$peserta['nama_peserta'].'</u></span>
                     <br /><ul><li></ul><span style="color:red;text-align:center;font-weight:light;font-size:14pt;">Has participated in ICT Tour from  '.$peserta['nama_sekolah'].'</span>
                     <br /><span style="color:black;text-align:center;font-weight:light;font-size:14pt;">'.$peserta['tanggal_tour'].'</span>
                     <br /><p style="color:black;text-align:center;font-weight:light;font-size:12pt;">'.$peserta['lokasi_tour'].', '.$peserta['tanggal'].'</p>
-                    <br /><span style="color:red;text-align:center;font-weight:bold;font-size:15pt;">'.$peserta['nama_pejabat'].'</span>';
+                    <br /><span style="color:red;text-align:center;font-weight:bold;font-size:15pt;">'.$peserta['nama_pejabat'].'</span>
+                    <br /><span style="color:red;text-align:center;font-weight:bold;font-size:15pt;">'.$peserta['gelar_pejabat'].'</span>';                   ;
           
             $pdf->writeHTML($html, true, false, true, false, '');
             $pdf->Output('daftar_produk.pdf', 'I');
