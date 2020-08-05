@@ -144,6 +144,24 @@
         $('#KabupatenKota').attr('value', KabupatenKota);
         $('#ModalSekolah').modal();
     }
+	
+    function ModalUser(url,nama_user,email_user,notelp_user,kota_sekolah,nama_sekolah,email_sekolah,notelp_sekolah){
+        $('#editUser').attr('action', url);
+        $('#nama_user').attr('value', nama_user);
+        $('#email_user').attr('value', email_user);
+        $('#notelp_user').attr('value', notelp_user);
+        $( "#kota_sekolah" ).autocomplete({
+            source: "<?php echo site_url('Register/get_kotasekolah/?');?>"
+        });
+        $('#kota_sekolah').attr('value', kota_sekolah);
+        $( "#nama_sekolah" ).autocomplete({
+            source: "<?php echo site_url('Register/get_namasekolah/?');?>"
+        });
+        $('#nama_sekolah').attr('value', nama_sekolah);
+        $('#email_sekolah').attr('value', email_sekolah);
+        $('#notelp_sekolah').attr('value', notelp_sekolah);
+        $('#EditUser').modal();
+    }
 
 </script>
 
