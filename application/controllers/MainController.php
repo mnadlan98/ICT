@@ -87,14 +87,4 @@ class MainController extends CI_Controller {
 			redirect(site_url('MainController/Feedback'));
 		}		
 	}
-
-	public function forgetpass(){
-		$this->load->view('templates/header');
-		$this->load->view('home/reset_password');
-		$this->load->view('templates/footer');	
-	}
-
-
-
-
 }
