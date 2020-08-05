@@ -58,20 +58,19 @@
             <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Nama Sekolah : <?= $this->session->userdata("user")['nama_sekolah'] ?></p>
             <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Email Sekolah : <?= $this->session->userdata("user")['email_sekolah'] ?></p>
             <p style="font-size: 15px; border-bottom:1px solid gray; color: white">No. Telepon Sekolah : <?= $this->session->userdata("user")['notelp_sekolah'] ?></p>
-            <p style="font-size: 15px; border-bottom:1px solid gray; color: white">Status Pengajuan : <?= $this->session->userdata("user")['status_pengajuan'] ?></p>
           </div>
         </div>
       </div>
     </section>
       
  
-
+      
       <section id="review">
+      <?php if($this->session->userdata("user")['status_pengajuan'] > 0){ ?>
         <div class="section-header">
           <h2 ><strong style="color:black;  margin-left: 10px;">Riwayat Pengajuan</strong></h2>
         </div>
-        <?php $no=1; ?>
-         
+        <?php $no=1; ?>        
         <div class="row" style="margin-left: 10px;">
         <div class="card-body">
                                 <div class="table-responsive">
@@ -139,9 +138,12 @@
                                     </table>
                                 </div>
                             </div>
-        </div>
-        
+        </div> 
+        <?php }else{ 
+          echo " Anda belum melakukan pengajuan <br>";
+        } ?>      
         </section>
+        
     
 
 

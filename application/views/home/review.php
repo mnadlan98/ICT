@@ -134,7 +134,7 @@
                                                 <th>Tanggal Persetujuan Pelaksanaan</th>
                                                 <th>Persetujuan Sekolah</th> 
                                                 <th>Status Pengajuan</th>
-                                                <?php if ($row->approved==0){ ?>
+                                                <?php if ($row->approved==0 && $row->status_pengajuan==2){ ?>
                                                 <th>Aksi</th>
                                                 <?php } ?>
                                             </tr>

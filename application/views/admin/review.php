@@ -128,7 +128,8 @@
 					             <input type="text" class="form-control disabled"   id="approved" name="approved" value="<?php echo $hasil?>" placeholder="Diajukan">
 								
 					        
-							</div>
+							</div>							
+							<?php endif ?>
 							<div class="row bs-wizard" style="border-bottom:0;">
                 
 								<div class=<?php echo $status[0] ?> >
@@ -159,7 +160,6 @@
 								<div class="bs-wizard-info text-center">-----------Hasil Pengajuan</div>
 								</div>
 							</div>   
-							<?php endif ?>
 					        <div class="form-group">
 					            <label>Status Pengajuan</label>
 								 <?php if ($pengajuan->status_pengajuan==1){ ?>
@@ -202,7 +202,7 @@
 									<?php } ?>
 					            <small class="form-text text-danger"><?php echo form_error('jenjang_sekolah'); ?></small>
 							</div>
-							<?php if ($pengajuan->status_pengajuan==4 || $pengajuan->status_pengajuan==5){ ?>
+							<?php if ($pengajuan->status_pengajuan==4 || $pengajuan->status_pengajuan==5 || $pengajuan->status_pengajuan==2){ ?>
                                 <input type="hidden">
                             <?php }else if($pengajuan->approved!=1 ){ ?>
                                 <input class="btn btn-success" type="submit" name="btn" value="Update" onclick="changeStatus()" />

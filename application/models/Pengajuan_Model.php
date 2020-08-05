@@ -7,7 +7,7 @@
           $this->db->insert('pengajuan',$data);
      }
 
-     public function insertReport($id,$data)
+     public function insertReport($data)
      {
           $this->db->insert('report',$data);
      }
@@ -16,42 +16,16 @@
      {
           $this->db->update('report',$data, array('id_report' => $id));
      }
-
-     public function insertFotoReport($data = array())
-     {       
-          $this->db->select('id_report');
-          $this->db->from('report');
-          $this->db->order_by('id_report', 'DESC');
-          $this->db->limit(1);
-
-          $query = $this->db->get();
-          $row  = $query->row();
-          $id = (int)$row->id_report;
-
-          for($x = 0; $x < count($data); $x++){
-              $data[$x]['id_report'] = $id;
-          }
-          $this->db->insert_batch('galeri_report',$data);
-     }
-
-     public function updateFotoReport($id,$data = array())
-     {       
-
-          for($x = 0; $x < count($data); $x++){
-              $data[$x]['id_report'] = $id;
-          }
-          $this->db->update_batch('galeri_report',$data, $id);
-     }
      
      public function getDHadirByPengajuan($id){
-          $this->db->select('daftar_hadir');
+          $this->db->select('daftar_siswa');
           $this->db->from('report');
-          $this->db->where("EXISTS(SELECT materi FROM report WHERE id_pengajuan = ".$id.")");
+          $this->db->where("EXISTS(SELECT daftarmateri FROM report WHERE id_pengajuan = ".$id.")");
         
           $query = $this->db->get();
           $row  = $query->row();
           if(!empty($row)){
-               return $row->daftar_hadir;
+               return $row->daftar_siswa;
           }else{
                return null;
           }

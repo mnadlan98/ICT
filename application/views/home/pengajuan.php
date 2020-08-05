@@ -57,7 +57,7 @@
           <h5 style="font-weight: bolder; color: black;  color:white; "><strong style=" font-size:14px; ">Data Pengajuan</strong></h5><br>
           <div class="row">
             <div class="col-sm-5">
-              <label style="font-size:15px; color:white; padding-right:3.1em;">Jumlah Siswa (Maksimum 30)</label>
+              <label style="font-size:15px; color:white; padding-right:3.1em;">Jumlah Siswa (Maksimum 30) *</label>
             </div>
             <div class="form-group col-xs-2">
               <input type="number" class="form-control " id="jumlah_siswa" name="jumlah_siswa" min="1" max="30" style=" box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25)">
@@ -66,7 +66,7 @@
           <label style="font-size:10px; color:red;"><?php echo form_error('jumlah_siswa'); ?></label>
           <div class="row">
             <div class="col-sm-5">
-              <label style="font-size:15px; color:white;">Nama Pembimbing 1</label>
+              <label style="font-size:15px; color:white;">Nama Pembimbing 1 *</label>
             </div>
             <div class="form-group col">
               <input type="text" class="form-control" id="pembimbing1" name="pembimbing1" style=" box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25)">
@@ -84,7 +84,7 @@
           <label style="font-size:10px; color:red;"><?php echo form_error('pembimbing2'); ?></label>
           <div class="row" >
           <div class="col-sm-5">
-              <label style="font-size:15px; color:white;">Tanggal Pelaksanaan</label>
+              <label style="font-size:15px; color:white;">Tanggal Pelaksanaan *</label>
             </div>
             <div class="form-group col">
               <input type="date" class="form-control" id="tanggal_pelaksanaan" name="tanggal_pelaksanaan" style=" box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.25)">
@@ -93,7 +93,7 @@
           <label style="font-size:10px; color:red;"><?php echo form_error('tanggal_pelaksanaan'); ?></label>
           <div class="row">
           <div class="col-sm-5">
-              <label style="font-size:15px; color:white;">Unggah Surat Permohonan (.pdf)</label>
+              <label style="font-size:15px; color:white;">Unggah Surat Permohonan (.pdf) *</label>
             </div>
             <div class="form-group col">
               <input type="file" class="form-control-file" name="surat_permohonan" id="surat_permohonan" style=" color:white;" required>
@@ -103,7 +103,7 @@
           
            <div class="row">
            <div class="col-sm-5">
-              <label style="font-size:15px; color:white;">Unggah Daftar Peserta (.csv / .xlsx)</label>
+              <label style="font-size:15px; color:white;">Unggah Daftar Peserta (.csv / .xlsx) *</label>
             </div>
             <div class="form-group col">
               <input type="file" class="form-control-file" name="daftar_peserta" id="daftar_peserta" style="color:white;" required>
@@ -127,7 +127,7 @@
           
           <div class="row" style="padding-right:1.75em; margin-bottom:20px;">
           <div class="col-sm-5">
-              <label style="font-size:15px; color:white; margin-right:6px">Kota/Kabupaten</label>
+              <label style="font-size:15px; color:white; margin-right:6px">Kota/Kabupaten *</label>
             </div>
             <div class="form-group col">
               <select class="form-control" id="wilayah" name="wilayah"  required>
@@ -140,7 +140,7 @@
           </div>
           <div class="row" style="padding-right:1.75em; margin-bottom:20px;">
           <div class="col-sm-5">
-              <label style="font-size:15px; color:white; margin-right:17px">Kantor Telkom</label>
+              <label style="font-size:15px; color:white; margin-right:17px">Kantor Telkom *</label>
             </div>
             <div class="form-group col">
               <select class="form-control" id="sto" name="sto"  required>
@@ -162,8 +162,10 @@
           <div class="row-sm-6">
           </div>
         </div>
+        
         <?php echo form_close();?>                
       </form>
+      <p style="font-size:15px; color:white; margin-right:17px"> * = Wajib diisi </p>
         <!-- Modal -->
         <div class="modal" id="myModal" role="dialog">
           <div class="modal-dialog modal-dialog-centered">

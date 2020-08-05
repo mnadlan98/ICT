@@ -68,12 +68,44 @@
                 </a>
             </div>
             <?php $i=0;?>
-            <?php foreach ($foto as $r): ?>
+            <?php foreach ($report as $r): ?>
             <div class="carousel-item" >
-            <a href="<?php echo base_url("./upload/report/gambar/$r->foto_report"); ?>" class="portfolio-popup">
-                  <img style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$r->foto_report"); ?>">                 
+            <a href="<?php echo base_url("./upload/report/gambar/$r->gambar1"); ?>" class="portfolio-popup">
+                  <img style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$r->gambar1"); ?>">                 
                 </a>   
             </div>
+
+            <?php if(!empty($r->gambar2)): ?> 
+            <div class="carousel-item" >
+            <a href="<?php echo base_url("./upload/report/gambar/$r->gambar2"); ?>" class="portfolio-popup">
+                  <img style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$r->gambar2"); ?>">                 
+                </a>   
+            </div>
+            <?php endif ?>
+
+            <?php if(!empty($r->gambar3)): ?> 
+            <div class="carousel-item" >
+            <a href="<?php echo base_url("./upload/report/gambar/$r->gambar3"); ?>" class="portfolio-popup">
+                  <img style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$r->gambar3"); ?>">                 
+                </a>   
+            </div>
+            <?php endif ?>
+
+            <?php if(!empty($r->gambar4)): ?> 
+            <div class="carousel-item" >
+            <a href="<?php echo base_url("./upload/report/gambar/$r->gambar4"); ?>" class="portfolio-popup">
+                  <img style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$r->gambar4"); ?>">                 
+                </a>   
+            </div>
+            <?php endif ?>
+
+            <?php if(!empty($r->gambar5)): ?> 
+            <div class="carousel-item" >
+            <a href="<?php echo base_url("./upload/report/gambar/$r->gambar5"); ?>" class="portfolio-popup">
+                  <img style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$r->gambar5"); ?>">                 
+                </a>   
+            </div>
+            <?php endif ?>
 
           <?php endforeach ?>
           </div>

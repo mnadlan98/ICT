@@ -60,14 +60,14 @@ class Overview extends CI_Controller {
         $this->form_validation->set_rules('jumlah_siswa', 'Jumlah Siswa','trim|required|xss_clean');
         $this->form_validation->set_rules('pembimbing1', 'Nama Pembimbing 1','trim|required|xss_clean');
         $this->form_validation->set_rules('pembimbing2', 'Nama Pembimbing 2','trim|xss_clean');
-	$this->form_validation->set_rules('tanggal_pelaksanaan', 'Tanggal Pelaksanaan','trim|required|xss_clean');
-	$this->form_validation->set_rules('tanggal_persetujuan', 'Tanggal Persetujuan','trim|required|xss_clean');
-	$this->form_validation->set_rules('status_pengajuan', 'Persetujuan','trim|required|xss_clean');
+		$this->form_validation->set_rules('tanggal_pelaksanaan', 'Tanggal Pelaksanaan','trim|required|xss_clean');
+		$this->form_validation->set_rules('tanggal_persetujuan', 'Tanggal Persetujuan','trim|required|xss_clean');
+		$this->form_validation->set_rules('status_pengajuan', 'Persetujuan','trim|required|xss_clean');
 
-	$data['status'] = $this->Pengajuan_Model->getStatus($id);
-        $data["pengajuan"] = $this->Pengajuan_Model->get_PengajuanbyId($id);
-        $data["witel"] = $this->Pengajuan_Model->getWitel_byId($this->session->userdata('admin')['id_witel']);
-	$data['wilayah'] = $this->Pengajuan_Model->get_wilayah();  
+		$data['status'] = $this->Pengajuan_Model->getStatus($id);
+		$data["pengajuan"] = $this->Pengajuan_Model->get_PengajuanbyId($id);
+		$data["witel"] = $this->Pengajuan_Model->getWitel_byId($this->session->userdata('admin')['id_witel']);
+		$data['wilayah'] = $this->Pengajuan_Model->get_wilayah();  
 
 		
         
@@ -110,12 +110,13 @@ class Overview extends CI_Controller {
 					$this->email->message(" Pengajuan anda telah direview oleh admin");	
 					$this->email->send();				
 				}else if($this->input->post("status_pengajuan")==4){
-					$this->email->message(" Pengajuan anda telah disetujui oleh pihak telkom silahkan lakukan konfirmasi. Silahkan hubungi kontak yang tersedia");
+					$this->email->message(" Pengajuan anda telah disetujui oleh pihak telkom. Hubungi kontak yang tersedia bila ada pertanyaan lebih lanjut");
 					$this->email->send();
 				}else if($this->input->post("status_pengajuan")==5){
 					$this->email->message(" Pengajuan anda telah ditolak oleh pihak telkom ");
 					$this->email->send();
 				}
+				redirect(site_url("admin/overview/review/".$id));
 			}                      
         }
         else{

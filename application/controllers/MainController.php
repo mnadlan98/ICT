@@ -71,7 +71,6 @@ class MainController extends CI_Controller {
 	public function Feedback(){
 		$data['title'] = 'Feedback';
 		$data['report'] = $this->Profile_model->getReport();
-		$data['foto'] = $this->Profile_model->getFotoReport($this->Profile_model->getIdReport());
 		$this->load->view('templates/header', $data);
 		$this->load->view('home/feedback');
 		$this->load->view('templates/footer');	

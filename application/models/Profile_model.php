@@ -195,10 +195,6 @@
         return (int)$data->id_report;   
     }
 
-    function getFotoReport($id){
-        return $this->db->get_where('galeri_report', array('id_report' => $id))->result();                 
-    }
-
     public function insertFeedback($komen,$rating)
     {
         $id = $this->session->userdata("user")['id'];

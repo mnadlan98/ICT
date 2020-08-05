@@ -60,24 +60,44 @@
 						
 							<div class="form-group">
 
-								<label for="materi">Download Template Daftar Hadir</label><br>
+								<label for="materi">1. Download Template Daftar Siswa</label><br>
 								<a href="<?php echo base_url("./excel/daftar_hadir.xlsx"); ?>" 
 								style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Download</u></small></a> <br><br><br>
 							
-								<label for="daftar_hadir">Upload Daftar Hadir (Xlsx)</label>
+								<label for="daftar_siswa">2. Upload Daftar Siswa (Xlsx)</label>
 								<input class="form-control"
-								 type="file" name="daftar_hadir" required/>
+								 type="file" name="daftar_siswa" required/>
 								 <br><br>
 
-								 <label for="materi">Upload Materi (PDF)</label>
+								 <label for="materi">3. Upload Materi dan Daftar Hadir (PDF)</label>
 								<input class="form-control"
 								 type="file" name="materi" required/>
 								 <br><br>
 								 
-								<label for="files[]">Upload Gambar Acara</label>
+								<label for="gambar">4. Upload Gambar Acara 1</label>
 								<input class="form-control"
-								 type="file" name="files[]" multiple="multiple" required/>
-								 <br>
+								 type="file" name="gambar1"  required/>
+								 <br><br>
+
+								<label for="gambar">-  Upload Gambar Acara 2</label>
+								<input class="form-control"
+								 type="file" name="gambar2"  />
+								 <br><br>
+
+								<label for="gambar">-  Upload Gambar Acara 3</label>
+								<input class="form-control"
+								 type="file" name="gambar3"  />
+								 <br><br>
+
+								<label for="gambar">-  Upload Gambar Acara 4</label>
+								<input class="form-control"
+								 type="file" name="gambar4"  />
+								 <br><br>
+
+								<label for="gambar">-  Upload Gambar Acara 5</label>
+								<input class="form-control"
+								 type="file" name="gambar5"  />
+								 <br><br>
 
 								 <input type="hidden" name="cek" value="cek">
 								
@@ -91,24 +111,44 @@
 						
 							<div class="form-group">
 
-								<label for="materi">Download Template Daftar Hadir</label><br>
+							<label for="materi">1. Download Template Daftar Siswa</label><br>
 								<a href="<?php echo base_url("./excel/daftar_hadir.xlsx"); ?>" 
 								style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Download</u></small></a> <br><br><br>
 							
-								<label for="daftar_hadir">Upload Daftar Hadir (Xlsx)</label>
+								<label for="daftar_siswa">2. Upload Daftar Siswa (Xlsx)</label>
 								<input class="form-control"
-								 type="file" name="daftar_hadir" required/>
+								 type="file" name="daftar_siswa" required/>
 								 <br><br>
 
-								 <label for="materi">Upload Materi (PDF)</label>
+								 <label for="materi">3. Upload Materi dan Daftar Hadir (PDF)</label>
 								<input class="form-control"
 								 type="file" name="materi" required/>
 								 <br><br>
 								 
-								<!-- <label for="files[]">Upload Gambar Acara</label>
+								<label for="gambar">4. Upload Gambar Acara 1</label>
 								<input class="form-control"
-								 type="file" name="files[]" multiple="multiple" required/>
-								 <br> -->
+								 type="file" name="gambar1" required/>
+								 <br><br>
+
+								<label for="gambar">-  Upload Gambar Acara 2</label>
+								<input class="form-control"
+								 type="file" name="gambar2"  />
+								 <br><br>
+
+								<label for="gambar">-  Upload Gambar Acara 3</label>
+								<input class="form-control"
+								 type="file" name="gambar3"  />
+								 <br><br>
+
+								<label for="gambar">-  Upload Gambar Acara 4</label>
+								<input class="form-control"
+								 type="file" name="gambar4"  />
+								 <br><br>
+
+								<label for="gambar">-  Upload Gambar Acara 5</label>
+								<input class="form-control"
+								 type="file" name="gambar5"  />
+								 <br><br>
 
 								 <input type="hidden" name="cek" value="cek">
 								
@@ -118,18 +158,28 @@
 						</form>
 						<?php } ?>
 						<br><br>
-						<h5 style="font-weight: bolder; margin-top: 5px; "><strong style="font-size:24px; ">Cetak Sertifikat </strong></h5><br>
+						<h5 style="font-weight: bolder; margin-top: 5px; "><strong style="font-size:24px; ">Cetak Sertifikat </strong></h5>
 						<div id="content-wrapper">
+
+						<p> Masukkan Nama Pejabat </p>
+						<input type="text" name="pejabat" id="pejabat"> <br><br>
+
+						<p> Masukkan Gelar/Pangkat Pejabat </p>
+						<input type="text" name="gelar" id="gelar"><br><br>
+
+						<p> Masukkan Lokasi Witel </p>
+						<input type="text" name="witel" id="witel"><br><br><br>
 
 						<div class="container-fluid">							
 							<!-- DataTables -->
 							<div class="card mb-3" >
 								<div class="card-body" >
+									
 									<div class="table-responsive">
 									<div class="custom-file" method="POST" style="width:220px; float:right;">
 											<input type="file" class="custom-file-input" name="background_sertifikat" id="background_sertifikat" required>
 											<label class="custom-file-label" for="KTP">Ubah Sertifikat</label>
-										</div>										
+										</div>																				
 										<table class="table table-hover" id="example" width="100%" cellspacing="0">
 											<thead>
 												<tr>
@@ -144,13 +194,9 @@
 											<tbody>	
 											<?php
 											if($dhadir!=null){
-												$loc = $_SERVER['DOCUMENT_ROOT'].'/ICT/upload/report/daftar_hadir/'.$dhadir;
-												include('SimpleXLSX.php'); ?>	
-
-												<p> Masukkan Nama Pejabat </p>
-												<input type="text" name="pejabat" id="pejabat">
-												
-												
+												$loc = $_SERVER['DOCUMENT_ROOT'].'/ICT/upload/report/daftar_siswa/'.$dhadir;
+												include('SimpleXLSX.php'); ?>													
+																								
 												<?php												
 												if(file_exists($loc)){
 													if ( $xlsx = SimpleXLSX::parse($loc) ) {
@@ -159,29 +205,31 @@
 														foreach ($xlsx->rows() as $row) :															 
 														?>																						    																																				
 														<tr>
-														<?php if ($cek != 0 ): ?>
+														<?php if ($cek != 0 && ($row[1] && $row[2] && $row[3] && $row[4]) ): ?>
 															<td>
 																<?php echo $i++; ?>
+															</td>
+															<td>
+																<?php echo $row[1]; ?>
+															</td>
+															<td>
+																<?php echo $row[2];?>
 															</td>
 															<td>
 																<?php echo $row[3]; ?>
 															</td>
 															<td>
-																<?php echo $row[4];?>
-															</td>
-															<td>
-																<?php echo $row[5]; ?>
-															</td>
-															<td>
-																<?php echo $row[6]; ?>
+																<?php echo $row[4]; ?>
 															</td>	
 															<form action="<?php echo site_url().'admin/overview/printout/'.$pengajuan->id_pengajuan?>" method="POST" target="_blank"> 
 															<td>																													 
-																<input type="hidden" name="nama_peserta" value="<?php echo $row[3] ?>" >
-																<input type="hidden" name="tanggal_tour" value="<?php echo $row[4] ?>" >
-																<input type="hidden" name="lokasi_tour"  value="<?php echo $row[5] ?>" >
-																<input type="hidden" name="nama_sekolah" value="<?php echo $row[6] ?>" >	
-																<input type="hidden" name="nama_pejabat" id=<?php echo "nama_pejabat".$i ?> value="" >																
+																<input type="hidden" name="nama_peserta" value="<?php echo $row[1] ?>" >
+																<input type="hidden" name="tanggal_tour" value="<?php echo $row[2] ?>" >
+																<input type="hidden" name="lokasi_tour"  value="<?php echo $row[3] ?>" >
+																<input type="hidden" name="nama_sekolah" value="<?php echo $row[4] ?>" >	
+																<input type="hidden" name="nama_pejabat" id=<?php echo "nama_pejabat".$i ?> value="" >	
+																<input type="hidden" name="gelar_pejabat" id=<?php echo "gelar_pejabat".$i ?> value="" >		
+																<input type="hidden" name="nama_witel" id=<?php echo "nama_witel".$i ?> value="" >																
 																<input Type="Submit" Name="Create_pdf" id=<?php echo "serti".$i ?> Class="Btn Btn-Danger" Value="Cetak Sertifikat" onclick="change(<?php echo $i ?>)" >															
 															</td>	
 															</form>																																									
@@ -263,9 +311,18 @@
 
 	var el = document.getElementById("pejabat");
 	var em = document.getElementById("nama_pejabat"+i);
+		if (em.value=="") em.value = el.value;
+		else em.value = el.value;
 
-	if (em.value=="") em.value = el.value;
-	else em.value = el.value;
+	var gl = document.getElementById("gelar");
+	var glp = document.getElementById("gelar_pejabat"+i);
+		if (glp.value=="") glp.value = gl.value;
+		else glp.value = gl.value;
+	
+	var wt = document.getElementById("witel");
+	var nwt = document.getElementById("nama_witel"+i);
+		if (nwt.value=="") nwt.value = wt.value;
+		else nwt.value = wt.value;
 	};
 
 
