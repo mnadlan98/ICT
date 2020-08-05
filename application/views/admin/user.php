@@ -3,6 +3,7 @@
 
 <head>
 	<?php $this->load->view("admin/_partials/head.php") ?>
+	<link href="<?php echo base_url('css/sekolah.css') ?>" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -33,10 +34,12 @@
 										<th>Nama</th>
 										<th>Email User</th>
 										<th>No Telp User</th>
+										<th>Jenjang</th>
 										<th>Sekolah</th>
 										<th>Kota Sekolah</th>
 										<th>Email Sekolah</th>
 										<th>No Telp Sekolah</th>
+										<th>Status Akun</th>
 										<th>Action</th>
 									</tr>
 								</thead>
@@ -57,6 +60,9 @@
 											<?php echo $u->notelp_user ?>
 										</td>
 										<td>
+											<?php echo $u->jenjang_sekolah ?>
+										</td>
+										<td>
 											<?php echo $u->nama_sekolah ?>
 										</td>
 										<td>
@@ -68,7 +74,16 @@
 										<td>
 											<?php echo $u->notelp_sekolah ?>
 										</td>
+										<td>
+											<?php if ($u->active==0): ?>
+												<?php echo "Belum Verifikasi Akun"?>
+											<?php else:?>
+												<?php echo "Sudah Verifikasi Akun"?>
+											<?php endif ?>
+										</td>
 										<td width="250">
+											<a onclick="ModalUser('<?php echo site_url('register/edit_user/'.$u->id_user) ?>','<?php echo $u->nama_user ?>','<?php echo $u->email_user ?>','<?php echo $u->notelp_user ?>','<?php echo $u->kota_sekolah ?>','<?php echo $u->nama_sekolah ?>','<?php echo $u->email_sekolah ?>','<?php echo $u->notelp_sekolah ?>')"
+											 href="#!" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
 											<a onclick="deleteConfirm('<?php echo site_url('admin/overview/delete_user/'.$u->id_user) ?>')"
 											 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
 										</td>
@@ -86,7 +101,6 @@
 
 			<!-- Sticky Footer -->
 			<?php $this->load->view("admin/_partials/footer.php") ?>
-
 		</div>
 		<!-- /.content-wrapper -->
 
