@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -24,7 +24,6 @@
 
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800" rel="stylesheet">
 
-        
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/assets/owl.carousel.min.css" rel="stylesheet" />
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -155,26 +154,40 @@
           <p>Berikut ini merupakan kumpulan dokumentasi foto selama ICT Tour berlangsung</p>
         </div>
       </div>
-
       <div class="container-fluid">
-        <div class="row no-gutters">
-        <?php $i=0;?>
-        <?php foreach ($galeri as $l):
-          ?>
+        <div id="carouselExampleControls" class=" carousel slide" data-ride="carousel">
         
-          <div class="col-lg-3 col-md-4">
-            <div class="portfolio-item wow fadeInUp">
-              <a href="../images/galery/<?php echo $l->foto ?>" class="portfolio-popup">
-                <img src="../images/galery/<?php echo $l->foto ?>" alt="">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp"><?php echo $l->judul ?></h2></div>
-                </div>
-              </a>
+          <div class="carousel-inner" >
+          <div class="carousel-item active" >
+              <a href="../images/galery/header.jpg">
+                  <img   class="img-responsive center-block" src="../images/galery/header.jpg" alt="" style="width:100%;">
+                  <div class="carousel-caption d-none d-md-block">           
+                  </div>
+                </a>
             </div>
+            <?php $i=0;?>
+            <?php foreach ($galeri as $l):
+            ?>
+            <div class="carousel-item" >
+              <a href="../images/galery/<?php echo $l->foto ?>">
+                  <img  class="img-responsive center-block " src="../images/galery/<?php echo $l->foto ?>" alt="" style="width:50%;">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5><?php echo $l->judul ?></h5>
+                  </div>
+                </a>
+            </div>
+            <?php endforeach; ?>
           </div>
-        <?php endforeach; ?>
+          
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
-
       </div>
     </section>
 
@@ -322,6 +335,8 @@
 
 <script type="text/javascript">
 
+    $('.carousel').carousel()
+
     $('.owl-carousel').owlCarousel({
         items:3,
         loop:true,
@@ -362,5 +377,3 @@
     });
   }
 </script>
-
-

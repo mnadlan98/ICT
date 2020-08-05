@@ -37,6 +37,9 @@
                     <br /><ul><li></ul><span style="color:red;text-align:center;font-weight:light;font-size:14pt;">Has participated in ICT Tour from  '.$peserta['nama_sekolah'].'</span>
                     <br /><span style="color:black;text-align:center;font-weight:light;font-size:14pt;">'.$peserta['tanggal_tour'].'</span>
                     <br /><p style="color:black;text-align:center;font-weight:light;font-size:12pt;">'.$peserta['lokasi_tour'].', '.$peserta['tanggal'].'</p>
+                    <br /><span></span>
+                    <br /><span></span>
+                    <br /><span></span>
                     <br /><span style="color:red;text-align:center;font-weight:bold;font-size:15pt;">'.$peserta['nama_pejabat'].'</span>';
           
             $pdf->writeHTML($html, true, false, true, false, '');
