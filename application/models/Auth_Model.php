@@ -174,6 +174,11 @@ class Auth_model extends CI_Model {
      {
           $this->db->update('admin', $data, array('id_admin' => $id));
      }
+	
+	function editUser($id,$data)
+     {
+          $this->db->update('user', $data, array('id_user' => $id));
+     }
 
     function deleteUser($id)
      {
