@@ -513,7 +513,19 @@
                     <div class="form-group">
                         <label class="control-label">Witel</label>
                         <div>
-                            <input type="text" class="form-control input-lg" id="namawitel" name="namawitel" value="" disabled>
+                            <?php if ($this->session->userdata('admin')['level']==2): ?>
+                                <input type="text" class="form-control input-lg" id="namawitel" name="namawitel" value="" disabled>
+                                <input type="text" class="form-control" id='idwitel' name="idwitel" value="" hidden>
+                            <?php else:?>
+                                <select class="form-control" id="idwitel" name="idwitel" required>
+                                    <option value="">Pilih Witel..</option>
+                                    <?php foreach ($list as $w ): ?>{
+                                        <option value="<?php echo $w->id_witel?>"><?php echo $w->nama_witel?></option>
+                                    }
+                                    <?php endforeach;?>
+                                </select>
+                            <?php endif ?>
+                            
                         </div>
                     </div>
                     <div class="form-group">

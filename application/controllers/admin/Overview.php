@@ -390,7 +390,7 @@ class Overview extends CI_Controller {
 			$this->alamat_witel = $this->input->post('alamat',true);
 			$this->no_telp_witel = $this->input->post('notelp',true);
 			$this->email_witel = $this->input->post('email_kontak',true);
-			$this->id_witel = $this->session->userdata('admin')['id_witel'];
+			$this->id_witel = $this->input->post('idwitel',true);
 			$this->kontak_model->edit($id,$this);
 			$this->session->set_flashdata('msg','Berhasil Diupdate');
 		}
@@ -754,11 +754,23 @@ class Overview extends CI_Controller {
 	}
 
 	public function kontak(){
-		if ($this->session->userdata("admin")['logged'] && $this->session->userdata("admin")['level']==2 && $this->session->userdata("admin")['role']==2) {
-			$this->load->model('Pengajuan_Model');
-			$this->load->model('kontak_model');
-			$data['kontak'] = $this->kontak_model->getbyWitel($this->session->userdata("admin")["id_witel"]);
-			$data["witel"] = $this->Pengajuan_Model->getWitel_byId($this->session->userdata('admin')['id_witel']);
+		$this->load->model('Pengajuan_Model');
+		$this->load->model('kontak_model');
+
+		if ($this->session->userdata("admin")['logged']) {
+			if ($this->session->userdata("admin")['level']==2) {
+				if ($this->session->userdata("admin")['role']==2) {
+					$data['kontak'] = $this->kontak_model->getbyWitel($this->session->userdata("admin")["id_witel"]);
+					$data["witel"] = $this->Pengajuan_Model->getWitel_byId($this->session->userdata('admin')['id_witel']);
+				}
+				else{
+					redirect(site_url('admin/Overview'));
+				}
+			}
+			else{
+				$data['kontak'] = $this->kontak_model->getAll();
+				$data["list"] = $this->Pengajuan_Model->getWitel();
+			}
 		}
 		else{
 			redirect(site_url('admin/Overview'));
