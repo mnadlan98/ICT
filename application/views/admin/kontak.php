@@ -24,7 +24,12 @@
 						<?php echo $this->session->flashdata('msg'); ?>
 					</div>
 					<div class="card-header">
-						<a href="#" onclick="ModalKontak('<?php echo site_url('admin/overview/add_kontak/') ?>','Tambah Kontak','<?php echo $witel->nama_witel ?>')" ><i class="fas fa-plus"></i> Add Kontak</a>
+						<?php if ($this->session->userdata('admin')['level']==2): ?>
+							<a href="#" onclick="ModalKontak('<?php echo site_url('admin/overview/add_kontak/') ?>','Tambah Kontak','<?php echo $witel->id_witel?>','<?php echo $witel->nama_witel?>')" ><i class="fas fa-plus"></i> Add Kontak</a>
+						<?php else:?>
+							<a href="#" onclick="ModalKontak('<?php echo site_url('admin/overview/add_kontak/') ?>','Tambah Kontak')" ><i class="fas fa-plus"></i> Add Kontak</a
+						<?php endif ?>
+						
 
 
 					</div>
@@ -61,7 +66,7 @@
 											<?php echo $s->email_witel ?>
 										</td>
 										<td width="250">
-											<a  onclick="ModalKontak('<?php echo site_url('admin/overview/edit_kontak/'.$s->id_kontak) ?>','Edit Kontak','<?php echo $witel->nama_witel ?>','<?php echo $s->alamat_witel?>','<?php echo $s->no_telp_witel?>','<?php echo $s->email_witel?>')"
+											<a  onclick="ModalKontak('<?php echo site_url('admin/overview/edit_kontak/'.$s->id_kontak) ?>','Edit Kontak','<?php echo $s->id_witel ?>','<?php echo $s->nama_witel?>','<?php echo $s->alamat_witel?>','<?php echo $s->no_telp_witel?>','<?php echo $s->email_witel?>')"
 											 href="#!" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
 											<a onclick="deleteConfirm('<?php echo site_url('admin/overview/delete_kontak/'.$s->id_kontak) ?>')"
 											 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
