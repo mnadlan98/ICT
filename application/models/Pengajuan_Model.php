@@ -176,7 +176,7 @@
      }
 
      function getSekolah(){
-          return $this->db->get('sekolah')->result();
+          return $this->db->get('sekolah')->result_array();
      }
 
      function addSekolah($data)
