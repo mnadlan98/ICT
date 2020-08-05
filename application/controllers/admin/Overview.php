@@ -865,7 +865,7 @@ class Overview extends CI_Controller {
 		$this->form_validation->set_rules('materi','materi');
 		$this->form_validation->set_rules('daftar_hadir','daftar hadir');
 		$this->form_validation->set_rules('cek','cek','required');
-		$this->form_validation->set_rules('files[]','Upload Gambar');
+		//$this->form_validation->set_rules('files[]','Upload Gambar');
 		       
         if ($this->form_validation->run()) {
 			
@@ -874,30 +874,32 @@ class Overview extends CI_Controller {
 
 			$this->daftar_hadir = $this->upload_dhadir();
 			$this->materi = $this->upload_materi();
+			
+			$report = $this->Pengajuan_Model->getIdReportByPengajuan($id);
 
-			$this->Pengajuan_Model->insertReport($this);
+			//$files = $this->images();
+			
 
-			$files = $this->images(); 
-			$this->Pengajuan_Model->insertFotoReport($files);
-
-			$this->Pengajuan_Model->updatePengajuan($id,array('eventover' => TRUE));
-			$this->email->from($config['smtp_user']);
-			$this->email->to($data["pengajuan"]->email_user);
-			$this->email->subject("Status Pengajuan");					
-			$this->email->message(" Admin telah melakukan report terkait kunjungan anda <br> Silahkan melakukan login dan cek website untuk melihat hasil laporan");	
-			$this->email->send();	
-			redirect(site_url('admin/overview/report/'.$id));						
-				
+			if($this->materi != null && $this->daftar_hadir != null || $files != null){
+				$this->Pengajuan_Model->updateReport($report,$this);
+				//$this->Pengajuan_Model->updateFotoReport($report,$files);	
+				$this->Pengajuan_Model->updatePengajuan($id,array('eventover' => TRUE));	
+				$this->session->set_flashdata('msg','Data report berhasil diupdate');  																																		
+			}else{
+					$this->session->set_flashdata('msg','Format file yang anda upload tidak sesuai');   					
+			}
 		}else{
-			$this->session->set_flashdata('msg',validation_errors());    
-				   	
+			$this->session->set_flashdata('msg',validation_errors());				
 		}
-				
+		if($this->session->flashdata('msg')){
+			redirect(site_url('admin/overview/report/'.$id));	
+		}								
        }else{
-       		redirect(site_url('admin/overview/'));
-       }
-        
+		redirect(site_url('admin/overview/'));
+	   }      
 	}
+
+	
 	
 	public function images()
 	{

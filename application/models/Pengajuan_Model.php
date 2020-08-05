@@ -7,9 +7,14 @@
           $this->db->insert('pengajuan',$data);
      }
 
-     public function insertReport($data)
+     public function insertReport($id,$data)
      {
           $this->db->insert('report',$data);
+     }
+
+     public function updateReport($id,$data)
+     {
+          $this->db->update('report',$data, array('id_report' => $id));
      }
 
      public function insertFotoReport($data = array())
@@ -27,6 +32,15 @@
               $data[$x]['id_report'] = $id;
           }
           $this->db->insert_batch('galeri_report',$data);
+     }
+
+     public function updateFotoReport($id,$data = array())
+     {       
+
+          for($x = 0; $x < count($data); $x++){
+              $data[$x]['id_report'] = $id;
+          }
+          $this->db->update_batch('galeri_report',$data, $id);
      }
      
      public function getDHadirByPengajuan($id){
@@ -47,6 +61,12 @@
           $query = $this->db->get_where('pengajuan', array('id_pengajuan' => $id));
           $data  = $query->row();
           return (int)$data->id_user;
+     }
+
+     public function getIdReportByPengajuan($id){
+          $query = $this->db->get_where('report', array('id_pengajuan' => $id));
+          $data  = $query->row();
+          return (int)$data->id_report;
      }
 
      function updatePengajuan($id,$data)
