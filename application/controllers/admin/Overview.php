@@ -84,19 +84,22 @@ class Overview extends CI_Controller {
             if($this->Pengajuan_Model->updatePengajuan($id,$this)){
 				$this->session->set_flashdata('msg','Berhasil Diupdate');
 				
-				$this->load->library('email');
-
-				$config['protocol']    = 'smtp';
-				$config['smtp_host']    = 'ssl://smtp.gmail.com';
-				$config['smtp_port']    = '465';
-				$config['smtp_timeout'] = '7';
-				$config['smtp_user']    = 'sibola124@gmail.com';
-				$config['smtp_pass']    = 'SIBOLA124';
-				$config['charset']    = 'utf-8';
-				$config['newline']    = "\r\n";
-				$config['mailtype'] = 'text'; // or html
-				$config['validation'] = TRUE; // bool whether to validate email or not      
-
+				$this->load->model("Auth_Model");
+				$this->load->library('encryption');
+			        $config_email = $this->Auth_Model->get_config_email();
+			        $config = array();
+			        $config['charset'] = 'utf-8';
+			        $config['useragent'] = 'Codeigniter';
+			        $config['protocol']= $config_email->protocol;
+			        $config['mailtype']= $config_email->mail_type;
+			        $config['smtp_host']= $config_email->smtp_host;//pengaturan smtp
+			        $config['smtp_port']= $config_email->smtp_port;
+			        $config['smtp_timeout']= $config_email->smtp_timeout;
+			        $config['smtp_user']= $config_email->smtp_user;
+			        $config['smtp_pass']= $this->encryption->decrypt($config_email->smtp_pass);
+				$config['crlf']="\r\n";
+				$config['newline']="\r\n";
+				$config['wordwrap'] = TRUE;
 				$this->email->initialize($config);
 
 
@@ -868,16 +871,19 @@ class Overview extends CI_Controller {
 				$this->Pengajuan_Model->insertReport($this);
 				if($this->Pengajuan_Model->updatePengajuan($id,array('eventover' => TRUE))){
 						$this->session->set_flashdata('msg','Berhasil Disubmit');
-						$config = array();
-						$config['charset'] = 'utf-8';
-						$config['useragent'] = 'Codeigniter';
-						$config['protocol']= "smtp";
-						$config['mailtype']= "html";
-						$config['smtp_host']= "ssl://smtp.gmail.com";//pengaturan smtp
-						$config['smtp_port']= "465";
-						$config['smtp_timeout']= "400";
-						$config['smtp_user']= "sibola124@gmail.com";
-						$config['smtp_pass']= "SIBOLA124";
+						$this->load->model("Auth_Model");
+						$this->load->library('encryption');
+					    	$config_email = $this->Auth_Model->get_config_email();
+					    	$config = array();
+					    	$config['charset'] = 'utf-8';
+					    	$config['useragent'] = 'Codeigniter';
+					    	$config['protocol']= $config_email->protocol;
+					    	$config['mailtype']= $config_email->mail_type;
+					    	$config['smtp_host']= $config_email->smtp_host;//pengaturan smtp
+					    	$config['smtp_port']= $config_email->smtp_port;
+					    	$config['smtp_timeout']= $config_email->smtp_timeout;
+			            		$config['smtp_user']= $config_email->smtp_user;
+			            		$config['smtp_pass']= $this->encryption->decrypt($config_email->smtp_pass);
 						$config['crlf']="\r\n";
 						$config['newline']="\r\n";
 						$config['wordwrap'] = TRUE;
