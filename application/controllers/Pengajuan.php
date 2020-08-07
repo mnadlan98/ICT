@@ -50,26 +50,26 @@ class Pengajuan extends CI_Controller {
 
               if($this->Pengajuan_Model->daftar($this)){
                 $this->load->model("Auth_Model");
-		$this->load->library('encryption');
-		$config_email = $this->Auth_Model->get_config_email();
-		$config = array();
-		$config['charset'] = 'utf-8';
-		$config['useragent'] = 'Codeigniter';
-		$config['protocol']= $config_email->protocol;
-		$config['mailtype']= $config_email->mail_type;
-		$config['smtp_host']= $config_email->smtp_host;//pengaturan smtp
-		$config['smtp_port']= $config_email->smtp_port;
-		$config['smtp_timeout']= $config_email->smtp_timeout;
-		$config['smtp_user']= $config_email->smtp_user;
-		$config['smtp_pass']= $this->encryption->decrypt($config_email->smtp_pass);
-		$config['crlf']="\r\n";
-		$config['newline']="\r\n";
-		$config['wordwrap'] = TRUE;
+              $this->load->library('encryption');
+              $config_email = $this->Auth_Model->get_config_email();
+              $config = array();
+              $config['charset'] = 'utf-8';
+              $config['useragent'] = 'Codeigniter';
+              $config['protocol']= $config_email->protocol;
+              $config['mailtype']= $config_email->mail_type;
+              $config['smtp_host']= $config_email->smtp_host;//pengaturan smtp
+              $config['smtp_port']= $config_email->smtp_port;
+              $config['smtp_timeout']= $config_email->smtp_timeout;
+              $config['smtp_user']= $config_email->smtp_user;
+              $config['smtp_pass']= $this->encryption->decrypt($config_email->smtp_pass);
+              $config['crlf']="\r\n";
+              $config['newline']="\r\n";
+              $config['wordwrap'] = TRUE;
 
                 $this->email->initialize($config);
 
                 $this->email->from($config['smtp_user']);
-                $this->email->to($data["pengajuan"]->email_user);
+                $this->email->to($this->session->userdata("user")['email_user']);
                 $this->email->subject("Status Pengajuan");
                 $this->email->message(" Pengajuan anda telah kami terima dan sedang dalam tahap review oleh admin. ");	
                 $this->email->send();	             			                                   

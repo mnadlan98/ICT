@@ -4,7 +4,7 @@
 
      function daftar($data)
      {
-          $this->db->insert('pengajuan',$data);
+          return $this->db->insert('pengajuan',$data);
      }
 
      public function insertReport($data)
