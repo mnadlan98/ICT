@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="<?php echo base_url()?>css/ionicons.min.css">
         <link rel="stylesheet" href="<?php echo base_url()?>css/hero-slider.css">
         <link rel="stylesheet" href="<?php echo base_url()?>css/templatemo-main.css">
-        <link rel="stylesheet" href="<?php echo base_url()?>css/feedback.css?version=5">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/feedback.css?version=6">
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/owl.carousel.min.js"></script>
         <script src="<?php echo base_url()?>script/owl.carousel.min.js"></script>
@@ -71,14 +71,14 @@
             <?php foreach ($report as $r): ?>
             <div class="carousel-item" >
             <a href="<?php echo base_url("./upload/report/gambar/$r->gambar1"); ?>" class="portfolio-popup">
-                  <img style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$r->gambar1"); ?>">                 
+                  <img class="rounded mx-auto d-block" style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$r->gambar1"); ?>">                 
                 </a>   
             </div>
 
             <?php if(!empty($r->gambar2)): ?> 
             <div class="carousel-item" >
             <a href="<?php echo base_url("./upload/report/gambar/$r->gambar2"); ?>" class="portfolio-popup">
-                  <img style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$r->gambar2"); ?>">                 
+                  <img class="rounded mx-auto d-block" style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$r->gambar2"); ?>">                 
                 </a>   
             </div>
             <?php endif ?>
@@ -86,7 +86,7 @@
             <?php if(!empty($r->gambar3)): ?> 
             <div class="carousel-item" >
             <a href="<?php echo base_url("./upload/report/gambar/$r->gambar3"); ?>" class="portfolio-popup">
-                  <img style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$r->gambar3"); ?>">                 
+                  <img class="rounded mx-auto d-block" style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$r->gambar3"); ?>">                 
                 </a>   
             </div>
             <?php endif ?>
@@ -94,7 +94,7 @@
             <?php if(!empty($r->gambar4)): ?> 
             <div class="carousel-item" >
             <a href="<?php echo base_url("./upload/report/gambar/$r->gambar4"); ?>" class="portfolio-popup">
-                  <img style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$r->gambar4"); ?>">                 
+                  <img class="rounded mx-auto d-block" style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$r->gambar4"); ?>">                 
                 </a>   
             </div>
             <?php endif ?>
@@ -102,7 +102,7 @@
             <?php if(!empty($r->gambar5)): ?> 
             <div class="carousel-item" >
             <a href="<?php echo base_url("./upload/report/gambar/$r->gambar5"); ?>" class="portfolio-popup">
-                  <img style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$r->gambar5"); ?>">                 
+                  <img class="rounded mx-auto d-block" style="width:300px;" src="<?php echo base_url("./upload/report/gambar/$r->gambar5"); ?>">                 
                 </a>   
             </div>
             <?php endif ?>
