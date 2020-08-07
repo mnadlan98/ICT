@@ -47,11 +47,6 @@
                       <small class="form-text text-danger"><?php echo form_error('nama_user'); ?></small>
                     </div>
                     <div class="form-group row">
-                      <label style="font-size:15px; color:white;">Email User : </label>
-                      <input type="text" class="form-control" id="email_user" name="email_user" value="<?= $this->session->userdata("user")['email_user'] ?>"  >
-                      <small class="form-text text-danger"><?php echo form_error('email_user'); ?></small>
-                    </div>
-                    <div class="form-group row">
                       <label style="font-size:15px; color:white;">No. Telp User :</label>
                       <input type="text" class="form-control" id="notelp_user" name="notelp_user"  value="<?= $this->session->userdata("user")['notelp_user'] ?>"   >
                       <small class="form-text text-danger"><?php echo form_error('notelp_user'); ?></small>

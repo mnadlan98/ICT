@@ -140,7 +140,7 @@
         $data = array(
           'logged' => TRUE,
           'nama_user' => $post["nama_user"],
-          'email_user' => $post["email_user"],
+          'email_user' => $this->session->userdata("user")['email_user'],
           'notelp_user' => $post["notelp_user"],
           'nama_sekolah' => $post["nama_sekolah"],
           'email_sekolah' => $post["email_sekolah"],
