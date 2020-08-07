@@ -116,7 +116,6 @@ class Overview extends CI_Controller {
 					$this->email->message(" Pengajuan anda telah ditolak oleh pihak telkom ");
 					$this->email->send();
 				}
-				redirect(site_url('admin/overview/review/'.$id));	
 				
 			}                      
         }else{
@@ -124,7 +123,9 @@ class Overview extends CI_Controller {
         	
 		}
 
-
+		if($this->session->flashdata('msg')){
+			redirect(site_url('admin/overview/review/'.$id));	
+		}	
 
         	if (!$data["pengajuan"]) show_404();
         	
