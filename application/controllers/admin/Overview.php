@@ -69,7 +69,7 @@ class Overview extends CI_Controller {
 		$data["witel"] = $this->Pengajuan_Model->getWitel_byId($this->session->userdata('admin')['id_witel']);
 		$data['wilayah'] = $this->Pengajuan_Model->get_wilayah();  
 
-		
+		$this->load->view("admin/review",$data);
         
         if ($this->form_validation->run()) {
 
@@ -116,18 +116,19 @@ class Overview extends CI_Controller {
 					$this->email->message(" Pengajuan anda telah ditolak oleh pihak telkom ");
 					$this->email->send();
 				}
-				redirect(site_url("admin/overview/review/".$id));
+				redirect(site_url('admin/overview/review/'.$id));	
+				
 			}                      
-        }
-        else{
+        }else{
         	$this->session->set_flashdata('msg',validation_errors());
         	
 		}
 
-        if (!$data["pengajuan"]) show_404();
-        $this->load->view("admin/review",$data);
-       }
-       else{
+
+
+        	if (!$data["pengajuan"]) show_404();
+        	
+       }else{
        	redirect(site_url('admin/overview/'));
        }
         
