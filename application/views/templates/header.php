@@ -15,9 +15,6 @@
 
 
   <!-- Footer -->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/bootstrap/css/bootstrap.css" >
-  <link href="<?php echo base_url()?>assets/bootstrap/css/mdb.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 
   <link rel="stylesheet" href="<?php echo base_url()?>css/animate.min.css">
@@ -28,7 +25,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
 
   <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/header.css?v=2">
-  <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>/assets/css/stylenav.css">
+
   
   <title><?php echo $title ;?></title>
 </head>
