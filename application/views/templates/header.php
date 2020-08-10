@@ -26,7 +26,8 @@
 
   <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/header.css?v=2">
 
-  
+  <link rel="icon" type="image/png" href="../images/wifiid.png">
+	
   <title><?php echo $title ;?></title>
 </head>
 
