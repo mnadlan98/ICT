@@ -8,7 +8,7 @@
         $this->db->insert('galeri', $data);
      }
 
-     public function delete($id)
+     public function delete($id=null)
      {
         return $this->db->delete('galeri', array("id_foto" => $id));
      }
@@ -22,7 +22,7 @@
      {
         return $this->db->get('galeri')->result();
      }
-     public function getById($id)
+     public function getById($id=null)
      {
         return $this->db->get_where('galeri', ["id_foto" => $id])->row();
      }

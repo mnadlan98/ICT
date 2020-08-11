@@ -33,9 +33,4 @@
         $this->db->where('kontak.id_witel', $id_witel);
         return $this->db->get('kontak')->result();
      }
-
-     public function getById($id)
-     {
-        return $this->db->get_where('form', ["id_kontak" => $id])->row();
-     }
 }

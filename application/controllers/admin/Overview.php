@@ -562,6 +562,16 @@ class Overview extends CI_Controller {
         }
         redirect(site_url('admin/overview/wilayah_list'));
 	}
+	
+	public function delete_image_gallery($id=null){
+		if (!isset($id)) show_404();
+		$this->load->model('galeri_model');
+		$galeri = $this->galeri_model->getById($id);
+		if ($galeri->foto != null) {
+		    $filename = explode(".", $galeri->foto)[0];
+		    return array_map('unlink', glob(FCPATH."images/galery/$filename.*"));
+		}
+    	}
 
 	public function delete_gallery($id=null){
 		$this->load->model('galeri_model');
