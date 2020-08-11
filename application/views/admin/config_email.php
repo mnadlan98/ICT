@@ -72,10 +72,12 @@
 
 								</tbody>
 							</table>
+
 						</div>
 					</div>
 				</div>
-
+			<p>Default :</p>
+			<p> protocol : smtp <br>	mailtype : html <br>	smtp_host : ssl://smtp.gmail.com <br>	smtp_port : 465  <br>	smtp_timeout : 400 </p>
 			</div>
 			<!-- /.container-fluid -->
 
