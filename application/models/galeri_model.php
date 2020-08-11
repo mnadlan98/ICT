@@ -10,7 +10,7 @@
 
      public function delete($id)
      {
-        return $this->db->delete($this->_table, array("id_foto" => $id));
+        return $this->db->delete('galeri', array("id_foto" => $id));
      }
 
      public function edit($id,$data)

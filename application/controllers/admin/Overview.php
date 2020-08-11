@@ -999,6 +999,7 @@ class Overview extends CI_Controller {
 		}else{
 		  return $this->session->set_flashdata('msg',$this->upload->display_errors());
 		}
+		
 	}
 
 	function upload_dhadir(){
@@ -1016,9 +1017,34 @@ class Overview extends CI_Controller {
 		}
 	}
 
+	function upload_sertif($id){
+
+		$config['upload_path']          = './images';
+		$config['allowed_types']        = 'jpg|png|gif|jpeg';
+		$config['max_size']             = 8192; // 8MB
+		
+		$this->load->model('Pengajuan_Model');
+		$this->load->library('upload', $config);
+		$this->upload->initialize($config);
+		if ($this->upload->do_upload('sertif')) {
+		  $foto = $this->upload->data("file_name");
+		  $this->Pengajuan_Model->updateSertif(1,$foto);
+		  $this->session->set_flashdata('msg','Background Sertifikat berhasil diganti');
+
+		}else{
+		  $this->session->set_flashdata('msg',$this->upload->display_errors());
+		}
+		if($this->session->flashdata('msg')){
+			redirect(site_url('admin/overview/report/'.$id));	
+		}	
+
+	}
+
 	public function printout($id)
         {
+			$this->load->model('Pengajuan_Model');
 			$this->load->library('Pdf');
+			$data['foto'] = $this->Pengajuan_Model->getNamaSertif();
             $data['peserta'] = array(
 				'nama_peserta' => $this->input->post('nama_peserta'),
 				'nama_sekolah' => $this->input->post('nama_sekolah'),
@@ -1036,6 +1062,7 @@ class Overview extends CI_Controller {
             else{
                 redirect('admin/overview/report/'.$id);
             }
-        }
+		}
+	
 
 }

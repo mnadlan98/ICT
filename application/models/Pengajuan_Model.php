@@ -12,9 +12,31 @@
           $this->db->insert('report',$data);
      }
 
+     public function getNamaSertif()
+     {
+          $this->db->select('nama_sertif');
+          $this->db->from('sertif');
+          $this->db->where("id_sertif = 1");
+
+          $query = $this->db->get();
+          $row  = $query->row();
+          if(!empty($row)){
+               return $row->nama_sertif;
+          }else{
+               return null;
+          }
+     }
+
      public function updateReport($id,$data)
      {
           $this->db->update('report',$data, array('id_report' => $id));
+     }
+
+     public function updateSertif($id,$data)
+     {
+          $this->db->set('nama_sertif', $data);
+          $this->db->where('id_sertif', $id);
+          $this->db->update('sertif');
      }
      
      public function getDHadirByPengajuan($id){

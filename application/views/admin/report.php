@@ -192,17 +192,26 @@
 						<input type="text" name="gelar" id="gelar"><br><br>
 
 						<p> Masukkan Lokasi Witel </p>
-						<input type="text" name="witel" id="witel"><br><br><br>
+						<input type="text" name="witel" id="witel"><br><br>
+
+						<form action="<?php echo site_url().'admin/overview/upload_sertif/'.$pengajuan->id_pengajuan?>" method="post" enctype="multipart/form-data" >			
+						<label for="materi">Upload Background Sertifikat</label>
+						<input class="form-control"
+							type="file" name="sertif" required/>
+						<br>
+						<input type="hidden" name="cek" value="cek">
+						<input class="btn btn-success" type="submit" name="btn" value="Upload Sertifikat"  />	
+						<br><br><br>
+						</form>
+						
 
 						<div class="container-fluid">							
 							<!-- DataTables -->
 							<div class="card mb-3" >
-								<div class="card-body" >
-									
+								<div class="card-body" >									
 									<div class="table-responsive">
 									<div class="custom-file" method="POST" style="width:220px; float:right;">
-											<input type="file" class="custom-file-input" name="background_sertifikat" id="background_sertifikat" required>
-											<label class="custom-file-label" for="KTP">Ubah Sertifikat</label>
+											
 										</div>																				
 										<table class="table table-hover" id="example" width="100%" cellspacing="0">
 											<thead>
@@ -253,7 +262,8 @@
 																<input type="hidden" name="nama_sekolah" value="<?php echo $row[4] ?>" >	
 																<input type="hidden" name="nama_pejabat" id=<?php echo "nama_pejabat".$i ?> value="" >	
 																<input type="hidden" name="gelar_pejabat" id=<?php echo "gelar_pejabat".$i ?> value="" >		
-																<input type="hidden" name="nama_witel" id=<?php echo "nama_witel".$i ?> value="" >																
+																<input type="hidden" name="nama_witel" id=<?php echo "nama_witel".$i ?> value="" >	
+																<input type="hidden" name="sertif" id=<?php echo "nama_sertif".$i ?> value="" >																
 																<input Type="Submit" Name="Create_pdf" id=<?php echo "serti".$i ?> Class="Btn Btn-Danger" Value="Cetak Sertifikat" onclick="change(<?php echo $i ?>)" >															
 															</td>	
 															</form>																																									
