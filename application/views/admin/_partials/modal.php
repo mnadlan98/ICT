@@ -580,8 +580,8 @@
                     <div class="form-group">
                         <label class="control-label">Foto (max 5 mb)</label>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="foto" id="foto" required>
-                            <label class="custom-file-label" for="foto">Pilih foto (.jpeg/.jpg/.png)</label>
+                            <input type="file"  name="foto" id="foto" required>
+                            <label  for="foto">Pilih foto (.jpeg/.jpg/.png)</label>
                                 
                         </div>
                     </div>
