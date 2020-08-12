@@ -26,7 +26,7 @@
 
   <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/header.css?v=2">
 
-  <link rel="icon" type="image/png" href="../images/wifiid.png">
+  <link rel="icon" type="image/png" href="<?php echo base_url('images/wifiid.png')?>">
 	
   <title><?php echo $title ;?></title>
 </head>
@@ -37,7 +37,7 @@
   -moz-box-shadow: 0px 5px 5px #27272780;
   z-index: 999999; border-bottom:2px solid red;">
   
-  <a href="<?php echo base_url().'MainController/index';?>" ><img class="logohead" src="../images/Indihome-Study-red.png" style="max-width:140px; width:100%; margin-top: 10px; margin-left: 10px;"></a>
+  <a href="<?php echo base_url().'MainController/index';?>" ><img class="logohead" src="<?php echo base_url('images/Indihome-Study-red.png')?>" style="max-width:140px; width:100%; margin-top: 10px; margin-left: 10px;"></a>
   <button class="navbar-toggler mr-auto ml-10" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="fa fa-bars"></span>
   </button>
