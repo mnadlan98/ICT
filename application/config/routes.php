@@ -53,4 +53,6 @@ $route['default_controller'] = 'MainController';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['home'] = 'MainController/index';
+$route['profil'] = 'MainController/Profil';
+$route['edit_profil'] = 'MainController/editProfile';
 
