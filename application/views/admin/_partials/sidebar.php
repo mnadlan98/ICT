@@ -40,13 +40,15 @@
                     <a class="dropdown-item" href="<?php echo site_url('admin/Overview/witel_list') ?>">Witel</a>
                     <a class="dropdown-item" href="<?php echo site_url('admin/Overview/wilayah_list') ?>">Wilayah</a>
                     <a class="dropdown-item" href="<?php echo site_url('admin/Overview/datel_list') ?>">Datel</a>
-                    <a class="dropdown-item" href="<?php echo site_url('admin/Overview/upload_sertif') ?>">Ganti Bg Sertifikat</a>
+                   
                     <a class="dropdown-item" href="<?php echo site_url('admin/Overview/sto_list') ?>">STO</a>
 
                     <a class="dropdown-item" href="<?php echo site_url('admin/Overview/unit') ?>">Unit</a>
-		    <a class="dropdown-item" href="<?php echo site_url('admin/Overview/config_email') ?>">Config Email</a>
-		    <a class="dropdown-item" href="<?php echo site_url('admin/Overview/kontak') ?>">Kontak</a>
+                    <a class="dropdown-item" href="<?php echo site_url('admin/Overview/config_email') ?>">Config Email</a>
+                    <a class="dropdown-item" href="<?php echo site_url('admin/Overview/upload_sertif') ?>">Ganti Bg Sertifikat</a>
+                    <a class="dropdown-item" href="<?php echo site_url('admin/Overview/kontak') ?>">Kontak</a>
                 </div>
+
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo site_url('admin/Overview/sekolah') ?>">

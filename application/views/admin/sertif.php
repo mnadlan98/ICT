@@ -37,7 +37,7 @@
 						</form>
 						<p> Contoh Sertifikat </p>
 						<a href="<?php echo base_url("./images/contohserti.png"); ?>" class="portfolio-popup">
-                  <img class="rounded mx-auto d-block" style="width:450px;height:300px" src="<?php echo base_url("./images/contohserti.png"); ?>">                 
+                  <img style="width:450px;height:300px" src="<?php echo base_url("./images/contohserti.png"); ?>">                 
                 </a>   
 					</div>
 				</div>
