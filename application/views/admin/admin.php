@@ -93,7 +93,7 @@
 								<thead>
 									<tr>
 										<th>No</th>
-										<th>Admin</th>
+										<th>Username</th>
 										<th>Nama</th>
 										<th>Level</th>
 										<th>Role</th>
