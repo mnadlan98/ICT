@@ -14,7 +14,7 @@ class Login extends CI_Controller {
         $this->form_validation->set_rules('password','password','trim|required|xss_clean');
         $data['title'] = "Login";
         if (isset($this->session->userdata('user')['logged']) || isset($this->session->userdata('admin')['logged'] )) {
-            redirect(site_url('MainController/index'));       
+            redirect(site_url('home'));       
         }
         else{
             if ($this->form_validation->run() == true) {
@@ -23,7 +23,7 @@ class Login extends CI_Controller {
                 if($this->Auth_Model->login_user($username,$password) == 2)
                 {
                     $this->session->set_flashdata('msg','Berhasil Login');
-                    redirect(site_url('MainController/index'));
+                    redirect(site_url('home'));
                 }
                 if ($this->Auth_Model->login_user($username,$password) == 1) {
                     $this->session->set_flashdata('login','Akun Anda Belum Diverifikasi, Silahkan Cek Email Untuk Melakukan Verifikasi');

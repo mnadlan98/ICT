@@ -55,4 +55,6 @@ $route['translate_uri_dashes'] = FALSE;
 $route['home'] = 'MainController/index';
 $route['profil'] = 'MainController/Profil';
 $route['edit_profil'] = 'MainController/editProfile';
+$route['review'] = 'MainController/Review';
+$route['report'] = 'MainController/Feedback';
 

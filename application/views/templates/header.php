@@ -37,22 +37,22 @@
   -moz-box-shadow: 0px 5px 5px #27272780;
   z-index: 999999; border-bottom:2px solid red;">
   
-  <a href="<?php echo base_url().'MainController/index';?>" ><img class="logohead" src="<?php echo base_url('images/Indihome-Study-red.png')?>" style="max-width:140px; width:100%; margin-top: 10px; margin-left: 10px;"></a>
+  <a href="<?php echo base_url().'home';?>" ><img class="logohead" src="<?php echo base_url('images/Indihome-Study-red.png')?>" style="max-width:140px; width:100%; margin-top: 10px; margin-left: 10px;"></a>
   <button class="navbar-toggler mr-auto ml-10" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="fa fa-bars"></span>
   </button>
   <div class="collapse navbar-collapse header-right mr-auto" id="navbarSupportedContent">
     <ul class="">
-    <a class="item" href="<?php echo site_url()."MainController/index#home"?>">Beranda</a>
-    <a class="item" href="<?php echo site_url()."MainController/index#about"?>">Tentang</a>
-    <a class="item" href="<?php echo site_url()."MainController/index#contact"?>">Kontak Kami</a>
+    <a class="item" href="<?php echo site_url()."home#home"?>">Beranda</a>
+    <a class="item" href="<?php echo site_url()."home#about"?>">Tentang</a>
+    <a class="item" href="<?php echo site_url()."home#contact"?>">Kontak Kami</a>
     <?php if (isset($this->session->userdata("user")['logged'])): ?>
-      <a class="nav-link" href="<?php echo site_url()."MainController/Profil"?>" style="padding-left:10px; border-radius:0px; border-left:3px solid red;">Profil</a>
+      <a class="nav-link" href="<?php echo site_url()."profil"?>" style="padding-left:10px; border-radius:0px; border-left:3px solid red;">Profil</a>
       <?php if ($this->session->userdata("user")['status_pengajuan'] != 0): ?>
-        <a class="item" href="<?php echo site_url()."MainController/Review"?>">Review Pengajuan</a>
+        <a class="item" href="<?php echo site_url()."review"?>">Review Pengajuan</a>
       <?php endif ?>
       <?php if ($this->session->userdata("user")['eventover'] == 1): ?>
-        <a class="item" href="<?php echo site_url()."MainController/Feedback"?>">Data Report</a>
+        <a class="item" href="<?php echo site_url()."report"?>">Data Report</a>
       <?php endif ?>
     <a class="item" href="<?php echo site_url()."login/logout"?>" style="background-color:#DCDCDC;" onmouseover="this.style.color='red'" onmouseout="this.style.color='black'">Logout</a>
     <?php endif ?>

@@ -79,7 +79,7 @@ class Pengajuan extends CI_Controller {
               redirect(site_url('pengajuan/index'));	
             }else{
               $this->session->set_flashdata('msg','Pengajuan berhasil dikirim');  
-              redirect(site_url('MainController/review')); 
+              redirect(site_url('review')); 
             }
 				}
             
@@ -92,7 +92,7 @@ class Pengajuan extends CI_Controller {
           $this->load->view('templates/footer');  
         }
         else{
-          redirect(site_url('MainController/index'));
+          redirect(site_url('home'));
         }
         
     }

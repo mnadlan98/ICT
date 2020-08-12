@@ -205,8 +205,9 @@ class Auth_model extends CI_Model {
         return $this->db->get('user')->result();
     }
 
+
     function get_unit(){
-        return $this->db->get('unit')->result();
+        return $this->db->get('unit');
     }
 
     function addUnit($data)

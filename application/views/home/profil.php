@@ -48,7 +48,7 @@
           <div class="col-md-2">
             <img src="<?php echo base_url('images/avatar.png')?>">
             <div class="form-group row" style="margin-top: 20px; color:white;">
-                <a type="button" class="btn btn-success btn-lg"  style="margin-left:2em;" href="<?php echo site_url()."MainController/editProfile"?>" >Edit Profil</a>     
+                <a type="button" class="btn btn-success btn-lg"  style="margin-left:2em;" href="<?php echo site_url()."edit_profil"?>" >Edit Profil</a>     
             </div>
           </div>  
           <div class="col-lg-4">

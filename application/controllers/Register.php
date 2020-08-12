@@ -72,7 +72,7 @@ class Register extends CI_Controller {
                  
                  $this->session->set_flashdata('msg', 'Gagal Mengirim Email Verifikasi, Silahkan Hubungi Kontak Admin');
             }
-            redirect(site_url('MainController/index')); 
+            redirect(site_url('home')); 
         }
         $vals = array(
         'img_path' => './captcha/',
@@ -104,7 +104,7 @@ class Register extends CI_Controller {
         else{
             $this->session->set_flashdata('msg', 'Gagal');
         }
-        redirect(site_url('MainController/index')); 
+        redirect(site_url('home')); 
     }
 
     public function cek_captcha($input)

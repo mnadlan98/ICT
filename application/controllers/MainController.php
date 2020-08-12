@@ -38,7 +38,7 @@ class MainController extends CI_Controller {
         if ($validation->run()) {
 			$edit->updateProfile();
 			$this->session->set_flashdata('msg', 'Perubahan berhasil disimpan');
-            redirect(site_url('MainController/editProfile'));
+            redirect(site_url('edit_profil'));
         } 
 		$data['title'] = 'Edit Profil';		
 		$this->load->view('templates/header', $data);
@@ -60,7 +60,7 @@ class MainController extends CI_Controller {
 			}else if($value==2){
 				$this->session->set_flashdata('setuju', 'Persetujuan telah anda setujui');
 			}
-			redirect(site_url('MainController/Review'));
+			redirect(site_url('review'));
 		}	
 		$this->load->view('templates/header', $data);
 		$this->load->view('home/review');
@@ -83,7 +83,7 @@ class MainController extends CI_Controller {
 		if ($this->form_validation->run()==TRUE) {
 			$this->Profile_model->insertFeedback($saran,$rating);		
 			$this->session->set_flashdata('msg', 'Feedback telah dikirim');
-			redirect(site_url('MainController/Feedback'));
+			redirect(site_url('report'));
 		}		
 	}
 }
