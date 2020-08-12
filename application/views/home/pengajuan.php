@@ -111,7 +111,7 @@
             </div>
           </div>         
            
-          <p style="font-size:15px; padding-top:10px; color:white;">Contoh Template Daftar Peserta <a href="<?php echo base_url("./excel/daftar_peserta.csv"); ?>" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Unduh</u></small></a></p>  
+          <p style="font-size:15px; padding-top:10px; color:white;">Contoh Template Daftar Peserta <a href="<?php echo base_url("./excel/daftar_peserta.xlsx"); ?>" style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Unduh</u></small></a></p>  
           <hr class="onepixel">
           <h5 style="font-weight: bolder; color: black;  color:white; "><strong style=" font-size:14px; ">Lokasi ICT Tour</strong></h5><br>
           <div class="row" style="padding-right:1.75em; margin-bottom:20px;">
