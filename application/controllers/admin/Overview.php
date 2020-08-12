@@ -257,7 +257,7 @@ class Overview extends CI_Controller {
 			$this->alamat_witel = $this->input->post('alamat',true);
 			$this->no_telp_witel = $this->input->post('notelp',true);
 			$this->email_witel = $this->input->post('email_kontak',true);
-			$this->id_witel = $this->session->userdata('admin')['id_witel'];
+			$this->id_witel = $this->input->post('idwitel',true);
 			$this->kontak_model->insert($this);
 			$this->session->set_flashdata('msg','Berhasil Disimpan');
 		}
