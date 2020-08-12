@@ -1035,12 +1035,14 @@ class Overview extends CI_Controller {
 		$config['overwrite']			= true;
 		//$config['max_width']            = 1024;
 		//$config['max_height']           = 768;
-		$this->load->view('admin/sertif');
+
 		$this->load->model('Pengajuan_Model');
+		$data["list"] = $this->Pengajuan_Model->getWitel();
+		$this->load->view('admin/sertif',$data);
 		$this->load->library('upload', $config);
 		$this->upload->initialize($config);
 		$this->form_validation->set_rules('cek','cek','required');
-		
+
 		if ($this->form_validation->run()) {
 			if ($this->upload->do_upload('sertif')) {
 			$foto = $this->upload->data("file_name");
