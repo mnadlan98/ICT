@@ -20,7 +20,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
 
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800" rel="stylesheet">
-        <script type="text/javascript" src="script/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url('script/jquery-3.3.1.min.js')?>"></script>
 
         <script src="<?php echo base_url()?>js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
         <style type="text/css">
@@ -46,7 +46,7 @@
         <h5 style="font-weight: bolder; color: white; margin-top: 5px; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Profil</strong></h5></br></br>
         <div class="row">
           <div class="col-md-2">
-            <img src="../images/avatar.png">
+            <img src="<?php echo base_url('images/avatar.png')?>">
             <div class="form-group row" style="margin-top: 20px; color:white;">
                 <a type="button" class="btn btn-success btn-lg"  style="margin-left:2em;" href="<?php echo site_url()."MainController/editProfile"?>" >Edit Profil</a>     
             </div>
