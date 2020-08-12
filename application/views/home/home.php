@@ -169,8 +169,8 @@
             <?php foreach ($galeri as $l):
             ?>
             <div class="carousel-item" >
-              <a href="../images/galery/<?php echo $l->foto ?>">
-                  <img  class="img-responsive center-block " src="../images/galery/<?php echo $l->foto ?>" alt="" style="width:50%;">
+              <a href="<?php echo base_url('images/galery/$l->foto')?>">
+                  <img  class="img-responsive center-block " src="<?php echo base_url('images/galery/$l->foto')?>" alt="" style="width:50%;">
                   <div class="carousel-caption d-none d-md-block">
                     <h5><?php echo $l->judul ?></h5>
                   </div>
