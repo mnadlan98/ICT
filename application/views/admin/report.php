@@ -111,7 +111,7 @@
 						
 							<div class="form-group">
 
-							<label for="materi">1. Download Template Daftar Siswa</label><br>
+								<label for="materi">1. Download Template Daftar Siswa</label><br>
 								<a href="<?php echo base_url("./excel/daftar_hadir.xlsx"); ?>" 
 								style="color: light-blue; text-decoration: none; font-size:15px; font-family: Lato;"><small><u>Download</u></small></a> <br><br><br>
 							
@@ -194,17 +194,7 @@
 						<p> Masukkan Lokasi Witel </p>
 						<input type="text" name="witel" id="witel"><br><br>
 
-						<form action="<?php echo site_url().'admin/overview/upload_sertif/'.$pengajuan->id_pengajuan?>" method="post" enctype="multipart/form-data" >			
-						<label for="materi">Upload Background Sertifikat</label>
-						<input class="form-control"
-							type="file" name="sertif" required/>
-						<br>
-						<input type="hidden" name="cek" value="cek">
-						<input class="btn btn-success" type="submit" name="btn" value="Upload Sertifikat"  />	
-						<br><br><br>
-						</form>
 						
-
 						<div class="container-fluid">							
 							<!-- DataTables -->
 							<div class="card mb-3" >

@@ -40,7 +40,7 @@
                     <a class="dropdown-item" href="<?php echo site_url('admin/Overview/witel_list') ?>">Witel</a>
                     <a class="dropdown-item" href="<?php echo site_url('admin/Overview/wilayah_list') ?>">Wilayah</a>
                     <a class="dropdown-item" href="<?php echo site_url('admin/Overview/datel_list') ?>">Datel</a>
-
+                    <a class="dropdown-item" href="<?php echo site_url('admin/Overview/upload_sertif') ?>">Ganti Bg Sertifikat</a>
                     <a class="dropdown-item" href="<?php echo site_url('admin/Overview/sto_list') ?>">STO</a>
 
                     <a class="dropdown-item" href="<?php echo site_url('admin/Overview/unit') ?>">Unit</a>

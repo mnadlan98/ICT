@@ -1027,25 +1027,34 @@ class Overview extends CI_Controller {
 		}
 	}
 
-	function upload_sertif($id){
+	function upload_sertif(){
 
 		$config['upload_path']          = './images';
 		$config['allowed_types']        = 'jpg|png|gif|jpeg';
 		$config['max_size']             = 8192; // 8MB
-		
+		$config['overwrite']			= true;
+		//$config['max_width']            = 1024;
+		//$config['max_height']           = 768;
+		$this->load->view('admin/sertif');
 		$this->load->model('Pengajuan_Model');
 		$this->load->library('upload', $config);
 		$this->upload->initialize($config);
-		if ($this->upload->do_upload('sertif')) {
-		  $foto = $this->upload->data("file_name");
-		  $this->Pengajuan_Model->updateSertif(1,$foto);
-		  $this->session->set_flashdata('msg','Background Sertifikat berhasil diganti');
+		$this->form_validation->set_rules('cek','cek','required');
+		
+		if ($this->form_validation->run()) {
+			if ($this->upload->do_upload('sertif')) {
+			$foto = $this->upload->data("file_name");
+			$this->Pengajuan_Model->updateSertif(1,$foto);
+			$this->session->set_flashdata('msg','Background Sertifikat berhasil diganti');
 
+			}else{
+			$this->session->set_flashdata('msg',$this->upload->display_errors());
+			}
 		}else{
-		  $this->session->set_flashdata('msg',$this->upload->display_errors());
+			$this->session->set_flashdata('msg',validation_errors());	
 		}
 		if($this->session->flashdata('msg')){
-			redirect(site_url('admin/overview/report/'.$id));	
+			redirect(site_url('admin/Overview/upload_sertif'));	
 		}	
 
 	}
