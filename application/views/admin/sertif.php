@@ -27,7 +27,7 @@
 				<?php endif; ?>
 					<div class="card-body">
 						<form action="<?php echo site_url().'admin/overview/upload_sertif'?>" method="post" enctype="multipart/form-data" >			
-						<label for="materi">Upload Background Sertifikat</label>
+						<label for="materi">Upload Background Sertifikat (Ukuran 3508px X 2480px) </label>
 						<input class="form-control"
 							type="file" name="sertif" required/>
 						<br>
