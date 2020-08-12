@@ -28,12 +28,12 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/assets/owl.carousel.min.css" rel="stylesheet" />
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
-        <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
-        <link rel="stylesheet" type="text/css" href="css/owl.theme.default.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/owl.carousel.css')?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/owl.theme.default.css')?>">
         
       
-        <script type="text/javascript" src="script/jquery-3.3.1.min.js"></script>
-        <script type="text/javascript" src="script/owl.carousel.js"></script>
+        <script type="text/javascript" src="<?php echo base_url('script/jquery-3.3.1.min.js')?>"></script>
+        <script type="text/javascript" src="<?php echo base_url('script/owl.carousel.js')?>"></script>
     </head>
 
 <body>
@@ -61,8 +61,8 @@
         
           <div class="carousel-inner" >
           <div class="carousel-item active" >
-              <a href="../images/galery/header.jpg">
-                  <img   class="img-responsive center-block" src="../images/galery/header.jpg" alt="" style="width:100%;">
+              <a href="<?php echo base_url('images/galery/header.jpg')?>">
+                  <img   class="img-responsive center-block" src="<?php echo base_url('images/galery/header.jpg')?>" alt="" style="width:100%;">
                   <div class="carousel-caption d-none d-md-block">           
                   </div>
                 </a>
