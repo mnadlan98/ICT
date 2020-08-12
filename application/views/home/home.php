@@ -66,6 +66,8 @@
                 
                     <?php if (isset($this->session->userdata("user")['logged'])): ?>
                         <div class="primary-button wow fadeInUp" data-wow-delay="0.5s" style="margin-top:5em;" >
+                            <label>Klik disini untuk membuat pengajuan baru</label>
+                            <br>
                             <a class="btn1" href="<?php echo base_url().'Pengajuan/index';?>" style="padding:12px; font-size:15px; text-transform: capitalize;" >Pengajuan ICT Tour</a>
                         </div>
                     <?php else: ?>
@@ -170,7 +172,7 @@
             ?>
             <div class="carousel-item" >
               <a href="<?php echo base_url('images/galery/$l->foto')?>">
-                  <img  class="img-responsive center-block " src="<?php echo base_url('images/galery/$l->foto')?>" alt="" style="width:50%;">
+                  <img  class="img-responsive center-block " src=<?php echo base_url('images/galery/'.$l->foto)?> alt="" style="width:50%;">
                   <div class="carousel-caption d-none d-md-block">
                     <h5><?php echo $l->judul ?></h5>
                   </div>
