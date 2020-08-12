@@ -34,7 +34,7 @@
         <h5 style="font-weight: bolder; color: white; margin-top: 30px; "><strong style="border-bottom: 3px solid red; font-size:24px; ">Edit Profil</strong></h5></br></br>
         <div class="row">
           <div class="col-md-2">
-            <img src="../images/avatar.png">
+            <img src="<?php echo base_url('images/avatar.png')?>">
             <div class="form-group row" style="margin-top: 20px; color:white;">
             </div>
           </div>  
