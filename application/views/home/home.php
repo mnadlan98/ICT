@@ -28,24 +28,24 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/assets/owl.carousel.min.css" rel="stylesheet" />
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
-        <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
-        <link rel="stylesheet" type="text/css" href="css/owl.theme.default.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/owl.carousel.css')?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/owl.theme.default.css')?>">
         
       
-        <script type="text/javascript" src="script/jquery-3.3.1.min.js"></script>
-        <script type="text/javascript" src="script/owl.carousel.js"></script>
+        <script type="text/javascript" src="<?php echo base_url('script/jquery-3.3.1.min.js')?>"></script>
+        <script type="text/javascript" src="<?php echo base_url('script/owl.carousel.js')?>"></script>
         
     </head>
     <?php if (isset($this->session->userdata("user")['logged'])): ?>
     <style type="text/css">
       body {
-        background-image:url(../images/homepage.jpg);
+        background-image:url(<?php echo base_url('images/homepage.jpg')?>);
       }
     </style>
     <?php else: ?>
       <style type="text/css">
       body {
-        background-image:url(../images/hom.jpg);
+        background-image:url(<?php echo base_url('images/hom.jpg')?>);
       }
     </style>
     <?php endif ?>
@@ -62,7 +62,7 @@
               <h1 class="wow fadeInDown headname" style="font-size: 4vw; color:black;">Selamat Datang <?= $this->session->userdata("user")['nama_user'] ?>!</h1>
             <?php endif ?>
                 <div class="first-content"> 
-                <span class="wow fadeInLeft" data-wow-delay="0.25s"><img class="logo" src="../images/logo.png" ></span> 
+                <span class="wow fadeInLeft" data-wow-delay="0.25s"><img class="logo" src="<?php echo base_url('images/logo.png')?>" ></span> 
                 
                     <?php if (isset($this->session->userdata("user")['logged'])): ?>
                         <div class="primary-button wow fadeInUp" data-wow-delay="0.5s" style="margin-top:5em;" >
@@ -83,7 +83,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <img src="../images/trip2.png" style="max-width:500px; width:100%;">
+                    <img src="<?php echo base_url('images/trip2.png')?>" style="max-width:500px; width:100%;">
                 </div> 
                 <div class="col">
                 <span class="wow fadeInRight"><strong style="font-size:34px">Apa itu ICT Tour?</strong></span>
@@ -102,7 +102,7 @@
                 <div class="col-lg-6">
                     <div class="box wow fadeInLeft" >
                       <div class="row">
-                        <div class="col-sm-2"><img src="../images/icon/regis.svg" style="margin-top:10px; width:120px;"></div>
+                        <div class="col-sm-2"><img src="<?php echo base_url('images/icon/regis.svg')?>" style="margin-top:10px; width:120px;"></div>
                         <div class="col">
                           <h4>Tahap 1</h4>
                           <p class="description">Daftarkan sekolah anda pada website ini dengan cara klik tombol daftar yang tersedia</p></br>
@@ -113,7 +113,7 @@
                 <div class="col-lg-6">
                   <div class="box wow fadeInRight">
                     <div class="row">
-                      <div class="col-sm-2"><img src="../images/icon/submit.svg" style="margin-top:10px; width:120px;"></div>
+                      <div class="col-sm-2"><img src="<?php echo base_url('images/icon/submit.svg')?>" style="margin-top:10px; width:120px;"></div>
                         <div class="col">
                           <h4>Tahap 2</h4>
                           <p class="description">Lakukan pengajuan dengan cara mengisi form pendaftaran yang sudah disediakan di dalam website dan pastikan semua syarat telah terpenuhi</p>
@@ -124,7 +124,7 @@
                 <div class="col-lg-6">
                     <div class="box wow fadeInLeft" data-wow-delay="0.2s" >
                     <div class="row">
-                      <div class="col-sm-2"><img src="../images/icon/approved.svg" style="margin-top:10px; width:120px;"></div>
+                      <div class="col-sm-2"><img src="<?php echo base_url('images/icon/approved.svg')?>" style="margin-top:10px; width:120px;"></div>
                         <div class="col">
                           <h4>Tahap 3</h4>
                           <p class="description">Hasil dari pengajuan akan ditinjau oleh pihak Telkom Regional dan akan diberikan pemberitahuan apabila pengajuan telah disetujui</p>
@@ -135,7 +135,7 @@
                 <div class="col-lg-6">
                     <div class="box wow fadeInRight" data-wow-delay="0.2s" >
                     <div class="row">
-                        <div class="col-sm-2"><img src="../images/icon/prepare.svg" style="margin-top:10px; width:120px;"></div>
+                        <div class="col-sm-2"><img src="<?php echo base_url('images/icon/prepare.svg')?>" style="margin-top:10px; width:120px;"></div>
                         <div class="col">
                           <h4>Tahap 4</h4>
                           <p class="description">Setelah pengajuan disetujui, persiapkan siswa untuk melakukan ICT Tour</p></br>
@@ -159,8 +159,8 @@
         
           <div class="carousel-inner" >
           <div class="carousel-item active" >
-              <a href="../images/galery/header.jpg">
-                  <img   class="img-responsive center-block" src="../images/galery/header.jpg" alt="" style="width:100%;">
+              <a href="<?php echo base_url('images/galery/header.jpg')?>">
+                  <img   class="img-responsive center-block" src="<?php echo base_url('images/galery/header.jpg')?>" alt="" style="width:100%;">
                   <div class="carousel-caption d-none d-md-block">           
                   </div>
                 </a>
@@ -285,10 +285,10 @@
         
         <div class="content">
         <div class="row contact-info">
-        <div class="col-sm-3"><i class="icon"><img src="../images/icon/office.svg" style="max-width:50px; width:100%;"></i><h3  >Nama Witel</h3></div>
-        <div class="col-sm-3"><i class="icon"><img src="../images/icon/location.svg" style="max-width:50px; width:100%;"></i><h3 >Alamat</h3></div>
-        <div class="col-sm-3"><i class="icon"><img src="../images/icon/phone.svg" style="max-width:50px; width:100%;"></i><h3>Nomor Telepon</h3></div>
-        <div class="col-sm-3"><i class="icon"><img src="../images/icon/email.svg" style="max-width:50px; width:100%;"></i><h3>Email</h3></div>
+        <div class="col-sm-3"><i class="icon"><img src="<?php echo base_url('images/icon/office.svg')?>" style="max-width:50px; width:100%;"></i><h3  >Nama Witel</h3></div>
+        <div class="col-sm-3"><i class="icon"><img src="<?php echo base_url('images/icon/location.svg')?>" style="max-width:50px; width:100%;"></i><h3 >Alamat</h3></div>
+        <div class="col-sm-3"><i class="icon"><img src="<?php echo base_url('images/icon/phone.svg')?>" style="max-width:50px; width:100%;"></i><h3>Nomor Telepon</h3></div>
+        <div class="col-sm-3"><i class="icon"><img src="<?php echo base_url('images/icon/email.svg')?>" style="max-width:50px; width:100%;"></i><h3>Email</h3></div>
         </div>
         <?php
             $no = 1;
