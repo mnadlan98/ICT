@@ -60,6 +60,11 @@
                 <i class="fas fa-fw fa-edit"></i>
                 <span>Syarat & Ketentuan</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo site_url('admin/overview/reportall') ?>">
+                <i class="fas fa-fw fa-calendar"></i>
+                <span>Rekaman Pengajuan</span></a>
+            </li>
             
         <?php else: ?>
             
@@ -78,6 +83,11 @@
                         <a class="dropdown-item" href="<?php echo site_url('admin/Overview/kontak') ?>">Kontak</a>
                     
                     </div>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="<?php echo site_url('admin/overview/reportall') ?>">
+                <i class="fas fa-fw fa-calendar"></i>
+                <span>Rekaman Pengajuan</span></a>
                 </li>
             <?php endif ?>
         <?php endif ?>

@@ -63,6 +63,47 @@
           return (int)$data->id_user;
      }
 
+     public function getEventoverByIdwitel($id){
+          $this->db->select('eventover');
+          $this->db->from('pengajuan');
+          $this->db->where('id_witel',$id);
+
+          $query = $this->db->get();
+          $row  = $query->result();
+          if(!empty($row)){
+               $count = 0;
+               foreach($row as $r ){
+                    if($r->eventover){
+                         $count++;
+                    }
+               }
+               return $count;
+          }else{
+               return 0;
+          }   
+     }
+
+     public function getEventoverByTgl($id,$tgl1,$tgl2){
+          $this->db->select('eventover');
+          $this->db->from('pengajuan');
+          $this->db->where('id_witel',$id);
+          $this->db->where("tanggal_pelaksanaan BETWEEN '$tgl1' AND '$tgl2'", null, false);
+
+          $query = $this->db->get();
+          $row  = $query->result();
+          if(!empty($row)){
+               $count = 0;
+               foreach($row as $r ){
+                    if($r->eventover){
+                         $count++;
+                    }
+               }
+               return $count;
+          }else{
+               return 0;
+          }   
+     }
+
      public function getIdReportByPengajuan($id){
           $query = $this->db->get_where('report', array('id_pengajuan' => $id));
           $data  = $query->row();
@@ -129,6 +170,7 @@
           return $this->db->get()->result();
      }
 
+
      function editWitel($id,$data)
      {
           $this->db->update('witel', $data, array('id_witel' => $id));
@@ -161,6 +203,12 @@
 
      function count_rows($id_witel) {
           $this->db->where(['id_witel' => $id_witel]);
+          return $this->db->get('pengajuan')->num_rows();
+     }
+
+     function count_rows_bytgl($id_witel,$tgl1,$tgl2) {
+          $this->db->where(['id_witel' => $id_witel]);
+          $this->db->where("tanggal_pelaksanaan BETWEEN '$tgl1' AND '$tgl2'", null, false);
           return $this->db->get('pengajuan')->num_rows();
      }
 

@@ -51,6 +51,83 @@ class Overview extends CI_Controller {
 		}   
 	}
 
+	public function reportAll()
+	{
+		if ($this->session->userdata("admin")['logged']) {
+
+			$this->load->model('Pengajuan_Model');
+
+			if ($this->session->userdata("admin")['level']==1) {
+				$data["pengajuan"] = $this->Pengajuan_Model->getAll();		
+
+				$this->form_validation->set_rules('tgl1', 'Tanggal Awal','trim|required|xss_clean');
+				$this->form_validation->set_rules('tgl2', 'Tanggal Akhir','trim|required|xss_clean');
+
+				if ($this->form_validation->run()) {
+					$this->tgl1 = $this->input->post("tgl1",TRUE);
+					$this->tgl2 = $this->input->post("tgl2",TRUE);
+					$data["tgl1"] = $this->tgl1;
+					$data["tgl2"] = $this->tgl2;
+
+					$data["list"] = $this->Pengajuan_Model->getWitel();
+									
+					$data["count"] = array();
+					foreach ($data["list"] as $w) {
+						array_push($data["count"],$this->Pengajuan_Model->count_rows_bytgl($w->id_witel,$this->tgl1,$this->tgl2));
+					}
+					$data["jml"] = array();
+					foreach ($data["list"] as $p) {
+						array_push($data["jml"],$this->Pengajuan_Model->getEventoverByTgl($p->id_witel,$this->tgl1,$this->tgl2));
+					}
+					$this->session->set_flashdata('msg','test');
+				}else{	
+					$data["list"] = $this->Pengajuan_Model->getWitel();
+									
+					$data["count"] = array();
+					foreach ($data["list"] as $w) {
+						array_push($data["count"],$this->Pengajuan_Model->count_rows($w->id_witel));
+					}
+					$data["jml"] = array();
+					foreach ($data["list"] as $p) {
+						array_push($data["jml"],$this->Pengajuan_Model->getEventoverByIdwitel($p->id_witel));
+					}
+				}
+
+			}
+			else{
+				$data["pengajuan"] = $this->Pengajuan_Model->getAll();		
+
+				$this->form_validation->set_rules('tgl1', 'Tanggal Awal','trim|required|xss_clean');
+				$this->form_validation->set_rules('tgl2', 'Tanggal Akhir','trim|required|xss_clean');
+
+				if ($this->form_validation->run()) {
+					$this->tgl1 = $this->input->post("tgl1",TRUE);
+					$this->tgl2 = $this->input->post("tgl2",TRUE);
+					$data["tgl1"] = $this->tgl1;
+					$data["tgl2"] = $this->tgl2;
+
+					$data["witel"] = $this->Pengajuan_Model->getWitel_byId($this->session->userdata('admin')['id_witel']);	
+									
+					$data["count"] = $this->Pengajuan_Model->count_rows_bytgl($this->session->userdata('admin')['id_witel'],$this->tgl1,$this->tgl2);
+
+					$data["jml"] = $this->Pengajuan_Model->getEventoverByTgl($this->session->userdata('admin')['id_witel'],$this->tgl1,$this->tgl2);
+
+					$this->session->set_flashdata('msg','test');
+				}else{	
+					$data["witel"] = $this->Pengajuan_Model->getWitel_byId($this->session->userdata('admin')['id_witel']);									
+					$data["count"] = $this->Pengajuan_Model->count_rows($this->session->userdata('admin')['id_witel']);
+					$data["jml"] = $this->Pengajuan_Model->getEventoverByIdwitel($this->session->userdata('admin')['id_witel']);
+
+				}
+			}
+
+			$this->load->view('admin/reportAll',$data);
+		}
+		else{
+			redirect(site_url('login/index'));
+		}   
+	}
+
 	public function review($id = null)
     {
        if ($this->session->userdata("admin")['logged'] && $this->session->userdata("admin")['level']==2) {
@@ -1084,6 +1161,8 @@ class Overview extends CI_Controller {
                 redirect('admin/overview/report/'.$id);
             }
 		}
+	
+
 	
 
 }
